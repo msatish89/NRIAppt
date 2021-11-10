@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NRIApp.LocalJobs.Features.Jobseeker.View.ResumeTitle"
+             xmlns:BH="clr-namespace:NRIApp.Behaviors"
+             xmlns:SUL="clr-namespace:NRIApp.Controls">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="White" VerticalOptions="FillAndExpand">
+            <ScrollView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <StackLayout Padding="15" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                    <!--<Label Text="It is the first thing recruiters notice in your profile. Write concisely what makes you unique and right person for the job you are looking for." Style="{StaticResource FontRegular}" FontSize="13" Margin="0,10,0,10"/>-->
+                    <Label Text="Kindly mention the profession that you are opting for." Style="{StaticResource FontRegular}" FontSize="13" Margin="0,10,0,10"/>
+
+                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0,0,0,15" >
+
+                        <Label Text="Resume Title " TextColor="#919191" FontSize="12" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Style="{StaticResource FontRegular}" Margin="0,0,0,-10"    />
+                        <StackLayout   VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                            <SUL:CustomEntry x:Name="resumetitle"  Style="{StaticResource FontRegularEntry}" VerticalOptions="CenterAndExpand" HideBorder="True" HorizontalOptions="FillAndExpand"  FontSize="13" Placeholder="Resume Title" PlaceholderColor="#c0c0c0" >
+                                
+                            </SUL:CustomEntry>
+
+                            <BoxView BackgroundColor="#c2c2c2" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,0" />
+                        </StackLayout>
+
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+            <StackLayout VerticalOptions="End" Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="10">
+                <Button Text="Cancel" Clicked="Cancel_title" Style="{StaticResource FontRobotoBold}" FontSize="14" VerticalOptions="Start" HorizontalOptions="FillAndExpand" TextColor="#212121" BackgroundColor="LightGray"  BorderColor="LightGray" BorderWidth="1" BorderRadius="4" Parent="0,10,0,10" />
+                <Button Text="Save" Clicked="Add_resume_title" Style="{StaticResource FontRobotoBold}" FontSize="14" VerticalOptions="Start" HorizontalOptions="FillAndExpand"  TextColor="#ffffff" BackgroundColor="#f89406" BorderColor="#f89406" BorderWidth="1" BorderRadius="4" Parent="0,10,0,10" />
+                
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

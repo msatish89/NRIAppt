@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NRIApp.LocalJobs.Features.Listing.Views.JobList"
+             xmlns:extended="clr-namespace:Xamarin.Forms.Extended;assembly=Xamarin.Forms.Extended.InfiniteScrolling"
+             xmlns:local="clr-namespace:NRIApp.Helpers">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem  Icon="search24.png" Command="{Binding TapSearchPage}"  />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#ecf2f4" >
+            <StackLayout BackgroundColor="White">
+                <StackLayout  HorizontalOptions="FillAndExpand" Orientation="Horizontal" VerticalOptions="CenterAndExpand" Padding="10"  >
+                    <StackLayout HorizontalOptions="FillAndExpand"  VerticalOptions="CenterAndExpand"  >
+                        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Orientation="Horizontal"  >
+                            <Image Source="filterIcon.png" HeightRequest="18" WidthRequest="18" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  />
+                            <Label Text="Filter" Style="{StaticResource FontRegular}" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" FontSize="12" TextColor="#878787" />
+                            <!--IsVisible="{Binding filtercntvisible}"-->
+                            <Frame x:Name="filtercntframe" BackgroundColor="#45a455" CornerRadius="8"  HasShadow="False" WidthRequest="15" HeightRequest="15" Padding="0" Margin="-4,0,0,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="Start">
+                                <Label x:Name="filtrcnt" Text="{Binding filtercount}" FontSize="8" Style="{StaticResource FontRegular}"  TextColor="#ffffff"  HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </Frame>
+
+                        </StackLayout>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding filtercommand}"></TapGestureRecognizer>
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                    <BoxView WidthRequest="1" HeightRequest="30" BackgroundColor="#c2c2c2" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" />
+                    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand"  >
+                        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Orientation="Horizontal" >
+                            <Image Source="SortBy.png" HeightRequest="18" WidthRequest="18" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  />
+                            <Label Text="Sort by" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" FontSize="12" Style="{StaticResource FontRegular}" TextColor="#878787" />
+                        </StackLayout>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding sortbycommand}"></TapGestureRecognizer>
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                    <BoxView IsVisible="{Binding savedjobvisible}" WidthRequest="1" HeightRequest="30" BackgroundColor="#c2c2c2" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" />
+                    <StackLayout IsVisible="{Binding savedjobvisible}" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand"  >
+                        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Orientation="Horizontal" >
+                            <Image Source="FavoriteYellow.png" HeightRequest="18" WidthRequest="18" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  />
+                            <Label Text="Saved Jobs" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" FontSize="12" Style="{StaticResource FontRegular}" TextColor="#878787" />
+                        </StackLayout>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding savedjobcmd}"></TapGestureRecognizer>
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+            
+            <!--<StackLayout IsVisible="{Binding savedjobvisible}">
+                <Button Text="SavedJobs" Command="{Binding savedjobscmd}" Font="Large" BorderWidth="1" HorizontalOptions="Center" TextColor="White" VerticalOptions="CenterAndExpand" BackgroundColor="#f89406" />
+            </StackLayout>-->
+            <ListView x:Name="JobssListview" RefreshCommand="{Binding refreshcmd}" IsPullToRefreshEnabled="True" IsRefreshing="{Binding isrefresh}" HasUnevenRows="True"  IsVisible="{Binding jobslistview}"  >
+                <ListView.Behaviors>
+                    <extended:InfiniteScrollBehavior/>
+                    <local:ListviewItemtap Command="{Binding DetailjobsCommand}" />
+                </ListView.Behaviors>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+
+                            <!--new listings-->
+                            <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="5,0,5,10">
+                                <Frame BackgroundColor="White" CornerRadius="4"  Padding="0" >
+                                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                        <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="10">
+                                            <Label Text="{Binding jobrole}" Style="{StaticResource FontBold}"  FontSize="14" TextColor="#202124" Margin="0,0,0,5" />
+                                            <StackLayout VerticalOptions="Start" HorizontalOptions="StartAndExpand">
+                                                <StackLayout IsVisible="{Binding businessVisible}" Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                                    <Image Source="Office.png"  HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="20" WidthRequest="20"/>
+                                                    <Label Text="{Binding businessname}"  LineBreakMode="TailTruncation" FontSize="12" Style="{StaticResource FontRegular}" TextColor="#202124"  HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+                                                </StackLayout>
+                                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                                    <Image Source="placeholder.png"  HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="20" WidthRequest="20"/>
+                                                    <Label Text="{Binding city}" LineBreakMode="TailTruncation"  FontSize="12" Style="{StaticResource FontRegular}" TextColor="#333333"  HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+                                                    <!--<Label Text="{Binding streetname}" LineBreakMode="TailTruncation"  FontSize="12" Style="{StaticResource FontRegular}" TextColor="#333333"  HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>-->
+                                                </StackLayout>
+                                            </StackLayout>
+                                            <StackLayout Orientation="Horizontal"  VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+                                                <StackLayout VerticalOptions="Start" HorizontalOptions="StartAndExpand">
+                                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                                        <Image Source="Employee.png"  HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="20" WidthRequest="20"/>
+                                                        <Label Text="{Binding functionalarea}" LineBreakMode="TailTruncation"  FontSize="12" Style="{StaticResource FontRegular}" TextColor="#333333"  HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+                                                    </StackLayout>
+                                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                                        <Image Source="Briefcase.png"  HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="20" WidthRequest="20"/>
+                                                        <Label Text="{Binding experience}" LineBreakMode="TailTruncation"  FontSize="12" Style="{StaticResource FontRegular}" TextColor="#333333"  HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+                                                    </StackLayout>
+                                                    <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
+                                                        <Image Source="clock.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="20" WidthRequest="20"/>
+                                                        <Label Text="{Binding postedago}" FontSize="11" TextColor="#333333" Style="{StaticResource FontRegular}" HorizontalOptions="Start" VerticalOptions="Center"/>
+                                                    </StackLayout>
+                                                    <StackLayout IsVisible="{Binding distVisible}" Orientation="Horizontal" HorizontalOptions="Start">
+                                                        <Image Source="MilesIcon.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="20" WidthRequest="20"/>
+                                                        <Label Text="{Binding distancedata}" FontSize="11" LineBreakMode="TailTruncation" TextColor="#333333" Style="{StaticResource FontRegular}" HorizontalOptions="Start" VerticalOptions="Center"/>
+                                                    </StackLayout>
+                                                </StackLayout>
+                                                <!--<StackLayout VerticalOptions="End" HorizontalOptions="EndAndExpand"  WidthRequest="80">
+                                                        <Image Source="{Binding thumbimgurl}" WidthRequest="68" HeightRequest="68" Margin="0,0,0,4" Aspect="AspectFill"  VerticalOptions="Start" HorizontalOptions="FillAndExpand" />
+                                                    </StackLayout>-->
+                                            </StackLayout>
+                                        </StackLayout>
+                                        <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                            <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Margin="0" />
+                                            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Orientation="Horizontal" Padding="15,3,10,8">
+                                                <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand">
+                                                    <Label Text="Salary" LineBreakMode="TailTruncation" FontSize="13" TextColor="#333333" Style="{StaticResource FontRegular}" HorizontalOptions="Start" VerticalOptions="Start"/>
+                                                    <StackLayout VerticalOptions="Start" HorizontalOptions="StartAndExpand" Orientation="Horizontal" Margin="0, -5, 0, 0">
+                                                        <Label Text="{Binding salary}" LineBreakMode="TailTruncation" FontSize="17" TextColor="#08a182" Style="{StaticResource FontRobotoBold}" HorizontalOptions="Start" VerticalOptions="Center"/>
+                                                        <Label Text="{Binding salarymode}" LineBreakMode="TailTruncation" FontSize="13" TextColor="#666666" Style="{StaticResource FontRegular}" HorizontalOptions="Start" VerticalOptions="Center"/>
+                                                    </StackLayout>
+                                                </StackLayout>
+                                                <StackLayout VerticalOptions="Start" HorizontalOptions="End" Orientation="Horizontal">
+                                                    <!--<Button Text="Apply For Job" FontSize="11" Margin="0"  Style="{StaticResource FontRegular}"  VerticalOptions="Center" HorizontalOptions="EndAndExpand" BorderColor="#e30045" BorderWidth="1" BackgroundColor="#e30045" TextColor="#ffffff" />-->
+                                                    <Button Text="Apply for job"  FontSize="12" Margin="0" Command="{Binding Path=BindingContext.postresponsecmd, Source = {x:Reference JobssListview}}" CommandParameter="{Binding}"  Style="{StaticResource FontRobotoBold}"  VerticalOptions="Center" HorizontalOptions="FillAndExpand"  BorderWidth="1" WidthRequest="110" BackgroundColor="#f89406" BorderColor="#f89406" TextColor="#ffffff" />
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <ActivityIndicator x:Name="listingloader" BackgroundColor="White"  IsVisible="{Binding IsBusy}"  IsRunning="{Binding IsBusy}"  Color="Gray" />
+            <!--<StackLayout IsVisible="{Binding listpgjobalert}" VerticalOptions="End" HorizontalOptions="FillAndExpand">
+                <Label Text="Create Job Alert!" BackgroundColor="LightBlue" TextColor="White"  HorizontalOptions="CenterAndExpand" >
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding Tapjobalert}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>-->
+            
+            <StackLayout x:Name="stacknoblk" BackgroundColor="#fdfcec" VerticalOptions="FillAndExpand" IsVisible="{Binding Nolisting}">
+                <StackLayout   VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                    <Image Source="NoListing.png" Aspect="AspectFill" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Margin="50,0,50,20"  />
+                    <Label Text="Sorry!" FontSize="26"  VerticalOptions="CenterAndExpand" TextColor="#683f4f" HorizontalOptions="Center"  HorizontalTextAlignment="Center" Margin="0"  />
+                    <Label Text="No matching items found." TextColor="Gray" HorizontalOptions="CenterAndExpand" FontSize="14" Margin="10,0,10,10" HorizontalTextAlignment="Center" />
+                    <Button Text="Post your Job Ad" Command="{Binding gotopostpagecmd}" Style="{StaticResource FontRobotoBold}" Font="Large" BorderWidth="1" HorizontalOptions="Center" TextColor="White" VerticalOptions="CenterAndExpand" BackgroundColor="#f89406" />
+                    <Button Text="Upload your resume" Command="{Binding recruiterpgcmd}" Style="{StaticResource FontRobotoBold}" Font="Large" BorderWidth="1" HorizontalOptions="Center" TextColor="White" VerticalOptions="CenterAndExpand" BackgroundColor="#f89406" />
+                </StackLayout>
+            </StackLayout>
+            <StackLayout BackgroundColor="#fdfcec" VerticalOptions="FillAndExpand" IsVisible="{Binding nointernet}">
+                <StackLayout   VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                    <Image Source="NoInternetBg.png" Aspect="AspectFill" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Margin="50,0,50,20"  />
+                    <Label Text="Whoops!" FontSize="26"  VerticalOptions="CenterAndExpand" TextColor="#683f4f" HorizontalOptions="Center"  HorizontalTextAlignment="Center" Margin="0"  />
+                    <Label Text="There seems to be a problem with you Network Connection" TextColor="Gray" HorizontalOptions="CenterAndExpand" FontSize="14" Margin="10,0,10,10" HorizontalTextAlignment="Center" />
+                    <Button Text="Retry" Command="{Binding Retrycmd}" Style="{StaticResource FontRobotoBold}" Font="Large" BorderWidth="1" HorizontalOptions="Center" TextColor="White" VerticalOptions="CenterAndExpand" BackgroundColor="#f89406" />
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

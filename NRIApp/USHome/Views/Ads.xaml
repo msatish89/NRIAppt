@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:local="clr-namespace:NRIApp.Helpers"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NRIApp.USHome.Views.Ads" NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <local:ExtendedWebView x:Name="htmlweb"  HeightRequest="640" WidthRequest="640" VerticalOptions="FillAndExpand" HorizontalOptions="Fill"/>
+            </StackLayout>
+            <StackLayout x:Name="stackad" VerticalOptions="End" HorizontalOptions="FillAndExpand" Padding="10">                
+                <Button Text="Skip" FontSize="18" Clicked="Skipadspage"  VerticalOptions="Start" HorizontalOptions="FillAndExpand" BackgroundColor="#6c757d" TextColor="White" Parent="0,10,0,10" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

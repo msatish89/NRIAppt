@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:SULEntry="clr-namespace:NRIApp.Controls"
+             x:Class="NRIApp.LocalService.Features.Views.Posting.LS_Flex_Order_Summary">
+    <ContentPage.Content>
+        <AbsoluteLayout >
+
+            <StackLayout BackgroundColor="#ecf2f4" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All"
+                          VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+
+                <ScrollView>
+
+                    <StackLayout BackgroundColor="#ecf2f4" Padding="0,0,0,70">
+                       
+
+                        <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="10">
+
+                            <Frame CornerRadius="4" BackgroundColor="White" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0">
+
+                                <StackLayout  VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="15">
+
+                                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+                                        <StackLayout  VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                                            <Label Text="package" FontSize="14" Style="{StaticResource FontRegular}"  HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="#212121"   />
+                                            <Label x:Name="lblprimarycity"  FontSize="12" Style="{StaticResource FontRegular}"   HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="#888888"   />
+                                        </StackLayout>
+
+                                        <StackLayout  VerticalOptions="Start" HorizontalOptions="End" Margin="10,0,0,0" WidthRequest="70"  >
+                                            <Label Text="" x:Name="packageamnt" FontSize="16" Style="{StaticResource FontRobotoBold}"   HorizontalOptions="Start" VerticalOptions="Center" TextColor="#08a182"   />
+                                            <Label Text="" x:Name="singlecitydays" FontSize="11" Style="{StaticResource FontRegular}"   HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="#888888"  />
+                                        </StackLayout>
+
+                                    </StackLayout>
+
+                                    <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Margin="0" />
+
+                                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand" IsVisible="False" x:Name="stackaddtionalcities">
+
+                                        <StackLayout  VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                                            <Label Text="" x:Name="citycntlabel" FontSize="14" Style="{StaticResource FontRegular}"  HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="#212121"   />
+                                            <Label Text="" x:Name="citylistlbl" FontSize="12" Style="{StaticResource FontRegular}"   HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="#888888"   />
+
+                                            <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                                <!--<Label Text="Change city" FontSize="12" Margin="0,0,10,0" Style="{StaticResource FontRegular}"   HorizontalOptions="Start" VerticalOptions="Start" TextColor="#08a182"   >
+                                                    <Label.GestureRecognizers>
+                                                        <TapGestureRecognizer Tapped="Tapchangecity_Tapped"  x:Name="tapchangecity"/>
+                                                    </Label.GestureRecognizers>
+                                                </Label>-->
+                                                <!--<Label Text="Remove" FontSize="12"  Style="{StaticResource FontRegular}"   HorizontalOptions="Start" VerticalOptions="Start" TextColor="#e30045">
+                                                    <Label.GestureRecognizers>
+                                                        <TapGestureRecognizer x:Name="Removecities" Tapped="Removecities_Tapped"/>
+                                                    </Label.GestureRecognizers>
+                                                </Label>-->
+                                            </StackLayout>
+
+                                        </StackLayout>
+
+                                        <!--<StackLayout  VerticalOptions="Start" HorizontalOptions="End" Margin="10,0,0,0" WidthRequest="70"  >
+                                            <Label Text="" x:Name="addtionalcityamount" FontSize="16" Style="{StaticResource FontRobotoBold}"  HorizontalOptions="Start" VerticalOptions="Center" TextColor="#08a182"   />
+                                            <Label Text="" x:Name="addtionalcitydays" FontSize="11" Style="{StaticResource FontRegular}"   HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="#888888"  />
+                                        </StackLayout>-->
+
+                                    </StackLayout>
+
+                                  
+                                    <BoxView x:Name="boxvalueaddservices" IsVisible="False" BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Margin="0" />
+
+                                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand" x:Name="stackcoupon" IsVisible="False">
+
+                                        <StackLayout  VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                                            <Label Text="Coupon" FontSize="14" Style="{StaticResource FontRegular}"  HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="#212121"   />
+                                            <!--<Label Text="SEO, Short url" FontSize="12" Style="{StaticResource FontRegular}"   HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="#888888"   />-->
+
+                                            <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                                <Label Text="Remove" FontSize="12"  Style="{StaticResource FontRegular}"   HorizontalOptions="Start" VerticalOptions="Start" TextColor="#e30045">
+                                                    <Label.GestureRecognizers>
+                                                        <TapGestureRecognizer x:Name="Removecoupon" Tapped="Removecoupon_Tapped"/>
+                                                    </Label.GestureRecognizers>
+                                                </Label>
+                                            </StackLayout>
+
+                                        </StackLayout>
+
+                                        <StackLayout  VerticalOptions="Start" HorizontalOptions="End" Margin="10,0,0,0" WidthRequest="70"  >
+                                            <Label Text="" x:Name="lblcouponamt" FontSize="16" Style="{StaticResource FontRobotoBold}"  HorizontalOptions="Start" VerticalOptions="Center" TextColor="#08a182"   />
+                                           
+                                        </StackLayout>
+
+                                    </StackLayout>
+
+                                    <BoxView x:Name="boxcoupon" IsVisible="False" BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Margin="0" />
+                                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+                                        <StackLayout  VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                                            <Label Text="Sub Total" FontSize="14" Style="{StaticResource FontRegular}"  HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="#212121"   />
+                                        </StackLayout>
+
+                                        <StackLayout  VerticalOptions="Start" HorizontalOptions="End" Margin="10,0,0,0" WidthRequest="70"  >
+                                            <Label Text="" x:Name="totalpaymbleamount" FontSize="16" Style="{StaticResource FontRobotoBold}"  HorizontalOptions="Start" VerticalOptions="Center" TextColor="#08a182"   />
+
+                                        </StackLayout>
+
+                                    </StackLayout>
+
+                                </StackLayout>
+
+                            </Frame>
+
+                            <Frame CornerRadius="4" BackgroundColor="White" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0" x:Name="frmaecouponblk" IsVisible="False">
+
+                                <StackLayout  VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="15">
+
+                                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+                                        <Label Text="Enter Coupon code" FontSize="14" Style="{StaticResource FontRegular}"  HorizontalOptions="Start" VerticalOptions="Center" TextColor="#888888" />
+
+                                        <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+                                            <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+                                                <SULEntry:CustomEntry x:Name="entrycoupon" Style="{StaticResource FontRegularEntry}"  VerticalOptions="Start" HorizontalOptions="FillAndExpand" PlaceholderColor="#c0c0c0"  WidthRequest="100"     />
+                                            </StackLayout>
+
+                                            <StackLayout  VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="10,0,0,0"   >
+                                                <Button Text="Apply" x:Name="Btncoupon" WidthRequest="100" Clicked="Btncoupon_Clicked" FontSize="13" VerticalOptions="Start" HorizontalOptions="Start"  BackgroundColor="#f89406" TextColor="White" />
+                                            </StackLayout>
+
+                                        </StackLayout>
+                                        <Label  x:Name="lblcouponsuccess" FontSize="10"/>
+                                        <Label Text="Flat 10% off, 30 Days package onwards" FontSize="12" Style="{StaticResource FontRegular}"  HorizontalOptions="Start" VerticalOptions="Center" TextColor="#888888" />
+                                        <Label Text="Coupon code: NEWSUL10" FontSize="12" Style="{StaticResource FontRegular}"  HorizontalOptions="Start" VerticalOptions="Center" TextColor="#888888" />
+
+                                    </StackLayout>
+
+                                </StackLayout>
+
+                            </Frame>
+
+                        </StackLayout>
+
+                    </StackLayout>
+
+                </ScrollView>
+
+            </StackLayout>
+
+            <StackLayout   VerticalOptions="EndAndExpand"  Padding="0" HorizontalOptions="FillAndExpand" 
+                             AbsoluteLayout.LayoutBounds="0,1,1,1" AbsoluteLayout.LayoutFlags="All"  BackgroundColor="White">
+
+                <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Padding="10,5,10,5">
+
+                    <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                        <Label Text="Total amount: " FontSize="12" Style="{StaticResource FontRegular}" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" TextColor="#474747"   />
+                        <Label Text="" x:Name="totalamntfinal" FontSize="16" Style="{StaticResource FontRobotoBold}"  HorizontalOptions="Start" VerticalOptions="CenterAndExpand" TextColor="#45a455"  />
+                    </StackLayout>
+
+                    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="End">
+                        <Button Text="Make payment" Clicked="BtnPayment_Clicked"  x:Name="BtnPayment" WidthRequest="150" FontSize="18" VerticalOptions="Start" HorizontalOptions="FillAndExpand" BackgroundColor="#e30045" TextColor="White" />
+                     <StackLayout.Padding>
+                    <OnPlatform x:TypeArguments="Thickness" iOS="10,10,10,15" Android="0"></OnPlatform>
+                </StackLayout.Padding>  
+                    </StackLayout>
+
+                </StackLayout>
+
+            </StackLayout>
+
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

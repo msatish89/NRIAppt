@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="NRIApp.Events.Features.Detail.Views.Event_Payment_Thankyou" NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+
+
+
+
+
+
+            <StackLayout VerticalOptions="FillAndExpand" >
+                <ScrollView>
+                    <StackLayout BackgroundColor="White" VerticalOptions="FillAndExpand">
+
+                        <StackLayout BackgroundColor="#07ba8e"   Padding="0,10,0,10"  >
+                            <Image Source="CloseIcon.png" HeightRequest="24" WidthRequest="24" VerticalOptions="Start" HorizontalOptions="End" >
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Postsuccessclose" ></TapGestureRecognizer>
+                                </Image.GestureRecognizers>
+                                <Image.Margin>
+                                    <OnPlatform x:TypeArguments="Thickness" iOS="0,50,30,0" Android="5,5,5,5"></OnPlatform>
+                                </Image.Margin>
+                            </Image>
+                            <!--<Image Source="CloseIcon.png" HeightRequest="24" WidthRequest="24" Margin="0,-5,5,0" VerticalOptions="Start" HorizontalOptions="End"  />-->
+
+                            <Image Source="SuccessBg.png" HeightRequest="96" WidthRequest="96" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Margin="0,-5,0,0"  />
+
+                            <Label Text="Success" FontSize="22"  VerticalOptions="CenterAndExpand" TextColor="White" HorizontalOptions="Center"  HorizontalTextAlignment="Center" Margin="0"  />
+
+                            <Label Text="" x:Name="lbltext" TextColor="White" HorizontalOptions="CenterAndExpand" FontSize="14" Margin="10,0,10,0" HorizontalTextAlignment="Center" />
+
+                        </StackLayout>
+
+                        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Padding="10">
+
+
+                            <Frame CornerRadius="4" BackgroundColor="White" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0" Margin="0,0,0,10">
+
+
+
+                                <StackLayout  VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="15">
+
+
+
+                                    <Label Text="Order receipt " FontSize="14" Style="{StaticResource FontRegular}" Margin="0,0,0,10"    HorizontalTextAlignment="Center"   HorizontalOptions="CenterAndExpand" VerticalOptions="Center" TextColor="#212121"   />
+                                    <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Margin="0" />
+
+
+
+                                    <StackLayout  VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+                                        <Label Text="Title:" FontSize="12" Style="{StaticResource FontBold}"   HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="#888888"   />
+
+                                        <Label  x:Name="lbltitle" FontSize="11" Style="{StaticResource FontRegular}"   HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="#212121"  />
+
+                                    </StackLayout>
+
+
+
+                                    <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Margin="0" />
+
+                                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+                                        <Label Text="Date:" FontSize="12" Style="{StaticResource FontBold}"   HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="#212121"   />
+
+                                        <Label x:Name="lbleventdate" FontSize="11" Style="{StaticResource FontRegular}"   HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="#888888"  />
+
+                                    </StackLayout>
+
+
+
+                                    <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Margin="0" />
+
+
+
+                                    <StackLayout  VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+                                        <Label Text="Order ID:" FontSize="12" Style="{StaticResource FontBold}"   HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="#212121"   />
+
+                                        <Label  x:Name="lblorderid" FontSize="11" Style="{StaticResource FontRegular}"   HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="#888888"  />
+
+                                    </StackLayout>
+
+
+
+                                    <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Margin="0" />
+                                </StackLayout>
+
+
+
+                            </Frame>
+
+
+                            <!--<Frame CornerRadius="4" BackgroundColor="White" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0" Margin="0,0,0,10">
+
+                                <StackLayout  VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="15">
+
+                                    <Label Text="Order receipt " FontSize="14" Style="{StaticResource FontRegular}" Margin="0,0,0,10"    HorizontalTextAlignment="Center"   HorizontalOptions="CenterAndExpand" VerticalOptions="Center" TextColor="#212121"   />
+                                    <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Margin="0" />
+
+                                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                        <StackLayout  VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                                            <Label Text="Title:" FontSize="12" Style="{StaticResource FontRegular}"   HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="#888888"   />
+                                        </StackLayout>
+                                        <StackLayout  VerticalOptions="Start" HorizontalOptions="End" Margin="10,0,0,0" WidthRequest="70"  >
+                                            <Label  x:Name="lbltitle" FontSize="11" Style="{StaticResource FontRegular}"   HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="#888888"  />
+                                        </StackLayout>
+                                    </StackLayout>
+
+
+
+                                    <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Margin="0" />
+                                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                        <StackLayout  VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                                            <Label Text="Date:" FontSize="12" Style="{StaticResource FontRegular}"   HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="#888888"   />
+                                        </StackLayout>
+                                        <StackLayout  VerticalOptions="Start" HorizontalOptions="End" Margin="10,0,0,0" WidthRequest="70"  >
+                                            <Label x:Name="lbleventdate" FontSize="11" Style="{StaticResource FontRegular}"   HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="#888888"  />
+                                        </StackLayout>
+                                    </StackLayout>
+
+
+
+                                    <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Margin="0" />
+
+                                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                        <StackLayout  VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                                            <Label Text="Order ID:" FontSize="12" Style="{StaticResource FontRegular}"   HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="#888888"   />
+                                        </StackLayout>
+                                        <StackLayout  VerticalOptions="Start" HorizontalOptions="End" Margin="10,0,0,0" WidthRequest="70"  >
+                                            <Label  x:Name="lblorderid" FontSize="11" Style="{StaticResource FontRegular}"   HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="#888888"  />
+                                        </StackLayout>
+                                    </StackLayout>
+
+
+
+                                    <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Margin="0" />
+                                </StackLayout>
+
+                            </Frame>-->
+
+
+
+                        </StackLayout>
+
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

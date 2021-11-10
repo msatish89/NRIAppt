@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:SULEntry="clr-namespace:NRIApp.Controls"
+               xmlns:b="clr-namespace:NRIApp.Helpers"
+             x:Class="NRIApp.LocalJobs.Features.Posting.Views.Businessdetails">
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <StackLayout BackgroundColor="White" VerticalOptions="FillAndExpand" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <ScrollView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                    <StackLayout Padding="10" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+
+                        <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  Padding="5"  >
+                                <Image Source="UserIcon.png" HeightRequest="32" WidthRequest="32"   />
+                            </StackLayout>
+                            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                <SULEntry:CustomEntry x:Name="ubizname" FontSize="13" Style="{StaticResource FontRegularEntry}" NextView="{x:Reference uaddress}" ReturnKeyType="Next"  VerticalOptions="CenterAndExpand" HideBorder="True" HorizontalOptions="FillAndExpand" Text="{Binding BusinessName}"  Placeholder="Business Name"  PlaceholderColor="#c0c0c0" >
+                                </SULEntry:CustomEntry>
+                            </StackLayout>
+                        </StackLayout>
+                        <!--Not to be disclosed-->
+                        <BoxView BackgroundColor="#ced4da" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,0">
+                        </BoxView>
+                        <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Orientation="Horizontal" Margin="15,0,0,15">
+                            <Image x:Name="checkbximg" Source="CheckBoxUnChecked.png" HeightRequest="18" WidthRequest="18" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  >
+                            </Image>
+                            <Label Text="Not to be disclosed" TextColor="#212121" FontSize="14" Style="{StaticResource FontRegular}" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  />
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding TCcheckcmd}"/>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <StackLayout Margin="35,-15,0,0" x:Name="stackbiz">
+                            <b:HVScrollGridView ListOrientation="Vertical"
+                                    ItemsSource="{Binding Bizajax}"
+                                   x:Name="listbizajax"
+                                    VerticalOptions="Start">
+                                <b:HVScrollGridView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ContentView>
+                                            <ContentView.Content>
+                                                <StackLayout BackgroundColor="#f8f8f8"  >
+                                                    <StackLayout Padding="10,5,10,5"  VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+                                                        <Label FontSize="14" Text="{Binding businessname}" TextColor="#212121" Margin="0,0,0,5" />
+
+                                                        <BoxView HeightRequest="1" BackgroundColor="#ced4da" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand"/>
+
+                                                    </StackLayout>
+                                                    <StackLayout.GestureRecognizers>
+                                                        <TapGestureRecognizer Command="{Binding Path=BindingContext.Bizselectcmd, Source = {x:Reference listbizajax}}" CommandParameter="{Binding}"/>
+                                                    </StackLayout.GestureRecognizers>
+                                                </StackLayout>
+                                            </ContentView.Content>
+                                        </ContentView>
+                                    </DataTemplate>
+                                </b:HVScrollGridView.ItemTemplate>
+                            </b:HVScrollGridView>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+
+                            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  Padding="5"  >
+                                <Image Source="LocationIcon.png" HeightRequest="32" WidthRequest="32"   />
+                            </StackLayout>
+
+                            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+
+                                <SULEntry:CustomEntry x:Name="uaddress" FontSize="13" Style="{StaticResource FontRegularEntry}" VerticalOptions="CenterAndExpand" HideBorder="True" Focused="Uaddress_Focused"    HorizontalOptions="FillAndExpand" Text="{Binding BusinessAddress}"  Placeholder="Business Address" PlaceholderColor="#c0c0c0" >
+                                </SULEntry:CustomEntry>
+                            </StackLayout>
+
+                        </StackLayout>
+                        <BoxView BackgroundColor="#ced4da" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,15">
+                        </BoxView>
+                        <StackLayout Margin="35,-15,0,0" IsVisible="{Binding IsBusy}">
+                            <b:HVScrollGridView ListOrientation="Vertical"
+                                    ItemsSource="{Binding googleadd}"
+                                   x:Name="listbizaddress"
+                                    VerticalOptions="Start">
+                                <b:HVScrollGridView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ContentView>
+                                            <ContentView.Content>
+                                                <StackLayout BackgroundColor="#f8f8f8"  >
+                                                    <StackLayout Padding="10,5,10,5"  VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+                                                        <Label FontSize="14" Text="{Binding Description}" TextColor="#212121" Margin="0,0,0,5" />
+
+                                                        <BoxView HeightRequest="1" BackgroundColor="#e0e0e0" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand"/>
+
+                                                    </StackLayout>
+                                                    <StackLayout.GestureRecognizers>
+                                                        <TapGestureRecognizer Command="{Binding Path=BindingContext.Selectgoogleaddress, Source = {x:Reference listbizaddress}}" CommandParameter="{Binding}"/>
+                                                    </StackLayout.GestureRecognizers>
+                                                </StackLayout>
+                                            </ContentView.Content>
+                                        </ContentView>
+                                    </DataTemplate>
+                                </b:HVScrollGridView.ItemTemplate>
+                            </b:HVScrollGridView>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+
+                            <StackLayout VerticalOptions="Start" HorizontalOptions="Start"  Padding="5"  >
+                                <Image Source="Upload2.png" HeightRequest="32" WidthRequest="32"   />
+                            </StackLayout>
+
+                            <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                <!--<Button Text="Choose File" Command="{Binding Choosefilecommand}" HorizontalOptions="Center"/>-->
+                                <Button Text="Choose image" 
+                                        Command="{Binding PopupContentTap}"  
+                                          TextColor="#212529"
+                                                Style="{StaticResource FontRegular}"
+                                                    BackgroundColor="#d6ddea"
+                                                    BorderColor="#d6ddea"
+                                                    BorderWidth="1"
+                                                    BorderRadius="4"
+                                                    VerticalOptions="Center"
+                                                    HorizontalOptions="Start"                                                  
+                                                    FontSize="13"
+                                                    Margin="0,0,5,0"/>
+                                <!--<Button Text="Choose File" x:Name="profilepic" Clicked="Profilepic_Clicked"  HorizontalOptions="Center"/>-->
+
+                                <!--<Button x:Name="btnTakePic" Text="Take picture" Command="{Binding Selectfilecommand}"  HorizontalOptions="Center"/>-->
+                                <!--<Button Text="select file" x:Name="profilepic" Clicked="Profilepic_Clicked"/>-->
+                                <!--<Label x:Name="Localpath" Text=""/>-->
+                                <Label FontSize="12"  HorizontalOptions="StartAndExpand"  Text="Size 150 X 150"/>
+
+                            </StackLayout>
+
+                            <!--<Image x:Name="profileimg"></Image>-->
+                        </StackLayout>
+                        <StackLayout x:Name="stackprfimg" VerticalOptions="Start" HorizontalOptions="Center" IsVisible="False" BackgroundColor="#e8e9e9"    Padding="5"  >
+                            <AbsoluteLayout>
+                                <Image x:Name="profileimage" Source="{Binding Profileimg}"   AbsoluteLayout.LayoutBounds="0,0,80,80" AbsoluteLayout.LayoutFlags="PositionProportional" />
+
+                                <Image Source="CloseIconFullR.png" HeightRequest="20" WidthRequest="20"  HorizontalOptions="End" AbsoluteLayout.LayoutBounds=".99,-.1,.25,.25" AbsoluteLayout.LayoutFlags="All">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Removeprofileimg}" />
+                                    </Image.GestureRecognizers>
+                                </Image>
+                            </AbsoluteLayout>
+                        </StackLayout>
+
+                        <!--<StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                            <H:HVScrollGridView x:Name="multiimglist" ListOrientation="Horizontal">
+                                <H:HVScrollGridView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ContentView>
+                                            <ContentView.Content>
+                                                <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand"  Padding="10">
+                                                    <StackLayout VerticalOptions="Start" HorizontalOptions="Start" BackgroundColor="#e8e9e9"    Padding="5"  >
+                                                        <AbsoluteLayout>
+                                                            <Image Source="{Binding .}"
+                                           AbsoluteLayout.LayoutBounds="0,0,80,80" AbsoluteLayout.LayoutFlags="PositionProportional" />
+
+                                                            <Image Source="CloseIconFull2.png" HeightRequest="20" WidthRequest="20"  HorizontalOptions="End" 
+                                           AbsoluteLayout.LayoutBounds=".99,-.2,.25,.25" AbsoluteLayout.LayoutFlags="All"  Margin="0,0,-10,0">
+                                                                <Image.GestureRecognizers>
+                                                                    <TapGestureRecognizer Command="{Binding Path=BindingContext.Removeimg, Source={x:Reference multiimglist}}" CommandParameter="{Binding}" />
+                                                                </Image.GestureRecognizers>
+                                                            </Image>
+                                                        </AbsoluteLayout>
+                                                    </StackLayout>
+                                                </StackLayout>
+                                            </ContentView.Content>
+                                        </ContentView>
+                                    </DataTemplate>
+                                </H:HVScrollGridView.ItemTemplate>
+                            </H:HVScrollGridView>
+                        </StackLayout>-->
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Tapclosebiz}"></TapGestureRecognizer>
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+            <StackLayout BackgroundColor="White" VerticalOptions="End" AbsoluteLayout.LayoutBounds="0, 1, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <StackLayout VerticalOptions="End" HorizontalOptions="FillAndExpand">
+                    <Button x:Name="btnpostsubmit" Text="Next" Command="{Binding Bizdetailscmd}" FontSize="18" VerticalOptions="Start" HorizontalOptions="FillAndExpand" BackgroundColor="#fbaa19" TextColor="White" Parent="0,10,0,10" />
+                    <StackLayout.Padding>
+                        <OnPlatform x:TypeArguments="Thickness" iOS="15,10,15,15" Android="10"></OnPlatform>
+                    </StackLayout.Padding>
+                </StackLayout>
+            </StackLayout>
+
+            <ContentView IsVisible="{Binding Choosephotocontentviewvisible}"  x:Name="contentlayout"  VerticalOptions="FillAndExpand" BackgroundColor="#C0808080"  Padding="10"  AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+
+                <Frame BackgroundColor="White" CornerRadius="4" Padding="0"  VerticalOptions="End" HorizontalOptions="FillAndExpand">
+
+                    <!--IsVisible="{Binding stayperiodvisible}"-->
+                    <!--<StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="10">
+                        <Label Text="Take photo" Style="{StaticResource FontRegular}" >
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding takeprofilephoto}"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <Label Text="Choose from Gallery" Style="{StaticResource FontRegular}">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding selectprofilephoto}"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </StackLayout>-->
+                    <StackLayout  VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0" Margin="0">
+                        <StackLayout  VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                            <Label  Text="Choose an action"  Style="{StaticResource FontRegular}" FontSize="18" TextColor="#212121" Margin="15,10,15,10"  VerticalOptions="Start" HorizontalOptions="FillAndExpand"/>
+
+                            <BoxView Color="Gray" HorizontalOptions="FillAndExpand"  HeightRequest="1" />
+
+
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="20,30,20,30">
+                            <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                <Image Source="UploadCamera.png" HeightRequest="40" WidthRequest="40" VerticalOptions="Start" HorizontalOptions="Center"  />
+                                <Label  Text="Camera" FontSize="14"  Style="{StaticResource FontRegular}" TextColor="#666666"   VerticalOptions="Start" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding takeprofilephoto}"/>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+
+                            <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                <Image Source="UploadPhoto.png" HeightRequest="40" WidthRequest="40" VerticalOptions="Start" HorizontalOptions="Center"  />
+                                <Label  Text="Gallery"  Style="{StaticResource FontRegular}" FontSize="14" TextColor="#666666"   VerticalOptions="Start" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Choosefilecommand}"/>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+
+                        </StackLayout>
+
+                    </StackLayout>
+
+
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding PopupContentTap}"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+                <ContentView.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ContentViewTap}"/>
+                </ContentView.GestureRecognizers>
+            </ContentView>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

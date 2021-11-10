@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NRIApp.Techjobs.Features.LeadForm.Views.Thankyou" NavigationPage.HasNavigationBar="False">
+
+    <StackLayout VerticalOptions="FillAndExpand">
+        <StackLayout  BackgroundColor="#07ba8e" VerticalOptions="FillAndExpand" IsVisible="{Binding StackVisible}">
+        <Image Source="CloseIcon.png" HeightRequest="24" WidthRequest="24" VerticalOptions="Start" HorizontalOptions="End" >
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding Closecommand}"></TapGestureRecognizer>
+            </Image.GestureRecognizers>
+                <Image.Margin>
+                    <OnPlatform x:TypeArguments="Thickness" iOS="0,35,35,0" Android="0,15,15,0"/>
+                </Image.Margin>
+            </Image>
+
+        <StackLayout   VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+
+            <Image Source="SuccessBg.png" HeightRequest="96" WidthRequest="96" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Margin="0,-5,0,0"  />
+
+                <Label Text="Success" Style="{StaticResource FontRegular}" FontSize="22"  VerticalOptions="CenterAndExpand" TextColor="White" HorizontalOptions="Center"  HorizontalTextAlignment="Center" Margin="0"  />
+
+                <Label Style="{StaticResource FontRegular}" Text="Thanks for posting your response on Sulekha. Trainers will get in touch shortly." TextColor="White" HorizontalOptions="CenterAndExpand" FontSize="14" Margin="10,0,10,0" HorizontalTextAlignment="Center" />
+
+        </StackLayout>
+        </StackLayout>
+        <StackLayout IsVisible="{Binding Visible}" VerticalOptions="FillAndExpand">
+            <ScrollView >
+
+
+                <StackLayout BackgroundColor="White" VerticalOptions="FillAndExpand" >
+                    <StackLayout BackgroundColor="#07ba8e"   Padding="0,10,0,10">
+
+
+                        <Image Source="CloseIcon.png" HeightRequest="24" WidthRequest="24" Margin="0,-5,5,0" VerticalOptions="Start" HorizontalOptions="End" >
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Closecommand}"></TapGestureRecognizer>
+                            </Image.GestureRecognizers>
+                        </Image>
+
+                        <Image Source="SuccessBg.png" HeightRequest="72" WidthRequest="72" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Margin="0,-5,0,0"  />
+
+                        <Label Style="{StaticResource FontRegular}" Text="success" FontSize="22"  VerticalOptions="CenterAndExpand" TextColor="White" HorizontalOptions="Center"  HorizontalTextAlignment="Center" Margin="0"  />
+
+                        <Label Style="{StaticResource FontRegular}" Text="Thanks for posting your response on Sulekha. Trainers will get in touch shortly." TextColor="White" HorizontalOptions="CenterAndExpand" FontSize="14" Margin="10,0,10,0" HorizontalTextAlignment="Center" />
+
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal" Padding="10" >
+                        <Label Style="{StaticResource FontRegular}" Text="You can directly contact the training providers.:" TextColor="Black"  FontSize="18" VerticalOptions="Start" HorizontalOptions="StartAndExpand"  />
+
+                    </StackLayout>
+
+                    <ListView x:Name="listdata" SeparatorVisibility="None" HasUnevenRows="True" ItemsSource="{Binding Bizlist}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout Padding="5,0,5,0">
+
+                                        <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                                            <Frame BackgroundColor="White" CornerRadius="4"  Padding="0" >
+                                                <StackLayout Padding="0"   Margin="10,10,10,10"  VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+
+                                                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0" Margin="0" >
+
+                                                        <Grid >
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition Width="*" />
+                                                                <ColumnDefinition Width="*" />
+                                                                <ColumnDefinition Width="*" />
+                                                                <ColumnDefinition Width="*" />
+                                                                <ColumnDefinition Width="*" />
+                                                                <ColumnDefinition Width="*" />
+                                                                <ColumnDefinition Width="*" />
+                                                                <ColumnDefinition Width="*" />
+                                                            </Grid.ColumnDefinitions>
+                                                            <Grid.RowDefinitions>
+                                                                <RowDefinition Height="auto" />
+                                                            </Grid.RowDefinitions>
+
+                                                            <StackLayout Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="7"  VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand"  Padding="0" Margin="0" >
+
+                                                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                                                    <Label Text="{Binding businessname}" FontSize="15" TextColor="#2e2e2e" Style="{StaticResource FontRegular}" />
+                                                                </StackLayout>
+
+                                                                <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
+                                                                    <Image Source="placeholder.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="16" WidthRequest="16"/>
+                                                                    <Label Text="{Binding citystatecode}" FontSize="13" Style="{StaticResource FontRegular}" TextColor="#888888"  HorizontalOptions="Start" VerticalOptions="Center"/>
+                                                                </StackLayout>
+
+
+                                                            </StackLayout>
+                                                            <StackLayout Grid.Column="7"  Grid.Row="0" VerticalOptions="Start" HorizontalOptions="Start" Padding="0" Margin="0" >
+                                                                <Image Source="contactcall.png"  HorizontalOptions="Start" VerticalOptions="End" HeightRequest="48" WidthRequest="48">
+                                                                    <Image.GestureRecognizers>
+                                                                        <TapGestureRecognizer Command="{Binding Path=BindingContext.Phonecallcommand, Source = {x:Reference listdata}}" CommandParameter="{Binding}"></TapGestureRecognizer>
+                                                                    </Image.GestureRecognizers>
+                                                                </Image>
+
+                                                            </StackLayout>
+
+
+                                                        </Grid>
+
+                                                    </StackLayout>
+
+                                                </StackLayout>
+
+                                            </Frame>
+                                        </StackLayout>
+
+                                    </StackLayout>
+
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+
+
+
+                    </ListView>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+   
+    </StackLayout>
+
+
+</ContentPage>

@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" NavigationPage.HasNavigationBar="True"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:b="clr-namespace:NRIApp.Helpers"
+             x:Class="NRIApp.Techjobs.Features.Home.Views.Modules" Title="Modules">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem  Icon="search24.png" Priority="1" Command="{Binding Searchbarcommand}" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <Grid>
+            <StackLayout>
+              
+
+                <ListView x:Name="listdata" HasUnevenRows="True" ItemsSource="{Binding Modules}" SeparatorVisibility="None">
+                    <ListView.Behaviors>
+                        <b:ListviewItemtap Command="{Binding Modulecommand}" ></b:ListviewItemtap>
+                    </ListView.Behaviors>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame Margin="0" Padding="0" HasShadow="False">
+                                    <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="Start" BackgroundColor="White" Margin="0,0,0,2" >
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Padding="2"  >
+                                        <Image Source="TechJobIcon.png" HeightRequest="20"  WidthRequest="20"  VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  Margin="10,6,10,6"   />
+                                            <Label Style="{StaticResource FontRegular}" Text="{Binding module}" FontSize="13" TextColor="#2c2d2f" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" />
+                                        <Image Source="nextarrow.png" HeightRequest="20"  WidthRequest="20"  VerticalOptions="CenterAndExpand" HorizontalOptions="End" Margin="10,6,10,6"     />
+                                    </StackLayout>
+
+                                    <StackLayout>
+                                        <BoxView HeightRequest="1" BackgroundColor="#e0e0e0" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand"/>
+                                    </StackLayout>
+                                </StackLayout>
+                                <!--<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" BackgroundColor="White" Padding="0,4,0,4">
+                                    <Image Source="ebook.png" HeightRequest="24"  WidthRequest="24"  VerticalOptions="Start" HorizontalOptions="Start" Margin="10"   />
+                                    <Label Text="{Binding module}" FontSize="16" TextColor="Black" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" />
+                                    <Image Source="nextarrow.png" HeightRequest="24"  WidthRequest="24"  VerticalOptions="End" HorizontalOptions="End" Margin="10"     />
+                                </StackLayout>-->
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            <ActivityIndicator x:Name="ai_img"  VerticalOptions="Center" HorizontalOptions="Center" IsEnabled="{Binding Visible}" IsVisible="{Binding Visible}" IsRunning="{Binding Visible}"></ActivityIndicator>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

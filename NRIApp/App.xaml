@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NRIApp.App">
+	<Application.Resources>
+        <ResourceDictionary>
+            <Style x:Key="FontRegular" TargetType="Label">
+                <Setter Property="FontFamily">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:String" iOS="Montserrat-Medium" Android="Montserrat-Medium.ttf#Montserrat-Medium"/>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style x:Key="FontBold" TargetType="Button">
+                <Setter Property="FontFamily">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:String" iOS="Montserrat-SemiBold" Android="Montserrat-SemiBold.ttf#Montserrat-SemiBold"/>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style x:Key="FontRobotoBold" TargetType="Button">
+                <Setter Property="FontFamily">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:String" iOS="Montserrat-SemiBold" Android="Montserrat-SemiBold.ttf#Montserrat-SemiBold"/>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style x:Key="FontRegularEntry" TargetType="Entry">
+                <Setter Property="FontFamily">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:String" iOS="Montserrat-Medium" Android="Montserrat-Medium.ttf#Montserrat-Medium"/>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style x:Key="FontLabelBold" TargetType="Label">
+                <Setter Property="FontFamily">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:String" iOS="Montserrat-SemiBold" Android="Montserrat-SemiBold.ttf#Montserrat-SemiBold"/>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+            <!-- Application resource dictionary -->
+
+	</Application.Resources>
+</Application>

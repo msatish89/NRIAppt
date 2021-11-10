@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NRIApp.Rentals.Features.Post.Views.PostDescription_RT"
+             xmlns:SUL="clr-namespace:NRIApp.Controls">
+    <ContentPage.Content>
+        <AbsoluteLayout BackgroundColor="White">
+            <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All"
+                          VerticalOptions="Start" HorizontalOptions="FillAndExpand" BackgroundColor="White" >
+                <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand"  Padding="0,0,0,15">
+
+                    <StackLayout VerticalOptions="Start" HorizontalOptions="Start"  Padding="5"  >
+                        <Image Source="TitleIcon.png" HeightRequest="32" WidthRequest="32"   />
+                    </StackLayout>
+
+                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+                        <!--<Editor x:Name="adtitle" Text="{Binding AdTitle}" HeightRequest="50" BackgroundColor="#f7f7f7"  />-->
+
+                        <SUL:CustomEntry x:Name="adtitle" Style="{StaticResource FontRegularEntry}" HideBorder="true" HeightRequest="50" Text="{Binding AdTitle}" ReturnKeyType="Next" NextView="{x:Reference ADdescription}" Placeholder="Enter AD Title"/>
+                    </StackLayout>
+
+                </StackLayout>
+                <BoxView BackgroundColor="Gray" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,15">
+                                 </BoxView>
+                <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand"  Padding="0,0,0,15">
+
+                    <StackLayout VerticalOptions="Start" HorizontalOptions="Start"  Padding="5"  >
+                        <Image Source="MessageIcon.png" HeightRequest="32" WidthRequest="32"   />
+                    </StackLayout>
+
+                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                        <Editor x:Name="ADdescription" Text="{Binding AdDescription}" HeightRequest="200" BackgroundColor="#f7f7f7"  />
+                    </StackLayout>
+
+                </StackLayout>
+                <!--<StackLayout VerticalOptions="End" HorizontalOptions="FillAndExpand" Padding="10">
+
+                <Button Text="Submit" Command="{Binding postdescrptionsubmit}" FontSize="18" VerticalOptions="Start" HorizontalOptions="FillAndExpand" BackgroundColor="#fbaa19" TextColor="White" Parent="0,10,0,10"  />
+                -->
+                <!--<Button Text="Submit" Command="{Binding postdescrptionsubmit}" FontSize="18" VerticalOptions="Start" HorizontalOptions="FillAndExpand" BackgroundColor="#fbaa19" TextColor="White" Parent="0,10,0,10"  />-->
+                <!--
+            </StackLayout>-->
+                
+            </StackLayout>
+            <StackLayout VerticalOptions="End"  BackgroundColor="White" Padding="0" HorizontalOptions="FillAndExpand" 
+                             AbsoluteLayout.LayoutBounds="0,1,1,1" AbsoluteLayout.LayoutFlags="All">
+                <Button Text="Continue Posting" Command="{Binding postdescrptionsubmit}" FontSize="18" VerticalOptions="Start" HorizontalOptions="FillAndExpand" BackgroundColor="#fbaa19" TextColor="White" Parent="0,10,0,10" />
+                <!--<Button Text="Browse Listings"  Command="{Binding lcfcmdskip}" IsVisible="{Binding Lcfskipvisible}" FontSize="18" VerticalOptions="Start" HorizontalOptions="FillAndExpand" BackgroundColor="#6c757d" TextColor="White" Parent="0,10,0,10" />-->
+              <StackLayout.Margin>
+                    <OnPlatform x:TypeArguments="Thickness" iOS="10,-10,10,20" Android="0,-10,0,0"></OnPlatform>
+                </StackLayout.Margin>
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>
+    

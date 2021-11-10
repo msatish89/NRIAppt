@@ -1,0 +1,787 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="usapp.lslisting">
+
+    <ContentPage.Content>
+        <ScrollView>
+
+        <StackLayout BackgroundColor="#ecf2f4">
+
+                <StackLayout BackgroundColor="#e30045">
+                    <Grid  HeightRequest="56" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <StackLayout Grid.Column="0" Grid.Row="0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"   >
+                            <Image Source="backleftarrow.png" HeightRequest="24" WidthRequest="24" />
+                        </StackLayout>
+                        <StackLayout Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="4" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
+                            <Label Text="BA Training " TextColor="#ffffff"  FontSize="14"  />
+                        </StackLayout>
+                        <StackLayout Grid.Column="5" Grid.Row="0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
+                            <Image Source="search.png" HeightRequest="24" WidthRequest="24"  />
+                        </StackLayout>
+                        
+                    </Grid>
+                </StackLayout>
+            
+                <!--<StackLayout BackgroundColor="#e30045" Orientation="Horizontal"  Padding="6" HeightRequest="56" >
+                    <StackLayout Spacing="0" Orientation="Horizontal" HorizontalOptions="Start">
+                        <Image Source="backleftarrow.png" HeightRequest="24" WidthRequest="24" HorizontalOptions="Start" VerticalOptions="Center" Margin="6"/>
+                    </StackLayout>
+                    <Label Text="BA Training " TextColor="#ffffff" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" FontSize="14"  />
+                    <StackLayout Spacing="0" Orientation="Horizontal" HorizontalOptions="End">
+                        <Image Source="searchicon.png" HeightRequest="24" WidthRequest="24"  HorizontalOptions="End" VerticalOptions="Center" Margin="6" />
+                    </StackLayout>
+                </StackLayout>-->
+
+                <!--<StackLayout >                    
+                    <Frame BackgroundColor="White" CornerRadius="4" Padding="0" Margin="5" >
+                        
+                        <StackLayout  VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                            
+                            <Grid Padding="5" Margin="0" >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto" />
+                                </Grid.RowDefinitions>
+
+                                <StackLayout Grid.Column="0" Grid.Row="0"  BackgroundColor="Red" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0" Margin="0" >
+
+                                    <Image Source="LsListingImage.png" HeightRequest="50"  VerticalOptions="Start" HorizontalOptions="Start"   />
+                                    
+                                </StackLayout>
+
+
+                                <StackLayout Grid.Column="1"  Grid.ColumnSpan="3" Grid.Row="0"  BackgroundColor="Yellow" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0" Margin="0" >
+                                   
+                                    <Label Text="Luxe Lash Bar Franchise Opportunity" FontSize="14" TextColor="#2e2e2e" />
+
+                                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0" Margin="0"  >
+                                        <Grid >
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*" />
+                                            </Grid.RowDefinitions>
+
+                                            <StackLayout Grid.Column="0" Grid.Row="0"  VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+
+                                                <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
+                                                    <Frame BackgroundColor="#45a455" CornerRadius="2"  Padding="5, 1, 5, 1">
+                                                        <Label Text="7.5" FontSize="12" TextColor="#ffffff"  HorizontalOptions="Start" VerticalOptions="Center"/>
+                                                    </Frame>
+                                                    <Label Text="1585 Rattings" FontSize="12" TextColor="#888888"  HorizontalOptions="Start" VerticalOptions="Center"/>
+                                                </StackLayout>
+
+                                            </StackLayout>
+                                            <StackLayout Grid.Column="1" Grid.Row="0"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+
+                                                <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
+                                                    <Image Source="book.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="16" WidthRequest="16"/>
+                                                    <Label Text="7.5 miles" FontSize="12" TextColor="#888888"  HorizontalOptions="Start" VerticalOptions="Center"/>
+                                                </StackLayout>
+
+                                            </StackLayout>
+                                        </Grid>
+
+                                    </StackLayout>
+
+                                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" BackgroundColor="Blue"  >
+
+                                        <Grid >
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="auto" />
+                                            </Grid.RowDefinitions>
+
+                                            <StackLayout Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4"  VerticalOptions="Start" HorizontalOptions="FillAndExpand"  >
+                                                <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
+                                                    <Image Source="book.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="16" WidthRequest="16"/>
+                                                    <Label Text="Astrologers - Horoscope Services" FontSize="12" TextColor="#888888"  HorizontalOptions="Start" VerticalOptions="Center"/>
+                                                </StackLayout>
+
+                                                <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
+                                                    <Image Source="placeholder.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="16" WidthRequest="16"/>
+                                                    <Label Text="North Brunswick, NJ, 8902" FontSize="12" TextColor="#888888"  HorizontalOptions="Start" VerticalOptions="Center"/>
+                                                </StackLayout>
+                                            </StackLayout>
+                                            <StackLayout Grid.Column="4"  Grid.Row="0" Grid.ColumnSpan="2"  VerticalOptions="Start" HorizontalOptions="FillAndExpand"  >
+                                                <Button Text="Get Quotes"   BackgroundColor="#f89406" TextColor="White" FontSize="10" Margin="0"   />
+                                            </StackLayout>
+
+
+                                        </Grid>
+                                    </StackLayout>
+
+                                </StackLayout>
+                            </Grid>
+                            
+                        </StackLayout>
+                        
+                    </Frame>
+                    
+                </StackLayout>-->
+            
+                <StackLayout Padding="5,0,5,20">
+                    
+                
+                <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                    <Frame BackgroundColor="White" CornerRadius="4"  Padding="10" >
+                 
+                        <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                            
+                            <Label Text="Luxe Lash Bar Franchise Luxe Lash Bar Franchise Luxe Lash Bar Franchise " FontSize="15" TextColor="#2e2e2e" Margin="0,0,0,5" />
+                            
+                            <StackLayout Orientation="Horizontal"  VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+                           
+                                <StackLayout VerticalOptions="Start" HorizontalOptions="Start"  WidthRequest="70">
+                                    
+                                    <Image Source="localservices.png" WidthRequest="68" Margin="0,0,0,4"  VerticalOptions="Start" HorizontalOptions="FillAndExpand" />
+
+                                    <Frame BackgroundColor="#e6e5e5" CornerRadius="2"  Padding="0,5,0,5" HasShadow="False">
+                                            <Label Text="Closed now" FontSize="10" TextColor="#45a455"  HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+                                    </Frame>
+                                    
+                                </StackLayout>
+
+                                <StackLayout VerticalOptions="Start" HorizontalOptions="Start">
+                                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand"  Padding="0" >
+                                        
+
+                                        <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0" Margin="0"  >
+                                            <Grid >
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*" />
+                                                </Grid.ColumnDefinitions>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="*" />
+                                                </Grid.RowDefinitions>
+
+                                                <StackLayout Grid.Column="0" Grid.Row="0"  VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0" >
+
+
+
+                                                    <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
+                                                        <Frame BackgroundColor="#45a455" CornerRadius="2"  Padding="5, 3, 5, 3">
+                                                            <Label Text="7.5" FontSize="10" TextColor="#ffffff"  HorizontalOptions="Start" VerticalOptions="Center"/>
+                                                        </Frame>
+                                                        <Label Text="1585 Rattings" FontSize="11" TextColor="#888888"  HorizontalOptions="Start" VerticalOptions="Center"/>
+                                                    </StackLayout>
+
+                                                </StackLayout>
+                                                <StackLayout Grid.Column="1" Grid.Row="0"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Padding="0">
+
+                                                    <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
+                                                        <Image Source="book.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="16" WidthRequest="16"/>
+                                                        <Label Text="7.5 miles" FontSize="12" TextColor="#888888"  HorizontalOptions="Start" VerticalOptions="Center"/>
+                                                    </StackLayout>
+
+                                                </StackLayout>
+                                            </Grid>
+
+                                        </StackLayout>
+
+                                        <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0" Margin="0" >
+
+                                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                                    <Image Source="book.png"  HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="16" WidthRequest="16"/>
+                                                    <Label Text="Astrologers - Black Magic Remedy Experts +3more"  FontSize="13" TextColor="#888888"  HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+                                                    <!--<Label Text="+3more " FontSize="13" TextColor="#b2b2b2"  HorizontalOptions="StartAndExpand" VerticalOptions="Start"/> -->
+                                                </StackLayout>
+
+                                                <Grid >
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="*" />
+                                                </Grid.ColumnDefinitions>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="auto" />
+                                                </Grid.RowDefinitions>
+
+                                                <StackLayout Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="5"  VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand"  Padding="0" Margin="0">
+
+                                                    <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
+                                                        <Image Source="placeholder.png"  HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="16" WidthRequest="16"/>
+                                                        <Label Text="7454 Airport Rd, Mississauga, ON L4T 2H5, Canada" FontSize="13" TextColor="#888888"  HorizontalOptions="Start" VerticalOptions="Center"/>
+                                                    </StackLayout>
+
+                                                </StackLayout>
+                                                <StackLayout Grid.Column="5"  Grid.Row="0" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0" Margin="0"  >
+                                                    <Image Source="contactmail.png"  HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="48" WidthRequest="48"/>
+                                                </StackLayout>
+
+                                            </Grid>
+                                        </StackLayout>
+
+                                    </StackLayout>
+                                </StackLayout>
+                            
+                            </StackLayout>
+                        </StackLayout>
+
+                    </Frame>
+                </StackLayout>
+
+                <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                    <Frame BackgroundColor="White" CornerRadius="4"  Padding="10" >
+
+                            <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+                                <Label Text="Luxe Lash Bar Franchise Luxe Lash Bar Franchise Luxe Lash Bar Franchise " FontSize="15" TextColor="#2e2e2e" Margin="0,0,0,5" />
+
+                                <StackLayout Orientation="Horizontal"  VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+
+                                    <StackLayout VerticalOptions="Start" HorizontalOptions="Start"  WidthRequest="70">
+
+                                        <Image Source="localservices.png" WidthRequest="68" Margin="0,0,0,4"  VerticalOptions="Start" HorizontalOptions="FillAndExpand" />
+
+                                        <Frame BackgroundColor="#e6e5e5" CornerRadius="2"  Padding="0,5,0,5" HasShadow="False">
+                                            <Label Text="Closed now" FontSize="10" TextColor="#fe5757"  HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+                                        </Frame>
+
+                                    </StackLayout>
+
+                                    <StackLayout VerticalOptions="Start" HorizontalOptions="Start">
+                                        <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand"  Padding="0" >
+
+
+                                            <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0" Margin="0"  >
+                                                <Grid >
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="*" />
+                                                    </Grid.RowDefinitions>
+
+                                                    <StackLayout Grid.Column="0" Grid.Row="0"  VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0" >
+
+
+
+                                                        <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
+                                                            <Frame BackgroundColor="#45a455" CornerRadius="2"  Padding="5, 3, 5, 3">
+                                                                <Label Text="7.5" FontSize="10" TextColor="#ffffff"  HorizontalOptions="Start" VerticalOptions="Center"/>
+                                                            </Frame>
+                                                            <Label Text="1585 Rattings" FontSize="11" TextColor="#888888"  HorizontalOptions="Start" VerticalOptions="Center"/>
+                                                        </StackLayout>
+
+                                                    </StackLayout>
+                                                    <StackLayout Grid.Column="1" Grid.Row="0"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Padding="0">
+
+                                                        <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
+                                                            <Image Source="book.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="16" WidthRequest="16"/>
+                                                            <Label Text="7.5 miles" FontSize="12" TextColor="#888888"  HorizontalOptions="Start" VerticalOptions="Center"/>
+                                                        </StackLayout>
+
+                                                    </StackLayout>
+                                                </Grid>
+
+                                            </StackLayout>
+
+                                            <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0" Margin="0" >
+
+                                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                                    <Image Source="book.png"  HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="16" WidthRequest="16"/>
+                                                    <Label Text="Astrologers - Black Magic Remedy Experts +3more"  FontSize="13" TextColor="#888888"  HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+                                                    <!--<Label Text="+3more " FontSize="13" TextColor="#b2b2b2"  HorizontalOptions="StartAndExpand" VerticalOptions="Start"/> -->
+                                                </StackLayout>
+
+                                                <Grid >
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*" />
+                                                        <ColumnDefinition Width="*" />
+                                                        <ColumnDefinition Width="*" />
+                                                        <ColumnDefinition Width="*" />
+                                                        <ColumnDefinition Width="*" />
+                                                        <ColumnDefinition Width="*" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="auto" />
+                                                    </Grid.RowDefinitions>
+
+                                                    <StackLayout Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="5"  VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand"  Padding="0" Margin="0">
+
+                                                        <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
+                                                            <Image Source="placeholder.png"  HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="16" WidthRequest="16"/>
+                                                            <Label Text="7454 Airport Rd, Mississauga, ON L4T 2H5, Canada" FontSize="13" TextColor="#888888"  HorizontalOptions="Start" VerticalOptions="Center"/>
+                                                        </StackLayout>
+
+                                                    </StackLayout>
+                                                    <StackLayout Grid.Column="5"  Grid.Row="0" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0" Margin="0"  >
+                                                        <Image Source="contactcall.png"  HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="48" WidthRequest="48"/>
+                                                    </StackLayout>
+
+                                                </Grid>
+                                            </StackLayout>
+
+                                        </StackLayout>
+                                        
+                                    </StackLayout>
+
+                                </StackLayout>
+                                
+                            </StackLayout>
+
+                        </Frame>
+                </StackLayout>
+
+                <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                    <Frame BackgroundColor="White" CornerRadius="4"  Padding="10" >
+
+                            <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="10,5,10,5" BackgroundColor="#f3f1f1">
+                                    <Image Source="offer.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="16" WidthRequest="16"/>
+                                    <Label Text="10% off on all services" FontSize="12" TextColor="#45a455"  HorizontalOptions="Start" VerticalOptions="Center"/>
+                                </StackLayout>
+                                
+                                <Label Text="Luxe Lash Bar Franchise Luxe Lash Bar Franchise Luxe Lash Bar Franchise " FontSize="15" TextColor="#2e2e2e" Margin="0,0,0,5" />
+
+                                <StackLayout Orientation="Horizontal"  VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+
+                                    <StackLayout VerticalOptions="Start" HorizontalOptions="Start"  WidthRequest="110">
+
+                                        <StackLayout BackgroundColor="#33a2d9" HeightRequest="68"  WidthRequest="68" Margin="0,4,0,0" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" >
+                                            <Label Text="R" FontSize="40" TextColor="#ffffff"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                                        </StackLayout>
+
+                                        <Frame BackgroundColor="#e6e5e5" CornerRadius="2"  Padding="0,5,0,5" HasShadow="False">
+                                            <Label Text="Closed now" FontSize="10" TextColor="#fe5757"  HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+                                        </Frame>
+
+                                    </StackLayout>
+
+                                    <StackLayout VerticalOptions="Start" HorizontalOptions="Start">
+                                        <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand"  Padding="0" >
+
+
+                                            <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0" Margin="0"  >
+                                                <Grid >
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="*" />
+                                                    </Grid.RowDefinitions>
+
+                                                    <StackLayout Grid.Column="0" Grid.Row="0"  VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0" >
+
+
+
+                                                        <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
+                                                            <Frame BackgroundColor="#45a455" CornerRadius="2"  Padding="5, 3, 5, 3">
+                                                                <Label Text="7.5" FontSize="10" TextColor="#ffffff"  HorizontalOptions="Start" VerticalOptions="Center"/>
+                                                            </Frame>
+                                                            <Label Text="1585 Rattings" FontSize="11" TextColor="#888888"  HorizontalOptions="Start" VerticalOptions="Center"/>
+                                                        </StackLayout>
+
+                                                    </StackLayout>
+                                                    <StackLayout Grid.Column="1" Grid.Row="0"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Padding="0">
+
+                                                        <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
+                                                            <Image Source="book.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="16" WidthRequest="16"/>
+                                                            <Label Text="7.5 miles" FontSize="12" TextColor="#888888"  HorizontalOptions="Start" VerticalOptions="Center"/>
+                                                        </StackLayout>
+
+                                                    </StackLayout>
+                                                </Grid>
+
+                                            </StackLayout>
+
+                                            <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0" Margin="0" >
+
+                                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                                    <Image Source="book.png"  HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="16" WidthRequest="16"/>
+                                                    <Label Text="Astrologers - Black Magic Remedy Experts +3more"  FontSize="13" TextColor="#888888"  HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+                                                    <!--<Label Text="+3more " FontSize="13" TextColor="#b2b2b2"  HorizontalOptions="StartAndExpand" VerticalOptions="Start"/> -->
+                                                </StackLayout>
+
+                                                <Grid >
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*" />
+                                                        <ColumnDefinition Width="*" />
+                                                        <ColumnDefinition Width="*" />
+                                                        <ColumnDefinition Width="*" />
+                                                        <ColumnDefinition Width="*" />
+                                                        <ColumnDefinition Width="*" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="auto" />
+                                                    </Grid.RowDefinitions>
+
+                                                    <StackLayout Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="5"  VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand"  Padding="0" Margin="0">
+
+                                                        <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
+                                                            <Image Source="placeholder.png"  HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="16" WidthRequest="16"/>
+                                                            <Label Text="7454 Airport Rd, Mississauga, ON L4T 2H5, Canada" FontSize="13" TextColor="#888888"  HorizontalOptions="Start" VerticalOptions="Center"/>
+                                                        </StackLayout>
+
+                                                    </StackLayout>
+                                                    <StackLayout Grid.Column="5"  Grid.Row="0" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0" Margin="0"  >
+                                                        <Image Source="contactcall.png"  HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="48" WidthRequest="48"/>
+                                                    </StackLayout>
+
+                                                </Grid>
+                                            </StackLayout>
+
+                                        </StackLayout>
+                                    </StackLayout>
+
+                                </StackLayout>
+                            </StackLayout>
+
+                        </Frame>
+                </StackLayout>
+
+                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                        <Frame BackgroundColor="White" CornerRadius="4"  Padding="10" >
+
+                            <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+                                <Label Text="Luxe Lash Bar Franchise Luxe Lash Bar Franchise Luxe Lash Bar Franchise " FontSize="15" TextColor="#2e2e2e" Margin="0,0,0,5" />
+
+                                <StackLayout Orientation="Horizontal"  VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+
+                                    <StackLayout VerticalOptions="Start" HorizontalOptions="Start"  WidthRequest="70">
+
+                                        <Image Source="localservices.png" WidthRequest="68" Margin="0,0,0,4"  VerticalOptions="Start" HorizontalOptions="FillAndExpand" />
+
+                                        <Frame BackgroundColor="#e6e5e5" CornerRadius="2"  Padding="0,5,0,5" HasShadow="False">
+                                            <Label Text="Closed now" FontSize="10" TextColor="#45a455"  HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+                                        </Frame>
+
+                                    </StackLayout>
+
+                                    <StackLayout VerticalOptions="Start" HorizontalOptions="Start">
+                                        <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand"  Padding="0" >
+
+
+                                            <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0" Margin="0"  >
+                                                <Grid >
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="*" />
+                                                    </Grid.RowDefinitions>
+
+                                                    <StackLayout Grid.Column="0" Grid.Row="0"  VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0" >
+
+
+
+                                                        <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
+                                                            <Frame BackgroundColor="#45a455" CornerRadius="2"  Padding="5, 3, 5, 3">
+                                                                <Label Text="7.5" FontSize="10" TextColor="#ffffff"  HorizontalOptions="Start" VerticalOptions="Center"/>
+                                                            </Frame>
+                                                            <Label Text="1585 Rattings" FontSize="11" TextColor="#888888"  HorizontalOptions="Start" VerticalOptions="Center"/>
+                                                        </StackLayout>
+
+                                                    </StackLayout>
+                                                    <StackLayout Grid.Column="1" Grid.Row="0"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Padding="0">
+
+                                                        <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
+                                                            <Image Source="book.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="16" WidthRequest="16"/>
+                                                            <Label Text="7.5 miles" FontSize="12" TextColor="#888888"  HorizontalOptions="Start" VerticalOptions="Center"/>
+                                                        </StackLayout>
+
+                                                    </StackLayout>
+                                                </Grid>
+
+                                            </StackLayout>
+
+                                            <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0" Margin="0" >
+
+                                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                                    <Image Source="book.png"  HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="16" WidthRequest="16"/>
+                                                    <Label Text="Astrologers - Black Magic Remedy Experts +3more"  FontSize="13" TextColor="#888888"  HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+                                                    <!--<Label Text="+3more " FontSize="13" TextColor="#b2b2b2"  HorizontalOptions="StartAndExpand" VerticalOptions="Start"/> -->
+                                                </StackLayout>
+
+                                                <Grid >
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*" />
+                                                        <ColumnDefinition Width="*" />
+                                                        <ColumnDefinition Width="*" />
+                                                        <ColumnDefinition Width="*" />
+                                                        <ColumnDefinition Width="*" />
+                                                        <ColumnDefinition Width="*" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="auto" />
+                                                    </Grid.RowDefinitions>
+
+                                                    <StackLayout Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="5"  VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand"  Padding="0" Margin="0">
+
+                                                        <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
+                                                            <Image Source="placeholder.png"  HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="16" WidthRequest="16"/>
+                                                            <Label Text="7454 Airport Rd, Mississauga, ON L4T 2H5, Canada" FontSize="13" TextColor="#888888"  HorizontalOptions="Start" VerticalOptions="Center"/>
+                                                        </StackLayout>
+
+                                                    </StackLayout>
+                                                    <StackLayout Grid.Column="5"  Grid.Row="0" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0" Margin="0"  >
+                                                        <Image Source="contactmail.png"  HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="48" WidthRequest="48"/>
+                                                    </StackLayout>
+
+                                                </Grid>
+                                            </StackLayout>
+
+                                        </StackLayout>
+                                    </StackLayout>
+
+                                </StackLayout>
+                            </StackLayout>
+
+                        </Frame>
+                    </StackLayout>
+
+                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                        <Frame BackgroundColor="White" CornerRadius="4"  Padding="10" >
+
+                            <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+                                <Label Text="Luxe Lash Bar Franchise Luxe Lash Bar Franchise Luxe Lash Bar Franchise " FontSize="15" TextColor="#2e2e2e" Margin="0,0,0,5" />
+
+                                <StackLayout Orientation="Horizontal"  VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+
+                                    <StackLayout VerticalOptions="Start" HorizontalOptions="Start"  WidthRequest="70">
+
+                                        <Image Source="localservices.png" WidthRequest="68" Margin="0,0,0,4"  VerticalOptions="Start" HorizontalOptions="FillAndExpand" />
+
+                                        <Frame BackgroundColor="#e6e5e5" CornerRadius="2"  Padding="0,5,0,5" HasShadow="False">
+                                            <Label Text="Closed now" FontSize="10" TextColor="#fe5757"  HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+                                        </Frame>
+
+                                    </StackLayout>
+
+                                    <StackLayout VerticalOptions="Start" HorizontalOptions="Start">
+                                        <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand"  Padding="0" >
+
+
+                                            <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0" Margin="0"  >
+                                                <Grid >
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="*" />
+                                                    </Grid.RowDefinitions>
+
+                                                    <StackLayout Grid.Column="0" Grid.Row="0"  VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0" >
+
+
+
+                                                        <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
+                                                            <Frame BackgroundColor="#45a455" CornerRadius="2"  Padding="5, 3, 5, 3">
+                                                                <Label Text="7.5" FontSize="10" TextColor="#ffffff"  HorizontalOptions="Start" VerticalOptions="Center"/>
+                                                            </Frame>
+                                                            <Label Text="1585 Rattings" FontSize="11" TextColor="#888888"  HorizontalOptions="Start" VerticalOptions="Center"/>
+                                                        </StackLayout>
+
+                                                    </StackLayout>
+                                                    <StackLayout Grid.Column="1" Grid.Row="0"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Padding="0">
+
+                                                        <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
+                                                            <Image Source="book.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="16" WidthRequest="16"/>
+                                                            <Label Text="7.5 miles" FontSize="12" TextColor="#888888"  HorizontalOptions="Start" VerticalOptions="Center"/>
+                                                        </StackLayout>
+
+                                                    </StackLayout>
+                                                </Grid>
+
+                                            </StackLayout>
+
+                                            <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0" Margin="0" >
+
+                                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                                    <Image Source="book.png"  HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="16" WidthRequest="16"/>
+                                                    <Label Text="Astrologers - Black Magic Remedy Experts +3more"  FontSize="13" TextColor="#888888"  HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+                                                    <!--<Label Text="+3more " FontSize="13" TextColor="#b2b2b2"  HorizontalOptions="StartAndExpand" VerticalOptions="Start"/> -->
+                                                </StackLayout>
+
+                                                <Grid >
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*" />
+                                                        <ColumnDefinition Width="*" />
+                                                        <ColumnDefinition Width="*" />
+                                                        <ColumnDefinition Width="*" />
+                                                        <ColumnDefinition Width="*" />
+                                                        <ColumnDefinition Width="*" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="auto" />
+                                                    </Grid.RowDefinitions>
+
+                                                    <StackLayout Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="5"  VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand"  Padding="0" Margin="0">
+
+                                                        <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
+                                                            <Image Source="placeholder.png"  HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="16" WidthRequest="16"/>
+                                                            <Label Text="7454 Airport Rd, Mississauga, ON L4T 2H5, Canada" FontSize="13" TextColor="#888888"  HorizontalOptions="Start" VerticalOptions="Center"/>
+                                                        </StackLayout>
+
+                                                    </StackLayout>
+                                                    <StackLayout Grid.Column="5"  Grid.Row="0" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0" Margin="0"  >
+                                                        <Image Source="contactcall.png"  HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="48" WidthRequest="48"/>
+                                                    </StackLayout>
+
+                                                </Grid>
+                                            </StackLayout>
+
+                                        </StackLayout>
+
+                                    </StackLayout>
+
+                                </StackLayout>
+
+                            </StackLayout>
+
+                        </Frame>
+                    </StackLayout>
+
+                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                        <Frame BackgroundColor="White" CornerRadius="4"  Padding="10" >
+
+                            <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="10,5,10,5" BackgroundColor="#f3f1f1">
+                                    <Image Source="offer.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="16" WidthRequest="16"/>
+                                    <Label Text="10% off on all services" FontSize="12" TextColor="#45a455"  HorizontalOptions="Start" VerticalOptions="Center"/>
+                                </StackLayout>
+
+                                <Label Text="Luxe Lash Bar Franchise Luxe Lash Bar Franchise Luxe Lash Bar Franchise " FontSize="15" TextColor="#2e2e2e" Margin="0,0,0,5" />
+
+                                <StackLayout Orientation="Horizontal"  VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+
+                                    <StackLayout VerticalOptions="Start" HorizontalOptions="Start"  WidthRequest="110">
+
+                                        <StackLayout BackgroundColor="#33a2d9" HeightRequest="68"  WidthRequest="68" Margin="0,4,0,0" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" >
+                                            <Label Text="R" FontSize="40" TextColor="#ffffff"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                                        </StackLayout>
+
+                                        <Frame BackgroundColor="#e6e5e5" CornerRadius="2"  Padding="0,5,0,5" HasShadow="False">
+                                            <Label Text="Closed now" FontSize="10" TextColor="#fe5757"  HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+                                        </Frame>
+
+                                    </StackLayout>
+
+                                    <StackLayout VerticalOptions="Start" HorizontalOptions="Start">
+                                        <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand"  Padding="0" >
+
+
+                                            <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0" Margin="0"  >
+                                                <Grid >
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="*" />
+                                                    </Grid.RowDefinitions>
+
+                                                    <StackLayout Grid.Column="0" Grid.Row="0"  VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0" >
+
+
+
+                                                        <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
+                                                            <Frame BackgroundColor="#45a455" CornerRadius="2"  Padding="5, 3, 5, 3">
+                                                                <Label Text="7.5" FontSize="10" TextColor="#ffffff"  HorizontalOptions="Start" VerticalOptions="Center"/>
+                                                            </Frame>
+                                                            <Label Text="1585 Rattings" FontSize="11" TextColor="#888888"  HorizontalOptions="Start" VerticalOptions="Center"/>
+                                                        </StackLayout>
+
+                                                    </StackLayout>
+                                                    <StackLayout Grid.Column="1" Grid.Row="0"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Padding="0">
+
+                                                        <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
+                                                            <Image Source="book.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="16" WidthRequest="16"/>
+                                                            <Label Text="7.5 miles" FontSize="12" TextColor="#888888"  HorizontalOptions="Start" VerticalOptions="Center"/>
+                                                        </StackLayout>
+
+                                                    </StackLayout>
+                                                </Grid>
+
+                                            </StackLayout>
+
+                                            <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0" Margin="0" >
+
+                                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                                    <Image Source="book.png"  HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="16" WidthRequest="16"/>
+                                                    <Label Text="Astrologers - Black Magic Remedy Experts +3more"  FontSize="13" TextColor="#888888"  HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+                                                    <!--<Label Text="+3more " FontSize="13" TextColor="#b2b2b2"  HorizontalOptions="StartAndExpand" VerticalOptions="Start"/> -->
+                                                </StackLayout>
+
+                                                <Grid >
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*" />
+                                                        <ColumnDefinition Width="*" />
+                                                        <ColumnDefinition Width="*" />
+                                                        <ColumnDefinition Width="*" />
+                                                        <ColumnDefinition Width="*" />
+                                                        <ColumnDefinition Width="*" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="auto" />
+                                                    </Grid.RowDefinitions>
+
+                                                    <StackLayout Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="5"  VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand"  Padding="0" Margin="0">
+
+                                                        <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
+                                                            <Image Source="placeholder.png"  HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="16" WidthRequest="16"/>
+                                                            <Label Text="7454 Airport Rd, Mississauga, ON L4T 2H5, Canada" FontSize="13" TextColor="#888888"  HorizontalOptions="Start" VerticalOptions="Center"/>
+                                                        </StackLayout>
+
+                                                    </StackLayout>
+                                                    <StackLayout Grid.Column="5"  Grid.Row="0" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0" Margin="0"  >
+                                                        <Image Source="contactcall.png"  HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="48" WidthRequest="48"/>
+                                                    </StackLayout>
+
+                                                </Grid>
+                                            </StackLayout>
+
+                                        </StackLayout>
+                                    </StackLayout>
+
+                                </StackLayout>
+                            </StackLayout>
+
+                        </Frame>
+                    </StackLayout>
+
+                
+                
+                </StackLayout>
+
+
+
+
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

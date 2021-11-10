@@ -1,0 +1,426 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:local="clr-namespace:NRIApp.Helpers"
+             x:Class="NRIApp.USHome.Views.HomeScreenPage">
+    <!--<ContentPage.Resources>
+        <StyleSheet Source="Styles/Mystyle.css" />
+    </ContentPage.Resources>-->
+   
+    <ContentPage.ToolbarItems>
+        <ToolbarItem  Icon="location24.png" Priority="0" Command="{Binding usercitychangedcommand}" />
+        <ToolbarItem  Icon="search24.png" Priority="1" Command="{Binding OpenHomesearchcommand}"  />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout BackgroundColor="#ecf2f4"  x:Name="stackdata">
+                <StackLayout Padding="10,10,10,0">
+                    <Grid ColumnSpacing="10" RowSpacing="20">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+
+                        </Grid.RowDefinitions>
+
+
+                        <!--<StackLayout  Grid.Column="0" Grid.Row="0" >
+                            <Frame BackgroundColor="White" CornerRadius="4"  Padding="5" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" >
+                                <StackLayout>
+                                    <Image Source="EventHome.png"  HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" HeightRequest="72" />
+                                    <Label Text="Events " FontSize="13" TextColor="#888888"  HorizontalOptions="CenterAndExpand" VerticalOptions="Start" Margin="0,-5,0,10"/>
+                                </StackLayout>
+                            </Frame>
+
+                        </StackLayout>-->
+                        <StackLayout  Grid.Column="0" Grid.Row="0" >
+                            <Frame BackgroundColor="White" CornerRadius="4" Padding="5"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                                <StackLayout>
+                                    <Image Source="ITTrainingHome.png"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  HeightRequest="72"  />
+                                    <Label Text="IT Training " FontSize="13" TextColor="#888888"  HorizontalOptions="CenterAndExpand" VerticalOptions="Start" Margin="0,-5,0,10"/>
+                                </StackLayout>
+                            </Frame>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TechjobsTap"></TapGestureRecognizer>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <StackLayout  Grid.Column="1" Grid.Row="0" >
+                            <Frame BackgroundColor="White" CornerRadius="4"  Padding="5" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                                <StackLayout>
+                                    <Image Source="LocalServicesHome.png"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  HeightRequest="72"  />
+                                  
+                                    <Label Text="Local Services" FontSize="13" TextColor="#888888"  HorizontalOptions="CenterAndExpand" VerticalOptions="Start" Margin="0,-5,0,10"/>
+                                </StackLayout>
+                            </Frame>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="ServicesTap"></TapGestureRecognizer>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <!--<StackLayout  Grid.Column="0" Grid.Row="1">
+                            <Frame BackgroundColor="White" CornerRadius="4"  Padding="5" >
+                                <StackLayout>
+                                    <Image Source="JobsHome.png"  HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" HeightRequest="72" />
+                                    <Label Text="Jobs" FontSize="13" TextColor="#888888"  HorizontalOptions="CenterAndExpand" VerticalOptions="Start" Margin="0,-5,0,10"/>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>-->
+                        <StackLayout  Grid.Column="0" Grid.Row="1">
+                            <Frame BackgroundColor="White" CornerRadius="4"  Padding="5" >
+                                <StackLayout>
+                                    <Image Source="RoommatesHome.png"  HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" HeightRequest="72" />
+                                    <Label Text="Roommates" FontSize="13" TextColor="#888888"  HorizontalOptions="CenterAndExpand" VerticalOptions="Start" Margin="0,-5,0,10"/>
+                                </StackLayout>
+                            </Frame>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding RoommatesCmd}"></TapGestureRecognizer>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <StackLayout  Grid.Column="1" Grid.Row="1">
+                            <Frame BackgroundColor="White" CornerRadius="4"  Padding="5" >
+                                <StackLayout>
+                                    <Image Source="RentalsHome.png"  HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" HeightRequest="72" />
+                                    <Label Text="Rentals " FontSize="13" TextColor="#888888"  HorizontalOptions="CenterAndExpand" VerticalOptions="Start" Margin="0,-5,0,10"/>
+                                </StackLayout>
+                            </Frame>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding RentalsCmd}"></TapGestureRecognizer>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <StackLayout  Grid.Column="0" Grid.Row="2">
+                            <Frame BackgroundColor="White" CornerRadius="4"  Padding="5" >
+                                <StackLayout>
+                                    <Image Source="EventHome.png"  HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" HeightRequest="72" />
+                                    <Label Text="Events" FontSize="13" TextColor="#888888"  HorizontalOptions="CenterAndExpand" VerticalOptions="Start" Margin="0,-5,0,10"/>
+                                </StackLayout>
+                            </Frame>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="EventsTap"></TapGestureRecognizer>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <!--<StackLayout  Grid.Column="0" Grid.Row="2">
+                            <Frame BackgroundColor="White" CornerRadius="4"  Padding="5" >
+                                <StackLayout>
+                                    <Image Source="TravelsHome.png"  HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" HeightRequest="72" />
+                                    <Label Text="Travels" FontSize="13" TextColor="#888888"  HorizontalOptions="CenterAndExpand" VerticalOptions="Start" Margin="0,-5,0,10"/>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>-->
+                        <!--<StackLayout  Grid.Column="0" Grid.Row="2">
+                            <Frame BackgroundColor="White" CornerRadius="4"  Padding="5" >
+                                <StackLayout>
+                                    <Image Source="JobsHome.png"  HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" HeightRequest="72" />
+                                    <Label Text="Events" FontSize="13" TextColor="#888888"  HorizontalOptions="CenterAndExpand" VerticalOptions="Start" Margin="0,-5,0,10"/>
+                                </StackLayout>
+                            </Frame>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="EventsTap"></TapGestureRecognizer>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <StackLayout  Grid.Column="1" Grid.Row="2">
+                            <Frame BackgroundColor="White" CornerRadius="4"  Padding="5" >
+                                <StackLayout>
+                                    <Image Source="DaycareHome.png"  HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" HeightRequest="72" />
+                                    <Label Text="Daycare" FontSize="13" TextColor="#888888"  HorizontalOptions="CenterAndExpand" VerticalOptions="Start" Margin="0,-5,0,10"/>
+                                </StackLayout>
+                            </Frame>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding DaycareCmd}"></TapGestureRecognizer>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <StackLayout  Grid.Column="0" Grid.Row="3">
+                            <Frame BackgroundColor="White" CornerRadius="4"  Padding="5" >
+                                <StackLayout>
+                                    <Image Source="JobsHome.png"  HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" HeightRequest="72" />
+                                    <Label Text="Jobs" FontSize="13" TextColor="#888888"  HorizontalOptions="CenterAndExpand" VerticalOptions="Start" Margin="0,-5,0,10"/>
+                                </StackLayout>
+                            </Frame>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="jobsTap"></TapGestureRecognizer>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>-->
+                    </Grid>
+                </StackLayout>
+
+                <StackLayout BackgroundColor="White" Padding="0,10,0,20">
+                    <StackLayout Orientation="Horizontal" Padding="10" >
+                        <Label Text="Most Popular Services" TextColor="Black"  FontSize="18" VerticalOptions="Start" HorizontalOptions="StartAndExpand"  />
+                        <Label Text="View all " TextColor="#f65a29"  FontSize="12" VerticalOptions="End" HorizontalOptions="End" >
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="ServicesTap"></TapGestureRecognizer>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </StackLayout>
+
+                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                        <local:HVScrollGridView ListOrientation="Horizontal" x:Name="lslist"
+                                    ItemsSource="{Binding GetLslist}"
+									VerticalOptions="Start">
+                            <local:HVScrollGridView.ItemTemplate>
+                                <DataTemplate>
+                                    <ContentView>
+                                        <ContentView.Content>
+
+                                            <StackLayout  VerticalOptions="Start" HorizontalOptions="FillAndExpand" WidthRequest="150"  Margin="10,0,10,0" >
+                                                <Image Source="TechnicalSupportServices.png" HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="36" />
+                                                <Label Text="{Binding primarytag}"
+                                               LineBreakMode="MiddleTruncation"
+                                                       HorizontalOptions="Center"
+                                                       VerticalOptions="Start"
+                                               VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="Black" FontSize="11"/>
+                                                <StackLayout.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding Path=BindingContext.lscommand, Source = {x:Reference lslist}}" CommandParameter="{Binding}"/>
+                                                </StackLayout.GestureRecognizers>
+                                            </StackLayout>
+
+                                        </ContentView.Content>
+                                    </ContentView>
+                                </DataTemplate>
+                            </local:HVScrollGridView.ItemTemplate>
+                        </local:HVScrollGridView>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout  Padding="0,10,0,20">
+                    <StackLayout Orientation="Horizontal" Padding="10" >
+                        <Label Text="Latest IT Training Courses" TextColor="Black"  FontSize="18" VerticalOptions="Start" HorizontalOptions="StartAndExpand"  />
+                        <Label Text="View all " TextColor="#f65a29"  FontSize="12" VerticalOptions="End" HorizontalOptions="End">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TechjobsTap"></TapGestureRecognizer>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </StackLayout>
+
+                    <StackLayout VerticalOptions="Start" Orientation="Horizontal" HorizontalOptions="FillAndExpand" >
+
+                        <!--<ScrollView Orientation="Horizontal" >
+
+                            <Grid Padding="10,10,0,10" ColumnSpacing="10">-->
+
+
+                        <local:HVScrollGridView ListOrientation="Horizontal" x:Name="Courselist"
+                                    ItemsSource="{Binding GetTechjobslist}"
+                                   
+									VerticalOptions="Start">
+                            <local:HVScrollGridView.ItemTemplate >
+                                <DataTemplate>
+                                    <ContentView>
+                                        <ContentView.Content>
+
+                                            <StackLayout  VerticalOptions="Start" HorizontalOptions="FillAndExpand" WidthRequest="150"  Margin="10,0,10,0" >
+                                                <Image Source="{Binding imagepath}" Aspect="Fill"  HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="80" />
+                                                <Label Text="{Binding tag}"
+                                               LineBreakMode="MiddleTruncation"
+                                                       HorizontalOptions="Center"
+                                                       VerticalOptions="Start"
+                                               VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="Black" FontSize="11"/>
+                                                <StackLayout.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding Path=BindingContext.Ittrainingcommand, Source = {x:Reference Courselist}}" CommandParameter="{Binding}"/>
+                                                </StackLayout.GestureRecognizers>
+                                            </StackLayout>
+                                        </ContentView.Content>
+                                    </ContentView>
+                                </DataTemplate>
+                            </local:HVScrollGridView.ItemTemplate>
+                        </local:HVScrollGridView>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout BackgroundColor="White"  Padding="0,10,0,20">
+                    <StackLayout Orientation="Horizontal" Padding="10" >
+                        <Label Text="Rentals" TextColor="Black"  FontSize="18" VerticalOptions="Start" HorizontalOptions="StartAndExpand"  />
+                        <Label Text="View all " TextColor="#f65a29"  FontSize="12" VerticalOptions="End" HorizontalOptions="End"  />
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding RTViewAllCmd}"></TapGestureRecognizer>
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+
+                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                        <ScrollView Orientation="Horizontal">
+                            <Grid Padding="10,10,0,10" ColumnSpacing="10" >
+                                <StackLayout  Grid.Column="0" Grid.Row="0" VerticalOptions="Start" HorizontalOptions="FillAndExpand" WidthRequest="100"  >
+                                    <Frame CornerRadius="4" Padding="0">
+                                        <StackLayout VerticalOptions="Start" HorizontalOptions="CenterAndExpand" HeightRequest="80" >
+                                            <Image Source="SingleFamilyhome.png" WidthRequest="36" VerticalOptions="Start" HorizontalOptions="CenterAndExpand" Margin="0,10,0,0" />
+                                            <Label Text="Single Family." TextColor="#444444"  FontSize="10" VerticalOptions="Start" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                        </StackLayout>
+                                    </Frame>
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding SingleFamilyCmd}"></TapGestureRecognizer>
+                                    </StackLayout.GestureRecognizers>
+                                </StackLayout>
+
+                                <StackLayout  Grid.Column="1" Grid.Row="0" VerticalOptions="Start" HorizontalOptions="FillAndExpand" WidthRequest="100"  >
+                                    <Frame CornerRadius="4"  Padding="0">
+                                        <StackLayout VerticalOptions="Start" HorizontalOptions="CenterAndExpand" HeightRequest="80" >
+                                            <Image Source="ApartmentFlats.png"  WidthRequest="36" VerticalOptions="Start" HorizontalOptions="CenterAndExpand" Margin="0,10,0,0"  />
+                                            <Label Text="Apartment" TextColor="#444444"  FontSize="10" VerticalOptions="Start" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                        </StackLayout>
+                                    </Frame>
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding ApartmentCmd}"></TapGestureRecognizer>
+                                    </StackLayout.GestureRecognizers>
+                                </StackLayout>
+
+                                <StackLayout  Grid.Column="2" Grid.Row="0" VerticalOptions="Start" HorizontalOptions="FillAndExpand" WidthRequest="100"  >
+                                    <Frame CornerRadius="4"  Padding="0">
+                                        <StackLayout VerticalOptions="Start" HorizontalOptions="CenterAndExpand" HeightRequest="80" >
+                                            <Image Source="Condo.png" WidthRequest="36" VerticalOptions="Start" HorizontalOptions="CenterAndExpand"  Margin="0,10,0,0" />
+                                            <Label Text="Condo" TextColor="#444444"  FontSize="10" VerticalOptions="Start" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                        </StackLayout>
+                                    </Frame>
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding CondoCmd}"></TapGestureRecognizer>
+                                    </StackLayout.GestureRecognizers>
+                                </StackLayout>
+
+                                <StackLayout  Grid.Column="3" Grid.Row="0" VerticalOptions="Start" HorizontalOptions="FillAndExpand" WidthRequest="100"  >
+                                    <Frame CornerRadius="4"  Padding="0">
+                                        <StackLayout VerticalOptions="Start" HorizontalOptions="CenterAndExpand" HeightRequest="80" >
+                                            <Image Source="Townhouse.png" WidthRequest="36" VerticalOptions="Start" HorizontalOptions="CenterAndExpand" Margin="0,10,0,0"  />
+                                            <Label Text="Town house" TextColor="#444444"  FontSize="10" VerticalOptions="Start" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                        </StackLayout>
+                                    </Frame>
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding TownHouseCmd}"></TapGestureRecognizer>
+                                    </StackLayout.GestureRecognizers>
+                                </StackLayout>
+
+                                <StackLayout  Grid.Column="4" Grid.Row="0" VerticalOptions="Start" HorizontalOptions="FillAndExpand" WidthRequest="100"  >
+                                    <Frame CornerRadius="4"  Padding="0">
+                                        <StackLayout VerticalOptions="Start" HorizontalOptions="CenterAndExpand" HeightRequest="80" >
+                                            <Image Source="Homes.png" WidthRequest="36" VerticalOptions="Start" HorizontalOptions="CenterAndExpand" Margin="0,10,0,0"  />
+                                            <Label Text="Homes" TextColor="#444444"  FontSize="10" VerticalOptions="Start" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                        </StackLayout>
+                                    </Frame>
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding HomesCmd}"></TapGestureRecognizer>
+                                    </StackLayout.GestureRecognizers>
+                                </StackLayout>
+                                <StackLayout  Grid.Column="5" Grid.Row="0" VerticalOptions="Start" HorizontalOptions="FillAndExpand" WidthRequest="100"  >
+                                    <Frame CornerRadius="4" OutlineColor="Black" Padding="0">
+                                        <StackLayout VerticalOptions="Start" HorizontalOptions="CenterAndExpand" HeightRequest="80" >
+                                            <Image Source="Houses.png" WidthRequest="36" VerticalOptions="Start" HorizontalOptions="CenterAndExpand"  Margin="0,10,0,0" />
+                                            <Label Text="Houses" TextColor="#444444"  FontSize="10" VerticalOptions="Start" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                        </StackLayout>
+                                    </Frame>
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding HousesCmd}"></TapGestureRecognizer>
+                                    </StackLayout.GestureRecognizers>
+                                </StackLayout>
+                                <StackLayout  Grid.Column="6" Grid.Row="0" VerticalOptions="Start" HorizontalOptions="FillAndExpand" WidthRequest="100"  >
+                                    <Frame CornerRadius="4"  Padding="0">
+                                        <StackLayout VerticalOptions="Start" HorizontalOptions="CenterAndExpand" HeightRequest="80" >
+                                            <Image Source="Hostels.png" WidthRequest="36" VerticalOptions="Start" HorizontalOptions="CenterAndExpand"  Margin="0,10,0,0" />
+                                            <Label Text="Hostels" TextColor="#444444"  FontSize="10" VerticalOptions="Start" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                        </StackLayout>
+                                    </Frame>
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding HostelsCmd}"></TapGestureRecognizer>
+                                    </StackLayout.GestureRecognizers>
+                                </StackLayout>
+
+
+                                <StackLayout  Grid.Column="7" Grid.Row="0" VerticalOptions="Start" HorizontalOptions="FillAndExpand" WidthRequest="100"  >
+                                    <Frame CornerRadius="4"  Padding="0">
+                                        <StackLayout VerticalOptions="Start" HorizontalOptions="CenterAndExpand" HeightRequest="80" >
+                                            <Image Source="Hotels.png" WidthRequest="36" VerticalOptions="Start" HorizontalOptions="CenterAndExpand"  Margin="0,10,0,0" />
+                                            <Label Text="Hotels" TextColor="#444444"  FontSize="10" VerticalOptions="Start" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                        </StackLayout>
+                                    </Frame>
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding HotelsCmd}"></TapGestureRecognizer>
+                                    </StackLayout.GestureRecognizers>
+                                </StackLayout>
+                                <StackLayout  Grid.Column="8" Grid.Row="0" VerticalOptions="Start" HorizontalOptions="FillAndExpand" WidthRequest="100"  >
+                                    <Frame CornerRadius="4" Padding="0">
+                                        <StackLayout VerticalOptions="Start" HorizontalOptions="CenterAndExpand" HeightRequest="80" >
+                                            <Image Source="BasementApartment.png" WidthRequest="36" VerticalOptions="Start" HorizontalOptions="CenterAndExpand"  Margin="0,10,0,0" />
+                                            <Label Text="Basement.." TextColor="#444444"  FontSize="10" VerticalOptions="Start" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                        </StackLayout>
+                                    </Frame>
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding BasementApartmentCmd}"></TapGestureRecognizer>
+                                    </StackLayout.GestureRecognizers>
+                                </StackLayout>
+                                <StackLayout  Grid.Column="9" Grid.Row="0" VerticalOptions="Start" HorizontalOptions="FillAndExpand" WidthRequest="100"  >
+                                    <Frame CornerRadius="4" Padding="0">
+                                        <StackLayout VerticalOptions="Start" HorizontalOptions="CenterAndExpand" HeightRequest="80" >
+                                            <Image Source="ParkingGarage.png" WidthRequest="36" VerticalOptions="Start" HorizontalOptions="CenterAndExpand"  Margin="0,10,0,0" />
+                                            <Label Text="Parking Garage" TextColor="#444444"  FontSize="10" VerticalOptions="Start" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                        </StackLayout>
+                                    </Frame>
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding ParkingGarageCmd}"></TapGestureRecognizer>
+                                    </StackLayout.GestureRecognizers>
+                                </StackLayout>
+                            </Grid>
+                        </ScrollView>
+                    </StackLayout>
+                </StackLayout>
+
+                <StackLayout  Padding="0,10,0,20">
+                    <StackLayout Orientation="Horizontal" Padding="10" >
+                        <Label Text="Roommates" TextColor="Black"  FontSize="18" VerticalOptions="Start" HorizontalOptions="StartAndExpand"  />
+                        <Label Text="View all " TextColor="#f65a29"  FontSize="12" VerticalOptions="End" HorizontalOptions="End"  />
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding RMViewAllCmd}" ></TapGestureRecognizer>
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+
+                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                        <Grid Padding="10,0,10,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto" />
+                            </Grid.RowDefinitions>
+
+                            <StackLayout  Grid.Column="0" Grid.Row="0" VerticalOptions="Start" HorizontalOptions="FillAndExpand"   >
+                                <Frame CornerRadius="4"  Padding="0">
+                                    <StackLayout VerticalOptions="Start" HorizontalOptions="CenterAndExpand" HeightRequest="80" >
+                                        <Image Source="SingleRoom.png" WidthRequest="36" VerticalOptions="Start" HorizontalOptions="CenterAndExpand" Margin="0,10,0,0" />
+                                        <Label Text="Single Room" TextColor="#444444"  FontSize="10" VerticalOptions="Start" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                    </StackLayout>
+                                </Frame>
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding SingleCmd}"></TapGestureRecognizer>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+
+                            <StackLayout  Grid.Column="1" Grid.Row="0" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                <Frame CornerRadius="4"  Padding="0">
+                                    <StackLayout VerticalOptions="Start" HorizontalOptions="CenterAndExpand" HeightRequest="80" >
+                                        <Image Source="SharedRoom.png"  WidthRequest="36" VerticalOptions="Start" HorizontalOptions="CenterAndExpand" Margin="0,10,0,0"  />
+                                        <Label Text="Shared Room" TextColor="#444444"  FontSize="10" VerticalOptions="Start" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                    </StackLayout>
+                                </Frame>
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding SharedCmd}"></TapGestureRecognizer>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+
+                            <StackLayout  Grid.Column="2" Grid.Row="0" VerticalOptions="Start" HorizontalOptions="FillAndExpand"  >
+                                <Frame CornerRadius="4"  Padding="0">
+                                    <StackLayout VerticalOptions="Start" HorizontalOptions="CenterAndExpand" HeightRequest="80" >
+                                        <Image Source="PayingGuest.png" WidthRequest="36" VerticalOptions="Start" HorizontalOptions="CenterAndExpand"  Margin="0,10,0,0" />
+                                        <Label Text="Paying Guest" TextColor="#444444"  FontSize="10" VerticalOptions="Start" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                    </StackLayout>
+                                </Frame>
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding PayingCmd}"></TapGestureRecognizer>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                        </Grid>
+                    </StackLayout>
+
+                </StackLayout>
+            </StackLayout>
+
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NRIApp.DayCare.Features.Post.Views.Location"
+             xmlns:SUL="clr-namespace:NRIApp.Controls"
+             xmlns:H="clr-namespace:NRIApp.Helpers">
+    <ContentPage.Content>
+        <AbsoluteLayout >
+            <StackLayout  AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" BackgroundColor="White"
+                          VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+
+                <ScrollView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                    <StackLayout Padding="10" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                        <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                            <StackLayout x:Name="changecitylayout"  VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+                                <StackLayout  VerticalOptions="Start" HorizontalOptions="FillAndExpand"  Padding="0,0,0,0">
+
+
+                                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0,0,0,5" >
+
+                                        <Label x:Name="locationsmltxt" Text="Select City " TextColor="#919191" FontSize="12" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Style="{StaticResource FontRegular}"    >
+                                            <Label.Margin>
+                                                <OnPlatform x:TypeArguments="Thickness" iOS="0,0,0,0" Android="0,0,0,-10" ></OnPlatform>
+                                            </Label.Margin>
+                                        </Label>
+                                        
+                                        <StackLayout   VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                            <SUL:CustomEntry x:Name="txtlocation" Style="{StaticResource FontRegularEntry}" VerticalOptions="CenterAndExpand" HideBorder="True" HorizontalOptions="FillAndExpand" Text="{Binding LocationName}"  Placeholder="Select the city" ReturnKeyType="Next" NextView="{x:Reference txtaddresslocation}" PlaceholderColor="#bbbbbb" >
+                                            </SUL:CustomEntry>
+
+                                            <BoxView BackgroundColor="#999999" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,0" />
+                                        </StackLayout>
+
+                                    </StackLayout>
+
+                                </StackLayout>
+
+                                <StackLayout x:Name="locationlist" IsVisible="{Binding citylistbvisble}"  Margin="25,-20,0,0" >
+                                    <H:ListviewScrollbar x:Name="locationlistdata" ItemsSource="{Binding locationlist}" HasUnevenRows="True" SeparatorVisibility="None"
+									VerticalOptions="Start">
+                                        <H:ListviewScrollbar.ItemTemplate>
+                                            <DataTemplate>
+                                                <ViewCell>
+                                                    <Frame Margin="0" Padding="0" HasShadow="False">
+                                                        <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="Start" BackgroundColor="#f8f8f8"  Margin="0,0,0,2" >
+                                                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Padding="2,8,2,8"  >
+                                                                <Label FontSize="14" Text="{Binding citystatecode}" Style="{StaticResource FontRegular}" TextColor="#212121" Margin="0,0,0,5" />
+                                                            </StackLayout>
+                                                            <BoxView HeightRequest="1" BackgroundColor="#e0e0e0" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand"/>
+
+                                                            <StackLayout.GestureRecognizers>
+                                                                <TapGestureRecognizer Command="{Binding Path=BindingContext.SelectLocation, Source = {x:Reference locationlistdata}}" CommandParameter="{Binding}"/>
+                                                            </StackLayout.GestureRecognizers>
+                                                        </StackLayout>
+                                                    </Frame>
+                                                </ViewCell>
+                                            </DataTemplate>
+                                        </H:ListviewScrollbar.ItemTemplate>
+                                    </H:ListviewScrollbar>
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+
+
+                        <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                            <StackLayout x:Name="changeaddresslayout"  VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+                                <StackLayout  VerticalOptions="Start" HorizontalOptions="FillAndExpand"  Padding="0,0,0,5">
+
+
+                                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0,0,0,0" >
+
+                                        <Label x:Name="addresssmltxt" Text="Address Location " TextColor="#919191" FontSize="12" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Style="{StaticResource FontRegular}"    >
+                                            <Label.Margin>
+                                                <OnPlatform x:TypeArguments="Thickness" iOS="0,0,0,0" Android="0,0,0,-10" ></OnPlatform>
+                                            </Label.Margin>
+                                        </Label>
+                                        <StackLayout   VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                            <SUL:CustomEntry x:Name="txtaddresslocation" Style="{StaticResource FontRegularEntry}" VerticalOptions="CenterAndExpand" HideBorder="True" HorizontalOptions="FillAndExpand" Text="{Binding addresslocationname}"  Placeholder="Select your Address" ReturnKeyType="Done" PlaceholderColor="#bbbbbb" >
+                                            </SUL:CustomEntry>
+
+                                            <BoxView BackgroundColor="#999999" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,0" />
+                                        </StackLayout>
+
+                                    </StackLayout>
+
+                                </StackLayout>
+
+                                <StackLayout x:Name="addresslocationlist" IsVisible="{Binding addresslistvisible}" Margin="35,-15,0,0" >
+                                    <H:ListviewScrollbar  HasUnevenRows="True" SeparatorVisibility="None" ItemsSource="{Binding googleadd}"
+									
+                                   x:Name="addresslistdata"
+									VerticalOptions="Start">
+                                        <H:ListviewScrollbar.ItemTemplate>
+                                            <DataTemplate>
+                                                <ViewCell>
+                                                    <Frame Margin="0" Padding="0" HasShadow="False">
+                                                        <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="Start" BackgroundColor="#f8f8f8"  Margin="0,0,0,2" >
+                                                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Padding="2,8,2,8"  >
+                                                                <Label FontSize="14" Text="{Binding Description}" Style="{StaticResource FontRegular}" TextColor="#212121" Margin="0,0,0,5" />
+                                                            </StackLayout>
+                                                            <BoxView HeightRequest="1" BackgroundColor="#e0e0e0" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand"/>
+                                                            <StackLayout.GestureRecognizers>
+                                                                <TapGestureRecognizer Command="{Binding Path=BindingContext.SelectAddressLocation, Source = {x:Reference locationlistdata}}" CommandParameter="{Binding}"/>
+                                                            </StackLayout.GestureRecognizers>
+                                                        </StackLayout>
+                                                    </Frame>
+                                                </ViewCell>
+                                            </DataTemplate>
+                                        </H:ListviewScrollbar.ItemTemplate>
+                                    </H:ListviewScrollbar>
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+
+                        <StackLayout  VerticalOptions="Center" HorizontalOptions="FillAndExpand" Padding="0,0,0,5"  >
+                            <Label Text="Zipcode" TextColor="#919191" FontSize="12" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Style="{StaticResource FontRegular}" Margin="0"    />
+                            <SUL:CustomEntry x:Name="Zipcodetxt" TextColor="#212121" Style="{StaticResource FontRegularEntry}" VerticalOptions="CenterAndExpand" HideBorder="True" HorizontalOptions="FillAndExpand" Text="{Binding zipcode}"  Placeholder="Zipcode" ReturnKeyType="Done" PlaceholderColor="#bbbbbb" >
+                            </SUL:CustomEntry>
+                        </StackLayout>
+                        <BoxView BackgroundColor="Gray" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,15">
+                        </BoxView>
+
+                      
+                        <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Orientation="Horizontal" Margin="0,10,0,0">
+                            <Image x:Name="mapcheckbximg" Source="{Binding showmapImg}" HeightRequest="18" WidthRequest="18" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  >
+                            </Image>
+                            <Label Text="Don't Show Map and Driving Directions in my Ad Page" TextColor="#212121" FontSize="14" Style="{StaticResource FontRegular}" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  />
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding showmapcmd}"/>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+
+                     
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+
+
+            <StackLayout Margin="0" VerticalOptions="End"  BackgroundColor="White" Padding="0" HorizontalOptions="FillAndExpand" 
+                             AbsoluteLayout.LayoutBounds="0,1,1,1" AbsoluteLayout.LayoutFlags="All" >
+                <StackLayout Orientation="Vertical" Margin="0" VerticalOptions="End"  BackgroundColor="White" Padding="0" HorizontalOptions="FillAndExpand" >
+                    <Button Text="Next" Command="{Binding Locationcmd}" Style="{StaticResource FontRobotoBold}" FontSize="18" VerticalOptions="Start" HorizontalOptions="FillAndExpand" BackgroundColor="#fbaa19" TextColor="White" Parent="0,10,0,10"  />
+
+                    <StackLayout.Margin>
+                        <OnPlatform x:TypeArguments="Thickness" iOS="10,-10,10,20" Android="0,-10,0,0"></OnPlatform>
+                    </StackLayout.Margin>
+                </StackLayout>
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

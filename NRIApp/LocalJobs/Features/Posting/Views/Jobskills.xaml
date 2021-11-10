@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:extended="clr-namespace:Xamarin.Forms.Extended;assembly=Xamarin.Forms.Extended.InfiniteScrolling"
+             x:Class="NRIApp.LocalJobs.Features.Posting.Views.Jobskills"
+             xmlns:local="clr-namespace:NRIApp.Helpers" 
+             xmlns:SULEntry="clr-namespace:NRIApp.Controls">
+    <ContentPage.Content>
+        <AbsoluteLayout >
+            <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All"
+                          VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Margin="0,0,0,80">
+
+                
+                    <ScrollView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                        <!--<ScrollView.Behaviors>
+                            <extended:InfiniteScrollBehavior />
+                        </ScrollView.Behaviors>-->
+
+                    <StackLayout>
+                        <StackLayout x:Name="layoutcheckbox" BackgroundColor="White" Margin="0,0,0,1" Padding="10" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+
+                            <StackLayout  x:Name="layoutinnercheckbox" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="5" VerticalOptions="Start" HorizontalOptions="FillAndExpand"  Padding="0">
+
+                            </StackLayout>
+                            <StackLayout x:Name="Skillsmoreblk" IsVisible="False"  HorizontalOptions="FillAndExpand" VerticalOptions="Start" >
+                                <Image Source="downarrowGrey2.png"  HorizontalOptions="CenterAndExpand" VerticalOptions="Center" HeightRequest="26" WidthRequest="26"/>
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Morejobskills"/>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                            <ActivityIndicator x:Name="skillsloader" BackgroundColor="White"   Color="Gray" />
+                            
+                            
+                        </StackLayout>
+
+                        <StackLayout  VerticalOptions="Start" HorizontalOptions="FillAndExpand" BackgroundColor="White" Padding="15">
+                        
+                            <StackLayout  VerticalOptions="Start" HorizontalOptions="FillAndExpand" BackgroundColor="White" Padding="10,0,10,0" >
+                                <Label Text="Desired skills (Not in the list)" Style="{StaticResource FontRegularEntry}"  FontSize="14" TextColor="#3f6ad8"/>
+                         
+                            
+                        </StackLayout>
+                            <!--IsVisible="{Binding addnewskillvisible}"-->
+                            <StackLayout>
+                                <StackLayout x:Name="addnewskillvisible"  Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+                                    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                        <SULEntry:CustomEntry x:Name="addnewskillstxt"   Placeholder="Skill"  HorizontalOptions="FillAndExpand" Style="{StaticResource FontRegularEntry}" VerticalOptions="CenterAndExpand" HideBorder="True"   ReturnKeyType="Done"   PlaceholderColor="#c0c0c0" >
+                                        </SULEntry:CustomEntry>
+                                        <BoxView BackgroundColor="#c2c2c2" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,15">
+                                        </BoxView>
+                                    </StackLayout>
+
+                                    <StackLayout VerticalOptions="Start" HorizontalOptions="End">
+                                        <Button Text="Add" Clicked="addnewskillscmd" TextColor="White"  HorizontalOptions="End" BackgroundColor="#0ba283"  />
+                                    </StackLayout>
+                                </StackLayout>
+
+                                <!--<StackLayout>-->
+                                    <!--<Frame BackgroundColor="White" CornerRadius="4"    Margin="5,0,5,5" Padding="10" >-->
+                                        <!--<StackLayout>
+                                            --><!--<Label Text="Skills" FontSize="14"  VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" TextColor="#212121"  />--><!--
+                                            <local:HVScrollGridView x:Name="addnewskillList"  SelectedItemChanged="AddnewskillList_SelectedItemChanged" ListOrientation="Horizontal" ItemsSource="{Binding Getskills}"  >
+                                                <local:HVScrollGridView.ItemTemplate >
+                                                    <DataTemplate >
+                                                        <ContentView >
+                                                            <ContentView.Content>
+                                                                <StackLayout Orientation="Horizontal" HorizontalOptions="Start" Padding="0,5,0,5">
+                                                                    <Frame BackgroundColor="#e6e5e5" CornerRadius="2" HasShadow="False" Padding="10"  Margin="5,0,5,0" >
+                                                                <StackLayout>
+                                                                    <Label Text="{Binding .}" FontSize="12" TextColor="#333333" Style="{StaticResource FontRegular}"  LineBreakMode="NoWrap"   HorizontalOptions="Start" VerticalOptions="Center"/>
+                                                                    <Image Source="CloseIconFull2.png" HorizontalOptions="EndAndExpand"/>
+                                                                </StackLayout>
+                                                            </Frame>
+                                                            --><!--<StackLayout.GestureRecognizers>
+                                                                --><!--<TapGestureRecognizer Command="{Binding Path=BindingContext.Selectreportflag, Source = {x:Reference reportflag}}" CommandParameter="{Binding}"/>--><!--
+                                                                <TapGestureRecognizer Tapped="Newskill_Tap" BindingContext="{x:Reference addnewskillList}" />
+                                                            </StackLayout.GestureRecognizers>--><!--
+                                                                </StackLayout>
+                                                            </ContentView.Content>
+                                                        </ContentView>
+                                                    </DataTemplate>
+                                                </local:HVScrollGridView.ItemTemplate>
+                                            </local:HVScrollGridView>
+                                        </StackLayout>-->
+                                    <!--</Frame>-->
+                                <!--</StackLayout>-->
+                                <!--<Frame BackgroundColor="White" CornerRadius="4"    Margin="5,0,5,5" Padding="10" >-->
+                                    <StackLayout>
+
+                                        <local:HVScrollGridView x:Name="addnewskillList"  SelectedItemChanged="AddnewskillList_SelectedItemChanged" ListOrientation="Horizontal" ItemsSource="{Binding Getskills}"  >
+                                            <local:HVScrollGridView.ItemTemplate >
+                                                <DataTemplate >
+                                                    <ContentView >
+                                                        <ContentView.Content>
+                                                            <StackLayout Orientation="Horizontal" HorizontalOptions="Start" VerticalOptions="Start" Padding="0,5,0,5">
+                                                <Frame BackgroundColor="#e6e5e5" CornerRadius="2" HasShadow="False" Padding="10"  Margin="5,0,5,0" >
+                                                    <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="StartAndExpand">
+                                                        <Label Text="{Binding .}" FontSize="12" TextColor="#333333" Style="{StaticResource FontRegular}"  LineBreakMode="NoWrap"   HorizontalOptions="FillAndExpand" VerticalOptions="Center"/>
+                                                                        <Image Source="CloseIconFull2.png" HeightRequest="15" WidthRequest="15"  VerticalOptions="Center" HorizontalOptions="End"     />
+                                                    </StackLayout>
+                                                </Frame>
+                                               
+                                            </StackLayout>
+                                                        </ContentView.Content>
+                                                    </ContentView>
+                                                </DataTemplate>
+                                            </local:HVScrollGridView.ItemTemplate>
+                                        </local:HVScrollGridView>
+                                    </StackLayout>
+                                <!--</Frame>-->
+
+                            </StackLayout>
+                        </StackLayout>
+
+
+                    </StackLayout>
+
+                </ScrollView>
+               
+            </StackLayout>
+            <!--<ActivityIndicator x:Name="actindi" BackgroundColor="White"  IsVisible="{Binding IsBusy}"  IsRunning="{Binding IsBusy}"  Color="Gray" />-->
+                <!--</StackLayout>-->
+             <StackLayout  Margin="0" VerticalOptions="End"  BackgroundColor="White" Padding="0" HorizontalOptions="FillAndExpand" 
+                             AbsoluteLayout.LayoutBounds="0,1,1,1" AbsoluteLayout.LayoutFlags="All">
+                <Button x:Name="LS_leaftypesubmit" Command="{Binding Skillscommand}" BackgroundColor="#fbaa19" TextColor="White" Parent="0,10,0,10" Text="Next"  FontSize="14"  Style="{StaticResource FontBold}" VerticalOptions="End" HorizontalOptions="FillAndExpand"/>
+                    
+                 <!--<BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Margin="0" />-->
+                </StackLayout>
+
+        </AbsoluteLayout>
+
+    </ContentPage.Content>
+</ContentPage>

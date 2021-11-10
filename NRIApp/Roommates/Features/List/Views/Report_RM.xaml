@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NRIApp.Roommates.Features.List.Views.Report_RM"
+             xmlns:BH="clr-namespace:NRIApp.Behaviors"
+             xmlns:H="clr-namespace:NRIApp.Helpers"
+             xmlns:SUL="clr-namespace:NRIApp.Controls">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="White" VerticalOptions="FillAndExpand">
+
+            <ScrollView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <StackLayout Padding="10" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                    <Image Source="CloseIcon3.png" HeightRequest="20" WidthRequest="20"  VerticalOptions="Start" HorizontalOptions="End">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding CloseFlagpage}"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                     
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   Padding="5"   >
+                            <Image Source="flagIcon.png" HeightRequest="32" WidthRequest="32"   />
+                        </StackLayout>
+                        <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                            <SUL:CustomEntry x:Name="Reportlist" Style="{StaticResource FontRegularEntry}" Focused="Entry_Focused" Text="{Binding Reportlist}" Placeholder="{Binding Reportlist}"  PlaceholderColor="#c0c0c0" />
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding TapOnReportEntry}"/>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="End"   Padding="5"   >
+                            <Image Source="downarrowGrey.png" HeightRequest="20" WidthRequest="20"   />
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout Margin="35,-15,0,0" IsVisible="{Binding IsVisibleReportList}">
+                      
+                        <H:HVScrollGridView ListOrientation="Vertical"
+                                    ItemsSource="{Binding Listofreports}"
+                                   x:Name="Reportdata"
+									VerticalOptions="Start">
+                            <H:HVScrollGridView.ItemTemplate>
+                                <DataTemplate>
+                                    <ContentView>
+                                        <ContentView.Content>
+                                            <StackLayout BackgroundColor="#f8f8f8">
+                                                <StackLayout Padding="10,5,10,5"  VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                                    <Label FontSize="14" Text="{Binding reportlist}" Style="{StaticResource FontRegular}" TextColor="#212121" Margin="0,0,0,5" />
+                                                    <BoxView HeightRequest="1" BackgroundColor="#e0e0e0" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand"/>
+                                                </StackLayout>
+                                                <StackLayout.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding Path=BindingContext.selectreport, Source = {x:Reference Reportdata}}" CommandParameter="{Binding}"/>
+                                                </StackLayout.GestureRecognizers>
+                                            </StackLayout>
+                                        </ContentView.Content>
+                                    </ContentView>
+                                </DataTemplate>
+                            </H:HVScrollGridView.ItemTemplate>
+                        </H:HVScrollGridView>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   Padding="5"   >
+                            <Image Source="MailIcon.png" HeightRequest="32" WidthRequest="32"   />
+                        </StackLayout>
+                        <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                            <SUL:CustomEntry x:Name="ReportEmail" Style="{StaticResource FontRegularEntry}" Text="{Binding ReportEmail}" Placeholder="ContactEmail" PlaceholderColor="#c0c0c0"    />
+                        </StackLayout>
+
+                    </StackLayout>
+                   
+                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand"  Padding="0,0,0,15">
+
+                        <StackLayout VerticalOptions="Start" HorizontalOptions="Start"  Padding="5"  >
+                            <Image Source="MessageIcon.png" HeightRequest="32" WidthRequest="32"   />
+                        </StackLayout>
+
+                        <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                            <Editor x:Name="reasondesc" Text="{Binding FlagReason}" HeightRequest="100" BackgroundColor="#f7f7f7"  />
+                        </StackLayout>
+
+                    </StackLayout>
+                    <!--<StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Padding="5">
+                            <Image Source="PhoneIcon.png" HeightRequest="32" WidthRequest="32"   />
+                        </StackLayout>
+
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                            <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                               
+                                <SUL:CustomPicker Title="+1"  x:Name="countrycode" Image="ic_arrow_drop_down" HeightRequest="32" HideBorder="True" WidthRequest="70"  SelectedItem="{Binding Selectcountry}" ItemsSource="{Binding Countrycode}" Margin="0">
+                                    <SUL:CustomPicker.Items>
+                                        <x:String>+1</x:String>
+                                        <x:String>+91</x:String>
+                                    </SUL:CustomPicker.Items>
+                                </SUL:CustomPicker>
+                                
+                                <SUL:CustomEntry x:Name="txtcontactphone" VerticalOptions="CenterAndExpand" Keyboard="Numeric" HideBorder="True" ReturnKeyType="Done" HorizontalOptions="FillAndExpand" Text="{Binding Phoneno}"  Placeholder="98XXXXXX89"  PlaceholderColor="#c0c0c0" >
+                                    <SUL:CustomEntry.Behaviors>
+                                        <BH:NumericInputValidator />
+                                        <BH:MaxLengthValidator MaxLength="10"/>
+                                    </SUL:CustomEntry.Behaviors>
+                                </SUL:CustomEntry>
+                                
+                            </StackLayout>
+                        </StackLayout>
+                        --><!--<BoxView BackgroundColor="Gray" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,15">
+
+                        </BoxView>--><!--
+                    </StackLayout>-->
+                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Padding="5">
+                            <Image Source="PhoneIcon.png" HeightRequest="32" WidthRequest="32"   />
+                        </StackLayout>
+
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                            <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                                <SUL:CustomPicker Title="+1"  x:Name="countrycode" Image="ic_arrow_drop_down" HeightRequest="32" HideBorder="True" WidthRequest="70"  SelectedItem="{Binding Selectcountry}" ItemsSource="{Binding Countrycode}" Margin="0">
+                                    <SUL:CustomPicker.Items>
+                                        <x:String>+1</x:String>
+                                        <x:String>+91</x:String>
+                                    </SUL:CustomPicker.Items>
+                                </SUL:CustomPicker>
+
+                                <SUL:CustomEntry x:Name="txtcontactphone" Style="{StaticResource FontRegularEntry}" VerticalOptions="CenterAndExpand" Keyboard="Numeric" HideBorder="True" ReturnKeyType="Done" HorizontalOptions="FillAndExpand" Text="{Binding Phoneno}"  Placeholder="98XXXXXX89"  PlaceholderColor="#c0c0c0" >
+                                    <SUL:CustomEntry.Behaviors>
+                                        <BH:NumericInputValidator />
+                                        <BH:MaxLengthValidator MaxLength="10"/>
+                                    </SUL:CustomEntry.Behaviors>
+                                </SUL:CustomEntry>
+                            </StackLayout>
+                        </StackLayout>
+
+                    </StackLayout>
+                    <BoxView BackgroundColor="Gray" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,15">
+
+                    </BoxView>
+                </StackLayout>
+
+
+            </ScrollView>
+            <StackLayout VerticalOptions="End" HorizontalOptions="FillAndExpand" Margin="10" >
+                <!--<Button Text="submit" FontSize="18" VerticalOptions="Start" HorizontalOptions="FillAndExpand" BackgroundColor="#fbaa19" TextColor="White" Parent="0,10,0,10" />-->
+
+                <Button Text="Submit" Command="{Binding Reportsubmitcmd}" FontSize="18" VerticalOptions="Start" HorizontalOptions="FillAndExpand" BackgroundColor="#fbaa19" TextColor="White" />
+
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

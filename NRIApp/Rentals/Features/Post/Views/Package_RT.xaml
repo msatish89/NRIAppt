@@ -1,0 +1,892 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NRIApp.Rentals.Features.Post.Views.Package_RT" NavigationPage.HasNavigationBar="True" >
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#1e394d" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+
+             <!--<StackLayout BackgroundColor="#e30045">
+                        <Grid  HeightRequest="56" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                    <StackLayout Grid.Column="0" Grid.Row="0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"   >
+                        <Image Source="backleftarrow.png" HeightRequest="24" WidthRequest="24" >
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Backbutton_Tapped"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </StackLayout>
+                    <StackLayout Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="4" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
+                                <Label Text="Choose your package " FontFamily="Roboto-Regular.ttf#Roboto-Regular" TextColor="#ffffff"  FontSize="14"  />
+                            </StackLayout>
+
+                        </Grid>
+              </StackLayout>-->
+            <StackLayout  HorizontalOptions="EndAndExpand" VerticalOptions="Start" Margin="0,0,0,10" >
+                <Frame Padding="0" Margin="0" CornerRadius="4" BackgroundColor="#ffffff">
+                    <Label Text="Make Changes" HorizontalOptions="End" VerticalOptions="Center" FontSize="14" TextColor="#2e74f0" Style="{StaticResource FontRegular}" Margin="10,5,10,5"  />
+                </Frame>
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding TapOnMakeChanges}" />
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+            <!--<StackLayout>
+                <Label Text="Make Changes" HorizontalOptions="End" TextColor="White"/>
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding TapOnMakeChanges}" />
+                </StackLayout.GestureRecognizers>
+            </StackLayout>-->
+            <ScrollView>
+
+                <StackLayout BackgroundColor="#1e394d" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+
+
+
+                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="10,10,10,30" >
+
+                        <!--<StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start" >
+
+                            <Label Text="Choose your package " FontSize="16" Style="{StaticResource FontRegular}" TextColor="#ffffff" />
+
+                        </StackLayout>-->
+
+
+                        <ScrollView Orientation="Horizontal" >
+
+                            <StackLayout>
+
+                                <StackLayout  IsVisible="{Binding nonagentvisible}" Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                <Frame IsVisible="{Binding elitepkgvisible}"  CornerRadius="4" WidthRequest="280" OutlineColor="Black" Padding="0" VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+
+                                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+                                        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" HeightRequest="60" BackgroundColor="#b6feb8" Margin="1" >
+                                            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                                <Label Text="Elite" TextColor="#e30045"    FontSize="16" Style="{StaticResource FontRegular}"     VerticalOptions="Center" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                                <Label Text="{Binding elitepkgamnt}" TextColor="#08a182"   FontSize="18" Style="{StaticResource FontRobotoBold}" Margin="0,-10,0,0"  VerticalOptions="Center" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                            </StackLayout>
+                                            <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="End" HorizontalOptions="FillAndExpand" Margin="0" />
+                                        </StackLayout>
+
+                                        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="35" BackgroundColor="#f7f7f7" Margin="0,-5,0,0" Spacing="0" >
+                                            <Label Text="{Binding elitepkgdays}" TextColor="#414141"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                            <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="End" HorizontalOptions="FillAndExpand" Margin="0" />
+                                        </StackLayout>
+
+                                        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="35" BackgroundColor="#ffffff" Margin="0,-5,0,0" Spacing="0" >
+                                            <Label Text="15x more visibility and responses" TextColor="#414141"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                            <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+                                        </StackLayout>
+
+                                        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="60" BackgroundColor="#f7f7f7" Margin="0,-5,0,0" Spacing="0" >
+                                            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                                <Image Source="CheckedGreen.png"  HorizontalOptions="CenterAndExpand" VerticalOptions="Center" HeightRequest="20" WidthRequest="20" />
+                                                <Label Text="Featured on the US Home Page" TextColor="#414141"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                            </StackLayout>
+                                            <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+                                        </StackLayout>
+
+                                        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="70" BackgroundColor="#ffffff" Margin="0,-5,0,0" Spacing="0" >
+                                            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                                <Image Source="CheckedGreen.png"  HorizontalOptions="CenterAndExpand" VerticalOptions="Center" HeightRequest="20" WidthRequest="20" />
+                                                <Label Text="Featured on Rentals/Roommates Listing Page top section" TextColor="#414141"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                            </StackLayout>
+                                            <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+                                        </StackLayout>
+
+                                        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="70" BackgroundColor="#f7f7f7" Margin="0,-5,0,0" Spacing="0" >
+                                            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                                <Image Source="CheckedGreen.png"  HorizontalOptions="CenterAndExpand" VerticalOptions="Center" HeightRequest="20" WidthRequest="20" />
+                                                <Label Text="Featured on Rentals/Roommates Home Page spotlight section" TextColor="#414141"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                            </StackLayout>
+                                            <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+                                        </StackLayout>
+
+                                        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="35" BackgroundColor="#ffffff" Margin="0,-5,0,0" Spacing="0" >
+                                            <Label Text="Responses sent via e-mail" TextColor="#414141"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                            <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+                                        </StackLayout>
+
+                                        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="35" BackgroundColor="#f7f7f7" Margin="0,-5,0,0" Spacing="0" >
+                                            <Label Text="Dedicated Customer Support" TextColor="#414141"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                            <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+                                        </StackLayout>
+
+                                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="55" BackgroundColor="#ffffff" Margin="0,-5,0,0" Spacing="0" >
+
+                                            <Button Text="Select"
+                                                    TextColor="#ffffff"
+                                                    BackgroundColor="#03a497"
+                                                    BorderColor="#03a497"
+                                                    BorderWidth="1"
+                                                    BorderRadius="4"
+                                                    VerticalOptions="Center"
+                                                    HorizontalOptions="Center"                                                   
+                                                    FontSize="14" IsVisible="{Binding elitebtn}" WidthRequest="100" Command="{Binding TapOnElitePackage}" CommandParameter="{Binding elitepkgamnt}">
+
+                                            </Button>
+
+                                            <Button Text="Selected"
+                                                    TextColor="#ffffff"
+                                                    BackgroundColor="#e30045"
+                                                    BorderColor="#e30045"
+                                                    BorderWidth="1"
+                                                    BorderRadius="4"
+                                                    VerticalOptions="Center"
+                                                    HorizontalOptions="Center"                                                   
+                                                    FontSize="14" IsVisible="{Binding Selelitebtn}" WidthRequest="100"  Command="{Binding TapOnElitePackage}" CommandParameter="{Binding elitepkgamnt}"
+                                             />
+                                        </StackLayout>
+
+                                    </StackLayout>
+
+                                </Frame>
+
+                                <Frame IsVisible="{Binding premiumpluspkgvisible}" CornerRadius="4" WidthRequest="280" OutlineColor="Black" Padding="0" VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+
+                                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+
+                                        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" HeightRequest="60" BackgroundColor="#fdf2cb" Margin="1" >
+                                            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                                <Label Text="Premium+" TextColor="#e30045"    FontSize="16" Style="{StaticResource FontRegular}"     VerticalOptions="Center" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                                <Label Text="{Binding premiumpluspkgamnt}" TextColor="#08a182"   FontSize="18" Style="{StaticResource FontRobotoBold}" Margin="0,-10,0,0"  VerticalOptions="Center" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                            </StackLayout>
+                                            <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="End" HorizontalOptions="FillAndExpand" Margin="0" />
+                                        </StackLayout>
+                                        <StackLayout IsVisible="{Binding featuretlevisible}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="35" BackgroundColor="#f7f7f7" Margin="0,-5,0,0" Spacing="0" >
+                                            <Label Text="{Binding premiumplustotalads}" TextColor="#414141"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                            <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="End" HorizontalOptions="FillAndExpand" Margin="0" />
+                                        </StackLayout>
+                                        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="35" BackgroundColor="#f7f7f7" Margin="0,-5,0,0" Spacing="0" >
+                                            <Label Text="{Binding premiumpluspkgdays}" TextColor="#414141"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                            <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="End" HorizontalOptions="FillAndExpand" Margin="0" />
+                                        </StackLayout>
+
+                                        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="35" BackgroundColor="#ffffff" Margin="0,-5,0,0" Spacing="0" >
+                                            <Label Text="10x more visibility and responses" TextColor="#414141"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                            <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+                                        </StackLayout>
+
+                                        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="60" BackgroundColor="#f7f7f7" Margin="0,-5,0,0" Spacing="0" >
+                                            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                                <Image Source="CloseIcon4.png"  HorizontalOptions="CenterAndExpand" VerticalOptions="Center" HeightRequest="20" WidthRequest="20" />
+                                                <Label Text="Featured on the US Home Page" TextColor="#848484"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                            </StackLayout>
+                                            <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+                                        </StackLayout>
+
+                                        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="70" BackgroundColor="#ffffff" Margin="0,-5,0,0" Spacing="0" >
+                                            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                                <Image Source="CloseIcon4.png"  HorizontalOptions="CenterAndExpand" VerticalOptions="Center" HeightRequest="20" WidthRequest="20" />
+                                                <Label Text="Featured on Rentals/Roommates Listing Page top section" TextColor="#848484"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                            </StackLayout>
+                                            <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+                                        </StackLayout>
+
+                                        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="70" BackgroundColor="#f7f7f7" Margin="0,-5,0,0" Spacing="0" >
+                                            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                                <Image Source="CheckedGreen.png"  HorizontalOptions="CenterAndExpand" VerticalOptions="Center" HeightRequest="20" WidthRequest="20" />
+                                                <Label Text="Featured on Rentals/Roommates Home Page spotlight section" TextColor="#414141"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                            </StackLayout>
+                                            <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+                                        </StackLayout>
+
+                                        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="35" BackgroundColor="#ffffff" Margin="0,-5,0,0" Spacing="0" >
+                                            <Label Text="Responses sent via e-mail" TextColor="#414141"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                            <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+                                        </StackLayout>
+
+                                        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="35" BackgroundColor="#f7f7f7" Margin="0,-5,0,0" Spacing="0" >
+                                            <Label Text="Dedicated Customer Support" TextColor="#414141"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                            <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+                                        </StackLayout>
+
+                                        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="55" BackgroundColor="#ffffff" Margin="0,-5,0,0" Spacing="0" >
+
+                                            <Button Text="Select"
+                                                    TextColor="#ffffff"
+                                                    BackgroundColor="#03a497"
+                                                    BorderColor="#03a497"
+                                                    BorderWidth="1"
+                                                    BorderRadius="4"
+                                                    VerticalOptions="Center"
+                                                    HorizontalOptions="Center"                                                   
+                                                    FontSize="14" IsVisible="{Binding premiumplusbtn}" WidthRequest="100"  Command="{Binding TapOnPremiumplusPackage}" CommandParameter="{Binding premiumpluspkgamnt}"  
+                                             />
+                                            <Button Text="Selected"
+                                                    TextColor="#ffffff"
+                                                    BackgroundColor="#e30045"
+                                                    BorderColor="#e30045"
+                                                    BorderWidth="1"
+                                                    BorderRadius="4"
+                                                    VerticalOptions="Center"
+                                                    HorizontalOptions="Center"                                                   
+                                                    FontSize="14" IsVisible="{Binding Selpremiumplusbtn}" WidthRequest="100"  Command="{Binding TapOnPremiumplusPackage}" CommandParameter="{Binding premiumpluspkgamnt}"
+                                             />
+                                        </StackLayout>
+
+                                    </StackLayout>
+
+                                </Frame>
+
+                                <Frame IsVisible="{Binding premiumpkgvisible}" CornerRadius="4" WidthRequest="280" OutlineColor="Black" Padding="0" VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+
+                                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+
+                                        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" HeightRequest="60" BackgroundColor="#c6fef9" Margin="1" >
+                                            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                                <Label Text="Premium" TextColor="#e30045"    FontSize="16" Style="{StaticResource FontRegular}"     VerticalOptions="Center" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                                <Label Text="{Binding premiumpkgamnt}" TextColor="#08a182"   FontSize="18" Style="{StaticResource FontRobotoBold}" Margin="0,-10,0,0"  VerticalOptions="Center" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                            </StackLayout>
+                                            <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="End" HorizontalOptions="FillAndExpand" Margin="0" />
+                                        </StackLayout>
+                                        <StackLayout IsVisible="{Binding featuretlevisible}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="35" BackgroundColor="#f7f7f7" Margin="0,-5,0,0" Spacing="0" >
+                                            <Label Text="{Binding premiumtotalads}" TextColor="#414141"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                            <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="End" HorizontalOptions="FillAndExpand" Margin="0" />
+                                        </StackLayout>
+                                        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="35" BackgroundColor="#f7f7f7" Margin="0,-5,0,0" Spacing="0" >
+                                            <Label Text="{Binding premiumpkgdays}" TextColor="#414141"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                            <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="End" HorizontalOptions="FillAndExpand" Margin="0" />
+                                        </StackLayout>
+
+                                        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="35" BackgroundColor="#ffffff" Margin="0,-5,0,0" Spacing="0" >
+                                            <Label Text="5x more visibility and responses" TextColor="#414141"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                            <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+                                        </StackLayout>
+
+                                        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="60" BackgroundColor="#f7f7f7" Margin="0,-5,0,0" Spacing="0" >
+                                            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                                <Image Source="CloseIcon4.png"  HorizontalOptions="CenterAndExpand" VerticalOptions="Center" HeightRequest="20" WidthRequest="20" />
+                                                <Label Text="Featured on the US Home Page" TextColor="#848484"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                            </StackLayout>
+                                            <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+                                        </StackLayout>
+
+                                        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="70" BackgroundColor="#ffffff" Margin="0,-5,0,0" Spacing="0" >
+                                            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                                <Image Source="CloseIcon4.png"  HorizontalOptions="CenterAndExpand" VerticalOptions="Center" HeightRequest="20" WidthRequest="20" />
+                                                <Label Text="Featured on Rentals/Roommates Listing Page top section" TextColor="#848484"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                            </StackLayout>
+                                            <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+                                        </StackLayout>
+
+                                        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="70" BackgroundColor="#f7f7f7" Margin="0,-5,0,0" Spacing="0" >
+                                            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                                <Image Source="CloseIcon4.png"  HorizontalOptions="CenterAndExpand" VerticalOptions="Center" HeightRequest="20" WidthRequest="20" />
+                                                <Label Text="Featured on Rentals/Roommates Home Page spotlight section" TextColor="#848484"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                            </StackLayout>
+                                            <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+                                        </StackLayout>
+
+                                        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="35" BackgroundColor="#ffffff" Margin="0,-5,0,0" Spacing="0" >
+                                            <Label Text="Responses sent via e-mail" TextColor="#414141"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                            <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+                                        </StackLayout>
+
+                                        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="35" BackgroundColor="#f7f7f7" Margin="0,-5,0,0" Spacing="0" >
+                                            <Label Text="Dedicated Customer Support" TextColor="#414141"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                            <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+                                        </StackLayout>
+
+                                        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="55" BackgroundColor="#ffffff" Margin="0,-5,0,0" Spacing="0" >
+
+                                            <Button Text="Select"
+                                                    TextColor="#ffffff"
+                                                    BackgroundColor="#03a497"
+                                                    BorderColor="#03a497"
+                                                    BorderWidth="1"
+                                                    BorderRadius="4"
+                                                    VerticalOptions="Center"
+                                                    HorizontalOptions="Center"                                                   
+                                                    FontSize="14"  IsVisible="{Binding premiumbtn}" WidthRequest="100"  Command="{Binding TapOnPremiumPackage}" CommandParameter="{Binding premiumpkgamnt}"  
+                                             />
+                                            <Button Text="Selected"
+                                                    TextColor="#ffffff"
+                                                    BackgroundColor="#e30045"
+                                                    BorderColor="#e30045"
+                                                    BorderWidth="1"
+                                                    BorderRadius="4"
+                                                    VerticalOptions="Center"
+                                                    HorizontalOptions="Center"                                                   
+                                                    FontSize="14" IsVisible="{Binding Selpremiumbtn}" WidthRequest="100"  Command="{Binding TapOnPremiumPackage}" CommandParameter="{Binding premiumpkgamnt}"
+                                             />
+                                        </StackLayout>
+
+                                    </StackLayout>
+
+                                </Frame>
+
+                                <Frame IsVisible="{Binding standardpkgvisible}" CornerRadius="4" WidthRequest="280" OutlineColor="Black" Padding="0" VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+
+                                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+
+                                        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" HeightRequest="60" BackgroundColor="#e6c6fe" Margin="1" >
+                                            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                                <Label Text="Standard" TextColor="#e30045"    FontSize="16" Style="{StaticResource FontRegular}"     VerticalOptions="Center" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                                <Label Text="{Binding standardpkgamnt}" TextColor="#08a182"   FontSize="18" Style="{StaticResource FontRobotoBold}" Margin="0,-10,0,0"  VerticalOptions="Center" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                            </StackLayout>
+                                            <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="End" HorizontalOptions="FillAndExpand" Margin="0" />
+                                        </StackLayout>
+
+                                        <StackLayout IsVisible="{Binding featuretlevisible}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="35" BackgroundColor="#f7f7f7" Margin="0,-5,0,0" Spacing="0" >
+                                            <Label Text="{Binding stdtotalads}" TextColor="#414141"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                            <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="End" HorizontalOptions="FillAndExpand" Margin="0" />
+                                        </StackLayout>
+                                        
+                                        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="35" BackgroundColor="#f7f7f7" Margin="0,-5,0,0" Spacing="0" >
+                                            <Label Text="{Binding standardpkgdays}" TextColor="#414141"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                            <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="End" HorizontalOptions="FillAndExpand" Margin="0" />
+                                        </StackLayout>
+
+                                        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="35" BackgroundColor="#ffffff" Margin="0,-5,0,0" Spacing="0" >
+                                            <Label Text="3x more visibility and responses" TextColor="#414141"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                            <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+                                        </StackLayout>
+
+                                        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="60" BackgroundColor="#f7f7f7" Margin="0,-5,0,0" Spacing="0" >
+                                            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                                <Image Source="CloseIcon4.png"  HorizontalOptions="CenterAndExpand" VerticalOptions="Center" HeightRequest="20" WidthRequest="20" />
+                                                <Label Text="Featured on the US Home Page" TextColor="#848484"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                            </StackLayout>
+                                            <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+                                        </StackLayout>
+
+                                        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="70" BackgroundColor="#ffffff" Margin="0,-5,0,0" Spacing="0" >
+                                            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                                <Image Source="CloseIcon4.png"  HorizontalOptions="CenterAndExpand" VerticalOptions="Center" HeightRequest="20" WidthRequest="20" />
+                                                <Label Text="Featured on Rentals/Roommates Listing Page top section" TextColor="#848484"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                            </StackLayout>
+                                            <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+                                        </StackLayout>
+
+                                        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="70" BackgroundColor="#f7f7f7" Margin="0,-5,0,0" Spacing="0" >
+                                            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                                <Image Source="CloseIcon4.png"  HorizontalOptions="CenterAndExpand" VerticalOptions="Center" HeightRequest="20" WidthRequest="20" />
+                                                <Label Text="Featured on Rentals/Roommates Home Page spotlight section" TextColor="#848484"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                            </StackLayout>
+                                            <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+                                        </StackLayout>
+
+                                        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="35" BackgroundColor="#ffffff" Margin="0,-5,0,0" Spacing="0" >
+                                            <Label Text="Responses sent via e-mail" TextColor="#414141"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                            <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+                                        </StackLayout>
+
+                                        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="35" BackgroundColor="#f7f7f7" Margin="0,-5,0,0" Spacing="0" >
+                                            <Label Text="Dedicated Customer Support" TextColor="#414141"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                            <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+                                        </StackLayout>
+
+                                        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="55" BackgroundColor="#ffffff" Margin="0,-5,0,0" Spacing="0" >
+
+                                            <Button Text="Select"
+                                                    TextColor="#ffffff"
+                                                    BackgroundColor="#03a497"
+                                                    BorderColor="#03a497"
+                                                    BorderWidth="1"
+                                                    BorderRadius="4"
+                                                    VerticalOptions="Center"
+                                                    HorizontalOptions="Center"                                                   
+                                                    FontSize="14" IsVisible="{Binding standardpkgbtn}" WidthRequest="100" Command="{Binding TapOnStandardPackage}" CommandParameter="{Binding standardpkgamnt}" 
+                                             />
+                                            <Button Text="Selected"
+                                                    TextColor="#ffffff"
+                                                    BackgroundColor="#e30045"
+                                                    BorderColor="#e30045"
+                                                    BorderWidth="1"
+                                                    BorderRadius="4"
+                                                    VerticalOptions="Center"
+                                                    HorizontalOptions="Center"                                                   
+                                                    FontSize="14" IsVisible="{Binding Selstandardpkgbtn}" WidthRequest="100"  Command="{Binding TapOnStandardPackage}" CommandParameter="{Binding standardpkgamnt}"
+                                             />
+
+                                        </StackLayout>
+
+                                        <!--<BoxView BackgroundColor="#e30045" HeightRequest="2" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />-->
+
+                                    </StackLayout>
+
+                                </Frame>
+
+                                <!--<Frame IsVisible="{Binding freepkgvisible}" CornerRadius="4" WidthRequest="280" OutlineColor="Black" Padding="0" VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+
+                                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+
+                                        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" HeightRequest="60" BackgroundColor="#ffffff" Margin="1" >
+                                            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                                <Label Text="Free" TextColor="#e30045"    FontSize="16" Style="{StaticResource FontRegular}"     VerticalOptions="Center" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                            </StackLayout>
+                                            <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="End" HorizontalOptions="FillAndExpand" Margin="0" />
+                                        </StackLayout>
+
+                                        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="35" BackgroundColor="#f7f7f7" Margin="0,-5,0,0" Spacing="0" >
+                                            <Label Text="{Binding freepkgdays}" TextColor="#414141"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                            <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="End" HorizontalOptions="FillAndExpand" Margin="0" />
+                                        </StackLayout>
+
+                                        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="35" BackgroundColor="#ffffff" Margin="0,-5,0,0" Spacing="0" >
+                                            <Label Text="Limited visibility and responses" TextColor="#414141"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                            <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+                                        </StackLayout>
+
+                                        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="60" BackgroundColor="#f7f7f7" Margin="0,-5,0,0" Spacing="0" >
+                                            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                                <Image Source="CloseIcon4.png"  HorizontalOptions="CenterAndExpand" VerticalOptions="Center" HeightRequest="20" WidthRequest="20" />
+                                                <Label Text="Featured on the US Home Page" TextColor="#848484"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                            </StackLayout>
+                                            <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+                                        </StackLayout>
+
+                                        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="70" BackgroundColor="#ffffff" Margin="0,-5,0,0" Spacing="0" >
+                                            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                                <Image Source="CloseIcon4.png"  HorizontalOptions="CenterAndExpand" VerticalOptions="Center" HeightRequest="20" WidthRequest="20" />
+                                                <Label Text="Featured on Rentals/Roommates Listing Page top section" TextColor="#848484"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                            </StackLayout>
+                                            <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+                                        </StackLayout>
+
+                                        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="70" BackgroundColor="#f7f7f7" Margin="0,-5,0,0" Spacing="0" >
+                                            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                                <Image Source="CloseIcon4.png"  HorizontalOptions="CenterAndExpand" VerticalOptions="Center" HeightRequest="20" WidthRequest="20" />
+                                                <Label Text="Featured on Rentals/Roommates Home Page spotlight section" TextColor="#848484"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                            </StackLayout>
+                                            <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+                                        </StackLayout>
+
+                                        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="35" BackgroundColor="#ffffff" Margin="0,-5,0,0" Spacing="0" >
+                                            <Label Text="Responses sent via e-mail" TextColor="#414141"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                            <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+                                        </StackLayout>
+
+                                        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="35" BackgroundColor="#f7f7f7" Margin="0,-5,0,0" Spacing="0" >
+                                            <Label Text="Dedicated Customer Support" TextColor="#414141"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                            <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+                                        </StackLayout>
+
+                                        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="55" BackgroundColor="#ffffff" Margin="0,-5,0,0" Spacing="0" >
+
+                                            <Button Text="Select"
+                                                    TextColor="#ffffff"
+                                                    BackgroundColor="#03a497"
+                                                    BorderColor="#03a497"
+                                                    BorderWidth="1"
+                                                    BorderRadius="4"
+                                                    VerticalOptions="Center"
+                                                    HorizontalOptions="Center"                                                   
+                                                    FontSize="14" IsVisible="{Binding freepkgbtn}" WidthRequest="100" Command="{Binding TapOnFreePackage}"
+                                             />
+                                            <Button Text="Selected"
+                                                    TextColor="#ffffff"
+                                                    BackgroundColor="#e30045"
+                                                    BorderColor="#e30045"
+                                                    BorderWidth="1"
+                                                    BorderRadius="4"
+                                                    VerticalOptions="Center"
+                                                    HorizontalOptions="Center"                                                   
+                                                    FontSize="14" IsVisible="{Binding Selfreepkgbtn}" WidthRequest="100"  Command="{Binding TapOnFreePackage}"
+                                             />
+                                        </StackLayout>
+
+                                    </StackLayout>
+
+                                </Frame>-->
+                                </StackLayout>
+
+
+                                <StackLayout IsVisible="{Binding agentvisible}" Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+
+                                    <Frame IsVisible="{Binding elitepkgvisible}"  CornerRadius="4" WidthRequest="280" OutlineColor="Black" Padding="0" VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+
+                                        <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+                                            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" HeightRequest="60" BackgroundColor="#b6feb8" Margin="1" >
+                                                <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                                    <Label Text="Elite" TextColor="#e30045"    FontSize="16" Style="{StaticResource FontRegular}"     VerticalOptions="Center" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                                    <Label Text="{Binding elitepkgamnt}" TextColor="#08a182"   FontSize="18" Style="{StaticResource FontRobotoBold}" Margin="0,-10,0,0"  VerticalOptions="Center" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                                </StackLayout>
+                                                <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="End" HorizontalOptions="FillAndExpand" Margin="0" />
+                                            </StackLayout>
+
+                                            <StackLayout  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="35" BackgroundColor="#f7f7f7" Margin="0,-5,0,0" Spacing="0" >
+                                                <Label Text="{Binding elitepkgdays}" TextColor="#414141"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                                <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="End" HorizontalOptions="FillAndExpand" Margin="0" />
+                                            </StackLayout>
+
+                                            <StackLayout IsVisible="{Binding featuretlevisible}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="35" BackgroundColor="#f7f7f7" Margin="0,-5,0,0" Spacing="0" >
+                                                <Label Text="{Binding elitepkgads}" TextColor="#414141"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                                <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="End" HorizontalOptions="FillAndExpand" Margin="0" />
+                                            </StackLayout>
+                                            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="35" BackgroundColor="#ffffff" Margin="0,-5,0,0" Spacing="0" >
+                                                <Label Text="15x more visibility and responses" TextColor="#414141"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                                <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+                                            </StackLayout>
+                                            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="35" BackgroundColor="#ffffff" Margin="0,-5,0,0" Spacing="0" >
+                                                <Label Text="Maximum exposure using targeting technology" TextColor="#414141"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                                <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+                                            </StackLayout>
+                                            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="60" BackgroundColor="#f7f7f7" Margin="0,-5,0,0" Spacing="0" >
+                                                <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                                    <Image Source="CheckedGreen.png"  HorizontalOptions="CenterAndExpand" VerticalOptions="Center" HeightRequest="20" WidthRequest="20" />
+                                                    <Label Text="Recommendation Mails with matching ads" TextColor="#414141"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                                </StackLayout>
+                                                <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+                                            </StackLayout>
+
+                                            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="70" BackgroundColor="#ffffff" Margin="0,-5,0,0" Spacing="0" >
+                                                <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                                    <Image Source="CheckedGreen.png"  HorizontalOptions="CenterAndExpand" VerticalOptions="Center" HeightRequest="20" WidthRequest="20" />
+                                                    <Label Text="Response alchemy" TextColor="#414141"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                                </StackLayout>
+                                                <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+                                            </StackLayout>
+
+                                            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="70" BackgroundColor="#f7f7f7" Margin="0,-5,0,0" Spacing="0" >
+                                                <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                                    <Image Source="CheckedGreen.png"  HorizontalOptions="CenterAndExpand" VerticalOptions="Center" HeightRequest="20" WidthRequest="20" />
+                                                    <Label Text="Responses sent via e-mail" TextColor="#414141"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                                </StackLayout>
+                                                <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+                                            </StackLayout>
+
+                                            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="70" BackgroundColor="#f7f7f7" Margin="0,-5,0,0" Spacing="0" >
+                                                <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                                    <Image Source="CheckedGreen.png"  HorizontalOptions="CenterAndExpand" VerticalOptions="Center" HeightRequest="20" WidthRequest="20" />
+                                                    <Label Text="Dedicated Customer Support" TextColor="#414141"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                                </StackLayout>
+                                                <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+                                            </StackLayout>
+
+                                            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="55" BackgroundColor="#ffffff" Margin="0,-5,0,0" Spacing="0" >
+
+                                                <Button Text="Select"
+                                                    TextColor="#ffffff"
+                                                    BackgroundColor="#03a497"
+                                                    BorderColor="#03a497"
+                                                    BorderWidth="1"
+                                                    BorderRadius="4"
+                                                    VerticalOptions="Center"
+                                                    HorizontalOptions="Center"                                                   
+                                                    FontSize="14" IsVisible="{Binding elitebtn}" WidthRequest="100" Command="{Binding TapOnElitePackage}" CommandParameter="{Binding elitepkgamnt}">
+
+                                                </Button>
+
+                                                <Button Text="Selected"
+                                                    TextColor="#ffffff"
+                                                    BackgroundColor="#e30045"
+                                                    BorderColor="#e30045"
+                                                    BorderWidth="1"
+                                                    BorderRadius="4"
+                                                    VerticalOptions="Center"
+                                                    HorizontalOptions="Center"                                                   
+                                                    FontSize="14" IsVisible="{Binding Selelitebtn}" WidthRequest="100" Command="{Binding TapOnElitePackage}" CommandParameter="{Binding elitepkgamnt}"  
+                                             />
+
+                                            </StackLayout>
+
+                                        </StackLayout>
+
+                                    </Frame>
+
+                                    <Frame IsVisible="{Binding premiumpluspkgvisible}" CornerRadius="4" WidthRequest="280" OutlineColor="Black" Padding="0" VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+
+                                        <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+
+                                            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" HeightRequest="60" BackgroundColor="#fdf2cb" Margin="1" >
+                                                <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                                    <Label Text="Premium+" TextColor="#e30045"    FontSize="16" Style="{StaticResource FontRegular}"     VerticalOptions="Center" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                                    <Label Text="{Binding premiumpluspkgamnt}" TextColor="#08a182"   FontSize="18" Style="{StaticResource FontRobotoBold}" Margin="0,-10,0,0"  VerticalOptions="Center" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                                </StackLayout>
+                                                <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="End" HorizontalOptions="FillAndExpand" Margin="0" />
+                                            </StackLayout>
+
+                                            <StackLayout IsVisible="{Binding featuretlevisible}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="35" BackgroundColor="#f7f7f7" Margin="0,-5,0,0" Spacing="0" >
+                                                <Label Text="{Binding premiumplustotalads}" TextColor="#414141"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                                <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="End" HorizontalOptions="FillAndExpand" Margin="0" />
+                                            </StackLayout>
+
+                                            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="35" BackgroundColor="#f7f7f7" Margin="0,-5,0,0" Spacing="0" >
+                                                <Label Text="{Binding premiumpluspkgdays}" TextColor="#414141"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                                <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="End" HorizontalOptions="FillAndExpand" Margin="0" />
+                                            </StackLayout>
+
+                                            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="35" BackgroundColor="#ffffff" Margin="0,-5,0,0" Spacing="0" >
+                                                <Label Text="10x more visibility and responses" TextColor="#414141"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                                <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+                                            </StackLayout>
+                                            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="35" BackgroundColor="#ffffff" Margin="0,-5,0,0" Spacing="0" >
+                                                <Label Text="Maximum exposure using targeting technology" TextColor="#414141"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                                <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+                                            </StackLayout>
+                                            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="60" BackgroundColor="#f7f7f7" Margin="0,-5,0,0" Spacing="0" >
+                                                <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                                    <Image Source="CheckedGreen.png"  HorizontalOptions="CenterAndExpand" VerticalOptions="Center" HeightRequest="20" WidthRequest="20" />
+                                                    <Label Text="Recommendation Mails with matching ads" TextColor="#414141"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                                </StackLayout>
+                                                <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+                                            </StackLayout>
+
+                                            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="70" BackgroundColor="#ffffff" Margin="0,-5,0,0" Spacing="0" >
+                                                <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                                    <Image Source="CheckedGreen.png"  HorizontalOptions="CenterAndExpand" VerticalOptions="Center" HeightRequest="20" WidthRequest="20" />
+                                                    <Label Text="Response alchemy" TextColor="#414141"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                                </StackLayout>
+                                                <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+                                            </StackLayout>
+
+                                            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="70" BackgroundColor="#f7f7f7" Margin="0,-5,0,0" Spacing="0" >
+                                                <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                                    <Image Source="CheckedGreen.png"  HorizontalOptions="CenterAndExpand" VerticalOptions="Center" HeightRequest="20" WidthRequest="20" />
+                                                    <Label Text="Responses sent via e-mail" TextColor="#414141"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                                </StackLayout>
+                                                <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+                                            </StackLayout>
+
+                                            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="70" BackgroundColor="#f7f7f7" Margin="0,-5,0,0" Spacing="0" >
+                                                <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                                    <Image Source="CheckedGreen.png"  HorizontalOptions="CenterAndExpand" VerticalOptions="Center" HeightRequest="20" WidthRequest="20" />
+                                                    <Label Text="Dedicated Customer Support" TextColor="#414141"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                                </StackLayout>
+                                                <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+                                            </StackLayout>
+
+                                            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="55" BackgroundColor="#ffffff" Margin="0,-5,0,0" Spacing="0" >
+
+                                                <Button Text="Select"
+                                                    TextColor="#ffffff"
+                                                    BackgroundColor="#03a497"
+                                                    BorderColor="#03a497"
+                                                    BorderWidth="1"
+                                                    BorderRadius="4"
+                                                    VerticalOptions="Center"
+                                                    HorizontalOptions="Center"                                                   
+                                                    FontSize="14" IsVisible="{Binding premiumplusbtn}" WidthRequest="100"  Command="{Binding TapOnPremiumplusPackage}" CommandParameter="{Binding premiumpluspkgamnt}"  
+                                             />
+                                                <Button Text="Selected"
+                                                    TextColor="#ffffff"
+                                                    BackgroundColor="#e30045"
+                                                    BorderColor="#e30045"
+                                                    BorderWidth="1"
+                                                    BorderRadius="4"
+                                                    VerticalOptions="Center"
+                                                    HorizontalOptions="Center"                                                   
+                                                    FontSize="14" IsVisible="{Binding Selpremiumplusbtn}" WidthRequest="100"  Command="{Binding TapOnPremiumplusPackage}" CommandParameter="{Binding premiumpluspkgamnt}"
+                                             />
+                                            </StackLayout>
+
+                                        </StackLayout>
+
+                                    </Frame>
+
+                                    <Frame IsVisible="{Binding premiumpkgvisible}" CornerRadius="4" WidthRequest="280" OutlineColor="Black" Padding="0" VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+
+                                        <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+
+                                            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" HeightRequest="60" BackgroundColor="#c6fef9" Margin="1" >
+                                                <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                                    <Label Text="Premium" TextColor="#e30045"    FontSize="16" Style="{StaticResource FontRegular}"     VerticalOptions="Center" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                                    <Label Text="{Binding premiumpkgamnt}" TextColor="#08a182"   FontSize="18" Style="{StaticResource FontRobotoBold}" Margin="0,-10,0,0"  VerticalOptions="Center" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                                </StackLayout>
+                                                <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="End" HorizontalOptions="FillAndExpand" Margin="0" />
+                                            </StackLayout>
+
+                                            <StackLayout IsVisible="{Binding featuretlevisible}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="35" BackgroundColor="#f7f7f7" Margin="0,-5,0,0" Spacing="0" >
+                                                <Label Text="{Binding premiumtotalads}" TextColor="#414141"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                                <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="End" HorizontalOptions="FillAndExpand" Margin="0" />
+                                            </StackLayout>
+
+                                            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="35" BackgroundColor="#f7f7f7" Margin="0,-5,0,0" Spacing="0" >
+                                                <Label Text="{Binding premiumpkgdays}" TextColor="#414141"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                                <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="End" HorizontalOptions="FillAndExpand" Margin="0" />
+                                            </StackLayout>
+
+                                            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="35" BackgroundColor="#ffffff" Margin="0,-5,0,0" Spacing="0" >
+                                                <Label Text="5x more visibility and responses" TextColor="#414141"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                                <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+                                            </StackLayout>
+                                            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="35" BackgroundColor="#ffffff" Margin="0,-5,0,0" Spacing="0" >
+                                                <Label Text="Listed above Standard ads" TextColor="#414141"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                                <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+                                            </StackLayout>
+                                            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="60" BackgroundColor="#f7f7f7" Margin="0,-5,0,0" Spacing="0" >
+                                                <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                                    <Image Source="CheckedGreen.png"  HorizontalOptions="CenterAndExpand" VerticalOptions="Center" HeightRequest="20" WidthRequest="20" />
+                                                    <Label Text="Recommendation Mails with matching ads" TextColor="#414141"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                                </StackLayout>
+                                                <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+                                            </StackLayout>
+
+                                            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="70" BackgroundColor="#ffffff" Margin="0,-5,0,0" Spacing="0" >
+                                                <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                                    <Image Source="CheckedGreen.png"  HorizontalOptions="CenterAndExpand" VerticalOptions="Center" HeightRequest="20" WidthRequest="20" />
+                                                    <Label Text="Response alchemy" TextColor="#414141"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                                </StackLayout>
+                                                <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+                                            </StackLayout>
+
+                                            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="70" BackgroundColor="#f7f7f7" Margin="0,-5,0,0" Spacing="0" >
+                                                <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                                    <Image Source="CheckedGreen.png"  HorizontalOptions="CenterAndExpand" VerticalOptions="Center" HeightRequest="20" WidthRequest="20" />
+                                                    <Label Text="Responses sent via e-mail" TextColor="#414141"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                                </StackLayout>
+                                                <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+                                            </StackLayout>
+
+                                            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="70" BackgroundColor="#f7f7f7" Margin="0,-5,0,0" Spacing="0" >
+                                                <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                                    <Image Source="CheckedGreen.png"  HorizontalOptions="CenterAndExpand" VerticalOptions="Center" HeightRequest="20" WidthRequest="20" />
+                                                    <Label Text="Dedicated Customer Support" TextColor="#414141"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                                </StackLayout>
+                                                <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+                                            </StackLayout>
+
+                                            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="55" BackgroundColor="#ffffff" Margin="0,-5,0,0" Spacing="0" >
+
+                                                <Button Text="Select"
+                                                    TextColor="#ffffff"
+                                                    BackgroundColor="#03a497"
+                                                    BorderColor="#03a497"
+                                                    BorderWidth="1"
+                                                    BorderRadius="4"
+                                                    VerticalOptions="Center"
+                                                    HorizontalOptions="Center"                                                   
+                                                    FontSize="14"  IsVisible="{Binding premiumbtn}" WidthRequest="100"  Command="{Binding TapOnPremiumPackage}" CommandParameter="{Binding premiumpkgamnt}"  
+                                             />
+                                                <Button Text="Selected"
+                                                    TextColor="#ffffff"
+                                                    BackgroundColor="#e30045"
+                                                    BorderColor="#e30045"
+                                                    BorderWidth="1"
+                                                    BorderRadius="4"
+                                                    VerticalOptions="Center"
+                                                    HorizontalOptions="Center"                                                   
+                                                    FontSize="14" IsVisible="{Binding Selpremiumbtn}" WidthRequest="100"  Command="{Binding TapOnPremiumPackage}" CommandParameter="{Binding premiumpkgamnt}"  
+                                             />
+                                            </StackLayout>
+
+                                        </StackLayout>
+
+                                    </Frame>
+
+                                    <Frame IsVisible="{Binding standardpkgvisible}" CornerRadius="4" WidthRequest="280" OutlineColor="Black" Padding="0" VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+
+                                        <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+
+                                            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" HeightRequest="60" BackgroundColor="#e6c6fe" Margin="1" >
+                                                <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                                    <Label Text="Standard" TextColor="#e30045"    FontSize="16" Style="{StaticResource FontRegular}"     VerticalOptions="Center" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                                    <Label Text="{Binding standardpkgamnt}" TextColor="#08a182"   FontSize="18" Style="{StaticResource FontRobotoBold}" Margin="0,-10,0,0"  VerticalOptions="Center" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                                </StackLayout>
+                                                <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="End" HorizontalOptions="FillAndExpand" Margin="0" />
+                                            </StackLayout>
+
+                                            <StackLayout IsVisible="{Binding featuretlevisible}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="35" BackgroundColor="#f7f7f7" Margin="0,-5,0,0" Spacing="0" >
+                                                <Label Text="{Binding stdtotalads}" TextColor="#414141"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                                <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="End" HorizontalOptions="FillAndExpand" Margin="0" />
+                                            </StackLayout>
+
+                                            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="35" BackgroundColor="#f7f7f7" Margin="0,-5,0,0" Spacing="0" >
+                                                <Label Text="{Binding standardpkgdays}" TextColor="#414141"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                                <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="End" HorizontalOptions="FillAndExpand" Margin="0" />
+                                            </StackLayout>
+
+                                            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="35" BackgroundColor="#ffffff" Margin="0,-5,0,0" Spacing="0" >
+                                                <Label Text="Limited visibility and responses" TextColor="#414141"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                                <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+                                            </StackLayout>
+                                            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="35" BackgroundColor="#ffffff" Margin="0,-5,0,0" Spacing="0" >
+                                                <Label Text="Minimum exposure" TextColor="#414141"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                                <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+                                            </StackLayout>
+                                            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="60" BackgroundColor="#f7f7f7" Margin="0,-5,0,0" Spacing="0" >
+                                                <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                                    <Image Source="CheckedGreen.png"  HorizontalOptions="CenterAndExpand" VerticalOptions="Center" HeightRequest="20" WidthRequest="20" />
+                                                    <Label Text="Recommendation Mails with matching ads" TextColor="#414141"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                                </StackLayout>
+                                                <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+                                            </StackLayout>
+
+                                            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="70" BackgroundColor="#ffffff" Margin="0,-5,0,0" Spacing="0" >
+                                                <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                                    <Image Source="CheckedGreen.png"  HorizontalOptions="CenterAndExpand" VerticalOptions="Center" HeightRequest="20" WidthRequest="20" />
+                                                    <Label Text="Response alchemy" TextColor="#414141"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                                </StackLayout>
+                                                <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+                                            </StackLayout>
+
+                                            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="70" BackgroundColor="#f7f7f7" Margin="0,-5,0,0" Spacing="0" >
+                                                <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                                    <Image Source="CheckedGreen.png"  HorizontalOptions="CenterAndExpand" VerticalOptions="Center" HeightRequest="20" WidthRequest="20" />
+                                                    <Label Text="Responses sent via e-mail" TextColor="#414141"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                                </StackLayout>
+                                                <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+                                            </StackLayout>
+
+                                            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="70" BackgroundColor="#f7f7f7" Margin="0,-5,0,0" Spacing="0" >
+                                                <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                                    <Image Source="CheckedGreen.png"  HorizontalOptions="CenterAndExpand" VerticalOptions="Center" HeightRequest="20" WidthRequest="20" />
+                                                    <Label Text="Dedicated Customer Support" TextColor="#414141"   FontSize="13" Style="{StaticResource FontRegular}"  Margin="10,0,10,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  />
+                                                </StackLayout>
+                                                <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+                                            </StackLayout>
+
+                                            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  HeightRequest="55" BackgroundColor="#ffffff" Margin="0,-5,0,0" Spacing="0" >
+
+                                                <Button Text="Select"
+                                                    TextColor="#ffffff"
+                                                    BackgroundColor="#03a497"
+                                                    BorderColor="#03a497"
+                                                    BorderWidth="1"
+                                                    BorderRadius="4"
+                                                    VerticalOptions="Center"
+                                                    HorizontalOptions="Center"                                                   
+                                                    FontSize="14" IsVisible="{Binding standardpkgbtn}" WidthRequest="100" Command="{Binding TapOnStandardPackage}" CommandParameter="{Binding standardpkgamnt}" 
+                                             />
+                                                <Button Text="Selected"
+                                                    TextColor="#ffffff"
+                                                    BackgroundColor="#e30045"
+                                                    BorderColor="#e30045"
+                                                    BorderWidth="1"
+                                                    BorderRadius="4"
+                                                    VerticalOptions="Center"
+                                                    HorizontalOptions="Center"                                                   
+                                                    FontSize="14" IsVisible="{Binding Selstandardpkgbtn}" WidthRequest="100"  Command="{Binding TapOnStandardPackage}" CommandParameter="{Binding standardpkgamnt}"
+                                             />
+
+                                            </StackLayout>
+
+                                            <!--<BoxView BackgroundColor="#e30045" HeightRequest="2" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />-->
+
+                                        </StackLayout>
+
+
+
+                                    </Frame>
+
+
+
+
+                                </StackLayout>
+                            </StackLayout>
+
+                        </ScrollView>
+
+                    </StackLayout>
+
+
+                </StackLayout>
+
+            </ScrollView>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

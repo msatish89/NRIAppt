@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NRIApp.LocalService.Features.Views.Detail.LS_Detail_Image"
+              xmlns:CV="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView"
+             NavigationPage.HasNavigationBar="False" x:Name="imglist">
+   
+    <!--<CarouselPage.ItemTemplate>
+        <DataTemplate>
+            <ContentPage>
+                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <Image Source="CloseIcon3.png" HeightRequest="32" WidthRequest="32"  VerticalOptions="Start" HorizontalOptions="End">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer  Tapped="CloseImgBlock"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                        <Image Source="{Binding PhotoUrl}"  HorizontalOptions="FillAndExpand"  VerticalOptions="FillAndExpand"/>
+
+                    </StackLayout>
+                   
+                </StackLayout>
+            </ContentPage>
+        </DataTemplate>
+    </CarouselPage.ItemTemplate>-->
+    <StackLayout>
+        <Image Source="CloseIcon3.png"   HeightRequest="32" WidthRequest="32"  VerticalOptions="Start" HorizontalOptions="End">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Tapped="CloseImgBlock" />
+            </Image.GestureRecognizers>
+            <Image.Margin>
+                <OnPlatform x:TypeArguments="Thickness" iOS="0,30,20,0" Android="5,5,5,5"></OnPlatform>
+            </Image.Margin>
+        </Image>
+        <CV:CarouselView x:Name="listofphoto">
+            <CV:CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Padding="10" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                        <Image  Source="{Binding PhotoUrl}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                    </StackLayout>
+                </DataTemplate>
+            </CV:CarouselView.ItemTemplate>
+        </CV:CarouselView>
+        
+    </StackLayout>
+</ContentPage>

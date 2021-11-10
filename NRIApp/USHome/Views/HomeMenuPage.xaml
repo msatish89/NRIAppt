@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NRIApp.USHome.Views.HomeMenuPage" Title="master" Icon="menu24.png">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical">
+
+            <StackLayout BackgroundColor="#e30045" Padding="20" >
+
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+
+                    <StackLayout Grid.Column="0"  Grid.Row="0" Grid.ColumnSpan="2" VerticalOptions="Start" HorizontalOptions="Start" Padding="0" Margin="0"  >
+                        <Image Source="UserIconDP.png"  HorizontalOptions="Start" VerticalOptions="End" HeightRequest="44"  WidthRequest="44"/>
+                    </StackLayout>
+
+                    <StackLayout Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="6"  VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand"  Padding="0" Margin="0" >
+
+                        <Label Text="Welcome! " FontSize="14" TextColor="White" />
+
+                        <Label Text="Guest" x:Name="lblusr" FontSize="16" TextColor="White" />
+
+                    </StackLayout>
+
+
+
+                </Grid>
+
+            </StackLayout>
+
+            <ScrollView>
+                <StackLayout>
+                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" >
+                            <Image Source="LocalServicesHome.png" HeightRequest="24"  WidthRequest="24"  VerticalOptions="Start" HorizontalOptions="Start" Margin="10"   />
+                            <Label Text="Services" FontSize="16" TextColor="Black" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" />
+                          
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="ServicesTap"></TapGestureRecognizer>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <BoxView HeightRequest="1" BackgroundColor="#d6d6d6" VerticalOptions="Start" HorizontalOptions="FillAndExpand" />
+
+                    </StackLayout>
+
+                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" >
+                            <Image Source="ITTrainingHome.png" HeightRequest="24"  WidthRequest="24"  VerticalOptions="Start" HorizontalOptions="Start" Margin="10"   />
+                            <Label Text="IT Training" FontSize="16" TextColor="Black" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" />
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TechjobsTap"></TapGestureRecognizer>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <BoxView HeightRequest="1" BackgroundColor="#d6d6d6" VerticalOptions="Start" HorizontalOptions="FillAndExpand" />
+
+                    </StackLayout>
+
+                    <!--<StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" >
+                            <Image Source="JobsHome.png" HeightRequest="24"  WidthRequest="24"  VerticalOptions="Start" HorizontalOptions="Start"  Margin="10"   />
+                            <Label Text="Local Jobs" FontSize="16" TextColor="Black" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" />
+                        </StackLayout>
+                        <BoxView HeightRequest="1" BackgroundColor="#d6d6d6" VerticalOptions="Start" HorizontalOptions="FillAndExpand" />
+
+                    </StackLayout>-->
+                    <!--<StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" >
+                            <Image Source="DaycareHome.png" HeightRequest="24"  WidthRequest="24"  VerticalOptions="Start" HorizontalOptions="Start"  Margin="10"   />
+                            <Label Text="Care Services" FontSize="16" TextColor="Black" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" />
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="DaycareTap"></TapGestureRecognizer>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <BoxView HeightRequest="1" BackgroundColor="#d6d6d6" VerticalOptions="Start" HorizontalOptions="FillAndExpand" />
+
+                    </StackLayout>-->
+                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" >
+                            <Image Source="EventHome.png" HeightRequest="24"  WidthRequest="24"  VerticalOptions="Start" HorizontalOptions="Start"  Margin="10"   />
+                            <Label Text="Events" FontSize="16" TextColor="Black" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" />
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="EventsTap"></TapGestureRecognizer>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <BoxView HeightRequest="1" BackgroundColor="#d6d6d6" VerticalOptions="Start" HorizontalOptions="FillAndExpand" />
+
+                    </StackLayout>
+                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" >
+                            <Image Source="RoommatesHome.png" HeightRequest="24"  WidthRequest="24"  VerticalOptions="Start" HorizontalOptions="Start"  Margin="10"   />
+                            <Label Text="Roommates" FontSize="16" TextColor="Black" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" />
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="RoommatesTap"></TapGestureRecognizer>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <BoxView HeightRequest="1" BackgroundColor="#d6d6d6" VerticalOptions="Start" HorizontalOptions="FillAndExpand" />
+
+                    </StackLayout>
+
+                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" >
+                            <Image Source="RentalsHome.png" HeightRequest="24"  WidthRequest="24"  VerticalOptions="Start" HorizontalOptions="Start"  Margin="10"   />
+                            <Label Text="Rentals" FontSize="16" TextColor="Black" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" />
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="RentalsTap"></TapGestureRecognizer>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <BoxView HeightRequest="1" BackgroundColor="#d6d6d6" VerticalOptions="Start" HorizontalOptions="FillAndExpand" />
+
+                    </StackLayout>
+
+                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" >
+                            <Image Source="CallUs.png" HeightRequest="24"  WidthRequest="24"  VerticalOptions="Start" HorizontalOptions="Start"  Margin="10"   />
+                            <Label Text="Call us" FontSize="16" TextColor="Black" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" />
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="callus"></TapGestureRecognizer>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <BoxView HeightRequest="1" BackgroundColor="#d6d6d6" VerticalOptions="Start" HorizontalOptions="FillAndExpand" />
+
+                    </StackLayout>
+
+                    <!--<StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" >
+                            <Image Source="AboutUs.png" HeightRequest="24"  WidthRequest="24"  VerticalOptions="Start" HorizontalOptions="Start"  Margin="10"   />
+                            <Label Text="About US" FontSize="16" TextColor="Black" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" />
+                        </StackLayout>
+                        <BoxView HeightRequest="1" BackgroundColor="#d6d6d6" VerticalOptions="Start" HorizontalOptions="FillAndExpand" />
+
+                    </StackLayout>-->
+
+                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" x:Name="loginstack" IsVisible="False">
+
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" >
+                            <Image Source="LoginIcon.png" HeightRequest="24"  WidthRequest="24"  VerticalOptions="Start" HorizontalOptions="Start"  Margin="10"   />
+                            <Label x:Name="maslog" Text="Login" FontSize="16" TextColor="#009688" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" />
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="LoginTap"></TapGestureRecognizer>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <BoxView HeightRequest="1" BackgroundColor="#d6d6d6" VerticalOptions="Start" HorizontalOptions="FillAndExpand" />
+
+                    </StackLayout>
+
+                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" x:Name="logoutstack" IsVisible="False">
+
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" >
+                            <Image Source="LogOutIcon.png" HeightRequest="24"  WidthRequest="24"  VerticalOptions="Start" HorizontalOptions="Start"  Margin="10,5,10,5"   />
+                            <Label Text="Log Out" FontSize="16" TextColor="#e30045" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" />
+                        </StackLayout>
+                        <BoxView HeightRequest="1" BackgroundColor="#d6d6d6" VerticalOptions="Start" HorizontalOptions="FillAndExpand" />
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="LogoutTap"></TapGestureRecognizer>
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

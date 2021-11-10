@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NRIApp.Roommates.Features.List.Views.Thankyou_RM"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#07ba8e" VerticalOptions="FillAndExpand">
+
+            <Image Source="CloseIcon.png" HeightRequest="24" WidthRequest="24" Margin="0,5,5,0" VerticalOptions="Start" HorizontalOptions="End"  >
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="PostClose"  />
+                </Image.GestureRecognizers>
+                <Image.Margin>
+                    <OnPlatform x:TypeArguments="Thickness" iOS="0,35,35,0" Android="0,15,15,0" />
+                </Image.Margin>
+            </Image>
+
+            <StackLayout   VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                <Image Source="SuccessBg.png" HeightRequest="96" WidthRequest="96" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Margin="0,-5,0,0"  />
+
+                <Label Text="Success" Style="{StaticResource FontRegular}" FontSize="22"  VerticalOptions="CenterAndExpand" TextColor="White" HorizontalOptions="Center"  HorizontalTextAlignment="Center" Margin="0"  />
+                <Label Text="Thanks for showing interest in my advert. I will get back to you ASAP." Style="{StaticResource FontRegular}" TextColor="White" HorizontalOptions="CenterAndExpand" FontSize="14" Margin="10,0,10,0" HorizontalTextAlignment="Center"  />
+                <!--<Label Text="Thank you for posting your need. Our team will contact you shortly for verification. Once verified, your ad will be published." TextColor="White" HorizontalOptions="CenterAndExpand" FontSize="14" Margin="10,0,10,0" HorizontalTextAlignment="Center" />-->
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

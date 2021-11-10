@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:extended="clr-namespace:Xamarin.Forms.Extended;assembly=Xamarin.Forms.Extended.InfiniteScrolling"
+              xmlns:b="clr-namespace:NRIApp.Behaviors"
+             x:Class="NRIApp.LocalService.Features.Views.Listing.Onlineclasses">
+    <ContentPage.Content>
+
+
+        <StackLayout>
+
+           
+
+                <StackLayout BackgroundColor="#ecf2f4">
+
+                  
+
+                    <!--filter start-->
+
+                    <StackLayout BackgroundColor="White" HorizontalOptions="FillAndExpand" Orientation="Horizontal" VerticalOptions="CenterAndExpand" Padding="10" Margin="0,-10,0,0">
+
+                        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Orientation="Horizontal">
+                            <Image Source="filterIcon.png" HeightRequest="18" WidthRequest="18" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  />
+                            <Label Text="Filter" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" FontSize="12" Style="{StaticResource FontRegular}" TextColor="#878787" />
+                           
+                            
+                        </StackLayout>
+
+                        <BoxView WidthRequest="1" HeightRequest="30" BackgroundColor="#c2c2c2" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" />
+
+                        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Orientation="Horizontal"  >
+                            <Image Source="SortBy.png" HeightRequest="18" WidthRequest="18" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  />
+                            <Label Text="Sort by" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" FontSize="12" Style="{StaticResource FontRegular}" TextColor="#878787" />
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+
+                    </StackLayout>
+
+                    <!--filter end-->
+
+                    <StackLayout Padding="5,0,5,20">
+
+                        <ListView x:Name="listdata"  HasUnevenRows="True" IsVisible="False"   ItemsSource="{Binding classlistings}">
+                            <ListView.Behaviors>
+                            <b:ListviewItemtap Command="{Binding TapDetail}"></b:ListviewItemtap>
+                                <extended:InfiniteScrollBehavior />
+                            </ListView.Behaviors>
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+
+
+                                        <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0,0,0,5">
+                                            <Frame BackgroundColor="White" CornerRadius="4"  Padding="0" >
+
+                                                <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+                                                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="10">
+
+                                                        <Label Text="{Binding classmastertitle}" Style="{StaticResource FontBold}"  FontSize="14" TextColor="#212121" Margin="0,2,0,2" />
+                                                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                                            <Image Source="UserIcon4.png"  HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="20" WidthRequest="20"/>
+                                                            <Label Text="{Binding instructorname}" LineBreakMode="TailTruncation"  FontSize="12" Style="{StaticResource FontRegular}" TextColor="#333333"  HorizontalOptions="FillAndExpand" VerticalOptions="Center"/>
+                                                        </StackLayout>
+
+                                                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                                            <Image Source="placeholder.png"  HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="20" WidthRequest="20"/>
+                                                            <Label Text="{Binding classmode}" LineBreakMode="TailTruncation"  FontSize="12" Style="{StaticResource FontRegular}" TextColor="#333333"  HorizontalOptions="FillAndExpand" VerticalOptions="Center"/>
+                                                        </StackLayout>
+                                                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                                            <Image Source="ItJobs.png"  HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="20" WidthRequest="20"/>
+                                                            <Label Text="{Binding sizeallowed}" LineBreakMode="TailTruncation"  FontSize="12" Style="{StaticResource FontBold}" TextColor="#08a182"  HorizontalOptions="FillAndExpand" VerticalOptions="Center"/>
+                                                        </StackLayout>
+
+                                                        <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Margin="0" />
+
+                                                        <StackLayout BackgroundColor="#f7f7f7" Padding="10" Margin="0,-3,0,-3">
+
+                                                            <Grid>
+                                                                <Grid.ColumnDefinitions>
+                                                                    <ColumnDefinition Width="*" />
+                                                                    <ColumnDefinition Width="*" />
+                                                                    <ColumnDefinition Width="*" />
+                                                                    <ColumnDefinition Width="*" />
+                                                                </Grid.ColumnDefinitions>
+                                                                <Grid.RowDefinitions>
+                                                                    <RowDefinition Height="*" />
+                                                                </Grid.RowDefinitions>
+
+                                                                <StackLayout Grid.Column="0" Grid.Row="0"  VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                                                                    <Label Text="Experience" FontSize="11" Style="{StaticResource FontRegular}" TextColor="#666666"  HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+                                                                    <Label Text="{Binding classexperience}" FontSize="12" Style="{StaticResource FontBold}" TextColor="#212121"  HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+                                                                </StackLayout>
+                                                                <StackLayout Grid.Column="1" Grid.Row="0"  VerticalOptions="Start" HorizontalOptions="FillAndExpand"  >
+                                                                    <Label Text="Level" FontSize="11" Style="{StaticResource FontRegular}" TextColor="#666666"  HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+                                                                    <Label Text="{Binding classlevels}" FontSize="12" Style="{StaticResource FontBold}" TextColor="#212121"  HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+                                                                </StackLayout>
+                                                                <StackLayout Grid.Column="2" Grid.Row="0"  VerticalOptions="Start" HorizontalOptions="FillAndExpand"   >
+                                                                    <Label Text="Age" FontSize="11" Style="{StaticResource FontRegular}" TextColor="#666666"  HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+                                                                    <Label Text="{Binding age}" FontSize="12" Style="{StaticResource FontBold}" TextColor="#212121"  HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+                                                                </StackLayout>
+                                                                <StackLayout Grid.Column="3" Grid.Row="0"  VerticalOptions="Start" HorizontalOptions="FillAndExpand"   >
+                                                                    <Label Text="Class Length" FontSize="11" Style="{StaticResource FontRegular}" TextColor="#666666"  HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+                                                                    <Label Text="{Binding classlength}" FontSize="12" Style="{StaticResource FontBold}" TextColor="#212121"  HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+                                                                </StackLayout>
+
+                                                            </Grid>
+
+                                                        </StackLayout>
+
+                                                        <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Margin="0" />
+
+
+                                                        <StackLayout VerticalOptions="Start" HorizontalOptions="StartAndExpand" Padding="0,10,0,0">
+
+                                                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                                                <Label Text="Services:" WidthRequest="85"  FontSize="12" Style="{StaticResource FontRegular}" TextColor="#666666"  HorizontalOptions="Start" VerticalOptions="Start"/>
+                                                                <Label Text="{Binding ptag}"  LineBreakMode="TailTruncation" FontSize="12" Style="{StaticResource FontRegular}" TextColor="#212121" HorizontalTextAlignment="Start"   HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+                                                            </StackLayout>
+
+                                                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                                                <Label Text="Speaks:" WidthRequest="85"    FontSize="12" Style="{StaticResource FontRegular}" TextColor="#666666"  HorizontalOptions="Start" VerticalOptions="Start"/>
+                                                                <Label Text="{Binding languages}"  LineBreakMode="TailTruncation" FontSize="12" Style="{StaticResource FontRegular}" TextColor="#212121" HorizontalTextAlignment="Start"  HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+                                                            </StackLayout>
+
+                                                            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="0,10,0,0">
+
+                                                                <!--<ScrollView Orientation="Horizontal" Padding="0"   >-->
+
+                                                                    <StackLayout Orientation="Horizontal" HorizontalOptions="Start" Padding="0,5,0,5">
+
+                                                                        <Frame Margin="0" Padding="0" BackgroundColor="#f7f7f7"  >
+                                                                            <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="10,5,10,5" >
+                                                                            <Label Text="{Binding classdate}" LineBreakMode="TailTruncation"  FontSize="12" Style="{StaticResource FontBold}" TextColor="#017aea"  HorizontalOptions="FillAndExpand" VerticalOptions="Center"/>
+                                                                            <Label Text="{Binding classtime}"   FontSize="12" Style="{StaticResource FontRegular}" TextColor="#666666"  HorizontalOptions="Start" VerticalOptions="Start"/>
+                                                                                <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Margin="0" />
+
+                                                                                <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                                                                <Label Text="{Binding amount}" LineBreakMode="TailTruncation" FontSize="18" TextColor="#08a182" Style="{StaticResource FontBold}" HorizontalOptions="Start" VerticalOptions="Center"/>
+                                                                                <Label Text="{Binding seatsleft}" WidthRequest="85"    FontSize="11" Style="{StaticResource FontRegular}" TextColor="#666666"  HorizontalOptions="Start" VerticalOptions="Center"/>
+                                                                                </StackLayout>
+
+                                                                            </StackLayout>
+                                                                        </Frame>
+
+                                                                       
+
+                                                                    </StackLayout>
+                                                                <!--</ScrollView>-->
+                                                            </StackLayout>
+
+                                                        </StackLayout>
+
+                                                    </StackLayout>
+
+                                                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+                                                        <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Margin="0" />
+
+                                                        <StackLayout HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" Orientation="Horizontal" Padding="15,3,10,8">
+                                                            <StackLayout VerticalOptions="Start" HorizontalOptions="End" Orientation="Horizontal">
+                                                                <Button Text="Add To Calendar" FontSize="11" Margin="0"  Style="{StaticResource FontRegular}"  VerticalOptions="Center" HorizontalOptions="EndAndExpand" BorderColor="#e6e6e6" BorderWidth="1" BackgroundColor="#ffffff" TextColor="#017aea" />
+                                                            </StackLayout>
+
+                                                            <StackLayout VerticalOptions="Start" HorizontalOptions="End" Orientation="Horizontal">
+                                                                <Button Text="Book a Class" FontSize="11" Margin="0"  Style="{StaticResource FontRegular}"  VerticalOptions="Center" HorizontalOptions="EndAndExpand" BorderColor="#e30045" BorderWidth="1" BackgroundColor="#e30045" TextColor="#ffffff" />
+                                                            </StackLayout>
+                                                        </StackLayout>
+                                                    </StackLayout>
+
+                                                </StackLayout>
+
+                                            </Frame>
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+
+                  
+
+                      
+
+                    </StackLayout>
+
+                </StackLayout>
+
+           
+
+        </StackLayout>
+
+
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+              xmlns:local="clr-namespace:NRIApp.Helpers"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="NRIApp.Events.Features.dynamicpicker"
+             >
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Welcome to Xamarin.Forms!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+
+            <Picker Title="Select a data"
+       
+        ItemsSource="{Binding Monkeys}"
+        ItemDisplayBinding="{Binding name}" />
+
+            <local:HVScrollGridView ListOrientation="Vertical" x:Name="lslist"
+                                    ItemsSource="{Binding Items}"
+                                   
+									VerticalOptions="Start">
+                <local:HVScrollGridView.ItemTemplate>
+                    <DataTemplate>
+                        <ContentView>
+                            <ContentView.Content>
+                                <StackLayout VerticalOptions="Start" Padding="0,8,0,0" Margin="0,0,8,0" HorizontalOptions="FillAndExpand" HeightRequest="150"                            
+                           WidthRequest="300">
+                                    <Label Text="{Binding name}"/>
+                                    <Picker  HorizontalOptions="FillAndExpand" SelectedIndex="{Binding SelectedType}" ItemsSource="{Binding PensumTypes}"/>
+
+                                    <!--<Picker
+                                    ItemsSource="{Binding Path=BindingContext.Monkeys}"
+                                    ItemDisplayBinding="{Binding name}"
+                                    SelectedItem="{Binding name, Mode=TwoWay, Source={x:Reference lslist}}" />-->
+                                    <!--<Picker >
+                                        <Picker.Items>
+                                            <x:String>+1</x:String>
+                                            <x:String>+91</x:String>
+                                        </Picker.Items>
+                                    </Picker>-->
+                                    <!--<Picker Title="Select a monkey"
+       
+        ItemsSource="{Binding Monkeys}"
+        ItemDisplayBinding="{Binding name}" />-->
+                                </StackLayout>
+                            </ContentView.Content>
+                        </ContentView>
+                    </DataTemplate>
+                </local:HVScrollGridView.ItemTemplate>
+            </local:HVScrollGridView>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NRIApp.USHome.Views.Welcomescreen" NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+
+        <StackLayout >
+            <!--<RelativeLayout >
+            <Image Source="ipadbg.png"   Aspect="AspectFill" 
+                RelativeLayout.WidthConstraint=
+                  "{ConstraintExpression Type=RelativeToParent, Property=Width}"
+                RelativeLayout.HeightConstraint=
+                  "{ConstraintExpression Type=RelativeToParent, Property=Height}"/>
+
+            <Grid RelativeLayout.WidthConstraint=
+              "{ConstraintExpression Type=RelativeToParent, Property=Width}"
+            RelativeLayout.HeightConstraint=
+              "{ConstraintExpression Type=RelativeToParent, Property=Height}">
+
+                <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
+
+                    <Image Source="SulekhaLogo2.png" WidthRequest="150" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" />
+                 
+                </StackLayout>
+
+            </Grid>
+            
+        </RelativeLayout>-->
+            <!--<Image Source="LoginBglogo.png"/>-->
+        </StackLayout>
+        
+      
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:local="clr-namespace:NRIApp.Helpers"
+              xmlns:b="clr-namespace:NRIApp.Behaviors"
+            
+             x:Class="NRIApp.LocalService.Features.Views.Posting.PrimePakage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <!--<local:Converters x:Key="nullToVisibilityConverter" />-->
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+
+        <AbsoluteLayout >
+            <StackLayout Margin="0,0,0,62"   BackgroundColor="#ecf2f4" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All"
+                          VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+
+                <ScrollView>
+
+                    <StackLayout BackgroundColor="#ecf2f4">
+
+
+
+                        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="10">
+
+                            <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="CenterAndExpand" Margin="0,5,0,5">
+                                
+                                <StackLayout VerticalOptions="Start" HorizontalOptions="Center" Margin="5,0,5,0" x:Name="stackessential">
+                                    <Label Text="Essentials" TextColor="#212121" FontSize="14" Style="{StaticResource FontRegular}" VerticalOptions="CenterAndExpand" HorizontalOptions="Center"  >
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer  Command="{Binding Selectessential}" CommandParameter=""/>
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                    <BoxView x:Name="btnessentials" BackgroundColor="#2e74f0" HeightRequest="2" HorizontalOptions="FillAndExpand"  />
+                                </StackLayout>
+
+                                <StackLayout VerticalOptions="Start" HorizontalOptions="Center" x:Name="stackpremier">
+                                    <Label Text=" Premier" TextColor="#212121" FontSize="14" Style="{StaticResource FontRegular}" VerticalOptions="CenterAndExpand" HorizontalOptions="Center"  >
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer  Command="{Binding Selectpremier}" CommandParameter=""/>
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                    <BoxView x:Name="btnpremier" BackgroundColor="#a5acb0" HeightRequest="2" HorizontalOptions="FillAndExpand" />
+                                </StackLayout>
+
+                            </StackLayout>
+
+
+
+
+
+
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Padding="0" x:Name="step1payemt">
+
+                                <Button x:Name="btnpack1name" Text="{Binding pack1_name}" Command="{Binding Choosepackagetype}" CommandParameter="{Binding pack1_days}"   FontSize="11" Margin="0"  Style="{StaticResource FontRegular}"  VerticalOptions="Start" HorizontalOptions="StartAndExpand" BorderColor="#2e74f0" BorderWidth="1" BackgroundColor="{Binding pack1backgroundcolor}" TextColor="{Binding pack1textcolor}" >
+                                    <Button.WidthRequest>
+                                        <OnPlatform x:TypeArguments="x:Double">
+                                            <On Platform="iOS">80</On>
+                                            <On Platform="Android,Windows">80</On>
+                                        </OnPlatform>
+                                    </Button.WidthRequest>
+
+                                </Button>
+                                <Button x:Name="btnpack2name" Text="{Binding pack2_name}" Command="{Binding Choosepackagetype}" CommandParameter="{Binding pack2_days}"   FontSize="11" Margin="0"  Style="{StaticResource FontRegular}"  VerticalOptions="Start" HorizontalOptions="StartAndExpand" BorderColor="#2e74f0" BorderWidth="1" BackgroundColor="{Binding pack2backgroundcolor}" TextColor="{Binding pack2textcolor}" >
+                                    <Button.WidthRequest>
+                                        <OnPlatform x:TypeArguments="x:Double">
+                                            <On Platform="iOS">80</On>
+                                            <On Platform="Android,Windows">80</On>
+                                        </OnPlatform>
+                                    </Button.WidthRequest>
+                                </Button>
+                                <Button x:Name="btnpack3name" Text="{Binding pack3_name}" Command="{Binding Choosepackagetype}" CommandParameter="{Binding pack3_days}"   FontSize="11" Margin="0"  Style="{StaticResource FontRegular}"  VerticalOptions="Start" HorizontalOptions="StartAndExpand" BorderColor="#2e74f0" BorderWidth="1" BackgroundColor="{Binding pack3backgroundcolor}" TextColor="{Binding pack3textcolor}" >
+                                    <Button.WidthRequest>
+                                        <OnPlatform x:TypeArguments="x:Double">
+                                            <On Platform="iOS">80</On>
+                                            <On Platform="Android,Windows">80</On>
+                                        </OnPlatform>
+                                    </Button.WidthRequest>
+                                </Button>
+
+
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Padding="0" IsVisible="False" x:Name="step2payemt">
+
+                                <Button x:Name="btnpack4name" Text="{Binding pack4_name}" Command="{Binding Choosepackagetype}" CommandParameter="{Binding pack4_days}"   FontSize="11" Margin="0"  Style="{StaticResource FontRegular}"  VerticalOptions="Start" HorizontalOptions="StartAndExpand" BorderColor="#2e74f0" BorderWidth="1" BackgroundColor="{Binding pack4backgroundcolor}" TextColor="{Binding pack4textcolor}" >
+                                    <Button.WidthRequest>
+                                        <OnPlatform x:TypeArguments="x:Double">
+                                            <On Platform="iOS">80</On>
+                                            <On Platform="Android,Windows">80</On>
+                                        </OnPlatform>
+                                    </Button.WidthRequest>
+                                </Button>
+                                <Button x:Name="btnpack5name" Text="{Binding pack5_name}" Command="{Binding Choosepackagetype}" CommandParameter="{Binding pack5_days}"   FontSize="11" Margin="0"  Style="{StaticResource FontRegular}"  VerticalOptions="Start" HorizontalOptions="StartAndExpand" BorderColor="#2e74f0" BorderWidth="1" BackgroundColor="{Binding pack5backgroundcolor}" TextColor="{Binding pack5textcolor}" >
+                                    <Button.WidthRequest>
+                                        <OnPlatform x:TypeArguments="x:Double">
+                                            <On Platform="iOS">80</On>
+                                            <On Platform="Android,Windows">80</On>
+                                        </OnPlatform>
+                                    </Button.WidthRequest>
+                                </Button>
+                                <Button x:Name="btnpack6name" Text="{Binding pack6_name}" Command="{Binding Choosepackagetype}" CommandParameter="{Binding pack6_days}"   FontSize="11" Margin="0"  Style="{StaticResource FontRegular}"  VerticalOptions="Start" HorizontalOptions="StartAndExpand" BorderColor="#2e74f0" BorderWidth="1" BackgroundColor="{Binding pack6backgroundcolor}" TextColor="{Binding pack6textcolor}" >
+
+                                    <Button.WidthRequest>
+                                        <OnPlatform x:TypeArguments="x:Double">
+                                            <On Platform="iOS">80</On>
+                                            <On Platform="Android,Windows">80</On>
+                                        </OnPlatform>
+                                    </Button.WidthRequest>
+                                </Button>
+
+
+
+                            </StackLayout>
+
+                        </StackLayout>
+
+
+
+                        <StackLayout Padding="5,0,5,20">
+
+                            <Frame BackgroundColor="White" CornerRadius="4"  Padding="10" IsVisible="{Binding framepack1}">
+                                <StackLayout VerticalOptions="Start" HorizontalOptions="CenterAndExpand">
+                                    <Label Text="{Binding pack1_name}" Style="{StaticResource FontRegular}" HorizontalOptions="Center"  
+                                           FontSize="14" TextColor="#202124" Margin="0,0,0,0" />
+                                    <StackLayout Orientation="Horizontal" VerticalOptions="Start"  HorizontalOptions="CenterAndExpand">
+                                        <Label Text="$" Style="{StaticResource FontRegular}"  FontSize="14" TextColor="#202124" HorizontalOptions="Start" VerticalOptions="Start" Margin="0,5,0,0" />
+                                        <Label Text="{Binding pack1_overall_amount}" Style="{StaticResource FontRegular}" HorizontalOptions="Start" VerticalOptions="Center" FontSize="30" TextColor="#202124"  />
+                                        <Label Text="{Binding pack1_days_txt}" Style="{StaticResource FontRegular}" HorizontalOptions="Start" VerticalOptions="Center"  FontSize="14" TextColor="#2e74f0"  />
+                                    </StackLayout>
+                                    
+                                    <Button Text="Get Started" Command="{Binding Chooseflexpackage}" CommandParameter="{Binding pack1_days}" FontSize="11" Margin="0"  Style="{StaticResource FontRegular}"  VerticalOptions="Start" HorizontalOptions="CenterAndExpand" BorderColor="#e30045" BorderWidth="1" BackgroundColor="#e30045" TextColor="#ffffff" />
+                                </StackLayout>
+
+                            </Frame>
+                            <Frame BackgroundColor="White" CornerRadius="4"  Padding="10" IsVisible="{Binding framepack2}" >
+                                <StackLayout VerticalOptions="Start" HorizontalOptions="CenterAndExpand">
+                                    <Label Text="{Binding pack2_name}" Style="{StaticResource FontRegular}" HorizontalOptions="Center"  FontSize="14" TextColor="#202124" Margin="0,0,0,0" />
+                                    <StackLayout Orientation="Horizontal" VerticalOptions="Start"  HorizontalOptions="CenterAndExpand">
+                                        <Label Text="$" Style="{StaticResource FontRegular}"  FontSize="14" TextColor="#202124" Margin="0,5,0,0" />
+                                        <Label Text="{Binding pack2_overall_amount}" Style="{StaticResource FontRegular}"  FontSize="30" TextColor="#202124"  />
+                                        <Label Text="{Binding pack2_days_txt}" Style="{StaticResource FontRegular}" HorizontalOptions="Start" VerticalOptions="Center"  FontSize="14" TextColor="#2e74f0"  />
+                                    </StackLayout>
+                                   
+                                    <Button Text="Get Started" Command="{Binding Chooseflexpackage}" CommandParameter="{Binding pack2_days}" FontSize="11" Margin="0"  Style="{StaticResource FontRegular}"  VerticalOptions="Start" HorizontalOptions="CenterAndExpand" BorderColor="#e30045" BorderWidth="1" BackgroundColor="#e30045" TextColor="#ffffff" />
+                                </StackLayout>
+
+                            </Frame>
+                            <Frame BackgroundColor="White" CornerRadius="4"  IsVisible="{Binding framepack3}" Padding="10" x:Name="framepack3">
+                                <StackLayout VerticalOptions="Start" HorizontalOptions="CenterAndExpand">
+                                    <Label Text="{Binding pack3_name}" Style="{StaticResource FontRegular}" HorizontalOptions="Center"  FontSize="14" TextColor="#202124" Margin="0,0,0,0" />
+                                    <StackLayout Orientation="Horizontal" VerticalOptions="Start"  HorizontalOptions="CenterAndExpand">
+                                        <Label Text="$" Style="{StaticResource FontRegular}"  FontSize="14" TextColor="#202124" Margin="0,5,0,0" />
+                                        <Label Text="{Binding pack3_overall_amount}" Style="{StaticResource FontRegular}"  FontSize="30" TextColor="#202124"  />
+                                        <Label Text="{Binding pack3_days_txt}" Style="{StaticResource FontRegular}" HorizontalOptions="Start" VerticalOptions="Center"  FontSize="14" TextColor="#2e74f0"  />
+                                    </StackLayout>
+                                    
+                                    <Button Text="Get Started" Command="{Binding Chooseflexpackage}" CommandParameter="{Binding pack3_days}" FontSize="11" Margin="0"  Style="{StaticResource FontRegular}"  VerticalOptions="Start" HorizontalOptions="CenterAndExpand" BorderColor="#e30045" BorderWidth="1" BackgroundColor="#e30045" TextColor="#ffffff" />
+                                </StackLayout>
+
+                            </Frame>
+                            <Frame BackgroundColor="White" CornerRadius="4" IsVisible="{Binding framepack4}" Padding="10" x:Name="framepack4">
+                                <StackLayout VerticalOptions="Start" HorizontalOptions="CenterAndExpand">
+                                    <Label Text="{Binding pack4_name}" Style="{StaticResource FontRegular}" HorizontalOptions="Center"  FontSize="14" TextColor="#202124" Margin="0,0,0,0" />
+                                    <StackLayout Orientation="Horizontal" VerticalOptions="Start"  HorizontalOptions="CenterAndExpand">
+                                        <Label Text="$" Style="{StaticResource FontRegular}"  FontSize="14" TextColor="#202124" Margin="0,5,0,0" />
+                                        <Label Text="{Binding pack4_overall_amount}" Style="{StaticResource FontRegular}"  FontSize="30" TextColor="#202124"  />
+                                        <Label Text="{Binding pack4_days_txt}" Style="{StaticResource FontRegular}" HorizontalOptions="Start" VerticalOptions="Center"  FontSize="14" TextColor="#2e74f0"  />
+                                    </StackLayout>
+                                    
+                                    <Button Text="Get Started" Command="{Binding Chooseflexpackage}" CommandParameter="{Binding pack4_days}" FontSize="11" Margin="0"  Style="{StaticResource FontRegular}"  VerticalOptions="Start" HorizontalOptions="CenterAndExpand" BorderColor="#e30045" BorderWidth="1" BackgroundColor="#e30045" TextColor="#ffffff" />
+                                </StackLayout>
+
+                            </Frame>
+                            <Frame BackgroundColor="White" CornerRadius="4" IsVisible="{Binding framepack5}" Padding="10" x:Name="framepack5">
+                                <StackLayout VerticalOptions="Start" HorizontalOptions="CenterAndExpand">
+                                    <Label Text="{Binding pack5_name}" Style="{StaticResource FontRegular}" HorizontalOptions="Center"  FontSize="14" TextColor="#202124" Margin="0,0,0,0" />
+                                    <StackLayout Orientation="Horizontal" VerticalOptions="Start"  HorizontalOptions="CenterAndExpand">
+                                        <Label Text="$" Style="{StaticResource FontRegular}"  FontSize="14" TextColor="#202124" Margin="0,5,0,0" />
+                                        <Label Text="{Binding pack5_overall_amount}" Style="{StaticResource FontRegular}"  FontSize="30" TextColor="#202124"  />
+                                        <Label Text="{Binding pack5_days_txt}" Style="{StaticResource FontRegular}" HorizontalOptions="Start" VerticalOptions="Center"  FontSize="14" TextColor="#2e74f0"  />
+                                    </StackLayout>
+                                   
+                                    <Button Text="Get Started" Command="{Binding Chooseflexpackage}" CommandParameter="{Binding pack5_days}" FontSize="11" Margin="0"  Style="{StaticResource FontRegular}"  VerticalOptions="Start" HorizontalOptions="CenterAndExpand" BorderColor="#e30045" BorderWidth="1" BackgroundColor="#e30045" TextColor="#ffffff" />
+                                </StackLayout>
+
+                            </Frame>
+                            <Frame BackgroundColor="White" CornerRadius="4" IsVisible="{Binding framepack6}"  Padding="10" x:Name="framepack6">
+                                <StackLayout VerticalOptions="Start" HorizontalOptions="CenterAndExpand">
+                                    <Label Text="{Binding pack6_name}" Style="{StaticResource FontRegular}" HorizontalOptions="Center"  FontSize="14" TextColor="#202124" Margin="0,0,0,0" />
+                                    <StackLayout Orientation="Horizontal" VerticalOptions="Start"  HorizontalOptions="CenterAndExpand">
+                                        <Label Text="$" Style="{StaticResource FontRegular}"  FontSize="14" TextColor="#202124" Margin="0,5,0,0" />
+                                        <Label Text="{Binding pack6_overall_amount}" Style="{StaticResource FontRegular}"  FontSize="30" TextColor="#202124"  />
+                                        <Label Text="{Binding pack6_days_txt}" Style="{StaticResource FontRegular}" HorizontalOptions="Start" VerticalOptions="Center"  FontSize="14" TextColor="#2e74f0"  />
+                                    </StackLayout>
+                                   
+                                    <Button Text="Get Started" Command="{Binding Chooseflexpackage}" CommandParameter="{Binding pack6_days}" FontSize="11" Margin="0"  Style="{StaticResource FontRegular}"  VerticalOptions="Start" HorizontalOptions="CenterAndExpand" BorderColor="#e30045" BorderWidth="1" BackgroundColor="#e30045" TextColor="#ffffff" />
+                                </StackLayout>
+
+                            </Frame>
+
+                            <ListView AbsoluteLayout.LayoutBounds="0,0,1,1"  AbsoluteLayout.LayoutFlags="All" HeightRequest="{Binding Height1}"  x:Name="listbizdata"  IsGroupingEnabled="True"  RefreshCommand="{Binding LoadHotelsCommand}" HasUnevenRows="True"  ItemsSource="{Binding Items}" >
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            
+                                            <StackLayout VerticalOptions="Start"  HorizontalOptions="FillAndExpand">
+                                                <StackLayout VerticalOptions="Start"  HorizontalOptions="FillAndExpand" Padding="15" BackgroundColor="White" >
+                                                    <!--<Image Source="TechJobIcon.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="14" WidthRequest="14"/>-->
+                                                    <Label Text="{Binding .Desc}" Style="{StaticResource FontRegular}"  FontSize="12"   HorizontalTextAlignment="Start" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" TextColor="#212121"  />
+
+                                                </StackLayout>
+                                                <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0,-5,0,0" />
+                                            </StackLayout>
+
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+
+                                <ListView.GroupHeaderTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <Frame BackgroundColor="White" CornerRadius="4" HasShadow="False"   Padding="0" Margin="0,5,0,0" >
+                                                <StackLayout Orientation="Horizontal"  Padding="10" >
+                                                    <!--<Image Source="ebook2.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="14" WidthRequest="14"/>-->
+                                                    <Label Text="{Binding Name}" Style="{StaticResource FontBold}" FontSize="14" HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand" TextColor="#03a497"  />
+                                                    <Image Source="{Binding StateIcon}"  HorizontalOptions="End" VerticalOptions="Center" HeightRequest="14" WidthRequest="14"/>
+                                                    <StackLayout.GestureRecognizers>
+                                                        <TapGestureRecognizer Command="{Binding Source={x:Reference listbizdata}, Path=BindingContext.RefreshItemsCommand}" CommandParameter="{Binding .}"/>
+                                                    </StackLayout.GestureRecognizers>
+                                                </StackLayout>
+                                            </Frame>
+
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.GroupHeaderTemplate>
+                            </ListView>
+
+
+
+
+
+                        </StackLayout>
+
+                    </StackLayout>
+
+                </ScrollView>
+
+            </StackLayout>
+
+            <StackLayout   VerticalOptions="EndAndExpand"  Padding="0" HorizontalOptions="FillAndExpand" 
+                             AbsoluteLayout.LayoutBounds="0,1,1,1" AbsoluteLayout.LayoutFlags="All"  BackgroundColor="White">
+
+                <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Padding="10,5,10,5">
+
+                    <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                        <Label Text="{Binding pack1_name}" IsVisible="{Binding framepack1}" FontSize="14" Style="{StaticResource FontRegular}" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" TextColor="#2e74f0"   />
+                        <Label Text="{Binding pack2_name}" IsVisible="{Binding framepack2}" FontSize="14" Style="{StaticResource FontRegular}" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" TextColor="#2e74f0"   />
+                        <Label Text="{Binding pack3_name}" IsVisible="{Binding framepack3}" FontSize="14" Style="{StaticResource FontRegular}" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" TextColor="#2e74f0"   />
+                        <Label Text="{Binding pack4_name}" IsVisible="{Binding framepack4}" FontSize="14" Style="{StaticResource FontRegular}" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" TextColor="#2e74f0"   />
+                        <Label Text="{Binding pack5_name}" IsVisible="{Binding framepack5}" FontSize="14" Style="{StaticResource FontRegular}" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" TextColor="#2e74f0"   />
+                        <Label Text="{Binding pack6_name}" IsVisible="{Binding framepack6}" FontSize="14" Style="{StaticResource FontRegular}" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" TextColor="#2e74f0"   />
+
+                        <Label Text="{Binding Choosedamount}"  FontSize="22" Style="{StaticResource FontBold}"  HorizontalOptions="Start" VerticalOptions="CenterAndExpand" TextColor="#45a455"  />
+                    </StackLayout>
+
+                    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="End">
+                        <Button IsVisible="{Binding framepack1}" Text="Get Started" FontSize="18" VerticalOptions="Start" Command="{Binding Chooseflexpackage}" CommandParameter="{Binding pack1_days}"  HorizontalOptions="FillAndExpand" BackgroundColor="#e30045" TextColor="White" />
+                        <Button IsVisible="{Binding framepack2}" Text="Get Started" FontSize="18" VerticalOptions="Start" Command="{Binding Chooseflexpackage}" CommandParameter="{Binding pack2_days}"  HorizontalOptions="FillAndExpand" BackgroundColor="#e30045" TextColor="White" />
+                        <Button IsVisible="{Binding framepack3}" Text="Get Started" FontSize="18" VerticalOptions="Start" Command="{Binding Chooseflexpackage}" CommandParameter="{Binding pack3_days}"  HorizontalOptions="FillAndExpand" BackgroundColor="#e30045" TextColor="White" />
+                        <Button IsVisible="{Binding framepack4}" Text="Get Started" FontSize="18" VerticalOptions="Start" Command="{Binding Chooseflexpackage}" CommandParameter="{Binding pack4_days}"  HorizontalOptions="FillAndExpand" BackgroundColor="#e30045" TextColor="White" />
+                        <Button IsVisible="{Binding framepack5}" Text="Get Started" FontSize="18" VerticalOptions="Start" Command="{Binding Chooseflexpackage}" CommandParameter="{Binding pack5_days}"  HorizontalOptions="FillAndExpand" BackgroundColor="#e30045" TextColor="White" />
+                        <Button IsVisible="{Binding framepack6}" Text="Get Started" FontSize="18" VerticalOptions="Start" Command="{Binding Chooseflexpackage}" CommandParameter="{Binding pack6_days}"  HorizontalOptions="FillAndExpand" BackgroundColor="#e30045" TextColor="White" />
+                    </StackLayout>
+
+                </StackLayout>
+
+            </StackLayout>
+
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

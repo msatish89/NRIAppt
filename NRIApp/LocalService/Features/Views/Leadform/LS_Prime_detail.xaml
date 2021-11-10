@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:length="clr-namespace:NRIApp.Behaviors"
+              xmlns:b="clr-namespace:NRIApp.Helpers"
+              xmlns:SULEntry="clr-namespace:NRIApp.Controls"
+             x:Class="NRIApp.LocalService.Features.Views.Leadform.LS_Prime_detail">
+    <ContentPage.Content>       
+        <StackLayout BackgroundColor="White" VerticalOptions="FillAndExpand">
+            <Label  x:Name="ldprimarytag" IsVisible="False"/>
+      
+
+            <ScrollView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+
+                <StackLayout Padding="10" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                    <StackLayout x:Name="stackbindquestionaries" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                        <!--<WebView x:Name="articleweb"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                        </WebView>-->
+                        <length:ClickableWebView x:Name="articleweb" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Clicked="Articleweb_Clicked"/>
+                        <!--<length:ClickableWebView x:Name="articleweb" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"   
+    Clicked="Articleweb_Clicked"/>-->
+                        <!--<b:ExtendedWebView Source="{Binding Htmlwebviewsource}" HeightRequest="1080" WidthRequest="1080" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>-->
+                    </StackLayout>
+                    <!--<StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                        <Label Text="T &amp; C Apply"  HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="gototc"></TapGestureRecognizer>
+                            </Label.GestureRecognizers>
+                        </Label>
+
+                    </StackLayout>-->
+
+                </StackLayout>
+            </ScrollView>
+
+            <!--<StackLayout VerticalOptions="End" HorizontalOptions="FillAndExpand">
+                
+                <Button Text="Skip"  Command="{Binding SkipLeadformcommand}"  VerticalOptions="Start" HorizontalOptions="FillAndExpand" BackgroundColor="#6c757d" TextColor="White" Parent="0,10,0,10" />
+             <StackLayout.Padding>
+                    <OnPlatform x:TypeArguments="Thickness" iOS="15,10,15,15" Android="10"></OnPlatform>
+                </StackLayout.Padding>  
+            </StackLayout>-->
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

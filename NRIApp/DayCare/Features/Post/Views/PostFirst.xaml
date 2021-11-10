@@ -1,0 +1,1232 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NRIApp.DayCare.Features.Post.Views.PostFirst"
+             xmlns:H="clr-namespace:NRIApp.Helpers" 
+             xmlns:SUL="clr-namespace:NRIApp.Controls"
+             xmlns:SULB="clr-namespace:NRIApp.Behaviors">
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <StackLayout  Margin="0,0,0,62" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All"
+                          VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                <ScrollView >
+           
+                    <StackLayout Padding="20,15,20,15" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+
+                        <StackLayout IsVisible="{Binding payratetypecisible}" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0,0,0,20"  >
+
+
+
+
+                            <StackLayout  VerticalOptions="Center" HorizontalOptions="FillAndExpand" Padding="0,0,0,20"  >
+                                <Label Text="Salary (in $)" TextColor="#919191" FontSize="12" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Style="{StaticResource FontRegular}" Margin="0,0,0,-5"     />
+                                <Grid IsVisible="{Binding salaryvisible}">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="20" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+
+                                    <StackLayout Grid.Column="0" Grid.Row="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand"  Margin="0,0,10,0"  >
+                                        <SUL:CustomEntry x:Name="txtminsal" Style="{StaticResource FontRegularEntry}" Text="{Binding payratetxt}"  Placeholder="Min Salary in $" HideBorder="true" Keyboard="Numeric" HorizontalOptions="FillAndExpand" NextView="{x:Reference txtmaxsal}" ReturnKeyType="Next"   PlaceholderColor="#c0c0c0"  FontSize="14">
+                                            <SUL:CustomEntry.Behaviors>
+                                                <!--<SULB:NumericInputValidator/>-->
+                                                <SULB:MaxLengthValidator MaxLength="6" />
+                                            </SUL:CustomEntry.Behaviors>
+                                        </SUL:CustomEntry>
+                                        <!--<Entry x:Name="txtminsal" Text="{Binding Minsal}" Placeholder="1000" Keyboard="Numeric"   HorizontalOptions="FillAndExpand" />-->
+
+                                        <BoxView BackgroundColor="#999999" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,0" />
+                                    </StackLayout>
+
+                                    <StackLayout Grid.Column="1" Grid.Row="0"  VerticalOptions="Center" HorizontalOptions="Start" >
+                                        <Label Text="to " TextColor="#888888" FontSize="12" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Style="{StaticResource FontRegular}"  Margin="0,8,0,0"  />
+                                    </StackLayout>
+
+                                    <StackLayout Grid.Column="2" Grid.Row="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand" >
+                                        <SUL:CustomEntry x:Name="txtmaxsal" Style="{StaticResource FontRegularEntry}" Text="{Binding Maxsal}"  Placeholder="Max Salary" HideBorder="true" Keyboard="Numeric" HorizontalOptions="FillAndExpand" NextView="{x:Reference txtmaxsal}" ReturnKeyType="Done"   PlaceholderColor="#c0c0c0"  FontSize="14">
+                                            <SUL:CustomEntry.Behaviors>
+                                                <!--<SULB:NumericInputValidator/>-->
+                                                <SULB:MaxLengthValidator MaxLength="6" />
+                                            </SUL:CustomEntry.Behaviors>
+                                        </SUL:CustomEntry>
+                                        <!--<Entry x:Name="txtmaxsal" Text="{Binding Maxsal}" Placeholder="2000" Keyboard="Numeric"   HorizontalOptions="FillAndExpand" />-->
+
+                                        <BoxView BackgroundColor="#999999" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,0" />
+                                    </StackLayout>
+
+                                    <!--<StackLayout Grid.Column="3" Grid.Row="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand"  >
+                                        <Label x:Name="Paytypetxt" Text="{Binding paytypetxt}" Style="{StaticResource FontRegular}" TextColor="#919191" FontSize="13" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Margin="5,10,0,5"  />
+                                        <BoxView BackgroundColor="#999999" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="3,3,0,0" />
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding Taponpaytype}"/>
+                                        </StackLayout.GestureRecognizers>
+
+                                    </StackLayout>-->
+                                    <!--<StackLayout Grid.Column="3" Grid.Row="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand"  >
+                                        <Label x:Name="Paytypetxt" Text="{Binding paytypetxt}" Style="{StaticResource FontRegular}" TextColor="#919191" FontSize="13" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Margin="5,10,0,5"/>
+                                        <BoxView BackgroundColor="#999999" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="3,3,0,0" />
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding Taponpaytype}"/>
+                                        </StackLayout.GestureRecognizers>
+                                    </StackLayout>-->
+                                    <StackLayout Grid.Column="3" Grid.Row="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand"  >
+                                        <Label x:Name="Paytypetxt" Text="{Binding paytypetxt}" Style="{StaticResource FontRegular}" TextColor="#919191" FontSize="13" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   >
+                                            <Label.Margin>
+                                                <OnPlatform x:TypeArguments="Thickness" iOS="5,0,0,5" Android="5,10,0,5" />
+                                            </Label.Margin>
+                                        </Label>
+                                        <BoxView BackgroundColor="#999999" HeightRequest="1" HorizontalOptions="FillAndExpand"  >
+                                            <BoxView.Margin>
+                                                <OnPlatform x:TypeArguments="Thickness" iOS="-5,0,0,0" Android="3,3,0,0" />
+                                            </BoxView.Margin>
+                                        </BoxView>
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding Taponpaytype}"/>
+                                        </StackLayout.GestureRecognizers>
+
+                                    </StackLayout>
+
+                                </Grid>
+
+                                <!--<StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Orientation="Horizontal" Margin="0,10,0,0">
+                                    <Image x:Name="checkbximg" Source="CheckBoxUnChecked.png" HeightRequest="18" WidthRequest="18" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  >
+                                        --><!--<Image.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding TCcheckcmd}"/>
+                                    </Image.GestureRecognizers>--><!--
+                                    </Image>
+                                    <Label Text="Best in industry" TextColor="#212121" FontSize="14" Style="{StaticResource FontRegular}" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  />
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding TCcheckcmd}"/>
+                                    </StackLayout.GestureRecognizers>
+                                </StackLayout>-->
+
+                            </StackLayout>
+
+
+
+
+                            <!--<Grid  VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand"  RowSpacing="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="25" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"  />
+                                    <RowDefinition Height="*"  />
+                                </Grid.RowDefinitions>
+
+
+
+                                <StackLayout Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3"  Spacing="0"  VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="5,0,5,0" Padding="0"  >
+                                    <Label Text="Salary (in $) " FontSize="12" Style="{StaticResource FontRegular}"  VerticalOptions="Start" HorizontalOptions="FillAndExpand" TextColor="#555555"   />
+                                </StackLayout>
+                                <StackLayout Grid.Column="3" Grid.Row="0" Spacing="0"   VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="5,0,5,0" Padding="0"  >
+                                    <Label Text="Pay Type" FontSize="12" Style="{StaticResource FontRegular}"   VerticalOptions="Start" HorizontalOptions="FillAndExpand" TextColor="#555555"   />
+                                </StackLayout>
+
+
+
+                                <StackLayout Grid.Column="0" Grid.Row="1" Spacing="0"  VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="5,-20,5,0" Padding="0"  >
+                                    --><!--<Label Text="Min Salary" FontSize="14" Style="{StaticResource FontRegular}"  VerticalOptions="End" HorizontalOptions="FillAndExpand" TextColor="#c0c0c0" Margin="0,6,0,0"   />
+                                    <BoxView HeightRequest="1" VerticalOptions="End" HorizontalOptions="FillAndExpand" BackgroundColor="#cccccc" />--><!--
+                                    <SUL:CustomEntry x:Name="txtminsal" Style="{StaticResource FontRegularEntry}" Text="{Binding payratetxt}" Placeholder="Min Salary  in $   " HideBorder="true" Keyboard="Numeric" HorizontalOptions="FillAndExpand" NextView="{x:Reference txtmaxsal}" ReturnKeyType="Next"   PlaceholderColor="#c0c0c0"  FontSize="13">
+                                        <SUL:CustomEntry.Behaviors>
+                                            --><!--<SULB:NumericInputValidator/>--><!--
+                                            <SULB:MaxLengthValidator MaxLength="6" />
+                                        </SUL:CustomEntry.Behaviors>
+                                    </SUL:CustomEntry>
+                                    <BoxView HeightRequest="1" VerticalOptions="End" HorizontalOptions="FillAndExpand" BackgroundColor="#cccccc" />
+                                </StackLayout>
+                                <StackLayout Grid.Column="1" Grid.Row="1" Spacing="0"  VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="5,-10,5,0" Padding="0"  >
+                                    <Label Text="To" FontSize="12" Style="{StaticResource FontRegular}"  VerticalOptions="End" HorizontalOptions="FillAndExpand" TextColor="#c0c0c0" Margin="0,6,0,0"  />
+                                </StackLayout>
+
+
+
+                                <StackLayout Grid.Column="2" Grid.Row="1" Spacing="0"  VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="5,-20,5,0" Padding="0"  >
+                                    <SUL:CustomEntry x:Name="txtmaxsal" Style="{StaticResource FontRegularEntry}" Text="{Binding Maxsal}" Placeholder="Max Salary" HideBorder="true" Keyboard="Numeric" HorizontalOptions="FillAndExpand" NextView="{x:Reference txtmaxsal}" ReturnKeyType="Done"   PlaceholderColor="#c0c0c0"  FontSize="13">
+                                        <SUL:CustomEntry.Behaviors>
+                                            --><!--<SULB:NumericInputValidator/>--><!--
+                                            <SULB:MaxLengthValidator MaxLength="6" />
+                                        </SUL:CustomEntry.Behaviors>
+                                    </SUL:CustomEntry>
+                                    <BoxView HeightRequest="1" VerticalOptions="End" HorizontalOptions="FillAndExpand" BackgroundColor="#cccccc" />
+                                    --><!--<Label Text="Max Salary" FontSize="14" Style="{StaticResource FontRegular}"  VerticalOptions="End" HorizontalOptions="FillAndExpand" TextColor="#c0c0c0" Margin="0,6,0,0"  />
+                                    <BoxView HeightRequest="1" VerticalOptions="End" HorizontalOptions="FillAndExpand" BackgroundColor="#757575" />--><!--
+                                </StackLayout>
+
+
+
+                                <StackLayout Grid.Column="3" Grid.Row="1" Spacing="0"  VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="5,-25,5,0" Padding="0"  >
+                                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                                        <Label x:Name="Paytypetxt" Text="{Binding paytypetxt}" Style="{StaticResource FontRegular}" TextColor="#212121" FontSize="13" Margin="0,15,0,20" HorizontalOptions="StartAndExpand" />
+                                        <Image Source="downarrowGrey.png" HeightRequest="10" WidthRequest="10"  HorizontalOptions="End" />
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding Taponpaytype}"/>
+                                        </StackLayout.GestureRecognizers>
+                                    </StackLayout>
+                                    <BoxView BackgroundColor="#999999" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-8,0,0" />
+                                </StackLayout>
+                            </Grid>-->
+                            
+                            
+                        </StackLayout>
+                        <StackLayout IsVisible="{Binding otherprovidervisible}" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Padding="0,0,0,0"  >
+                            <Label Text="Also provide services:" TextColor="#919191" FontSize="12" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Style="{StaticResource FontRegular}" Margin="0,0,0,0"    />
+                            <StackLayout HorizontalOptions="FillAndExpand" x:Name="otherproviderlayout" VerticalOptions="Start" Padding="15,10,15,15" >
+                            </StackLayout>
+                        </StackLayout>
+
+                        <StackLayout IsVisible="{Binding needservicelblvisible}" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Padding="0,0,0,0"  >
+                            <Label Text="{Binding needservicelbltxt} " TextColor="#919191" FontSize="12" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Style="{StaticResource FontRegular}" Margin="0,0,0,0"    />
+                            <StackLayout HorizontalOptions="FillAndExpand" x:Name="needservicelayout" VerticalOptions="Start" Padding="15,10,15,15" >
+                            </StackLayout>
+                        </StackLayout>
+
+                        <StackLayout IsVisible="{Binding agegrouplblvisible}" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Padding="0,0,0,0"  >
+                            <Label Text="{Binding agegrouplbltxt} " TextColor="#919191" FontSize="12" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Style="{StaticResource FontRegular}" Margin="0,0,0,0"    />
+                            <StackLayout HorizontalOptions="FillAndExpand" x:Name="agegrouplayout" VerticalOptions="Start" Padding="15,10,15,15" >
+                            </StackLayout>
+                        </StackLayout>
+
+                        <StackLayout IsVisible="{Binding jobtypelblvisible}" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Padding="0,0,0,0"  >
+                            <Label Text="Job type " TextColor="#919191" FontSize="12" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Style="{StaticResource FontRegular}" Margin="0,0,0,0"    />
+                            <StackLayout HorizontalOptions="FillAndExpand" x:Name="jobtypelayout" VerticalOptions="Start" Padding="15,10,15,15" >
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout IsVisible="{Binding establismentyrblkvisible}"  VerticalOptions="Center" HorizontalOptions="FillAndExpand" Padding="0,0,0,20"  >
+                            <Label  Text="{Binding establishmentyrtxt}" TextColor="#919191" FontSize="12" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Style="{StaticResource FontRegular}" Margin="0,0,0,0"    />
+                            <StackLayout   VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                <Label x:Name="establishyeartxtID"  Text="{Binding establishyeartxtID}" Style="{StaticResource FontRegular}" TextColor="#bbbbbb" FontSize="14" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Margin="0,0,0,15"  />
+                                <BoxView BackgroundColor="#999999" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,0" />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Taponyear}"/>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                        </StackLayout>
+
+                        <StackLayout IsVisible="{Binding gendertxtvisible}" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Padding="20"  >
+                            <Label Text="{Binding gendertxt}" Style="{StaticResource FontRegular}" TextColor="#919191" FontSize="14" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   />
+                            <ListView x:Name="genderlistid" HeightRequest="70" SeparatorVisibility="None" HasUnevenRows="True" HorizontalOptions="FillAndExpand">
+                                <ListView.Behaviors>
+                                    <H:ListviewItemtap Command="{Binding gendertap}"/>
+                                </ListView.Behaviors>
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Padding="0,5,0,5">
+                                                <Image Source="{Binding tsetvalimg}" HeightRequest="24" WidthRequest="24"/>
+                                                <Label Text="{Binding tsetval}" Font="14" TextColor="Black" />
+                                            </StackLayout>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+
+                        </StackLayout>
+                      
+                        <StackLayout IsVisible="{Binding experiencelblvisible}" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Padding="0,0,0,20"  >
+                            <Label Text="{Binding qaexperiencetxt}" TextColor="#919191" FontSize="12" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Style="{StaticResource FontRegular}" Margin="0,0,0,0"    />
+                            <StackLayout   VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                <Label x:Name="paidexperienceyrtxt" Text="{Binding paidexperienceyrtxt}" Style="{StaticResource FontRegular}" TextColor="#bbbbbb" FontSize="14" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Margin="0,0,0,15"  />
+                                <BoxView BackgroundColor="#999999" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,0" />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Taponpaidexperience}"/>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                        </StackLayout>
+
+                        <StackLayout IsVisible="{Binding workdescriptionvisible}"  VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0,0,0,20" >
+
+                            <Label Text="Describe your work experience " TextColor="#919191" FontSize="12" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Style="{StaticResource FontRegular}" Margin="0,0,0,-5"    />
+                            <StackLayout   VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                <Editor x:Name="workdescription" Text="{Binding workdescription}" HeightRequest="100"   />
+                            </StackLayout>
+
+                        </StackLayout>
+                        <StackLayout IsVisible="{Binding liveoutprferencevisible}" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Padding="20"  >
+                            <Label Text="{Binding liveoutprferencetxt}" Style="{StaticResource FontRegular}" TextColor="#919191" FontSize="14" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   />
+                            <ListView x:Name="liveoutpreferencelist" HeightRequest="70" SeparatorVisibility="None" HasUnevenRows="True" HorizontalOptions="FillAndExpand">
+                                <ListView.Behaviors>
+                                    <H:ListviewItemtap Command="{Binding selectliveoutpreference}"/>
+                                </ListView.Behaviors>
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Padding="0,5,0,5">
+                                                <Image Source="{Binding tsetvalimg}" HeightRequest="24" WidthRequest="24"/>
+                                                <Label Text="{Binding tsetval}" Font="14" TextColor="Black" />
+                                            </StackLayout>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+
+                        </StackLayout>
+                        <StackLayout IsVisible="{Binding languagelayoutvisible}" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                            <StackLayout Padding="5,0,5,20">
+                                <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                                    <Frame BackgroundColor="White" CornerRadius="0" Padding="0">
+                                        <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                                            <Frame BackgroundColor="White" CornerRadius="0" Padding="0">
+
+                                                <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="15,10,15,10" Margin="0" >
+                                                        <Label Text="{Binding languageqatxt}" Style="{StaticResource FontRegular}" FontSize="16" TextColor="Black" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" />
+                                                    </StackLayout>
+
+                                                    <BoxView HeightRequest="1" BackgroundColor="#ecf2f4" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+
+                                                    <StackLayout HorizontalOptions="FillAndExpand" x:Name="languagelayout" VerticalOptions="Start" Padding="15,10,15,15" >
+
+                                                    </StackLayout>
+
+                                                    <StackLayout IsVisible="{Binding addmorelanguagevisible}" x:Name="addnewlanguagevisible"  Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+                                                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                                            <SUL:CustomEntry x:Name="addnewskillstxt" Text="{Binding Addmorelanguagetext}"  Placeholder="Language"  HorizontalOptions="FillAndExpand" Style="{StaticResource FontRegularEntry}" VerticalOptions="CenterAndExpand" HideBorder="True"   ReturnKeyType="Done"   PlaceholderColor="#c0c0c0" >
+                                                            </SUL:CustomEntry>
+                                                            <BoxView BackgroundColor="#c2c2c2" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,15">
+                                                            </BoxView>
+                                                        </StackLayout>
+
+                                                        <StackLayout VerticalOptions="Start" IsVisible="{Binding addlanguagebtnvisible}" HorizontalOptions="End">
+                                                            <!--<Button Text="Add" Command="{Binding taptoaddlanguage}" TextColor="White"  HorizontalOptions="End" BackgroundColor="#0ba283"  />-->
+                                                            <Button Text="{Binding addlanguagebtntxt}" Command="{Binding taptoaddlanguage}" TextColor="White"  HorizontalOptions="End" BackgroundColor="#0ba283"  />
+                                                        </StackLayout>
+                                                    </StackLayout>
+
+                                                    <!--<StackLayout>
+
+                                                    <H:HVScrollGridView x:Name="addnewskillList"  SelectedItemChanged="AddnewskillList_SelectedItemChanged" ListOrientation="Horizontal" ItemsSource="{Binding Getskills}"  >
+                                                        <H:HVScrollGridView.ItemTemplate >
+                                                            <DataTemplate >
+                                                                <ContentView >
+                                                                    <ContentView.Content>
+                                                                        <StackLayout Orientation="Horizontal" HorizontalOptions="Start" VerticalOptions="Start" Padding="0,5,0,5">
+                                                                            <Frame BackgroundColor="#e6e5e5" CornerRadius="2" HasShadow="False" Padding="10"  Margin="5,0,5,0" >
+                                                                                <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="StartAndExpand">
+                                                                                    <Label Text="{Binding .}" FontSize="12" TextColor="#333333" Style="{StaticResource FontRegular}"  LineBreakMode="NoWrap"   HorizontalOptions="FillAndExpand" VerticalOptions="Center"/>
+                                                                                    <Image Source="CloseIconFull2.png" HeightRequest="18" WidthRequest="18"  VerticalOptions="Center" HorizontalOptions="Start"    />
+                                                                                </StackLayout>
+                                                                            </Frame>
+
+                                                                        </StackLayout>
+                                                                    </ContentView.Content>
+                                                                </ContentView>
+                                                            </DataTemplate>
+                                                        </H:HVScrollGridView.ItemTemplate>
+                                                    </H:HVScrollGridView>
+                                                </StackLayout>-->
+
+                                                </StackLayout>
+                                            </Frame>
+                                        </StackLayout>
+                                    </Frame>
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+
+                        <StackLayout IsVisible="{Binding activityenrichmntblkvisible}" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Padding="0,0,0,20"  >
+
+                            <Label x:Name="activitytxt"  Text="{Binding activitytxt}" Style="{StaticResource FontRegular}" TextColor="#bbbbbb" FontSize="14" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Margin="0,0,0,15"  />
+                            <StackLayout x:Name="activitylayout"  IsVisible="{Binding activitylistviewvisble}">
+                            </StackLayout>
+                        </StackLayout>
+
+                       
+                        <StackLayout IsVisible="{Binding certificationlistviewvisble}"  VerticalOptions="Center" HorizontalOptions="FillAndExpand" Padding="0,0,0,20"  >
+                            <Label Text="{Binding certificationtxt}" TextColor="#919191" FontSize="12" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Style="{StaticResource FontRegular}" Margin="0,0,0,0"    />
+                            <StackLayout   VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                <Label  Text="{Binding experienceyrtxt}" Style="{StaticResource FontRegular}" TextColor="#bbbbbb" FontSize="14" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Margin="0,0,0,15"  />
+                                <!--<BoxView BackgroundColor="#999999" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,0" />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Taponcertification}"/>
+                                </StackLayout.GestureRecognizers>-->
+
+                                <StackLayout >
+                                    <!--<ScrollView >-->
+                                        <StackLayout>
+                                            <StackLayout x:Name="certificationlayout"  IsVisible="{Binding certificationlistviewvisble}">
+
+                                            </StackLayout>
+                                            <!--<StackLayout VerticalOptions="Start" HorizontalOptions="End">
+                                                <Button Text="Ok" Command="{Binding certificationcmd}" TextColor="White"  HorizontalOptions="End" BackgroundColor="#0ba283"  />
+                                            </StackLayout>-->
+                                        </StackLayout>
+                                    <!--</ScrollView>-->
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                     
+                        <StackLayout  IsVisible="{Binding respondlblvisible}" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Padding="0,0,0,20"  >
+                            <Label Text="{Binding replyperiodtxt}" TextColor="#919191" FontSize="12" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Style="{StaticResource FontRegular}" Margin="0,0,0,0"    />
+                            <StackLayout   VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                <Label x:Name="replyperiodtxt"   Text="{Binding replyperiodtxtID}" Style="{StaticResource FontRegular}" TextColor="#bbbbbb" FontSize="14" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Margin="0,0,0,15"  />
+                                <BoxView BackgroundColor="#999999" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,0" />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Taponreplyperiod}"/>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                        </StackLayout>
+
+                        <StackLayout IsVisible="{Binding drivetxtvisible}" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Padding="20"  >
+                            <Label Text="{Binding drivetxt}" Style="{StaticResource FontRegular}" TextColor="#919191" FontSize="14" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   />
+                            <ListView x:Name="drivelistid" HeightRequest="70" SeparatorVisibility="None" HasUnevenRows="True" HorizontalOptions="FillAndExpand">
+                                <ListView.Behaviors>
+                                    <H:ListviewItemtap Command="{Binding drivetap}"/>
+                                </ListView.Behaviors>
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Padding="0,5,0,5">
+                                                <Image Source="{Binding tsetvalimg}" HeightRequest="24" WidthRequest="24"/>
+                                                <Label Text="{Binding tsetval}" Font="14" TextColor="Black" Style="{StaticResource FontRegular}" />
+                                            </StackLayout>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+
+                        </StackLayout>
+                    
+                        <StackLayout IsVisible="{Binding vehicletxtvisible}" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Padding="20"  >
+                            <Label Text="{Binding vehicletxt}" Style="{StaticResource FontRegular}" TextColor="#919191" FontSize="14" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   />
+                            <ListView x:Name="vehiclelistid" HeightRequest="70" SeparatorVisibility="None" HasUnevenRows="True" HorizontalOptions="FillAndExpand">
+                                <ListView.Behaviors>
+                                    <H:ListviewItemtap Command="{Binding vehicletap}"/>
+                                </ListView.Behaviors>
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Padding="0,5,0,5">
+                                                <Image Source="{Binding tsetvalimg}" HeightRequest="24" WidthRequest="24"/>
+                                                <Label Text="{Binding tsetval}" Font="14" TextColor="Black" Style="{StaticResource FontRegular}" />
+                                            </StackLayout>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </StackLayout>
+                        
+                        <StackLayout IsVisible="{Binding licensetxtvisible}" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Padding="20"  >
+                            <Label Text="{Binding licensetxt}" Style="{StaticResource FontRegular}" TextColor="#919191" FontSize="14" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   />
+                            <ListView x:Name="licenselistid" HeightRequest="70" SeparatorVisibility="None" HasUnevenRows="True" HorizontalOptions="FillAndExpand">
+                                <ListView.Behaviors>
+                                    <H:ListviewItemtap Command="{Binding licensetap}"/>
+                                </ListView.Behaviors>
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Padding="0,5,0,5">
+                                                <Image Source="{Binding tsetvalimg}" HeightRequest="24" WidthRequest="24"/>
+                                                <Label Text="{Binding tsetval}" Font="14" TextColor="Black" Style="{StaticResource FontRegular}" />
+                                            </StackLayout>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+
+                        </StackLayout>
+
+
+
+                        <StackLayout IsVisible="{Binding virtualnannylayout}"  VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0,5,0,5">
+                            <Label Text="Virtual Nanny" Style="{StaticResource FontRegular}" TextColor="#919191" FontSize="14" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  />
+
+                            <StackLayout>
+                                <Label Text="{Binding virtualcheckdtltext}" Style="{StaticResource FontRegular}" TextColor="Black" FontSize="14" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  />
+                                <Label Text="Check details"  Style="{StaticResource FontRegular}"   TextColor="#0c9cf0"/>
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding taponvirtualcheckdtls}"/>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal"  VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                                <Image Source="{Binding onlineserviceimg}" HeightRequest="24" WidthRequest="24" VerticalOptions="Start" HorizontalOptions="Start"/>
+                                <Label Text="{Binding onlineservicetext}" Font="14" TextColor="Black" Style="{StaticResource FontRegular}"  VerticalOptions="Start" HorizontalOptions="Start"/>
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding onlineservicetap}"/>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                                <Image Source="{Binding inpersonserviceimg}" HeightRequest="24" WidthRequest="24" VerticalOptions="Start" HorizontalOptions="Start"/>
+                                <Label Text="{Binding inpersonservicetext}" Font="14" TextColor="Black" Style="{StaticResource FontRegular}" VerticalOptions="Start" HorizontalOptions="Start" />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding onlineservicetap}"/>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                        </StackLayout>
+
+                        <!--wanted posting-->
+
+                        <StackLayout IsVisible="{Binding newqandvisible}">
+                        <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0,5,0,5">
+                            <Label Text="Do you have your own tranportation?" Style="{StaticResource FontRegular}" TextColor="#919191" FontSize="14" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  />
+
+                          
+                            <StackLayout Orientation="Horizontal"  VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                                <Image Source="{Binding transportationONimg}" HeightRequest="24" WidthRequest="24" VerticalOptions="Start" HorizontalOptions="Start"/>
+                                <Label Text="Yes" Font="14" TextColor="Black" Style="{StaticResource FontRegular}"  VerticalOptions="Start" HorizontalOptions="Start"/>
+                                <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding transportationservicetap}"/>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                                    <Image Source="{Binding transportationOFFimg}" HeightRequest="24" WidthRequest="24" VerticalOptions="Start" HorizontalOptions="Start"/>
+                                <Label Text="No" Font="14" TextColor="Black" Style="{StaticResource FontRegular}" VerticalOptions="Start" HorizontalOptions="Start" />
+                                <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding transportationservicetap}"/>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                        </StackLayout>
+
+                           
+
+                            <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0,5,0,5">
+                                <Label Text="Are you comfortable with pets?" Style="{StaticResource FontRegular}" TextColor="#919191" FontSize="14" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  />
+
+
+                                <StackLayout Orientation="Horizontal"  VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                                    <Image Source="{Binding comfpetsONimg}" HeightRequest="24" WidthRequest="24" VerticalOptions="Start" HorizontalOptions="Start"/>
+                                    <Label Text="Yes" Font="14" TextColor="Black" Style="{StaticResource FontRegular}"  VerticalOptions="Start" HorizontalOptions="Start"/>
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding comfpetstap}"/>
+                                    </StackLayout.GestureRecognizers>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                                    <Image Source="{Binding comfpetsOFFimg}" HeightRequest="24" WidthRequest="24" VerticalOptions="Start" HorizontalOptions="Start"/>
+                                    <Label Text="No" Font="14" TextColor="Black" Style="{StaticResource FontRegular}" VerticalOptions="Start" HorizontalOptions="Start" />
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding comfpetstap}"/>
+                                    </StackLayout.GestureRecognizers>
+                                </StackLayout>
+                            </StackLayout>
+
+                            <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0,5,0,5">
+                                <Label Text="Do you smoke?" Style="{StaticResource FontRegular}" TextColor="#919191" FontSize="14" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  />
+
+
+                                <StackLayout Orientation="Horizontal"  VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                                    <Image Source="{Binding smokeONimg}" HeightRequest="24" WidthRequest="24" VerticalOptions="Start" HorizontalOptions="Start"/>
+                                    <Label Text="Yes" Font="14" TextColor="Black" Style="{StaticResource FontRegular}"  VerticalOptions="Start" HorizontalOptions="Start"/>
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding dousmoketap}"/>
+                                    </StackLayout.GestureRecognizers>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                                    <Image Source="{Binding smokeOFFimg}" HeightRequest="24" WidthRequest="24" VerticalOptions="Start" HorizontalOptions="Start"/>
+                                    <Label Text="No" Font="14" TextColor="Black" Style="{StaticResource FontRegular}" VerticalOptions="Start" HorizontalOptions="Start" />
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding dousmoketap}"/>
+                                    </StackLayout.GestureRecognizers>
+                                </StackLayout>
+                            </StackLayout>
+
+                            <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0,5,0,5">
+                                <Label Text="Education" Style="{StaticResource FontRegular}" TextColor="#919191" FontSize="14" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  />
+
+
+                                <StackLayout Orientation="Horizontal"  VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                                    <Image Source="{Binding highschoolimg}" HeightRequest="24" WidthRequest="24" VerticalOptions="Start" HorizontalOptions="Start"/>
+                                    <Label Text="High School" Font="14" TextColor="Black" Style="{StaticResource FontRegular}"  VerticalOptions="Start" HorizontalOptions="Start"/>
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding highschooltap}"/>
+                                    </StackLayout.GestureRecognizers>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                                    <Image Source="{Binding degreeimg}" HeightRequest="24" WidthRequest="24" VerticalOptions="Start" HorizontalOptions="Start"/>
+                                    <Label Text="Degree" Font="14" TextColor="Black" Style="{StaticResource FontRegular}" VerticalOptions="Start" HorizontalOptions="Start" />
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding degreetap}"/>
+                                    </StackLayout.GestureRecognizers>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal"  VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                                    <Image Source="{Binding highdegreeimg}" HeightRequest="24" WidthRequest="24" VerticalOptions="Start" HorizontalOptions="Start"/>
+                                    <Label Text="High Degree" Font="14" TextColor="Black" Style="{StaticResource FontRegular}"  VerticalOptions="Start" HorizontalOptions="Start"/>
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding highdegreetap}"/>
+                                    </StackLayout.GestureRecognizers>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                                    <Image Source="{Binding otherimg}" HeightRequest="24" WidthRequest="24" VerticalOptions="Start" HorizontalOptions="Start"/>
+                                    <Label Text="Others" Font="14" TextColor="Black" Style="{StaticResource FontRegular}" VerticalOptions="Start" HorizontalOptions="Start" />
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding otherstap}"/>
+                                    </StackLayout.GestureRecognizers>
+                                </StackLayout>
+                            </StackLayout>
+
+                        </StackLayout>
+
+                        <StackLayout  VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="5,0,5,20" >
+
+                            <StackLayout IsVisible="{Binding fromtodatevisible}">
+                                <Label  Text="{Binding servicedatetxt}" TextColor="#919191" FontSize="12" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Style="{StaticResource FontRegular}" Margin="0,0,0,0"    />
+                                <Grid>
+                                    <StackLayout  Grid.Column="0" Grid.Row="0" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Padding="0,0,15,0">
+                                        <Label x:Name="Needfrom" Text="{Binding fromdatetxt}" FontSize="14" Style="{StaticResource FontRegular}"  VerticalOptions="End" HorizontalOptions="FillAndExpand" TextColor="#c0c0c0" Margin="5,6,0,0"   />
+                                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                            <DatePicker Date="{Binding fromdate}"   MinimumDate="{Binding mindate}" />
+                                        </StackLayout>
+                                    </StackLayout>
+
+                                    <StackLayout  Grid.Column="1" Grid.Row="0" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                        <Label x:Name="NeedTo" Text="{Binding todatetxt}" FontSize="14" Style="{StaticResource FontRegular}"  VerticalOptions="End" HorizontalOptions="FillAndExpand" TextColor="#c0c0c0" Margin="5,6,0,0" />
+                                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                            <DatePicker Date="{Binding todate}" MinimumDate="{Binding mindate}" />
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Grid>
+                            </StackLayout>
+                            <!--<StackLayout IsVisible="{Binding dayschedulevisible}">
+
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="DAY SCHEDULE LIST" HorizontalOptions="CenterAndExpand"/>
+                                    <Label Text="Check all">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding checkalltap}"/>
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                    <Label Text="UnCheck all">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding uncheckalltap}"/>
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                    <Label Text="Weekdays">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding weekdaystap}"/>
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                    <Label Text="Weekends">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding weekendstap}"/>
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                </StackLayout>
+                                <Grid>
+                                   
+                                    <StackLayout Grid.Row="0" Grid.Column="0" HorizontalOptions="FillAndExpand" x:Name="dayschedulelist1" VerticalOptions="FillAndExpand" >
+                                    </StackLayout>
+                                    <StackLayout Grid.Row="0" Grid.Column="1" HorizontalOptions="FillAndExpand" x:Name="dayschedulelist2" VerticalOptions="FillAndExpand" >
+                                    </StackLayout>
+                                    <StackLayout Grid.Row="0" Grid.Column="2" HorizontalOptions="FillAndExpand" x:Name="dayschedulelist3" VerticalOptions="FillAndExpand">
+                                    </StackLayout>
+                                    <StackLayout Grid.Row="0" Grid.Column="3" HorizontalOptions="FillAndExpand" x:Name="dayschedulelist4" VerticalOptions="FillAndExpand">
+                                    </StackLayout>
+                                    <StackLayout Grid.Row="0" Grid.Column="4" HorizontalOptions="FillAndExpand" x:Name="dayschedulelist5" VerticalOptions="FillAndExpand">
+                                    </StackLayout>
+                                    <StackLayout Grid.Row="0" Grid.Column="5" HorizontalOptions="FillAndExpand" x:Name="dayschedulelist6" VerticalOptions="FillAndExpand">
+                                    </StackLayout>
+                                    <StackLayout Grid.Row="0" Grid.Column="6" HorizontalOptions="FillAndExpand" x:Name="dayschedulelist7" VerticalOptions="FillAndExpand">
+                                    </StackLayout>
+                                 
+                                </Grid>
+
+                            </StackLayout>-->
+
+                            <StackLayout IsVisible="{Binding dayschedulevisible}">
+                                <StackLayout  VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0,0,0,20"  >
+
+                                    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="0,0,0,0">
+                                        <Label Text="DAY SCHEDULE LIST" HorizontalOptions="CenterAndExpand"/>
+                                        <ScrollView Orientation="Horizontal" Padding="0" Margin="0,0,0,0"  >
+                                            <StackLayout Orientation="Horizontal" HorizontalOptions="Start" Padding="0">
+                                                <!--<Button Text="DAY SCHEDULE LIST" FontSize="11" Margin="0"  Style="{StaticResource FontRegular}"   VerticalOptions="Start" HorizontalOptions="StartAndExpand" BorderColor="#2e74f0" BorderWidth="1" BackgroundColor="#2e74f0" TextColor="#ffffff" />-->
+                                                <Button x:Name="checkall" Text="Check all" Command="{Binding checkalltap}" FontSize="11" Margin="0"  Style="{StaticResource FontRegular}"  VerticalOptions="Start" HorizontalOptions="StartAndExpand" BorderColor="#2e74f0" BorderWidth="1" BackgroundColor="#ffffff" TextColor="#2e74f0" >
+                                                    <Button.WidthRequest >
+                                                        <OnPlatform x:TypeArguments="x:Double">
+                                                            <On Platform="iOS">80</On>
+                                                        </OnPlatform>
+                                                    </Button.WidthRequest>
+                                                </Button>
+                                                <Button x:Name="uncheckall" Text="UnCheck all" Command="{Binding uncheckalltap}" FontSize="11" Margin="0"  Style="{StaticResource FontRegular}"  VerticalOptions="Start" HorizontalOptions="StartAndExpand" BorderColor="#2e74f0" BorderWidth="1" BackgroundColor="#ffffff" TextColor="#2e74f0" >
+                                                    <Button.WidthRequest >
+                                                        <OnPlatform x:TypeArguments="x:Double">
+                                                            <On Platform="iOS">80</On>
+                                                        </OnPlatform>
+                                                    </Button.WidthRequest>
+                                                </Button>
+                                                <Button x:Name="weekdays" Text="Weekdays" Command="{Binding weekdaystap}" FontSize="11" Margin="0"  Style="{StaticResource FontRegular}"  VerticalOptions="Start" HorizontalOptions="StartAndExpand" BorderColor="#2e74f0" BorderWidth="1" BackgroundColor="#ffffff" TextColor="#2e74f0" >
+                                                    <Button.WidthRequest >
+                                                        <OnPlatform x:TypeArguments="x:Double">
+                                                            <On Platform="iOS">80</On>
+                                                        </OnPlatform>
+                                                    </Button.WidthRequest>
+                                                </Button>
+                                                <Button x:Name="weekends" Text="Weekends" Command="{Binding weekendstap}" FontSize="11" Margin="0"  Style="{StaticResource FontRegular}"  VerticalOptions="Start" HorizontalOptions="StartAndExpand" BorderColor="#2e74f0" BorderWidth="1" BackgroundColor="#ffffff" TextColor="#2e74f0" >
+                                                    <Button.WidthRequest >
+                                                        <OnPlatform x:TypeArguments="x:Double">
+                                                            <On Platform="iOS">80</On>
+                                                        </OnPlatform>
+                                                    </Button.WidthRequest>
+                                                </Button>
+                                            </StackLayout>
+                                        </ScrollView>
+                                    </StackLayout>
+
+                                    <Grid Margin="0,0,0,0">
+
+                                        <StackLayout Grid.Row="0" Grid.Column="0" HorizontalOptions="FillAndExpand" Margin="0,0,0,0"  VerticalOptions="FillAndExpand" >
+
+                                        </StackLayout>
+
+                                        <StackLayout Grid.Row="0" Grid.Column="1" HorizontalOptions="FillAndExpand" Margin="0,0,0,0"  VerticalOptions="FillAndExpand" >
+                                            <Label Text="Sun" TextColor="#212121" FontSize="10" Style="{StaticResource FontRegular}" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  />
+                                        </StackLayout>
+
+                                        <StackLayout Grid.Row="0" Grid.Column="2" HorizontalOptions="FillAndExpand" Margin="0,0,0,0"  VerticalOptions="FillAndExpand">
+                                            <Label Text="Mon" TextColor="#212121" FontSize="10" Style="{StaticResource FontRegular}" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  />
+                                        </StackLayout>
+
+                                        <StackLayout Grid.Row="0" Grid.Column="3" HorizontalOptions="FillAndExpand" Margin="0,0,0,0"  VerticalOptions="FillAndExpand">
+                                            <Label Text="Tue" TextColor="#212121" FontSize="10" Style="{StaticResource FontRegular}" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  />
+                                        </StackLayout>
+
+                                        <StackLayout Grid.Row="0" Grid.Column="4" HorizontalOptions="FillAndExpand" Margin="0,0,0,0"  VerticalOptions="FillAndExpand">
+                                            <Label Text="Wed" TextColor="#212121" FontSize="10" Style="{StaticResource FontRegular}" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  />
+                                        </StackLayout>
+
+                                        <StackLayout Grid.Row="0" Grid.Column="5" HorizontalOptions="FillAndExpand" Margin="0,0,0,0"  VerticalOptions="FillAndExpand">
+                                            <Label Text="Thu" TextColor="#212121" FontSize="10" Style="{StaticResource FontRegular}" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  />
+                                        </StackLayout>
+
+                                        <StackLayout Grid.Row="0" Grid.Column="6" HorizontalOptions="FillAndExpand" Margin="0,0,0,0"  VerticalOptions="FillAndExpand">
+                                            <Label Text="Fri" TextColor="#212121" FontSize="10" Style="{StaticResource FontRegular}" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  />
+                                        </StackLayout>
+
+                                        <StackLayout Grid.Row="0" Grid.Column="7" HorizontalOptions="FillAndExpand" Margin="0,0,0,0"  VerticalOptions="FillAndExpand">
+                                            <Label Text="Sat" TextColor="#212121" FontSize="10" Style="{StaticResource FontRegular}" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  />
+                                        </StackLayout>
+
+                                    </Grid>
+                                </StackLayout>
+                                <Grid>
+                                    <StackLayout Margin="0,0,0,0" Grid.Row="0" Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="Start" >
+
+                                        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start" Margin="0,0,0,3">
+                                            <Label Text="6am-" TextColor="#212121" FontSize="8" Style="{StaticResource FontRegular}" VerticalOptions="Start" HorizontalOptions="Start"  />
+                                            <Label Text="9am" TextColor="#212121" FontSize="8" Style="{StaticResource FontRegular}" Margin="0,-3,0,0" VerticalOptions="Start" HorizontalOptions="Start"  />
+                                            <StackLayout.Margin>
+                                                <OnPlatform x:TypeArguments="Thickness" Android="0,0,0,3" iOS="0,0,0,4"/>
+                                            </StackLayout.Margin>
+                                        </StackLayout>
+
+                                        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start"  Margin="0,0,0,-3">
+                                            <Label Text="9am-" TextColor="#212121" FontSize="8" Style="{StaticResource FontRegular}" VerticalOptions="Start" HorizontalOptions="Start"  />
+                                            <Label Text="12pm" TextColor="#212121" FontSize="8" Style="{StaticResource FontRegular}" Margin="0,-3,0,0" VerticalOptions="Start" HorizontalOptions="Start"  />
+                                            <StackLayout.Margin>
+                                                <OnPlatform x:TypeArguments="Thickness" Android="0,0,0,-3" iOS="0,0,0,4"/>
+                                            </StackLayout.Margin>
+                                        </StackLayout>
+
+                                        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start"  Margin="0,0,0,3">
+                                            <Label Text="12pm-" TextColor="#212121" FontSize="8" Style="{StaticResource FontRegular}" VerticalOptions="Start" HorizontalOptions="Start"  />
+                                            <Label Text="3pm" TextColor="#212121" FontSize="8" Style="{StaticResource FontRegular}" Margin="0,-3,0,0" VerticalOptions="Start" HorizontalOptions="Start"  />
+                                            <StackLayout.Margin>
+                                                <OnPlatform x:TypeArguments="Thickness" Android="0,0,0,3" iOS="0,0,0,4"/>
+                                            </StackLayout.Margin>
+                                        </StackLayout>
+
+                                        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start" Margin="0,0,0,-3">
+                                            <Label Text="3pm-" TextColor="#212121" FontSize="8" Style="{StaticResource FontRegular}" VerticalOptions="Start" HorizontalOptions="Start"  />
+                                            <Label Text="6pm" TextColor="#212121" FontSize="8" Style="{StaticResource FontRegular}" Margin="0,-3,0,0" VerticalOptions="Start" HorizontalOptions="Start"  />
+                                            <StackLayout.Margin>
+                                                <OnPlatform x:TypeArguments="Thickness" Android="0,0,0,-3" iOS="0,0,0,4"/>
+                                            </StackLayout.Margin>
+                                        </StackLayout>
+
+                                        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start"  Margin="0,0,0,3">
+                                            <Label Text="6pm-" TextColor="#212121" FontSize="8" Style="{StaticResource FontRegular}" VerticalOptions="Start" HorizontalOptions="Start"  />
+                                            <Label Text="9pm" TextColor="#212121" FontSize="8" Style="{StaticResource FontRegular}" Margin="0,-3,0,0" VerticalOptions="Start" HorizontalOptions="Start"  />
+                                            <StackLayout.Margin>
+                                                <OnPlatform x:TypeArguments="Thickness" Android="0,0,0,3" iOS="0,0,0,4"/>
+                                            </StackLayout.Margin>
+                                        </StackLayout>
+
+
+                                        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start"  Margin="0,0,0,-3">
+                                            <Label Text="9pm-" TextColor="#212121" FontSize="8" Style="{StaticResource FontRegular}" VerticalOptions="Center" HorizontalOptions="Start"  />
+                                            <Label Text="12am" TextColor="#212121" FontSize="8" Style="{StaticResource FontRegular}" Margin="0,-3,0,0" VerticalOptions="Center" HorizontalOptions="Start"  />
+                                            <StackLayout.Margin>
+                                                <OnPlatform x:TypeArguments="Thickness" Android="0,0,0,-3" iOS="0,0,0,4"/>
+                                            </StackLayout.Margin>
+                                        </StackLayout>
+
+                                        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start"  Margin="0,0,0,3">
+                                            <Label Text="12am-" TextColor="#212121" FontSize="8" Style="{StaticResource FontRegular}" VerticalOptions="Center" HorizontalOptions="Start"  />
+                                            <Label Text="6am" TextColor="#212121" FontSize="8" Style="{StaticResource FontRegular}" Margin="0,-3,0,0" VerticalOptions="Center" HorizontalOptions="Start"  />
+                                            <StackLayout.Margin>
+                                                <OnPlatform x:TypeArguments="Thickness" Android="0,0,0,3" iOS="0,0,0,4"/>
+                                            </StackLayout.Margin>
+                                        </StackLayout>
+
+                                    </StackLayout>
+
+                                    <StackLayout Padding="0,0,0,10"  Grid.Row="0" Grid.Column="1" HorizontalOptions="Start" x:Name="dayschedulelist1"  VerticalOptions="Start" >
+                                    </StackLayout>
+                                    <StackLayout Padding="0,0,0,10" Grid.Row="0" Grid.Column="2" HorizontalOptions="Start" x:Name="dayschedulelist2" VerticalOptions="Start" >
+                                    </StackLayout>
+                                    <StackLayout Padding="0,0,0,10" Grid.Row="0" Grid.Column="3" HorizontalOptions="FillAndExpand" x:Name="dayschedulelist3" VerticalOptions="FillAndExpand" >
+                                    </StackLayout>
+                                    <StackLayout Padding="0,0,0,10" Grid.Row="0" Grid.Column="4" HorizontalOptions="FillAndExpand" x:Name="dayschedulelist4" VerticalOptions="FillAndExpand">
+                                    </StackLayout>
+                                    <StackLayout Padding="0,0,0,10" Grid.Row="0" Grid.Column="5" HorizontalOptions="FillAndExpand" x:Name="dayschedulelist5" VerticalOptions="FillAndExpand" >
+                                    </StackLayout>
+                                    <StackLayout Padding="0,0,0,10" Grid.Row="0" Grid.Column="6" HorizontalOptions="FillAndExpand" x:Name="dayschedulelist6" VerticalOptions="FillAndExpand">
+                                    </StackLayout>
+                                    <StackLayout Padding="0,0,0,10" Grid.Row="0" Grid.Column="7" HorizontalOptions="FillAndExpand" x:Name="dayschedulelist7" VerticalOptions="FillAndExpand">
+                                    </StackLayout>
+                                 
+                                </Grid>
+
+                            </StackLayout>
+                        </StackLayout>
+
+
+                        <StackLayout IsVisible="{Binding carecenterhoursvisible}">
+                            <Label  Text="Daycare Hours" Style="{StaticResource FontRegular}" TextColor="#212121" FontSize="14" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Margin="0,0,0,10"  />
+                            <Grid Margin="0,0,0,10">
+                                <StackLayout Grid.Column="0" Grid.Row="0">
+                                    <Label Text="Select days" Style="{StaticResource FontRegular}" TextColor="#919191" FontSize="11" />
+                                    <Label x:Name="selectedcarecenterdaytxt" LineBreakMode="TailTruncation" Text="{Binding dayID}" Style="{StaticResource FontRegular}" TextColor="#212121" FontSize="14"/>
+                                    <BoxView BackgroundColor="#999999" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,0" />
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Taponcarecenterdays}"/>
+                                    </StackLayout.GestureRecognizers>
+                                </StackLayout>
+                                <StackLayout Grid.Column="1" Grid.Row="0">
+                                    <Label Text="From time" Style="{StaticResource FontRegular}" TextColor="#919191" FontSize="11" />
+                                    <!--<TimePicker Time="{Binding fromhourtime}"/>-->
+                                    <Label Text="{Binding fromhour}" Style="{StaticResource FontRegular}" TextColor="#212121" FontSize="14"/>
+                                    <BoxView BackgroundColor="#999999" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,0" />
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Taponfromtimehours}"/>
+                                    </StackLayout.GestureRecognizers>
+                                </StackLayout>
+                                <StackLayout Grid.Column="2" Grid.Row="0">
+                                    <Label Text="To time" Style="{StaticResource FontRegular}" TextColor="#919191" FontSize="11" />
+                                    <!--<TimePicker Time="{Binding tohour}"/>-->
+                                    <Label Text="{Binding tohour}" Style="{StaticResource FontRegular}" TextColor="#212121" FontSize="14"/>
+                                    <BoxView BackgroundColor="#999999" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,0" />
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Tapontotimehours}"/>
+                                    </StackLayout.GestureRecognizers>
+                                </StackLayout>
+                                <StackLayout Grid.Column="3" Grid.Row="0">
+
+                                    <Button Text="Add"
+                                                    TextColor="#ffffff"
+                                                    BackgroundColor="#03a497"
+                                                    BorderColor="#03a497"
+                                                    BorderWidth="1"
+                                                    BorderRadius="4"
+                                                    VerticalOptions="Center"
+                                                    HorizontalOptions="StartAndExpand"                                                   
+                                                    FontSize="11"     
+                                                Command="{Binding Taptoaddcarecenterhours}"
+                                             />
+
+                                </StackLayout>
+                            </Grid>
+                        </StackLayout>
+                        <!--<StackLayout IsVisible="{Binding carecenterhoursvisible}">
+                            <Label  Text="Daycare Hours" Style="{StaticResource FontRegular}" TextColor="#bbbbbb" FontSize="14" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Margin="0,0,0,15"  />
+                            <Grid>
+                                <StackLayout Grid.Column="0" Grid.Row="0">
+                                    <Label Text="select days"/>
+                                    <Label x:Name="selectedcarecenterdaytxt" Text="{Binding dayID}"/>
+                                    <BoxView BackgroundColor="Gray" HeightRequest="1"  WidthRequest="100" Margin="0,-5,0,15"  HorizontalOptions="Center" >
+                                    </BoxView>
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Taponcarecenterdays}"/>
+                                    </StackLayout.GestureRecognizers>
+                                </StackLayout>
+                                <StackLayout Grid.Column="1" Grid.Row="0">
+                                    <Label Text="From time"/>
+                                    --><!--<TimePicker Time="{Binding fromhourtime}"/>--><!--
+                                    <Label Text="{Binding fromhour}"/>
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Taponfromtimehours}"/>
+                                    </StackLayout.GestureRecognizers>
+                                </StackLayout>
+                                <StackLayout Grid.Column="2" Grid.Row="0">
+                                    <Label Text="To time"/>
+                                    --><!--<TimePicker Time="{Binding tohour}"/>--><!--
+                                    <Label Text="{Binding tohour}"/>
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Tapontotimehours}"/>
+                                    </StackLayout.GestureRecognizers>
+                                </StackLayout>
+                                <StackLayout Grid.Column="3" Grid.Row="0">
+                                    <Button Text="Add Hours" Command="{Binding Taptoaddcarecenterhours}"/>
+                                </StackLayout>
+                            </Grid>
+                        </StackLayout>-->
+                        
+                        
+                       
+                        
+                        <!--<StackLayout>
+                            <H:HVScrollGridView x:Name="addhourstimingslist">
+                                <H:HVScrollGridView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ContentView>
+                                            <ContentView.Content>
+                                                <StackLayout>
+                                                    <Label Text="{Binding day}"/>
+                                                    <Label Text="{Binding fromhour}"/>
+                                                    
+                                                    <Label Text="{Binding tohour}"/>
+                                                    --><!--<Image Source="CloseIconFull2.png" HeightRequest="15" WidthRequest="15"  VerticalOptions="Center" HorizontalOptions="End"     />--><!--
+                                                    <Button Text="Remove" Command="{Binding Path=BindingContext.Taptoremovecarecenterhours, Source = {x:Reference addhourstimingslist}}" CommandParameter="{Binding}" HeightRequest="15" WidthRequest="15"  VerticalOptions="Center" HorizontalOptions="End"     />
+                                                    --><!--<TapGestureRecognizer Command="{Binding Path=BindingContext.Adsavecmd, Source = {x:Reference RoommatesListview}}" CommandParameter="{Binding}"/>--><!--
+                                                </StackLayout>
+                                            </ContentView.Content>
+                                        </ContentView>
+                                    </DataTemplate>
+                                </H:HVScrollGridView.ItemTemplate>
+                            </H:HVScrollGridView>
+                        </StackLayout>-->
+                        <StackLayout>
+                            <H:HVScrollGridView x:Name="addhourstimingslist">
+                                <H:HVScrollGridView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ContentView>
+                                            <ContentView.Content>
+                                                <StackLayout Margin="0,0,0,10">
+                                                    <Grid>
+                                                        <StackLayout Grid.Column="0" Grid.Row="0">
+                                                            <Label Text="{Binding day}"/>
+                                                        </StackLayout>
+                                                        <StackLayout Grid.Column="1" Grid.Row="0">
+                                                            <Label Text="{Binding fromhour}"/>
+                                                        </StackLayout>
+                                                        <StackLayout Grid.Column="2" Grid.Row="0">
+                                                            <Label Text="{Binding tohour}"/>
+                                                        </StackLayout>
+
+                                                        <StackLayout Grid.Column="3" Grid.Row="0" >
+                                                            <Label Text="Remove" TextColor="#2e74f0" />
+                                                            <StackLayout.GestureRecognizers>
+                                                                <TapGestureRecognizer Command="{Binding Path=BindingContext.Taptoremovecarecenterhours, Source = {x:Reference addhourstimingslist}}" CommandParameter="{Binding}"/>
+                                                            </StackLayout.GestureRecognizers>
+                                                        </StackLayout>
+                                                    </Grid>
+                                                </StackLayout>
+                                            </ContentView.Content>
+                                        </ContentView>
+                                    </DataTemplate>
+                                </H:HVScrollGridView.ItemTemplate>
+                            </H:HVScrollGridView>
+                        </StackLayout>
+
+                    </StackLayout>
+           
+                   
+            </ScrollView>
+            </StackLayout>
+           
+            <StackLayout x:Name="contentlayout"   HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="#C0808080"  Padding="10" IsVisible="{Binding contentviewvisible}" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                    <Frame BackgroundColor="White" CornerRadius="4"  Padding="10" HeightRequest="300" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                        <StackLayout>
+
+                        <StackLayout  IsVisible="{Binding paytypelistviewvisble}">
+                            <H:ListviewScrollbar x:Name="paytypelist" HasUnevenRows="True" SeparatorVisibility="None" ItemsSource="{Binding paytypelist}" >
+                                <H:ListviewScrollbar.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <StackLayout>
+                                                <Frame Margin="0"  Padding="0" HasShadow="False">
+                                                    <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="10,5,10,10"  >
+                                                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Padding="2"  >
+                                                            <Image Source="{Binding checkimage}" HeightRequest="20"  WidthRequest="20"  VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  />
+                                                            <Label Style="{StaticResource FontRegular}" Text="{Binding paytype}" FontSize="14" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" TextColor="#212121"  />
+                                                        </StackLayout>
+                                                        <BoxView HeightRequest="1" BackgroundColor="#e0e0e0" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand"/>
+                                                        <StackLayout.GestureRecognizers>
+                                                            <TapGestureRecognizer Command="{Binding Path=BindingContext.selectpaytype, Source = {x:Reference paytypelist}}" CommandParameter="{Binding}"/>
+                                                        </StackLayout.GestureRecognizers>
+                                                    </StackLayout>
+                                                </Frame>
+                                            </StackLayout>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </H:ListviewScrollbar.ItemTemplate>
+                            </H:ListviewScrollbar>
+                        </StackLayout>
+
+                        <StackLayout  IsVisible="{Binding paidexperiencelistviewvisble}">
+                                <H:ListviewScrollbar x:Name="paidexperiencelist" HasUnevenRows="True" SeparatorVisibility="None" ItemsSource="{Binding paidexperiencelist}" >
+                                    <H:ListviewScrollbar.ItemTemplate>
+                                        <DataTemplate>
+                                            <ViewCell>
+                                                <StackLayout>
+                                                    <Frame Margin="0"  Padding="0" HasShadow="False">
+                                                        <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="10,5,10,10"  >
+                                                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Padding="2"  >
+                                                                <Image Source="{Binding tsetvalimg}" HeightRequest="20"  WidthRequest="20"  VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  />
+                                                                <Label Style="{StaticResource FontRegular}" Text="{Binding tsetval}" FontSize="14" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" TextColor="#212121"  />
+                                                            </StackLayout>
+                                                            <BoxView HeightRequest="1" BackgroundColor="#e0e0e0" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand"/>
+                                                            <StackLayout.GestureRecognizers>
+                                                                <TapGestureRecognizer Command="{Binding Path=BindingContext.selectpaidexperience, Source = {x:Reference paidexperiencelist}}" CommandParameter="{Binding}"/>
+                                                            </StackLayout.GestureRecognizers>
+                                                        </StackLayout>
+                                                    </Frame>
+                                                </StackLayout>
+                                            </ViewCell>
+                                        </DataTemplate>
+                                    </H:ListviewScrollbar.ItemTemplate>
+                                </H:ListviewScrollbar>
+                            </StackLayout>
+                        <!--<StackLayout IsVisible="{Binding certificationscrolvisible}">
+                                <ScrollView IsVisible="{Binding certificationscrolvisible}">
+                                <StackLayout>
+                                    <StackLayout x:Name="certificationlayout"  IsVisible="{Binding certificationlistviewvisble}">
+
+                                    </StackLayout>
+                                    <StackLayout VerticalOptions="Start" HorizontalOptions="End">
+                                        <Button Text="Ok" Command="{Binding certificationcmd}" TextColor="White"  HorizontalOptions="End" BackgroundColor="#0ba283"  />
+                                    </StackLayout>
+                                </StackLayout>
+                            </ScrollView>
+                        </StackLayout>-->
+                        <StackLayout  IsVisible="{Binding replyperiodlistviewvisble}">
+                            <H:ListviewScrollbar x:Name="replyperiodlist" HasUnevenRows="True" SeparatorVisibility="None"  ItemsSource="{Binding replyperiodlist}">
+                                <H:ListviewScrollbar.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <StackLayout>
+                                                <Frame Margin="0"  Padding="0" HasShadow="False">
+                                                    <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="10,5,10,10"  >
+                                                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Padding="2"  >
+                                                            <Image Source="{Binding tsetvalimg}" HeightRequest="20"  WidthRequest="20"  VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  />
+                                                            <Label Style="{StaticResource FontRegular}" Text="{Binding tsetval}" FontSize="14" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" TextColor="#212121"  />
+                                                        </StackLayout>
+                                                        <BoxView HeightRequest="1" BackgroundColor="#e0e0e0" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand"/>
+                                                        <StackLayout.GestureRecognizers>
+                                                            <TapGestureRecognizer Command="{Binding Path=BindingContext.selectreplyperiod, Source = {x:Reference replyperiodlist}}" CommandParameter="{Binding}"/>
+                                                        </StackLayout.GestureRecognizers>
+                                                    </StackLayout>
+                                                </Frame>
+                                            </StackLayout>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </H:ListviewScrollbar.ItemTemplate>
+                            </H:ListviewScrollbar>
+                        </StackLayout>
+
+                        <StackLayout  IsVisible="{Binding establishyearlistviewvisble}">
+                            <H:ListviewScrollbar x:Name="establishyearlist" HasUnevenRows="True" SeparatorVisibility="None" ItemsSource="{Binding establishyearlist}" >
+                                <H:ListviewScrollbar.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <StackLayout>
+                                                <Frame Margin="0"  Padding="0" HasShadow="False">
+                                                    <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="10,5,10,10"  >
+                                                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Padding="2"  >
+                                                            <Image Source="{Binding tsetvalimg}" HeightRequest="20"  WidthRequest="20"  VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  />
+                                                            <Label Style="{StaticResource FontRegular}" Text="{Binding tsetval}" FontSize="14" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" TextColor="#212121"  />
+                                                        </StackLayout>
+                                                        <BoxView HeightRequest="1" BackgroundColor="#e0e0e0" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand"/>
+                                                        <StackLayout.GestureRecognizers>
+                                                            <TapGestureRecognizer Command="{Binding Path=BindingContext.selectestablishyear, Source = {x:Reference establishyearlist}}" CommandParameter="{Binding}"/>
+                                                        </StackLayout.GestureRecognizers>
+                                                    </StackLayout>
+                                                </Frame>
+                                            </StackLayout>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </H:ListviewScrollbar.ItemTemplate>
+                            </H:ListviewScrollbar>
+                        </StackLayout>
+
+                            
+                            <!--from to hours DC timepicker-->
+                        <StackLayout  IsVisible="{Binding carecenterhourslistvisible}">
+                            <H:ListviewScrollbar x:Name="dcdaylist" HasUnevenRows="True" SeparatorVisibility="None"  >
+                                <H:ListviewScrollbar.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <StackLayout>
+                                                <Frame Margin="0"  Padding="0" HasShadow="False">
+                                                    <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="10,5,10,10"  >
+                                                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Padding="2"  >
+                                                            <Image Source="{Binding tsetvalimg}" HeightRequest="20"  WidthRequest="20"  VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  />
+                                                            <Label Style="{StaticResource FontRegular}" Text="{Binding tsetval}" FontSize="14" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" TextColor="#212121"  />
+                                                        </StackLayout>
+                                                        <BoxView HeightRequest="1" BackgroundColor="#e0e0e0" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand"/>
+                                                        <StackLayout.GestureRecognizers>
+                                                            <TapGestureRecognizer Command="{Binding Path=BindingContext.selectDCday, Source = {x:Reference dcdaylist}}" CommandParameter="{Binding}"/>
+                                                        </StackLayout.GestureRecognizers>
+                                                    </StackLayout>
+                                                </Frame>
+                                            </StackLayout>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </H:ListviewScrollbar.ItemTemplate>
+                            </H:ListviewScrollbar>
+                        </StackLayout>
+                            
+                        <StackLayout  IsVisible="{Binding fromhourpickervisible}">
+                            <H:ListviewScrollbar x:Name="dcfromhourpickerlist" HasUnevenRows="True" SeparatorVisibility="None"  >
+                                <H:ListviewScrollbar.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <StackLayout>
+                                                <Frame Margin="0"  Padding="0" HasShadow="False">
+                                                    <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="10,5,10,10"  >
+                                                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Padding="2"  >
+                                                            <Image Source="{Binding tsetvalimg}" HeightRequest="20"  WidthRequest="20"  VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  />
+                                                            <Label Style="{StaticResource FontRegular}" Text="{Binding tsetval}" FontSize="14" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" TextColor="#212121"  />
+                                                        </StackLayout>
+                                                        <BoxView HeightRequest="1" BackgroundColor="#e0e0e0" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand"/>
+                                                        <StackLayout.GestureRecognizers>
+                                                            <TapGestureRecognizer Command="{Binding Path=BindingContext.selectfromDChour, Source = {x:Reference dcfromhourpickerlist}}" CommandParameter="{Binding}"/>
+                                                        </StackLayout.GestureRecognizers>
+                                                    </StackLayout>
+                                                </Frame>
+                                            </StackLayout>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </H:ListviewScrollbar.ItemTemplate>
+                            </H:ListviewScrollbar>
+                        </StackLayout>
+                            
+                        <StackLayout  IsVisible="{Binding tohourpickervisible}">
+                             <H:ListviewScrollbar x:Name="dctohourpickerlist" HasUnevenRows="True" SeparatorVisibility="None"  >
+                                <H:ListviewScrollbar.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <StackLayout>
+                                                <Frame Margin="0"  Padding="0" HasShadow="False">
+                                                    <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="10,5,10,10"  >
+                                                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Padding="2"  >
+                                                            <Image Source="{Binding tsetvalimg}" HeightRequest="20"  WidthRequest="20"  VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  />
+                                                            <Label Style="{StaticResource FontRegular}" Text="{Binding tsetval}" FontSize="14" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" TextColor="#212121"  />
+                                                        </StackLayout>
+                                                        <BoxView HeightRequest="1" BackgroundColor="#e0e0e0" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand"/>
+                                                        <StackLayout.GestureRecognizers>
+                                                            <TapGestureRecognizer Command="{Binding Path=BindingContext.selecttoDChour, Source = {x:Reference dctohourpickerlist}}" CommandParameter="{Binding}"/>
+                                                        </StackLayout.GestureRecognizers>
+                                                    </StackLayout>
+                                                </Frame>
+                                            </StackLayout>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </H:ListviewScrollbar.ItemTemplate>
+                            </H:ListviewScrollbar>
+                        </StackLayout>
+                            
+                        <!--<StackLayout  IsVisible="{Binding virtualdetailpopupvisible}">
+                            --><!--i offer--><!--
+                            <ScrollView>
+                                <StackLayout>
+                                    <StackLayout IsVisible="{Binding offervirtualstack}">
+                                        <Label Text="A virtual sitting is not the same thing as in-person babysitting. A virtual sitting is hiring a care provider to engage children digitally for a short period of time. Sessions can be used to assist kids with schoolwork or facilitate an interactive game. It's not a replacement for physical care. You can describe your child care experience, explain how you will interact with kids digitally (Eg, through Skype, Zoom, Facetime, Hangout, etc) and activities involved." LineBreakMode="WordWrap"/>
+                                    </StackLayout>
+                                    <StackLayout IsVisible="{Binding needvirtualstack}">
+                                        --><!--i need--><!--
+                                        <Label Text="What is Virtual babysitting?" />
+                                        <Label Text="To be clear: a virtual sitting is not the same thing as in-person babysitting. A virtual sitting is hiring a care provider to engage children digitally for a short period of time. The sessions can be used to assist kids with schoolwork or facilitate an interactive games. It's not a replacement for physical care. Families considering a virtual sitting during this time should continue to view safety as their top priority."/>
+                                        <Label Text="Parents Should Keep in Mind:"/>
+                                        <Label Text="Screening and Vetting is still and very important"/>
+                                        <Label Text="Even though the care provider isn't physically in your house, they're still spending time with your child."/>
+                                        <Label Text="Never Leave Your child unattended"/>
+                                        <Label Text="The care provider is not able to physically supervise or control your child when connected only by video." />
+                                        <Label Text="Review planned activities"/>
+                                        <Label Text="Work with the care provider to determine what's appropriate for your child."/>
+                                        <Label Text="Families considering a virtual sitting should continue to view safety as their top priority"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </ScrollView>
+                        </StackLayout>-->
+
+
+                        <StackLayout  IsVisible="{Binding virtualdetailpopupvisible}">
+
+                            <ScrollView>
+                                <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="10">
+                                    <StackLayout IsVisible="{Binding offervirtualstack}"  VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                        <Label FontSize="13" Style="{StaticResource FontRegular}" TextColor="#878787" Text="A virtual sitting is not the same thing as in-person babysitting. A virtual sitting is hiring a care provider to engage children digitally for a short period of time. Sessions can be used to assist kids with schoolwork or facilitate an interactive game. It's not a replacement for physical care. You can describe your child care experience, explain how you will interact with kids digitally (Eg, through Skype, Zoom, Facetime, Hangout, etc) and activities involved." LineBreakMode="WordWrap"/>
+                                    </StackLayout>
+
+                                    <StackLayout IsVisible="{Binding needvirtualstack}" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+                                        <Label FontSize="14" Style="{StaticResource FontBold}" TextColor="#212121" Text="What is Virtual babysitting?" />
+                                        <Label FontSize="13" Style="{StaticResource FontRegular}" TextColor="#878787" Text="To be clear: a virtual sitting is not the same thing as in-person babysitting. A virtual sitting is hiring a care provider to engage children digitally for a short period of time. The sessions can be used to assist kids with schoolwork or facilitate an interactive games. It's not a replacement for physical care. Families considering a virtual sitting during this time should continue to view safety as their top priority."/>
+
+
+
+                                        <Label FontSize="14" Style="{StaticResource FontBold}" TextColor="#212121" Margin="0,10,0,0" Text="Parents Should Keep in Mind:"/>
+
+
+
+                                        <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                            <Image Source="CheckedGray.png" HeightRequest="14" WidthRequest="14" VerticalOptions="Start" HorizontalOptions="Start"  />
+                                            <Label FontSize="13" Style="{StaticResource FontRegular}" TextColor="#878787" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Text="Screening and Vetting is still and very important"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                            <Image Source="CheckedGray.png" HeightRequest="14" WidthRequest="14" VerticalOptions="Start" HorizontalOptions="Start"  />
+                                            <Label FontSize="13" Style="{StaticResource FontRegular}" TextColor="#878787" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Text="Even though the care provider isn't physically in your house, they're still spending time with your child."/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                            <Image Source="CheckedGray.png" HeightRequest="14" WidthRequest="14" VerticalOptions="Start" HorizontalOptions="Start"  />
+                                            <Label FontSize="13" Style="{StaticResource FontRegular}" TextColor="#878787" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Text="Never Leave Your child unattended"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                            <Image Source="CheckedGray.png" HeightRequest="14" WidthRequest="14" VerticalOptions="Start" HorizontalOptions="Start" />
+                                            <Label FontSize="13" Style="{StaticResource FontRegular}" TextColor="#878787" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Text="The care provider is not able to physically supervise or control your child when connected only by video." />
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                            <Image Source="CheckedGray.png" HeightRequest="14" WidthRequest="14" VerticalOptions="Start" HorizontalOptions="Start"  />
+                                            <Label FontSize="13" Style="{StaticResource FontRegular}" TextColor="#878787" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Text="Review planned activities"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                            <Image Source="CheckedGray.png" HeightRequest="14" WidthRequest="14" VerticalOptions="Start" HorizontalOptions="Start"  />
+                                            <Label FontSize="13" Style="{StaticResource FontRegular}" TextColor="#878787" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Text="Work with the care provider to determine what's appropriate for your child."/>
+                                        </StackLayout>
+
+
+
+                                        <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                            <Image Source="CheckedGray.png" HeightRequest="14" WidthRequest="14" VerticalOptions="Start" HorizontalOptions="Start" />
+                                            <Label FontSize="13" Style="{StaticResource FontRegular}" TextColor="#878787" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Text="Families considering a virtual sitting should continue to view safety as their top priority"/>
+                                        </StackLayout>
+
+
+
+                                    </StackLayout>
+                                </StackLayout>
+                            </ScrollView>
+                        </StackLayout>
+                    </StackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding chbxPopupContentTap}" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding chbxContentViewTap}" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+           
+            <StackLayout Orientation="Horizontal" Margin="0" VerticalOptions="End"  BackgroundColor="White" Padding="0" HorizontalOptions="FillAndExpand" 
+                             AbsoluteLayout.LayoutBounds="0,1,1,1" AbsoluteLayout.LayoutFlags="All" >
+                <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                    <Button Text="Next"  Command="{Binding nxtcmd}" Style="{StaticResource FontRobotoBold}" FontSize="18" VerticalOptions="Start" HorizontalOptions="FillAndExpand" BackgroundColor="#fbaa19" TextColor="White" Parent="0,10,0,10"   />
+                    <StackLayout.Margin>
+                        <OnPlatform x:TypeArguments="Thickness" iOS="10,-10,10,20" Android="0,-10,0,0"></OnPlatform>
+                    </StackLayout.Margin>
+                </StackLayout>
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

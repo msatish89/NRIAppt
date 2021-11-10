@@ -1,0 +1,394 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:b="clr-namespace:NRIApp.Behaviors"
+              xmlns:local="clr-namespace:NRIApp.Helpers"
+             x:Class="NRIApp.USHome.Views.Favorites" NavigationPage.HasNavigationBar="True">
+    <ContentPage.Content>
+
+
+        <StackLayout BackgroundColor="#ecf2f4">
+
+
+
+            <ScrollView >
+                
+                <StackLayout Padding="5,10,5,0" IsVisible="True" x:Name="favoritelist">
+                    
+                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0,0,0,5" IsVisible="{Binding Servicesavail}">
+
+                        <StackLayout Orientation="Horizontal" BackgroundColor="White" >
+                            <BoxView BackgroundColor="#03a497" WidthRequest="2" VerticalOptions="StartAndExpand" HorizontalOptions="Start" />
+                            <Label Text="Local Services" FontSize="18"  VerticalOptions="CenterAndExpand" HorizontalOptions="Start" TextColor="#03a497" Margin="10"  />
+                            <Frame BackgroundColor="#45a455" CornerRadius="8"  HasShadow="False" WidthRequest="22" HeightRequest="22" Padding="0" Margin="-10,5,0,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="Start">
+                                <Label Text="{Binding Servicecount}" FontSize="11" Style="{StaticResource FontRegular}"  TextColor="#ffffff"  HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </Frame>
+                            <Image Source="{Binding Servicesicon}"  HorizontalOptions="EndAndExpand" VerticalOptions="Center" HeightRequest="18" WidthRequest="18" Margin="0,0,20,0"/>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Servicesopenclose}" />
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+
+                        <StackLayout IsVisible="{Binding Servicedata}">
+                            <local:HVScrollGridView x:Name="listservicedata"   IsVisible="{Binding Servicedata}" ItemsSource="{Binding Servicesfavorite}">
+                               
+                                <local:HVScrollGridView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ContentView>
+                                            <ContentView.Content>
+                                                <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0,0,0,10">
+                                                    <Frame  CornerRadius="4"  Padding="0" BackgroundColor="White" >
+                                                        <StackLayout>
+
+                                                            <StackLayout  VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="10,5,10,0"  >
+
+                                                                <Label Text="{Binding  title}" Style="{StaticResource FontRegular}"  FontSize="14" TextColor="#212121" HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+
+                                                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                                                    <Image Source="clock.png"  HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="16" WidthRequest="16"/>
+                                                                    <Label Text="{Binding crdate}" LineBreakMode="TailTruncation"  FontSize="12" Style="{StaticResource FontRegular}" TextColor="#878787"  HorizontalOptions="Start" VerticalOptions="Start" Margin="0,0,10,0"/>
+
+                                                                    <Image Source="placeholder.png"  HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="16" WidthRequest="16" />
+                                                                    <Label Text="{Binding citystatecode}" LineBreakMode="TailTruncation"  FontSize="12" Style="{StaticResource FontRegular}" TextColor="#878787"  HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+                                                                </StackLayout>
+
+                                                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="0,0,0,10">
+                                                                    <Image Source="LsServiceIcon.png"  HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="16" WidthRequest="16"/>
+                                                                    <Label Text="{Binding tag}" LineBreakMode="TailTruncation"  FontSize="12" Style="{StaticResource FontRegular}" TextColor="#878787"  HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+
+                                                                    <Image Source="Trash.png"  HorizontalOptions="Start" VerticalOptions="End" HeightRequest="24" WidthRequest="24" Margin="0,0,15,0">
+                                                                        <Image.GestureRecognizers>
+                                                                            <TapGestureRecognizer Command="{Binding Path=BindingContext.Favoritetolsdelete, Source = {x:Reference listservicedata}}" CommandParameter="{Binding}"/>
+                                                                        </Image.GestureRecognizers>
+                                                                    </Image>
+                                                                    <Image Source="contactmail.png"  HorizontalOptions="Start" VerticalOptions="End" HeightRequest="24" WidthRequest="24">
+                                                                        <Image.GestureRecognizers>
+                                                                            <TapGestureRecognizer Command="{Binding Path=BindingContext.Favoritetolsrespform, Source = {x:Reference listservicedata}}" CommandParameter="{Binding}"/>
+                                                                        </Image.GestureRecognizers>
+                                                                    </Image>
+
+                                                                </StackLayout>
+
+                                                            </StackLayout>
+
+                                                        </StackLayout>
+
+                                                    </Frame>
+                                                    <StackLayout.GestureRecognizers>                                                        
+                                                        <TapGestureRecognizer Command="{Binding Path=BindingContext.Favoritetolsdetail, Source = {x:Reference listservicedata}}" CommandParameter="{Binding}"/>
+                                                    </StackLayout.GestureRecognizers>
+                                                </StackLayout>
+                                            </ContentView.Content>
+                                        </ContentView>
+                                    </DataTemplate>
+                                </local:HVScrollGridView.ItemTemplate>
+                            </local:HVScrollGridView>
+                        </StackLayout>
+                    </StackLayout>
+
+
+                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0,0,0,5" IsVisible="{Binding Techjobsavail}">
+
+                        <StackLayout Orientation="Horizontal" BackgroundColor="White" >
+                            <BoxView BackgroundColor="#03a497" WidthRequest="2" VerticalOptions="StartAndExpand" HorizontalOptions="Start" />
+                            <Label Text="Tech Jobs" FontSize="18"  VerticalOptions="CenterAndExpand" HorizontalOptions="Start" TextColor="#03a497" Margin="10"  />
+                            <Frame BackgroundColor="#45a455" CornerRadius="8"  HasShadow="False" WidthRequest="22" HeightRequest="22" Padding="0" Margin="-10,5,0,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="Start">
+                                <Label Text="{Binding Techjobscount}" FontSize="11" Style="{StaticResource FontRegular}"  TextColor="#ffffff"  HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </Frame>
+                            <Image Source="{Binding Techjobsicon}"  HorizontalOptions="EndAndExpand" VerticalOptions="Center" HeightRequest="18" WidthRequest="18" Margin="0,0,20,0"/>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Techjobsopenclose}" />
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <StackLayout IsVisible="{Binding Techjobsdata}">
+                            <local:HVScrollGridView x:Name="listtechjobsdata"   IsVisible="{Binding Techjobsdata}" ItemsSource="{Binding Techjobsfavorite}">
+
+                                <local:HVScrollGridView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ContentView>
+                                            <ContentView.Content>
+                                                <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0,0,0,10">
+                                                    <Frame  CornerRadius="4"  Padding="0" BackgroundColor="White" >
+                                                        <StackLayout>
+
+                                                            <StackLayout  VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="10,5,10,0"  >
+
+                                                                <Label Text="{Binding  title}" Style="{StaticResource FontRegular}"  FontSize="14" TextColor="#212121" HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+
+                                                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+                                                                    <Image Source="inclass.png"  HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="16" WidthRequest="16" />
+                                                                    <Label Text="{Binding mode}" LineBreakMode="TailTruncation"  FontSize="12" Style="{StaticResource FontRegular}" TextColor="#878787"  HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+                                                                </StackLayout>
+
+                                                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="0,0,0,10">
+                                                                    <Image Source="TechJobIcon.png"  HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="16" WidthRequest="16"/>
+                                                                    <Label Text="{Binding modulename}" LineBreakMode="TailTruncation"  FontSize="12" Style="{StaticResource FontRegular}" TextColor="#878787"  HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+
+                                                                    <Image Source="Trash.png"  HorizontalOptions="Start" VerticalOptions="End" HeightRequest="24" WidthRequest="24" Margin="0,0,15,0">
+                                                                        <Image.GestureRecognizers>
+                                                                            <TapGestureRecognizer Command="{Binding Path=BindingContext.Favoritetotrainingdelete, Source = {x:Reference listtechjobsdata}}" CommandParameter="{Binding}"/>
+                                                                        </Image.GestureRecognizers>
+                                                                    </Image>
+                                                                    <Image Source="contactmail.png"  HorizontalOptions="Start" VerticalOptions="End" HeightRequest="24" WidthRequest="24">
+                                                                        <Image.GestureRecognizers>
+                                                                            <TapGestureRecognizer Command="{Binding Path=BindingContext.Favoritetotrainingrespform, Source = {x:Reference listtechjobsdata}}" CommandParameter="{Binding}"/>
+                                                                        </Image.GestureRecognizers>
+                                                                    </Image>
+                                                                </StackLayout>
+
+                                                            </StackLayout>
+
+                                                        </StackLayout>
+
+                                                    </Frame>
+                                                    <StackLayout.GestureRecognizers>
+                                                        <TapGestureRecognizer Command="{Binding Path=BindingContext.Favoritetotrainingdetail, Source = {x:Reference listtechjobsdata}}" CommandParameter="{Binding}"/>
+                                                    </StackLayout.GestureRecognizers>
+                                                </StackLayout>
+                                            </ContentView.Content>
+                                        </ContentView>
+                                    </DataTemplate>
+                                </local:HVScrollGridView.ItemTemplate>
+                            </local:HVScrollGridView>
+                        </StackLayout>
+                    </StackLayout>
+
+
+                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0,0,0,5" IsVisible="{Binding Roommatesavail}">
+
+                        <StackLayout Orientation="Horizontal" BackgroundColor="White" >
+                            <BoxView BackgroundColor="#03a497" WidthRequest="2" VerticalOptions="StartAndExpand" HorizontalOptions="Start" />
+                            <Label Text="Roommates" FontSize="18"  VerticalOptions="CenterAndExpand" HorizontalOptions="Start" TextColor="#03a497" Margin="10"  />
+                            <Frame BackgroundColor="#45a455" CornerRadius="8"  HasShadow="False" WidthRequest="22" HeightRequest="22" Padding="0" Margin="-10,5,0,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="Start">
+                                <Label Text="{Binding Roommatecount}" FontSize="11" Style="{StaticResource FontRegular}"  TextColor="#ffffff"  HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </Frame>
+                            <Image Source="{Binding Roommatesicon}"  HorizontalOptions="EndAndExpand" VerticalOptions="Center" HeightRequest="18" WidthRequest="18" Margin="0,0,20,0"/>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Roommatesopenclose}" />
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <StackLayout IsVisible="{Binding Roommatesdata}">
+                            <local:HVScrollGridView x:Name="listroomatesdata"   IsVisible="{Binding Roommatesdata}" ItemsSource="{Binding Roommatefavorite}">
+                              
+                                <local:HVScrollGridView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ContentView>
+                                            <ContentView.Content>
+                                                <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0,0,0,10">
+                                                <Frame  CornerRadius="4"  Padding="0" BackgroundColor="White" >
+                                                    <StackLayout>
+
+                                                        <StackLayout  VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="10,5,10,0"  >
+
+                                                            <Label Text="{Binding  title}" Style="{StaticResource FontRegular}"  FontSize="14" TextColor="#212121" HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+
+                                                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                                                <Image Source="clock.png"  HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="16" WidthRequest="16"/>
+                                                                <Label Text="{Binding crdate}" LineBreakMode="TailTruncation"  FontSize="12" Style="{StaticResource FontRegular}" TextColor="#878787"  HorizontalOptions="Start" VerticalOptions="Start" Margin="0,0,10,0"/>
+
+                                                                <Image Source="placeholder.png"  HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="16" WidthRequest="16" />
+                                                                <Label Text="{Binding citystatecode}" LineBreakMode="TailTruncation"  FontSize="12" Style="{StaticResource FontRegular}" TextColor="#878787"  HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+                                                            </StackLayout>
+
+                                                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="0,0,0,10">
+                                                                <Image Source="LsServiceIcon.png"  HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="16" WidthRequest="16"/>
+                                                                <Label Text="{Binding roomtype}" LineBreakMode="TailTruncation"  FontSize="12" Style="{StaticResource FontRegular}" TextColor="#878787"  HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+
+                                                                <Image Source="Trash.png"  HorizontalOptions="Start" VerticalOptions="End" HeightRequest="24" WidthRequest="24" Margin="0,0,15,0">
+                                                                        <Image.GestureRecognizers>
+                                                                            <TapGestureRecognizer Command="{Binding Path=BindingContext.Favoritetoroommatedelete, Source = {x:Reference listroomatesdata}}" CommandParameter="{Binding}"/>
+                                                                        </Image.GestureRecognizers>
+                                                                    </Image>
+                                                                    <Image Source="contactmail.png"  HorizontalOptions="Start" VerticalOptions="End" HeightRequest="24" WidthRequest="24">
+                                                                        <Image.GestureRecognizers>
+                                                                            <TapGestureRecognizer Command="{Binding Path=BindingContext.Favoritetorommaterespform, Source = {x:Reference listroomatesdata}}" CommandParameter="{Binding}"/>
+                                                                        </Image.GestureRecognizers>
+                                                                    </Image>
+                                                                </StackLayout>
+
+                                                        </StackLayout>
+
+                                                    </StackLayout>
+
+                                                </Frame>
+                                                    <StackLayout.GestureRecognizers>
+                                                        <TapGestureRecognizer Command="{Binding Path=BindingContext.Favoritetorommatedetail, Source = {x:Reference listroomatesdata}}" CommandParameter="{Binding}"/>
+                                                    </StackLayout.GestureRecognizers> 
+                                            </StackLayout>
+                                                </ContentView.Content>
+                                        </ContentView>
+                                    </DataTemplate>
+                                </local:HVScrollGridView.ItemTemplate>
+                            </local:HVScrollGridView>
+                        </StackLayout>
+                    </StackLayout>
+
+
+                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0,0,0,5" IsVisible="{Binding Rentalsavail}">
+
+                        <StackLayout Orientation="Horizontal" BackgroundColor="White" >
+                            <BoxView BackgroundColor="#03a497" WidthRequest="2" VerticalOptions="StartAndExpand" HorizontalOptions="Start" />
+                            <Label Text="Rentals" FontSize="18"  VerticalOptions="CenterAndExpand" HorizontalOptions="Start" TextColor="#03a497" Margin="10"  />
+                            <Frame BackgroundColor="#45a455" CornerRadius="8"  HasShadow="False" WidthRequest="22" HeightRequest="22" Padding="0" Margin="-10,5,0,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="Start">
+                                <Label Text="{Binding Rentalcount}" FontSize="11" Style="{StaticResource FontRegular}"  TextColor="#ffffff"  HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </Frame>
+
+                            <Image Source="{Binding Rentalsicon}"  HorizontalOptions="EndAndExpand" VerticalOptions="Center" HeightRequest="18" WidthRequest="18" Margin="0,0,20,0"/>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Rentalsopenclose}" />
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <StackLayout IsVisible="{Binding Rentalsdata}">
+                            <local:HVScrollGridView x:Name="listrentalsdata"  IsVisible="{Binding Rentalsdata}" ItemsSource="{Binding Rentalfavorite}">
+                             
+                                <local:HVScrollGridView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ContentView>
+                                        <ContentView.Content>
+                                                <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0,0,0,10">
+                                                <Frame  CornerRadius="4"  Padding="0" BackgroundColor="White" >
+                                                    <StackLayout>
+
+                                                        <StackLayout  VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="10,5,10,0"  >
+
+                                                            <Label Text="{Binding  title}" Style="{StaticResource FontRegular}"  FontSize="14" TextColor="#212121" HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+
+                                                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                                                <Image Source="clock.png"  HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="16" WidthRequest="16"/>
+                                                                <Label Text="{Binding crdate}" LineBreakMode="TailTruncation"  FontSize="12" Style="{StaticResource FontRegular}" TextColor="#878787"  HorizontalOptions="Start" VerticalOptions="Start" Margin="0,0,10,0"/>
+
+                                                                <Image Source="placeholder.png"  HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="16" WidthRequest="16" />
+                                                                <Label Text="{Binding citystatecode}" LineBreakMode="TailTruncation"  FontSize="12" Style="{StaticResource FontRegular}" TextColor="#878787"  HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+                                                            </StackLayout>
+
+                                                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="0,0,0,10">
+                                                                <Image Source="LsServiceIcon.png"  HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="16" WidthRequest="16"/>
+                                                                <Label Text="{Binding roomtype}" LineBreakMode="TailTruncation"  FontSize="12" Style="{StaticResource FontRegular}" TextColor="#878787"  HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+
+                                                                    <Image Source="Trash.png"  HorizontalOptions="Start" VerticalOptions="End" HeightRequest="24" WidthRequest="24" Margin="0,0,15,0">
+                                                                        <Image.GestureRecognizers>
+                                                                            <TapGestureRecognizer Command="{Binding Path=BindingContext.Favoritetorentaldelete, Source = {x:Reference listrentalsdata}}" CommandParameter="{Binding}"/>
+                                                                        </Image.GestureRecognizers>
+                                                                    </Image>
+
+                                                                    <Image Source="contactmail.png"  HorizontalOptions="Start" VerticalOptions="End" HeightRequest="24" WidthRequest="24">
+                                                                        <Image.GestureRecognizers>
+                                                                            <TapGestureRecognizer Command="{Binding Path=BindingContext.Favoritetorentalrespform, Source = {x:Reference listrentalsdata}}" CommandParameter="{Binding}"/>
+                                                                        </Image.GestureRecognizers>
+                                                                    </Image>
+                                                                </StackLayout>
+
+                                                        </StackLayout>
+
+                                                    </StackLayout>
+
+                                                </Frame>
+                                                    <StackLayout.GestureRecognizers>
+                                                        <TapGestureRecognizer Command="{Binding Path=BindingContext.Favoritetorentaldetail, Source = {x:Reference listrentalsdata}}" CommandParameter="{Binding}"/>
+                                                    </StackLayout.GestureRecognizers>
+                                                </StackLayout>
+                                        </ContentView.Content>
+                                        </ContentView>
+                                    </DataTemplate>
+                                </local:HVScrollGridView.ItemTemplate>
+                            </local:HVScrollGridView>
+                        </StackLayout>
+
+                    </StackLayout>
+
+                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0,0,0,5" IsVisible="{Binding Eventsavail}">
+
+                        <StackLayout Orientation="Horizontal" BackgroundColor="White" >
+                            <BoxView BackgroundColor="#03a497" WidthRequest="2" VerticalOptions="StartAndExpand" HorizontalOptions="Start" />
+                            <Label Text="Events" FontSize="18"  VerticalOptions="CenterAndExpand" HorizontalOptions="Start" TextColor="#03a497" Margin="10"  />
+                            <Frame BackgroundColor="#45a455" CornerRadius="8"  HasShadow="False" WidthRequest="22" HeightRequest="22" Padding="0" Margin="-10,5,0,0"  VerticalOptions="CenterAndExpand" HorizontalOptions="Start">
+                                <Label Text="{Binding Eventcount}" FontSize="11" Style="{StaticResource FontRegular}"  TextColor="#ffffff"  HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </Frame>
+
+                            <Image Source="{Binding Eventsicon}"  HorizontalOptions="EndAndExpand" VerticalOptions="Center" HeightRequest="18" WidthRequest="18" Margin="0,0,20,0"/>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Eventsopenclose}" />
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <StackLayout IsVisible="{Binding Eventsdata}">
+                            <local:HVScrollGridView x:Name="listeventdata"   IsVisible="{Binding Eventsdata}" ItemsSource="{Binding Eventsfavorite}">
+                             
+                                <local:HVScrollGridView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ContentView>
+                                            <ContentView.Content>
+                                                <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0,0,0,10">
+                                                <Frame  CornerRadius="4"  Padding="0" BackgroundColor="White" >
+                                                    <StackLayout>
+
+                                                        <StackLayout  VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="10,5,10,0"  >
+
+                                                            <Label Text="{Binding  title}" Style="{StaticResource FontRegular}"  FontSize="14" TextColor="#212121" HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+
+                                                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                                                <Image Source="clock.png"  HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="16" WidthRequest="16"/>
+                                                                <Label Text="{Binding evtdate}" LineBreakMode="TailTruncation"  FontSize="12" Style="{StaticResource FontRegular}" TextColor="#878787"  HorizontalOptions="Start" VerticalOptions="Start" Margin="0,0,10,0"/>
+
+                                                                <Image Source="placeholder.png"  HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="16" WidthRequest="16" />
+                                                                <Label Text="{Binding citystatecode}" LineBreakMode="TailTruncation"  FontSize="12" Style="{StaticResource FontRegular}" TextColor="#878787"  HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+                                                            </StackLayout>
+
+                                                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="0,0,0,10">
+                                                                <Image Source="LsServiceIcon.png"  HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="16" WidthRequest="16"/>
+                                                                <Label Text="{Binding orgname}" LineBreakMode="TailTruncation"  FontSize="12" Style="{StaticResource FontRegular}" TextColor="#878787"  HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+
+                                                                    <Image Source="Trash.png"  HorizontalOptions="Start" VerticalOptions="End" HeightRequest="24" WidthRequest="24" Margin="0,0,15,0">
+                                                                        <Image.GestureRecognizers>
+                                                                            <TapGestureRecognizer Command="{Binding Path=BindingContext.Favoritetoeventdelete, Source = {x:Reference listeventdata}}" CommandParameter="{Binding}"/>
+                                                                        </Image.GestureRecognizers> 
+                                                                    </Image>
+
+
+                                                                </StackLayout>
+
+                                                        </StackLayout>
+
+                                                    </StackLayout>
+
+                                                </Frame>
+                                                    <StackLayout.GestureRecognizers>
+                                                        <TapGestureRecognizer Command="{Binding Path=BindingContext.Favoritetoeventdetail, Source = {x:Reference listeventdata}}" CommandParameter="{Binding}"/>
+                                                    </StackLayout.GestureRecognizers>
+                                                </StackLayout>
+                                                </ContentView.Content>
+                                        </ContentView>
+                                    </DataTemplate>
+                                </local:HVScrollGridView.ItemTemplate>
+                            </local:HVScrollGridView>
+
+                        </StackLayout>
+
+                    </StackLayout>
+
+
+                </StackLayout>
+            </ScrollView>
+            
+            <StackLayout x:Name="Nolistblk"  BackgroundColor="#fdfcec" Margin="0,-15,0,0"  Padding="5,0,5,0" IsVisible="False" VerticalOptions="FillAndExpand">
+                <StackLayout  BackgroundColor="#fdfcec" VerticalOptions="FillAndExpand" >
+
+                    <StackLayout   VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+
+                        <Image Source="NoListing.png" Aspect="AspectFill" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Margin="50,0,50,20"  />
+
+                        <Label Text="Sorry!" FontSize="26"  VerticalOptions="CenterAndExpand" TextColor="#683f4f" HorizontalOptions="Center"  HorizontalTextAlignment="Center" Margin="0"  />
+
+                        <Label Text="You do not have records." TextColor="Gray" HorizontalOptions="CenterAndExpand" FontSize="14" Margin="10,0,10,10" HorizontalTextAlignment="Center" />
+
+
+
+                    </StackLayout>
+
+                </StackLayout>
+            </StackLayout>
+
+            </StackLayout>
+       
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NRIApp.Roommates.Features.List.Views.ImageList_RM"
+              xmlns:CV="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView"
+             xmlns:local="clr-namespace:NRIApp.Helpers"
+             NavigationPage.HasNavigationBar="False" x:Name="imglist">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <!-- register static resource of type ImageSourceConverter with name "Converter" -->
+            <local:ImageSourceConverter x:Key="Converter"></local:ImageSourceConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <!--<Grid x:Name="Dtlimagelst" >-->
+        <StackLayout>
+            <Image Source="CloseIcon3.png"   HeightRequest="32" WidthRequest="32"  VerticalOptions="Start" HorizontalOptions="End">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="CloseImgelst" />
+                </Image.GestureRecognizers>
+            <Image.Margin>
+                <OnPlatform x:TypeArguments="Thickness" iOS="0,30,20,0" Android="5,5,5,5"></OnPlatform>
+            </Image.Margin>
+        </Image>
+        
+
+        <CV:CarouselView x:Name="listofphoto">
+            <CV:CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Padding="10" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                        <Image x:Name="listofimages" Source="{Binding Photourl, Converter={StaticResource Converter}}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            
+                        </Image>
+                    </StackLayout>
+                </DataTemplate>
+            </CV:CarouselView.ItemTemplate>
+        </CV:CarouselView>
+        </StackLayout>
+            <!--<CarouselPage.ItemTemplate>
+        <DataTemplate>
+            <ContentPage>
+                <StackLayout Padding="10" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                    <Image Source="CloseIcon3.png"   HeightRequest="32" WidthRequest="32"  VerticalOptions="Start" HorizontalOptions="End">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Path=BindingContext.CloseImgelst, Source = {x:Reference imglist}}" CommandParameter="{Binding}"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Image Source="{Binding Photourl}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                </StackLayout>
+            </ContentPage>
+        </DataTemplate>
+    </CarouselPage.ItemTemplate>
+      <ActivityIndicator x:Name="loader" BindingContext="{x:Reference listofimages}" Color="Red" IsRunning="{Binding IsLoading}"/>
+         <TapGestureRecognizer Command="{Binding Path=BindingContext.CloseImgelst, Source = {x:Reference imglist}}" CommandParameter="{Binding}"/>-->
+        <!--<ActivityIndicator x:Name="IsLoading" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>-->
+    <!--</Grid>-->
+</ContentPage>

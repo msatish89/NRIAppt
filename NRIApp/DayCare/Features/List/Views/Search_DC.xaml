@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NRIApp.DayCare.Features.List.Views.Search_DC"
+              xmlns:SULEntry="clr-namespace:NRIApp.Controls"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="FillAndExpand" Orientation="Vertical" Spacing="0" BackgroundColor="#ecf2f4">
+            <Frame Margin="0" Padding="0" HasShadow="True" OutlineColor="Black">
+                <StackLayout VerticalOptions="Start" >
+                    <Grid  HeightRequest="56" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="White">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <StackLayout Grid.Column="0" Grid.Row="0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"   >
+                            <Image Source="BackArrowSearch.png" HeightRequest="24" WidthRequest="24">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Backbtncommand"></TapGestureRecognizer>
+                                </Image.GestureRecognizers>
+                            </Image>
+                        </StackLayout>
+                        <StackLayout Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="5" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" >
+                            <SULEntry:CustomEntry x:Name="textsearch" Style="{StaticResource FontRegularEntry}" TextChanged="DC_search"  Placeholder="Search..." Text="{Binding SearchName}" PlaceholderColor="#9e9e9e" ReturnKeyType="Done"  HideBorder="True" HorizontalOptions="FillAndExpand" Margin="0,0,10,0"  TextColor="Black" />
+                        </StackLayout>
+                    </Grid>
+                </StackLayout>
+                <Frame.Padding>
+                    <OnPlatform x:TypeArguments="Thickness" iOS="0,30,0,0" Android="0" />
+                </Frame.Padding>
+            </Frame>
+            <ListView x:Name="srchlistview"  IsGroupingEnabled="True" ItemTapped="srchlistview_Tap"  VerticalOptions="FillAndExpand" HasUnevenRows="True" SeparatorVisibility="None" BackgroundColor="#ecf2f4" Margin="0">
+                <ListView.GroupHeaderTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout BackgroundColor="#f8f8f8" Padding="10" Margin="2, 0, 2, 2" Orientation="Vertical">
+                                <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                    <Label x:Name="lblheader" Text="{Binding Key}" Style="{StaticResource FontRegular}" TextColor="#ff837e" FontAttributes="Bold" />
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.GroupHeaderTemplate>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Vertical" Padding="10" Margin="0,0,0,1" VerticalOptions="Start" HorizontalOptions="FillAndExpand" BackgroundColor="White">
+                                <Label Text="{Binding Title}" Style="{StaticResource FontRegular}" Margin="5" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" TextColor="#212121" FontSize="14"  />
+                                <StackLayout IsVisible="{Binding stackdetails}" Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="5,0,0,0">
+                                    <Label Text="{Binding adtype}" Style="{StaticResource FontRegular}" Margin="0"  VerticalOptions="Start" HorizontalOptions="Start" TextColor="#666666" FontSize="12" />
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackLayout x:Name="stacknoresult" IsVisible="False" BackgroundColor="#f8f8f8" Padding="10" Margin="2, 0, 2, 2" Orientation="Vertical">
+                <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                    <Label Text="Oops! No suggestions found" Style="{StaticResource FontRegular}" TextColor="#ff837e" FontAttributes="Bold" />
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

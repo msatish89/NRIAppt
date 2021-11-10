@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NRIApp.Rentals.Features.Post.Views.lcfthankyou"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#07ba8e" VerticalOptions="FillAndExpand">
+
+            <Image Source="CloseIcon.png" HeightRequest="24" WidthRequest="24" VerticalOptions="Start" HorizontalOptions="End"  >
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                </Image.GestureRecognizers>
+                <Image.Margin>
+                    <OnPlatform x:TypeArguments="Thickness" iOS="0,25,10,0" Android="0,5,5,0"></OnPlatform>
+                </Image.Margin>
+            </Image>
+
+            <StackLayout   VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                <Image Source="SuccessBg.png" HeightRequest="96" WidthRequest="96" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Margin="0,-5,0,0"  />
+                <Label Text="Success" FontSize="22"  VerticalOptions="CenterAndExpand" TextColor="White" HorizontalOptions="Center"  HorizontalTextAlignment="Center" Margin="0"  />
+                <Label Text="Updated Succesfully." TextColor="White" HorizontalOptions="CenterAndExpand" FontSize="14" Margin="10,0,10,0" HorizontalTextAlignment="Center" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

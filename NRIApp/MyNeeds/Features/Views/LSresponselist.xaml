@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NRIApp.MyNeeds.Features.Views.LSresponselist">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#ecf2f4" >
+
+            <ListView x:Name="responseLSListview"  HasUnevenRows="True"  >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0,5,0,5">
+                                <!--new listings-->
+                                <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                    <Frame BackgroundColor="White" CornerRadius="4"  Padding="0" >
+                                        <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                            <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="10">
+                                                <Label Text="{Binding Title}" Style="{StaticResource FontBold}"  FontSize="14" TextColor="#202124" Margin="0,0,0,5" />
+                                                <StackLayout VerticalOptions="Start" HorizontalOptions="StartAndExpand">
+                                                    <StackLayout IsVisible="{Binding businessVisible}" Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                                        <Image Source="Office.png"  HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="20" WidthRequest="20"/>
+                                                        <Label Text="{Binding Ptag}"  LineBreakMode="TailTruncation" FontSize="12" Style="{StaticResource FontRegular}" TextColor="#202124"  HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+                                                    </StackLayout>
+                                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                                        <Image Source="placeholder.png"  HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="20" WidthRequest="20"/>
+                                                        <Label Text="{Binding Streetname}" LineBreakMode="TailTruncation"  FontSize="12" Style="{StaticResource FontRegular}" TextColor="#333333"  HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+                                                    </StackLayout>
+                                                </StackLayout>
+                                                <StackLayout Orientation="Horizontal"  VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+                                                    <StackLayout VerticalOptions="Start" HorizontalOptions="StartAndExpand">
+                                                        <!--<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                                            <Image Source="Employee.png"  HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="20" WidthRequest="20"/>
+                                                            <Label Text="{Binding Contactname}" LineBreakMode="TailTruncation"  FontSize="12" Style="{StaticResource FontRegular}" TextColor="#878787"  HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+                                                        </StackLayout>-->
+                                                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                                            <Image Source="mailG.png"  HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="20" WidthRequest="20"/>
+                                                            <Label Text="{Binding Email}" LineBreakMode="TailTruncation"  FontSize="12" Style="{StaticResource FontRegular}"  TextColor="#3492fd"  HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+                                                        </StackLayout>
+                                                        <!--<StackLayout Orientation="Horizontal" HorizontalOptions="Start">
+                                                            <Image Source="clock.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="20" WidthRequest="20"/>
+                                                            <Label Text="{Binding Postedago}" FontSize="11" TextColor="#333333" Style="{StaticResource FontRegular}" HorizontalOptions="Start" VerticalOptions="Center"/>
+                                                        </StackLayout>-->
+                                                        <!--<StackLayout Orientation="Horizontal" HorizontalOptions="Start">
+                                                            <Image Source="{Binding phoneimage}"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="20" WidthRequest="20"/>
+                                                            <Label Text="{Binding Phoneno}" FontSize="11" TextColor="#3492fd" Style="{StaticResource FontRegular}" HorizontalOptions="Start" VerticalOptions="Center"/>
+                                                        </StackLayout>-->
+                                                        <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
+                                                            <Image Source="commentG.png"  HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="20" WidthRequest="20"/>
+                                                            <Label Text="{Binding Leafservice}" FontSize="11" TextColor="#333333" Style="{StaticResource FontRegular}" HorizontalOptions="Start" VerticalOptions="Start"/>
+                                                        </StackLayout>
+                                                    </StackLayout>
+
+                                                </StackLayout>
+                                            </StackLayout>
+                                            <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                                <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Margin="0" />
+                                                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Orientation="Horizontal" Padding="15,3,10,8">
+                                                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="EndAndExpand" >
+                                                        <Button Text="Renew" FontSize="12" Margin="0" Clicked="gotonribusinessapp" CommandParameter="{Binding}"  Style="{StaticResource FontRobotoBold}"  VerticalOptions="Center" HorizontalOptions="End"  BorderWidth="1" WidthRequest="110" BackgroundColor="#f89406" BorderColor="#f89406" TextColor="#ffffff" />
+                                                    </StackLayout>
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </Frame>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+           
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,729 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NRIApp.LocalJobs.Features.Detail.Views.CompanyProfile"
+             xmlns:local="clr-namespace:NRIApp.Helpers"
+             xmlns:extended="clr-namespace:Xamarin.Forms.Extended;assembly=Xamarin.Forms.Extended.InfiniteScrolling"
+             NavigationPage.HasNavigationBar="False"
+             Title="{Binding title}" >
+    <ContentPage.Content>
+        <AbsoluteLayout BackgroundColor="#ecf2f4">
+            <StackLayout Margin="0,0,0,0"  AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All"
+                          VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                <ScrollView x:Name="cmscroll" Margin="0,0,0,0" >
+                    <StackLayout  x:Name="cmlayout" BackgroundColor="#ecf2f4" >
+                        <StackLayout BackgroundColor="#3f6ad8">
+
+                            <Grid  HeightRequest="56" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+
+                                <StackLayout Grid.Column="0" Grid.Row="0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"   >
+                                    <Image Source="BackArrowSearchWhite.png" HeightRequest="24" WidthRequest="24" />
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                                    </StackLayout.GestureRecognizers>
+                                </StackLayout>
+
+                                <StackLayout Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="4" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" >
+                                    <Label Text="Business page"  FontSize="18" Style="{StaticResource FontRegular}"  TextColor="#ffffff"/>
+                                </StackLayout>
+
+                                <StackLayout Grid.Column="5" Grid.Row="0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
+
+                                </StackLayout>
+
+                            </Grid>
+
+                        </StackLayout>
+                        <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand"   BackgroundColor="#3f6ad8" Margin="0,-6,0,0"  >
+
+                            <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="10,5,10,15" >
+                                <Label Text="{Binding title}" FontSize="18" Style="{StaticResource FontRegular}"  VerticalOptions="Start" HorizontalOptions="FillAndExpand" VerticalTextAlignment="Center" TextColor="#ffffff"   />
+
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" >
+
+                                    <Label Text="{Binding address}" Style="{StaticResource FontRegular}" FontSize="13" TextColor="#ffffff" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" VerticalTextAlignment="Center" />
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="2,0,0,0" >
+
+                                    <Image Source="{Binding Grating1}"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="18" WidthRequest="18" Margin="0,0,5,0"/>
+                                    <Image Source="{Binding Grating2}"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="18" WidthRequest="18" Margin="0,0,5,0"/>
+                                    <Image Source="{Binding Grating3}"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="18" WidthRequest="18" Margin="0,0,5,0"/>
+                                    <Image Source="{Binding Grating4}"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="18" WidthRequest="18" Margin="0,0,5,0"/>
+                                    <Image Source="{Binding Grating5}"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="18" WidthRequest="18" Margin="0,0,5,0"/>
+                                    <!--(0) Be the first to review-->
+                                    <StackLayout  VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" >
+                                        <Label Text="{Binding ratingbarvalue}" Style="{StaticResource FontRegular}"  FontSize="14" TextColor="#feec59"  HorizontalOptions="Start" VerticalOptions="CenterAndExpand"/>
+                                        
+                                    </StackLayout>
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="scrolldown"/>
+                                    </StackLayout.GestureRecognizers>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal" VerticalOptions="End"  Padding="0,15,0,15" >
+
+                                    <StackLayout  HorizontalOptions="Start" VerticalOptions="Center">
+                                        <StackLayout  HorizontalOptions="Start" VerticalOptions="Start">
+                                            <Label IsVisible="{Binding verifyvisible}" Text="Do you represent?" FontSize="13" TextColor="#ffffff" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" VerticalTextAlignment="Center" />
+
+                                            <Frame CornerRadius="4" BackgroundColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="0"  >
+                                                <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="10,8,10,8">
+                                                    <Image IsVisible="{Binding verifyvisible}" Source="CheckedGreen.png"  HorizontalOptions="Start" VerticalOptions="CenterAndExpand" HeightRequest="14" WidthRequest="14"/>
+                                                    <Label Text="{Binding verifytxt}" Style="{StaticResource FontRegular}" FontSize="13" TextColor="#08a182" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" VerticalTextAlignment="Center" />
+                                                    <StackLayout.GestureRecognizers>
+                                                        <TapGestureRecognizer Command="{Binding managecompanytap}" />
+                                                    </StackLayout.GestureRecognizers>
+                                                </StackLayout>
+                                            </Frame>
+                                        </StackLayout>
+
+                                    </StackLayout>
+
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" VerticalOptions="End"  >
+                                        <!--<Image Source="placeholderWt.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="26" WidthRequest="26" Margin="0,0,5,0">
+                                            <Image.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding Tapmap}"/>
+                                            </Image.GestureRecognizers>
+                                        </Image>-->
+                                        <Image Source="ShareW.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="26" WidthRequest="26" Margin="0,0,5,0">
+                                            <Image.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding Taptoshare}"/>
+                                            </Image.GestureRecognizers>
+                                        </Image>
+                                        <Image Source="{Binding followflagimg}"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="26" WidthRequest="26" >
+                                            <Image.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding Tapfollow}"/>
+                                            </Image.GestureRecognizers>
+                                        </Image>
+                                    </StackLayout>
+
+                                </StackLayout>
+                            </StackLayout>
+
+                        </StackLayout>
+                        <Frame  CornerRadius="0" BackgroundColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="0" Margin="0,-5,0,5" >
+
+                            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start"  BackgroundColor="White" Padding="10"  >
+
+
+
+                                <StackLayout IsVisible="{Binding foundedvisible}"  Orientation="Horizontal"   VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Margin="0,0,0,5" >
+                                    <Image Source="ExperienceJob.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="30" WidthRequest="30"/>
+                                    <StackLayout VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="5,0,0,0">
+                                        <Label Text="Founded" Style="{StaticResource FontRegular}" FontSize="13" TextColor="#888888"  HorizontalOptions="Start" VerticalOptions="Start" Margin="0,0,0,-3" />
+                                        <Label Text="{Binding founded}" Style="{StaticResource FontRegular}" FontSize="14" TextColor="#212121"  HorizontalOptions="Start" VerticalOptions="Start" Margin="0,-3,0,0"/>
+                                    </StackLayout>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal" IsVisible="{Binding nooempvisible}"  VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Margin="0,0,0,5" >
+                                    <Image Source="JobRole.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="30" WidthRequest="30"/>
+                                    <StackLayout VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="5,0,0,0">
+                                        <Label Text="No. of Employees" Style="{StaticResource FontRegular}" FontSize="13" TextColor="#888888"  HorizontalOptions="Start" VerticalOptions="Start" Margin="0,0,0,-3" />
+                                        <Label Text="{Binding companysize}" Style="{StaticResource FontRegular}" FontSize="14" TextColor="#212121"  HorizontalOptions="Start" VerticalOptions="Start" Margin="0,-3,0,0"/>
+                                    </StackLayout>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal" IsVisible="{Binding industryvisible}"   VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Margin="0,0,0,5" >
+                                    <Image Source="Industry.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="30" WidthRequest="30"/>
+                                    <StackLayout VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="5,0,0,0">
+                                        <Label Text="Industry" Style="{StaticResource FontRegular}" FontSize="13" TextColor="#888888"  HorizontalOptions="Start" VerticalOptions="Start" Margin="0,0,0,-3" />
+                                        <Label Text="{Binding industry}" Style="{StaticResource FontRegular}" FontSize="14" TextColor="#212121"  HorizontalOptions="Start" VerticalOptions="Start" Margin="0,-3,0,0"/>
+                                    </StackLayout>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal" IsVisible="{Binding businesstypevisble}"  VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Margin="0,0,0,5" >
+                                    <Image Source="MoreIcon3.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="30" WidthRequest="30"/>
+                                    <StackLayout VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="5,0,0,0">
+                                        <Label Text="Type" FontSize="13" Style="{StaticResource FontRegular}" TextColor="#888888"  HorizontalOptions="Start" VerticalOptions="Start" Margin="0,0,0,-3" />
+                                        <Label Text="{Binding businesstype}" Style="{StaticResource FontRegular}" FontSize="14" TextColor="#212121"  HorizontalOptions="Start" VerticalOptions="Start" Margin="0,-3,0,0"/>
+                                    </StackLayout>
+                                </StackLayout>
+                                <!--<StackLayout Orientation="Horizontal" IsVisible="{Binding jobopeningcntvisible}"  VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Margin="0,0,0,5" >
+                                    <Image Source="MoreIcon3.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="30" WidthRequest="30"/>
+                                    <StackLayout VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="5,0,0,0">
+                                        <Label Text="Type" FontSize="13" Style="{StaticResource FontRegular}" TextColor="#888888"  HorizontalOptions="Start" VerticalOptions="Start" Margin="0,0,0,-3" />
+                                        <Label Text="{Binding businesstype}" Style="{StaticResource FontRegular}" FontSize="14" TextColor="#212121"  HorizontalOptions="Start" VerticalOptions="Start" Margin="0,-3,0,0"/>
+                                    </StackLayout>
+                                </StackLayout>-->
+                            </StackLayout>
+                        </Frame>
+
+                        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start"  BackgroundColor="White" Margin="10,5,10,5">
+
+                            <ScrollView Orientation="Horizontal" Padding="0"  >
+
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="0">
+
+
+                                    <StackLayout IsVisible="{Binding covvisible}" VerticalOptions="Start" HorizontalOptions="Start">
+                                        <Label x:Name="companydesctxtclr" Text="Company Overview" FontSize="14" Margin="10,10,10,5"  Style="{StaticResource FontRegular}"   VerticalOptions="Start" HorizontalOptions="Center"  />
+                                        <BoxView x:Name="companydescboxclr" HeightRequest="2" VerticalOptions="End" HorizontalOptions="FillAndExpand" Margin="0" />
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding companyoverviewTap}" />
+                                        </StackLayout.GestureRecognizers>
+                                    </StackLayout>
+                                    <StackLayout VerticalOptions="Start" IsVisible="{Binding jovisible}" HorizontalOptions="Start">
+                                        <Label x:Name="jobopeningtxtclr" Text="{Binding jobopeningcnttxt}" FontSize="14" Margin="10,10,10,5"  Style="{StaticResource FontRegular}"  VerticalOptions="Start" HorizontalOptions="Center"  />
+                                        <BoxView x:Name="jobopeningboxclr" HeightRequest="2" VerticalOptions="End" HorizontalOptions="FillAndExpand" Margin="0" />
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding jobopeningTap}" />
+                                        </StackLayout.GestureRecognizers>
+                                    </StackLayout>
+                                    <StackLayout VerticalOptions="Start" IsVisible="{Binding salaryheadvisible}" HorizontalOptions="Start">
+                                        <Label x:Name="salarytxtclr" Text="Salaries" FontSize="14" Margin="10,10,10,5" Style="{StaticResource FontRegular}"  VerticalOptions="Start" HorizontalOptions="Center"  />
+                                        <BoxView x:Name="salaryboxclr" HeightRequest="2" VerticalOptions="End" HorizontalOptions="FillAndExpand" Margin="0" />
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding salaryTap}" />
+                                        </StackLayout.GestureRecognizers>
+                                    </StackLayout>
+                                </StackLayout>
+                            </ScrollView>
+                        </StackLayout>
+ 
+                        <Frame BackgroundColor="White" IsVisible="{Binding companydescvisible}"  CornerRadius="4"    Margin="10,0,10,10" Padding="10" >
+                            <StackLayout>
+                                <Label Text="{Binding aboutcompanyoverviewlbl}" Style="{StaticResource FontRegular}" FontSize="18"  VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" TextColor="#222222"  />
+
+                                <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Margin="0" />
+
+                                <Image Source="{Binding thumbimgurl}" Aspect="AspectFit" IsVisible="{Binding thumbimgvisible}" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" HeightRequest="50" Margin="0,5,0,5" />
+                                <Label Text="{Binding shortdesc}" Style="{StaticResource FontRegular}" FontSize="13" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" TextColor="#818080"  />
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame IsVisible="{Binding jobopeningvisible}" CornerRadius="4" BackgroundColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="0" Margin="10,0,10,-2" >
+                            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start"  Padding="15,6,15,6"  >
+                                <Label Text="{Binding aboutjobopeninglbl}" Style="{StaticResource FontRegular}"  FontSize="14" TextColor="#202124" Margin="0,0,0,5" />
+                                <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Margin="0" />
+                                <ListView  x:Name="JobopeningListview" HeightRequest="230"  HasUnevenRows="True" IsVisible="{Binding jobopeninglistview}"  >
+                                    <ListView.Behaviors>
+                                        <extended:InfiniteScrollBehavior/>
+                                        <local:ListviewItemtap Command="{Binding DetailjobsCommandJO}" />
+                                    </ListView.Behaviors>
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <ViewCell>
+                                                <StackLayout IsVisible="{Binding jobopeningvisible}" VerticalOptions="Start" HorizontalOptions="FillAndExpand"  Margin="0,0,0,5">
+
+                                                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+                                                        <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="10">
+
+                                                            <Label Text="{Binding jobrole}" Style="{StaticResource FontRegular}"  FontSize="14" TextColor="#202124" Margin="0,0,0,5" />
+
+                                                            <StackLayout VerticalOptions="Start" HorizontalOptions="StartAndExpand">
+
+                                                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                                                    <Image Source="placeholder.png"  HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="20" WidthRequest="20"/>
+                                                                    <Label Text="{Binding address}" LineBreakMode="TailTruncation"  FontSize="12" Style="{StaticResource FontRegular}" TextColor="#878787"  HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+                                                                </StackLayout>
+
+                                                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                                                    <Image Source="Employee.png"  HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="20" WidthRequest="20"/>
+                                                                    <Label Text="{Binding jobrole}" LineBreakMode="TailTruncation"  FontSize="12" Style="{StaticResource FontRegular}" TextColor="#878787"  HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+                                                                </StackLayout>
+                                                                <!--experiencefrom":"0","experienceto":"3"-->
+                                                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                                                    <Image Source="Briefcase.png"  HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="20" WidthRequest="20"/>
+                                                                    <Label Text="{Binding experience}" LineBreakMode="TailTruncation"  FontSize="12" Style="{StaticResource FontRegular}" TextColor="#878787"  HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+                                                                </StackLayout>
+
+                                                            </StackLayout>
+                                                            <StackLayout.GestureRecognizers>
+                                                                <TapGestureRecognizer Command="{Binding Path=BindingContext.DetailjobsCommandJO, Source = {x:Reference JobopeningListview}}" CommandParameter="{Binding}"/>
+                                                            </StackLayout.GestureRecognizers>
+
+                                                        </StackLayout>
+
+                                                        <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+                                                            <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Margin="0" />
+                                                            <!--"minsal":0,"maxsal":0-->
+                                                            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Orientation="Horizontal" Padding="15,3,10,8">
+                                                                <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand">
+                                                                    <Label Text="Salary" LineBreakMode="TailTruncation" FontSize="13" TextColor="#878787" Style="{StaticResource FontRegular}" HorizontalOptions="Start" VerticalOptions="Start"/>
+                                                                    <StackLayout VerticalOptions="Start" HorizontalOptions="StartAndExpand" Orientation="Horizontal" Margin="0, -5, 0, 0">
+                                                                        <Label Text="{Binding salary}" LineBreakMode="TailTruncation" FontSize="18" TextColor="#08a182" Style="{StaticResource FontRegular}" HorizontalOptions="Start" VerticalOptions="Center"/>
+                                                                        <Label Text="{Binding salarymode}" LineBreakMode="TailTruncation" FontSize="13" TextColor="#878787" Style="{StaticResource FontRegular}" HorizontalOptions="Start" VerticalOptions="Center"/>
+                                                                    </StackLayout>
+                                                                </StackLayout>
+                                                                <StackLayout VerticalOptions="Start" HorizontalOptions="End" Orientation="Horizontal">
+                                                                    <Button Text="Apply for job" FontSize="11" Margin="0"   Style="{StaticResource FontRegular}" Command="{Binding Path=BindingContext.applyforcompanyjobopeninglist, Source = {x:Reference JobopeningListview}}" CommandParameter="{Binding}" VerticalOptions="Center" HorizontalOptions="EndAndExpand" BorderColor="#f89406" BorderWidth="1" BackgroundColor="#f89406" TextColor="#ffffff" />
+                                                                </StackLayout>
+                                                            </StackLayout>
+                                                        </StackLayout>
+                                                    </StackLayout>
+
+                                                </StackLayout>
+                                            </ViewCell>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                                <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Margin="0" />
+                                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start" IsVisible="{Binding Jobopeningmoreblk}">
+                                    <Image Source="downarrowGrey2.png"  HorizontalOptions="CenterAndExpand" VerticalOptions="Center" HeightRequest="26" WidthRequest="26"/>
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Morejobopenings}"/>
+                                    </StackLayout.GestureRecognizers>
+                                </StackLayout>
+                                <!--<ActivityIndicator x:Name="listingloader" BackgroundColor="White"  IsVisible="{Binding IsBusy}"  IsRunning="{Binding IsBusy}"  Color="Gray" />-->
+                            </StackLayout>
+                        </Frame>
+                       
+                        <Frame IsVisible="{Binding empsalaryvisible}"  CornerRadius="4" BackgroundColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="0" Margin="10,0,10,15" >
+
+                            <StackLayout Margin="0" Padding="0,5,0,10">
+                                <Label Text="{Binding aboutsalarylbl}" Style="{StaticResource FontRegular}"  FontSize="14" TextColor="#202124" Margin="10,5,10,5" />
+                                <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Margin="0" />
+
+                                <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="10,5,10,5">
+                                    <Grid>
+                                        <Label Grid.Row="0" Grid.Column="0" Text="Role" FontAttributes="Bold" FontSize="14"  VerticalOptions="Start" HorizontalOptions="StartAndExpand" TextColor="#212121"  />
+                                        <Label Grid.Row="0" Grid.Column="1" Text="Salary" FontAttributes="Bold" FontSize="14"  VerticalOptions="Start" HorizontalOptions="StartAndExpand" TextColor="#212121"  />
+                                    </Grid>
+                                    
+                                </StackLayout>
+                                <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Margin="0" />
+                                <local:HVScrollGridView x:Name="salarylistview"  ItemsSource="{Binding getsalarydata}">
+                                    <local:HVScrollGridView.ItemTemplate>
+                                        <DataTemplate>
+                                            <ContentView>
+                                                <ContentView.Content>
+                                                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="10" >
+
+                                                        <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                                            <StackLayout VerticalOptions="Start" HorizontalOptions="Start" WidthRequest="150">
+                                                                <Label  Text="{Binding jobrole}"  Style="{StaticResource FontRegular}"   FontSize="13"  VerticalOptions="Start" HorizontalOptions="StartAndExpand" TextColor="#878787"  />
+                                                            </StackLayout>
+
+                                                            <StackLayout  VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                                                                <Label Text="{Binding salary}"  Style="{StaticResource FontRegular}" FontSize="13" VerticalOptions="Start" HorizontalOptions="Start" TextColor="#08a182"  />
+                                                                <Label Text="{Binding salarymode}"  Style="{StaticResource FontRegular}" FontSize="11" VerticalOptions="Start" HorizontalOptions="StartAndExpand" TextColor="#878787"  />
+                                                            </StackLayout>
+
+                                                        </StackLayout>
+                                                        <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Margin="0" />
+
+                                                    </StackLayout>
+
+                                                </ContentView.Content>
+                                            </ContentView>
+                                        </DataTemplate>
+                                    </local:HVScrollGridView.ItemTemplate>
+                                </local:HVScrollGridView>
+                                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start" IsVisible="{Binding Salarymoreblk}">
+                                    <Image Source="downarrow.png"  HorizontalOptions="CenterAndExpand" VerticalOptions="Center" HeightRequest="26" WidthRequest="26"/>
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Moresalarylistings}"/>
+                                    </StackLayout.GestureRecognizers>
+                                </StackLayout>
+                                <ActivityIndicator x:Name="salaryloader" BackgroundColor="White"  IsVisible="{Binding IsBusy}"  IsRunning="{Binding IsBusy}"  Color="Gray" />
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame IsVisible="{Binding benefitsvisible}" BackgroundColor="White" CornerRadius="4"    Margin="10,0,10,5" Padding="10" >
+                            <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                <Label Text="{Binding aboutbenefitslbl}" FontSize="18"  Style="{StaticResource FontRegular}"  VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" TextColor="#222222"  />
+                                <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Margin="0" />
+                                <local:HVScrollGridView ItemsSource="{Binding getbusinessbenifit}" >
+                                    <local:HVScrollGridView.ItemTemplate>
+                                        <DataTemplate>
+                                            <ContentView>
+                                                <ContentView.Content>
+                                                    <StackLayout Orientation="Horizontal" Padding="0,10,0,5"  >
+                                                        <Image Source="CheckedGreen.png"  HorizontalOptions="Start" VerticalOptions="CenterAndExpand" HeightRequest="14" WidthRequest="14"/>
+                                                        <Label Text="{Binding benefits}"  Style="{StaticResource FontRegular}" FontSize="14" HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand" VerticalOptions="Start" TextColor="#818080"  />
+                                                    </StackLayout>
+                                                </ContentView.Content>
+                                            </ContentView>
+                                        </DataTemplate>
+                                    </local:HVScrollGridView.ItemTemplate>
+                                </local:HVScrollGridView>
+                            </StackLayout>
+                        </Frame>
+                        <Frame IsVisible="{Binding socialmediavisible}" BackgroundColor="White" CornerRadius="4"   Margin="10,0,10,20" Padding="10" >
+                            <StackLayout  VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="10,0,10,10">
+                                <Label Text="Social profile" FontSize="14"  Style="{StaticResource FontRegular}"   VerticalOptions="Start" HorizontalOptions="FillAndExpand" TextColor="#878787" />
+                                <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                                    <Image IsVisible="{Binding fbvisible}" Source="facebook.png" HeightRequest="30"  WidthRequest="30"  VerticalOptions="Start" HorizontalOptions="Start" Margin="0,0,5,0" >
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding Tapfacebook}"/>
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                    <Image IsVisible="{Binding twittervisible}" Source="twitter.png" HeightRequest="30"  WidthRequest="30"  VerticalOptions="Start" HorizontalOptions="Start"  Margin="0,0,5,0" >
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding Taptwitter}"/>
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                    <Image IsVisible="{Binding linkedinvisible}"  Source="Linkedin.png" HeightRequest="30"  WidthRequest="30"  VerticalOptions="Start" HorizontalOptions="Start" Margin="0,0,5,0" >
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding Taplinkedin}"/>
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+
+
+                        <Frame BackgroundColor="#ffffff" Margin="10,0,10,15" Padding="0" VerticalOptions="Start"   HorizontalOptions="FillAndExpand" >
+                            <StackLayout  Orientation="Horizontal"  VerticalOptions="Center" HorizontalOptions="FillAndExpand"   >
+
+                                <BoxView BackgroundColor="#2676e5" WidthRequest="2" VerticalOptions="FillAndExpand" HorizontalOptions="Start"  />
+
+                                <StackLayout BackgroundColor="#ffffff"  VerticalOptions="Center" HorizontalOptions="FillAndExpand" Padding="10"  >
+
+                                    <Label Text="Kick Start! your career with the best matching jobs" TextColor="#919191" FontSize="12" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Style="{StaticResource FontRegular}" Margin="0,0,0,5"    />
+
+                                    <Button Text="Job Alert" Command="{Binding clickjobalert}" Style="{StaticResource FontRobotoBold}"
+                                                    TextColor="#ffffff"
+                                                    BackgroundColor="#03a497"
+                                                    BorderColor="#03a497"
+                                                    BorderWidth="1"
+                                                    BorderRadius="4"
+                                                    VerticalOptions="Center"
+                                                    HorizontalOptions="StartAndExpand"                                                    
+                                                    FontSize="14"                                                   
+                                             />
+
+                                </StackLayout>
+
+                            </StackLayout>
+
+                        </Frame>
+
+                        <Frame BackgroundColor="#ffffff" Margin="10,0,10,15" Padding="0" VerticalOptions="Start"   HorizontalOptions="FillAndExpand" >
+                            <StackLayout  Orientation="Horizontal"  VerticalOptions="Center" HorizontalOptions="FillAndExpand"   >
+
+                                <BoxView BackgroundColor="#e30045" WidthRequest="2" VerticalOptions="FillAndExpand" HorizontalOptions="Start"  />
+
+                                <StackLayout BackgroundColor="#ffffff"  VerticalOptions="Center" HorizontalOptions="FillAndExpand" Padding="10"  >
+
+                                    <Label Text="To receive interview calls for your dream job" TextColor="#919191" FontSize="12" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Style="{StaticResource FontRegular}" Margin="0,0,0,5"    />
+
+                                    <Button Text="Create a job profile" Command="{Binding clickjobprofile}" Style="{StaticResource FontRobotoBold}"
+                                                    TextColor="#ffffff"
+                                                    BackgroundColor="#f89406"
+                                                    BorderColor="#f89406"
+                                                    BorderWidth="1"
+                                                    BorderRadius="4"
+                                                    VerticalOptions="Center"
+                                                    HorizontalOptions="StartAndExpand"                                                    
+                                                    FontSize="14"                                                   
+                                             />
+
+                                </StackLayout>
+
+                            </StackLayout>
+
+                        </Frame>
+
+                        <!--<Frame BackgroundColor="#ffffff" Margin="10,0,10,15" Padding="0" VerticalOptions="Start"   HorizontalOptions="FillAndExpand" >
+                            <StackLayout  Orientation="Horizontal"  VerticalOptions="Center" HorizontalOptions="FillAndExpand"   >
+
+                                <BoxView BackgroundColor="#e30045" WidthRequest="2" VerticalOptions="FillAndExpand" HorizontalOptions="Start"  />
+
+                                <StackLayout BackgroundColor="#ffffff"  VerticalOptions="Center" HorizontalOptions="FillAndExpand" Padding="10"  >
+
+                                    <Label Text="Upload your resume" TextColor="#919191" FontSize="12" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Style="{StaticResource FontRegular}" Margin="0,0,0,5"    />
+
+                                    <Button Text="Upload Resume" Command="{Binding clickuploadresume}" 
+                                                    TextColor="#ffffff"
+                                                    BackgroundColor="#f89406"
+                                                    BorderColor="#f89406"
+                                                    BorderWidth="1"
+                                                    BorderRadius="4"
+                                                    VerticalOptions="Center"
+                                                    HorizontalOptions="StartAndExpand"                                                    
+                                                    FontSize="14"                                                   
+                                             />
+
+                                </StackLayout>
+
+                            </StackLayout>
+
+                        </Frame>-->
+
+
+
+                        <!--Write a Review-->
+
+                        <Frame IsVisible="{Binding reviewcommentsvisible}" BackgroundColor="White" CornerRadius="4"   Margin="10,0,10,10" Padding="10" >
+                            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                                    <Label Text="Reviews" FontSize="18"  VerticalOptions="Center" HorizontalOptions="StartAndExpand" TextColor="#222222"  />
+                                    <!--<Image Source="downarrowGrey.png" HeightRequest="24" WidthRequest="24" VerticalOptions="Center" HorizontalOptions="End"   />-->
+                                </StackLayout>
+                                <BoxView HeightRequest="1" HorizontalOptions="FillAndExpand" VerticalOptions="Start" BackgroundColor="#ecf2f4"  />
+                                <local:HVScrollGridView x:Name="reviewdetails" ItemsSource="{Binding getreviewdetail}" >
+                                    <local:HVScrollGridView.ItemTemplate>
+                                        <DataTemplate>
+                                            <ContentView>
+                                                <ContentView.Content>
+                                                    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start" Margin="0,15,0,0">
+                                                        <StackLayout Orientation="Horizontal">
+                                                            <!--<Frame BackgroundColor="Blue" WidthRequest="50" HasShadow="False" HeightRequest="50" CornerRadius="25" HorizontalOptions="Start" Padding="0">
+                                                                <Image Source="localservices.png"  HorizontalOptions="Start" VerticalOptions="Center" Aspect="Fill"/>
+                                                            </Frame>-->
+                                                            <Frame BackgroundColor="#3f6ad8" WidthRequest="50" IsVisible="{Binding imgvisible}" HasShadow="False" HeightRequest="50" CornerRadius="25" HorizontalOptions="Start" Padding="0">
+                                                                <Image Source="{Binding photourl}"  HorizontalOptions="Start" VerticalOptions="Center" Aspect="Fill"/>
+                                                            </Frame>
+                                                            <Frame BackgroundColor="#3f6ad8" WidthRequest="50" IsVisible="{Binding imgnovisible}" HasShadow="False" HeightRequest="50" CornerRadius="25" HorizontalOptions="Start" Padding="0">
+                                                                <Label Text="{Binding imgtext}" FontSize="26"  VerticalOptions="CenterAndExpand" IsVisible="{Binding imgnovisible}" HorizontalOptions="CenterAndExpand" TextColor="#ffffff"  />
+                                                            </Frame>
+                                                            <StackLayout HorizontalOptions="FillAndExpand">
+                                                                <Label Text="{Binding contributor}" FontSize="16"  VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" TextColor="#222222"  />
+
+                                                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+
+                                                                    <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" >
+                                                                        <Image Source="clock.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="14" WidthRequest="14"/>
+                                                                        <Label Text="{Binding postedago}" FontSize="14" HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand" TextColor="#888888"  />
+                                                                    </StackLayout>
+
+                                                                    <StackLayout Orientation="Horizontal" HorizontalOptions="End">
+                                                                        <Label Text="Rated " FontSize="11" TextColor="#888888"  HorizontalOptions="Start" VerticalOptions="Center"/>
+                                                                        <Frame BackgroundColor="#45a455" CornerRadius="2"  Padding="5, 3, 5, 3">
+                                                                            <Label Text="{Binding rating}" FontSize="10" TextColor="#ffffff"  HorizontalOptions="Start" VerticalOptions="Center"/>
+                                                                        </Frame>
+                                                                    </StackLayout>
+                                                                </StackLayout>
+
+                                                            </StackLayout>
+
+                                                        </StackLayout>
+
+                                                        <StackLayout HorizontalOptions="FillAndExpand">
+                                                            <Label Text="{Binding description}" FontSize="16"  VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" TextColor="#888888"  />
+                                                        </StackLayout>
+
+                                                        <StackLayout BackgroundColor="#f3f1f2" Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Margin="0,15,0,0" >
+                                                            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" >
+                                                                <Image Source="share2.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="20" WidthRequest="20"/>
+                                                                <Label Text="Share" FontSize="14" HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand" VerticalOptions="Center" TextColor="#888888"  />
+                                                                <StackLayout.GestureRecognizers>
+                                                                    <TapGestureRecognizer Command="{Binding Path=BindingContext.sharereviewcmd, Source = {x:Reference reviewdetails}}" CommandParameter="{Binding}" />
+                                                                </StackLayout.GestureRecognizers>
+                                                            </StackLayout>
+                                                            <BoxView WidthRequest="1" BackgroundColor="White" VerticalOptions="FillAndExpand" HorizontalOptions="Start"/>
+                                                            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" >
+                                                                <Image Source="comment.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="20" WidthRequest="20"/>
+                                                                <Label Text="Comment" FontSize="14" HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand" VerticalOptions="Center" TextColor="#888888"  />
+                                                                <StackLayout.GestureRecognizers>
+                                                                    <TapGestureRecognizer Command="{Binding Path=BindingContext.commentviewcmd, Source = {x:Reference reviewdetails}}" CommandParameter="{Binding}"/>
+                                                                </StackLayout.GestureRecognizers>
+                                                            </StackLayout>
+                                                        </StackLayout>
+
+                                                        <!--<StackLayout IsVisible="{Binding addreplyvisible}" Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand"  >
+                                                        <StackLayout VerticalOptions="Start" HorizontalOptions="Start"  Padding="5"  >
+                                                            <Image Source="MessageIcon.png" HeightRequest="32" WidthRequest="32"   />
+                                                        </StackLayout>
+                                                        <StackLayout VerticalOptions="Start" HorizontalOptions="StartAndExpand">
+                                                            <Editor Text="{Binding replycomment}" Keyboard="Numeric" HorizontalOptions="FillAndExpand" />
+                                                        </StackLayout>
+                                                        <StackLayout VerticalOptions="Start" HorizontalOptions="End">
+                                                            <Button Text="Reply" TextColor="White" Command="{Binding addreplycmd}"  HorizontalOptions="End" BackgroundColor="#0ba283"  />
+                                                        </StackLayout>
+                                                    </StackLayout>-->
+                                                        <BoxView HeightRequest="1" HorizontalOptions="FillAndExpand" VerticalOptions="Start" BackgroundColor="#ecf2f4"  />
+
+                                                    </StackLayout>
+                                                </ContentView.Content>
+                                            </ContentView>
+                                        </DataTemplate>
+                                    </local:HVScrollGridView.ItemTemplate>
+                                </local:HVScrollGridView>
+                            </StackLayout>
+
+                        </Frame>
+
+                        <Frame BackgroundColor="White" CornerRadius="4"   Margin="10,0,10,20" Padding="10" >
+                            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                                    <Label Text="Rate and Write a Review" FontSize="18" Style="{StaticResource FontRegular}"  VerticalOptions="Center" HorizontalOptions="StartAndExpand" TextColor="#222222"  />
+                                    <!--<Image Source="minusGrey.png" HeightRequest="24" WidthRequest="24" VerticalOptions="Center" HorizontalOptions="End"   />-->
+                                </StackLayout>
+                                <BoxView HeightRequest="1" HorizontalOptions="FillAndExpand" VerticalOptions="Start" BackgroundColor="#ecf2f4"  />
+
+                                <Label Text="RATE THE COMPANY" Style="{StaticResource FontRegular}" FontSize="14"  VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" TextColor="#193651"  Margin="0,15,0,0" />
+
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start" >
+
+                                    <Image Source="{Binding CustomerRating1}" x:Name="customerrating1" ClassId="1"   HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="18" WidthRequest="18" Margin="0,0,5,0">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding Customerclickratingcommand}" CommandParameter="{x:Reference customerrating1}"></TapGestureRecognizer>
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                    <Image Source="{Binding CustomerRating2}" x:Name="customerrating2" ClassId="2"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="18" WidthRequest="18" Margin="0,0,5,0">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding Customerclickratingcommand}" CommandParameter="{x:Reference customerrating2}"></TapGestureRecognizer>
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                    <Image Source="{Binding CustomerRating3}" x:Name="customerrating3" ClassId="3"   HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="18" WidthRequest="18" Margin="0,0,5,0">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding Customerclickratingcommand}" CommandParameter="{x:Reference customerrating3}"></TapGestureRecognizer>
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                    <Image Source="{Binding CustomerRating4}" x:Name="customerrating4" ClassId="4"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="18" WidthRequest="18" Margin="0,0,5,0">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding Customerclickratingcommand}" CommandParameter="{x:Reference customerrating4}"></TapGestureRecognizer>
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                    <Image Source="{Binding CustomerRating5}" x:Name="customerrating5" ClassId="5"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="18" WidthRequest="18" Margin="0,0,5,0">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding Customerclickratingcommand}" CommandParameter="{x:Reference customerrating5}"></TapGestureRecognizer>
+                                        </Image.GestureRecognizers>
+                                    </Image>
+
+                                    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" >
+                                        <Frame BackgroundColor="#45a455" CornerRadius="2"  Padding="5, 1, 5, 1">
+                                            <Label Text="{Binding Ratingbar}" FontSize="14" TextColor="#ffffff"  HorizontalOptions="Start" VerticalOptions="CenterAndExpand"/>
+                                        </Frame>
+                                    </StackLayout>
+
+                                </StackLayout>
+
+                                <Label Text="KINDLY ELABORATE" Style="{StaticResource FontRegular}" FontSize="14"  VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" TextColor="#193651"  Margin="0,15,0,0" />
+
+                                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start" BackgroundColor="#f8f7f7" Padding="10,5,10,10">
+                                    <Label Text="Career Developement" FontSize="14" Style="{StaticResource FontRegular}" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" TextColor="#666666"  />
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start" >
+                                        <Image Source="{Binding Careerrating1}" x:Name="careerrating1" ClassId="1" HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="14" WidthRequest="14" Margin="0,0,5,0">
+                                            <Image.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding Careerclickratingcommand}" CommandParameter="{x:Reference customerrating5}"></TapGestureRecognizer>
+                                            </Image.GestureRecognizers>
+                                        </Image>
+                                        <Image Source="{Binding Careerrating2}" x:Name="careerrating2" ClassId="2"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="14" WidthRequest="14" Margin="0,0,5,0">
+                                            <Image.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding Careerclickratingcommand}" CommandParameter="{x:Reference careerrating2}"></TapGestureRecognizer>
+                                            </Image.GestureRecognizers>
+                                        </Image>
+                                        <Image Source="{Binding Careerrating3}" x:Name="careerrating3" ClassId="3" HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="14" WidthRequest="14" Margin="0,0,5,0">
+                                            <Image.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding Careerclickratingcommand}" CommandParameter="{x:Reference careerrating3}"></TapGestureRecognizer>
+                                            </Image.GestureRecognizers>
+                                        </Image>
+                                        <Image Source="{Binding Careerrating4}" x:Name="careerrating4" ClassId="4" HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="14" WidthRequest="14" Margin="0,0,5,0">
+                                            <Image.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding Careerclickratingcommand}" CommandParameter="{x:Reference careerrating4}"></TapGestureRecognizer>
+                                            </Image.GestureRecognizers>
+                                        </Image>
+                                        <Image Source="{Binding Careerrating5}" x:Name="careerrating5" ClassId="5" HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="14" WidthRequest="14" Margin="0,0,5,0">
+                                            <Image.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding Careerclickratingcommand}" CommandParameter="{x:Reference careerrating5}"></TapGestureRecognizer>
+                                            </Image.GestureRecognizers>
+                                        </Image>
+                                    </StackLayout>
+                                </StackLayout>
+
+                                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start"  Padding="10,5,10,10" BackgroundColor="#f8f7f7">
+                                    <Label Text="Work Environment" FontSize="14" Style="{StaticResource FontRegular}" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" TextColor="#666666"   />
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start" >
+                                        <Image Source="{Binding workrating1}" x:Name="workrating1" ClassId="1"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="14" WidthRequest="14" Margin="0,0,5,0">
+                                            <Image.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding Workclickratingcommand}" CommandParameter="{x:Reference workrating1}"></TapGestureRecognizer>
+                                            </Image.GestureRecognizers>
+                                        </Image>
+                                        <Image Source="{Binding workrating2}" x:Name="workrating2" ClassId="2"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="14" WidthRequest="14" Margin="0,0,5,0">
+                                            <Image.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding Workclickratingcommand}" CommandParameter="{x:Reference workrating2}"></TapGestureRecognizer>
+                                            </Image.GestureRecognizers>
+                                        </Image>
+                                        <Image Source="{Binding workrating3}" x:Name="workrating3" ClassId="3"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="14" WidthRequest="14" Margin="0,0,5,0">
+                                            <Image.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding Workclickratingcommand}" CommandParameter="{x:Reference workrating3}"></TapGestureRecognizer>
+                                            </Image.GestureRecognizers>
+                                        </Image>
+                                        <Image Source="{Binding workrating4}" x:Name="workrating4" ClassId="4"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="14" WidthRequest="14" Margin="0,0,5,0">
+                                            <Image.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding Workclickratingcommand}" CommandParameter="{x:Reference workrating4}"></TapGestureRecognizer>
+                                            </Image.GestureRecognizers>
+                                        </Image>
+                                        <Image Source="{Binding workrating5}" x:Name="workrating5" ClassId="5"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="14" WidthRequest="14" Margin="0,0,5,0">
+                                            <Image.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding Workclickratingcommand}" CommandParameter="{x:Reference workrating5}"></TapGestureRecognizer>
+                                            </Image.GestureRecognizers>
+                                        </Image>
+                                    </StackLayout>
+                                </StackLayout>
+
+                                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start" BackgroundColor="#f8f7f7"  Padding="10,5,10,10">
+                                    <Label Text="Management" FontSize="14" Style="{StaticResource FontRegular}" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" TextColor="#666666"  />
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start" >
+                                        <Image Source="{Binding managementrating1}" x:Name="managementrating1" ClassId="1"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="14" WidthRequest="14" Margin="0,0,5,0">
+                                            <Image.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding Managementclickratingcommand}"  CommandParameter="{x:Reference managementrating1}"></TapGestureRecognizer>
+                                            </Image.GestureRecognizers>
+                                        </Image>
+                                        <Image Source="{Binding managementrating2}" x:Name="managementrating2" ClassId="2" HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="14" WidthRequest="14" Margin="0,0,5,0">
+                                            <Image.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding Managementclickratingcommand}" CommandParameter="{x:Reference managementrating2}"></TapGestureRecognizer>
+                                            </Image.GestureRecognizers>
+                                        </Image>
+                                        <Image Source="{Binding managementrating3}" x:Name="managementrating3" ClassId="3"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="14" WidthRequest="14" Margin="0,0,5,0">
+                                            <Image.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding Managementclickratingcommand}" CommandParameter="{x:Reference managementrating3}"></TapGestureRecognizer>
+                                            </Image.GestureRecognizers>
+                                        </Image>
+                                        <Image Source="{Binding managementrating4}" x:Name="managementrating4" ClassId="4"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="14" WidthRequest="14" Margin="0,0,5,0">
+                                            <Image.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding Managementclickratingcommand}" CommandParameter="{x:Reference managementrating4}"></TapGestureRecognizer>
+                                            </Image.GestureRecognizers>
+                                        </Image>
+                                        <Image Source="{Binding managementrating5}" x:Name="managementrating5" ClassId="5"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="14" WidthRequest="14" Margin="0,0,5,0">
+                                            <Image.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding Managementclickratingcommand}" CommandParameter="{x:Reference managementrating5}"></TapGestureRecognizer>
+                                            </Image.GestureRecognizers>
+                                        </Image>
+                                    </StackLayout>
+                                </StackLayout>
+                                
+                                <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand"  Padding="0,0,0,15">
+                                    <StackLayout VerticalOptions="Start" HorizontalOptions="Start"  Padding="5"  >
+                                        <Image Source="MessageIcon.png" HeightRequest="32" WidthRequest="32"   />
+                                    </StackLayout>
+                                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                        <Editor Text="{Binding reviewdesc}"  HeightRequest="100"    />
+                                    </StackLayout>
+                                </StackLayout>
+                                <Button Text="Publish your review" Command="{Binding publishreview}" Style="{StaticResource FontRobotoBold}" TextColor="White" BackgroundColor="#0ba283"  />
+                            </StackLayout>
+
+                        </Frame>
+
+                        <StackLayout HeightRequest="62"/>
+                    </StackLayout>
+
+                </ScrollView>
+
+
+            </StackLayout>
+
+
+
+            <StackLayout   Margin="0" VerticalOptions="End"  BackgroundColor="White" Padding="0" HorizontalOptions="FillAndExpand" 
+                             AbsoluteLayout.LayoutBounds="0,1,1,1" AbsoluteLayout.LayoutFlags="All" >
+                <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                    <Button IsVisible="{Binding applyjobvisible}" Text="Apply For Job" Style="{StaticResource FontRobotoBold}" Command="{Binding applyforcompanyjobopeninglist}" TextColor="#ffffff" BackgroundColor="#f89406" BorderColor="#f89406" BorderWidth="1" BorderRadius="4" VerticalOptions="Center" HorizontalOptions="FillAndExpand"  FontSize="14"  Margin="5,0,5,0" />
+                    <!--<Button Text="Job Alert" Command="{Binding clickjobalert}" TextColor="#ffffff" BackgroundColor="#f89406" BorderColor="#f89406" BorderWidth="1" BorderRadius="4" VerticalOptions="Center" HorizontalOptions="FillAndExpand"  FontSize="14"  Margin="5,0,5,0" />
+                    <Button Text="Create job profile" Command="{Binding clickjobprofile}" TextColor="#ffffff" BackgroundColor="#f89406" BorderColor="#f89406" BorderWidth="1" BorderRadius="4" VerticalOptions="Center" HorizontalOptions="FillAndExpand"  FontSize="14"  Margin="5,0,5,0" />-->
+                </StackLayout>
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

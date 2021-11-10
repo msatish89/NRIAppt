@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NRIApp.Rentals.Features.Post.Views.lcfsuccess" 
+             NavigationPage.HasNavigationBar="False"
+             xmlns:local="clr-namespace:NRIApp.Helpers"
+             xmlns:b="clr-namespace:NRIApp.Behaviors">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="FillAndExpand">
+            <StackLayout BackgroundColor="#07ba8e" VerticalOptions="FillAndExpand" IsEnabled="{Binding IsLCFNoData}" IsVisible="{Binding IsLCFNoData}">
+
+                <Image Source="CloseIcon.png" HeightRequest="24" WidthRequest="24"  VerticalOptions="Start" HorizontalOptions="End"  >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding LCFSClose}" />
+                    </Image.GestureRecognizers>
+                    <Image.Margin>
+                        <OnPlatform x:TypeArguments="Thickness" iOS="0,10,10,0" Android="5,5,5,5"></OnPlatform>
+                    </Image.Margin>
+                </Image>
+
+                <StackLayout   VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                    <Image Source="{Binding imgsuccess}" HeightRequest="96" WidthRequest="96" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Margin="0,-5,0,0"  />
+                    <Label Text="{Binding lblsuccess}" Style="{StaticResource FontRegular}" FontSize="20"  VerticalOptions="CenterAndExpand" TextColor="White" HorizontalOptions="Center"  HorizontalTextAlignment="Center" Margin="0"  />
+                    <Label Text="Your need has been sent to relevant property owners/tenants." IsVisible="{Binding postsuccessVisible}" Style="{StaticResource FontRegular}" TextColor="White" HorizontalOptions="CenterAndExpand" FontSize="14" Margin="10,0,10,0" HorizontalTextAlignment="Center" />
+                    <Label Text="You will soon get responses from them." IsVisible="{Binding postsuccessVisible}" Style="{StaticResource FontRegular}" TextColor="White" HorizontalOptions="CenterAndExpand" FontSize="14" Margin="10,0,10,0" HorizontalTextAlignment="Center" />
+                    <!--<Button Text="Similar Ads" Command="{Binding TapSimilarAds}" IsVisible="{Binding similaradsvisible}" BackgroundColor="#07ba8e"/>-->
+                    <!--<Label Text="ViewAll" IsVisible="{Binding IsVisibledata}" TextColor="White" HorizontalOptions="Center" FontSize="14" Margin="10,0,10,0" HorizontalTextAlignment="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding getrentalListdata}"/>
+                        </Label.GestureRecognizers>
+                    </Label>-->
+                    <!--<Label Text="Thank you for posting your need. Our team will contact you shortly for verification. Once verified, your ad will be published." TextColor="White" HorizontalOptions="CenterAndExpand" FontSize="14" Margin="10,0,10,0" HorizontalTextAlignment="Center" />-->
+                </StackLayout>
+            </StackLayout>
+            <ScrollView IsEnabled="{Binding IsLCFData}" IsVisible="{Binding IsLCFData}" HeightRequest="1000" VerticalOptions="FillAndExpand">
+                <StackLayout BackgroundColor="White" VerticalOptions="FillAndExpand">
+                    <StackLayout BackgroundColor="#07ba8e"   Padding="0,10,0,10"  >
+
+                        <Image Source="CloseIcon.png" HeightRequest="24" WidthRequest="24" Margin="0,-5,5,0" VerticalOptions="Start" HorizontalOptions="End"  >
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding LCFSClose}" />
+                            </Image.GestureRecognizers>
+                        </Image>
+
+                        <Image Source="{Binding imgsuccess}" HeightRequest="72" WidthRequest="72" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Margin="0,-5,0,0"  />
+                        <Label Text="{Binding lblsuccess}" Style="{StaticResource FontRegular}" FontSize="22"  VerticalOptions="CenterAndExpand" TextColor="White" HorizontalOptions="Center"  HorizontalTextAlignment="Center" Margin="0"  />
+                        <!--<Label Text="ViewAll" IsVisible="{Binding IsVisibledata}" TextColor="White" HorizontalOptions="Center" FontSize="14" Margin="10,0,10,0" HorizontalTextAlignment="Center">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding getrentalListdata}"/>
+                            </Label.GestureRecognizers>
+                        </Label>-->
+                        <!--<Label Text="OTP has been sent to you on your mobile number. please enter it below." TextColor="White" HorizontalOptions="CenterAndExpand" FontSize="14" Margin="10,0,10,0" HorizontalTextAlignment="Center" />-->
+
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Padding="10" >
+                        <Label Text="{Binding lbltitle}" Style="{StaticResource FontRegular}" x:Name=" txtrshead" TextColor="Black"  FontSize="18" VerticalOptions="Start" HorizontalOptions="StartAndExpand"  />
+                        <!--<Label Text="View all " TextColor="#f65a29"  FontSize="12" VerticalOptions="End" HorizontalOptions="End"  />-->
+                    </StackLayout>
+                    <StackLayout>
+                        <local:HVScrollGridView x:Name="lstsuccess" ListOrientation="Vertical"  ItemsSource="{Binding Successlist}" >
+                            <local:HVScrollGridView.ItemTemplate>
+                                <DataTemplate>
+                                    <ContentView>
+                                        <ContentView.Content>
+                                            <StackLayout Padding="5,0,5,0">
+                                                <StackLayout VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" >
+                                                    <Frame BackgroundColor="White" CornerRadius="4"  Padding="0" >
+                                                        <StackLayout Padding="0"   Margin="10,10,10,10"  VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+                                                            <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0" Margin="0" >
+
+                                                                <Grid >
+                                                                    <Grid.ColumnDefinitions>
+                                                                        <ColumnDefinition Width="*" />
+                                                                        <ColumnDefinition Width="*" />
+                                                                        <ColumnDefinition Width="*" />
+                                                                        <ColumnDefinition Width="*" />
+                                                                        <ColumnDefinition Width="*" />
+                                                                        <ColumnDefinition Width="*" />
+                                                                        <ColumnDefinition Width="*" />
+                                                                        <ColumnDefinition Width="*" />
+                                                                    </Grid.ColumnDefinitions>
+                                                                    <Grid.RowDefinitions>
+                                                                        <RowDefinition Height="auto" />
+                                                                    </Grid.RowDefinitions>
+
+                                                                    <StackLayout Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="7"  VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand"  Padding="0" Margin="0" >
+
+                                                                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                                                            <Label Text="{Binding title}" Style="{StaticResource FontRegular}" FontSize="15" TextColor="#2e2e2e"/>
+                                                                            <StackLayout.GestureRecognizers>
+                                                                                <TapGestureRecognizer Command="{Binding Path=BindingContext.TapOnTitle, Source = {x:Reference lstsuccess}}" CommandParameter="{Binding}"/>
+                                                                            </StackLayout.GestureRecognizers>
+                                                                        </StackLayout>
+
+                                                                        <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
+                                                                            <Image Source="placeholder.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="16" WidthRequest="16"/>
+                                                                            <Label Text="{Binding streetname}" FontSize="13" TextColor="#888888"  HorizontalOptions="Start" VerticalOptions="Center"/>
+                                                                        </StackLayout>
+
+                                                                    </StackLayout>
+                                                                    <StackLayout Grid.Column="7"  Grid.Row="0" VerticalOptions="Start" IsVisible="{Binding ismobile}" HorizontalOptions="Start" Padding="0" Margin="0" >
+                                                                        <Image Source="contactmail.png"  HorizontalOptions="Start" VerticalOptions="End" HeightRequest="48" WidthRequest="48">
+
+                                                                            <Image.GestureRecognizers>
+                                                                                <TapGestureRecognizer Command="{Binding Path=BindingContext.Mailcommand, Source = {x:Reference lstsuccess}}" CommandParameter="{Binding}"></TapGestureRecognizer>
+                                                                            </Image.GestureRecognizers>
+                                                                        </Image>
+                                                                    </StackLayout>
+
+
+                                                                </Grid>
+
+                                                            </StackLayout>
+                                                            <!--<StackLayout VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Padding="0" Margin="0" >
+                                                                    
+                                                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                                                        <Label Text="{Binding title}" Style="{StaticResource FontRegular}" FontSize="15" TextColor="#2e2e2e" />
+                                                                        <StackLayout.GestureRecognizers>
+                                                                            <TapGestureRecognizer Command="{Binding Path=BindingContext.TapOnTitle, Source = {x:Reference lstsuccess}}" CommandParameter="{Binding}"/>
+                                                                        </StackLayout.GestureRecognizers>
+                                                                    </StackLayout>
+                                                                    
+                                                                </StackLayout>-->
+                                                        </StackLayout>
+                                                    </Frame>
+                                                </StackLayout>
+                                            </StackLayout>
+
+                                        </ContentView.Content>
+                                    </ContentView>
+                                </DataTemplate>
+                            </local:HVScrollGridView.ItemTemplate>
+                        </local:HVScrollGridView>
+                        <StackLayout Padding="5,0,5,0" IsVisible="{Binding IsVisiblerentalsdata}">
+                            <StackLayout VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" >
+                                <Frame BackgroundColor="White" CornerRadius="4"  Padding="0" >
+                                    <StackLayout Padding="0"   Margin="10,10,10,10"  VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+
+                                        <StackLayout VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Padding="0" Margin="0" >
+
+                                            <Label Text="View All" Style="{StaticResource FontRegular}" IsVisible="{Binding IsVisiblerentalsdata}" TextColor="Black"  HorizontalOptions="Center" FontSize="14" Margin="10,0,10,0" HorizontalTextAlignment="Center"/>
+                                            <StackLayout.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding getrentalListdata}"/>
+                                            </StackLayout.GestureRecognizers>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

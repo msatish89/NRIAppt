@@ -1,0 +1,454 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:SULEntry="clr-namespace:NRIApp.Controls"
+              xmlns:b="clr-namespace:NRIApp.Helpers"
+             xmlns:H="clr-namespace:NRIApp.Helpers" 
+             x:Class="NRIApp.LocalJobs.Features.Posting.Views.additionalcities">
+    <ContentPage.Content>
+        <AbsoluteLayout >
+
+            <StackLayout BackgroundColor="#ecf2f4" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All"
+                          VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+
+                <ScrollView>
+
+                    <StackLayout BackgroundColor="#ecf2f4" Padding="0,0,0,70">
+
+                        <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="10">
+
+                            <Frame x:Name="frameaddtionalamtblk" CornerRadius="4" BackgroundColor="White" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0">
+                                <StackLayout  VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="15" >
+                                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                        <StackLayout  VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                            <Label Text="Additional cities" FontSize="16" Style="{StaticResource FontRegular}"  HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="#212121"   />
+                                            <Label Text="Display your job opening in additional cities!" FontSize="12" Style="{StaticResource FontRegular}"   HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="#888888"   />
+                                        </StackLayout>
+
+                                        <StackLayout  VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="10,0,0,0" WidthRequest="100" >
+
+                                            <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                                <Label Text="{Binding Cityamt}" FontSize="16" Style="{StaticResource FontRobotoBold}"  HorizontalOptions="Start" VerticalOptions="Center" TextColor="#45a455"   />
+
+                                            </StackLayout>
+
+                                        </StackLayout>
+                                    </StackLayout>
+
+                                    <StackLayout x:Name="stackmodify" Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand" IsVisible="False">
+                                        <Label Text="{Binding Citiestext}" FontSize="12" Style="{StaticResource FontRegular}"  HorizontalOptions="Start" VerticalOptions="Center" TextColor="#2e74f0" />
+                                        <Label Text="Modify" FontSize="12" Style="{StaticResource FontRegular}"  HorizontalOptions="Start" VerticalOptions="Center" TextColor="#e30045" >
+                                            <Label.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding Modifycitiescommand}"/>
+                                            </Label.GestureRecognizers>
+                                        </Label>
+                                    </StackLayout>
+                                </StackLayout>
+
+                            </Frame>
+
+                            <Frame CornerRadius="4" BackgroundColor="White" Padding="0" >
+                                <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="15" >
+                                        <Image Source="searchGrey.png" HeightRequest="22" WidthRequest="22" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" />
+                                        <SULEntry:CustomEntry x:Name="citytext" Style="{StaticResource FontRegularEntry}"  Text="{Binding Trainingcity}" HorizontalOptions="FillAndExpand" VerticalOptions="Start"></SULEntry:CustomEntry>
+                                    </StackLayout>
+
+                                    <StackLayout  IsVisible="{Binding CityVisible}">
+
+
+                                        <b:HVScrollGridView ListOrientation="Vertical"
+                                    ItemsSource="{Binding CityAjax}"
+                                   x:Name="listdata"
+									VerticalOptions="Start">
+                                            <b:HVScrollGridView.ItemTemplate>
+                                                <DataTemplate>
+                                                    <ContentView>
+                                                        <ContentView.Content>
+                                                            <StackLayout BackgroundColor="#f8f8f8"  >
+                                                                <StackLayout Padding="10,5,10,5"  VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+                                                                    <Label FontSize="14" Text="{Binding fullcity}" TextColor="#212121" Margin="0,0,0,5" />
+
+                                                                    <BoxView HeightRequest="1" BackgroundColor="#e0e0e0" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand"/>
+
+                                                                </StackLayout>
+                                                                <StackLayout.GestureRecognizers>
+                                                                    <TapGestureRecognizer Command="{Binding Path=BindingContext.CityListcommand, Source = {x:Reference listdata}}" CommandParameter="{Binding}"/>
+                                                                </StackLayout.GestureRecognizers>
+                                                            </StackLayout>
+                                                        </ContentView.Content>
+                                                    </ContentView>
+                                                </DataTemplate>
+                                            </b:HVScrollGridView.ItemTemplate>
+                                        </b:HVScrollGridView>
+
+                                    </StackLayout>
+
+                                </StackLayout>
+                            </Frame>
+
+                            <Label Text="(or)" TextColor="#919191" FontSize="16" VerticalOptions="Start" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"    />
+
+                            <Frame CornerRadius="4" BackgroundColor="White" Padding="0" >
+
+                                <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="15" >
+
+                                    <StackLayout VerticalOptions="Center" HorizontalOptions="Start" Orientation="Horizontal" Margin="0,0,10,0"  >
+                                        <Image Source="{Binding nationwidechk}" HeightRequest="16" WidthRequest="16" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   />
+                                        <Label Text="Nationwide" TextColor="#3f6ad8" FontSize="14" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   />
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding TapAddnationwide}"></TapGestureRecognizer>
+                                        </StackLayout.GestureRecognizers>
+                                    </StackLayout>
+
+                                    <Label Text="Showcase your ad in the major cities of popular metros across the US" TextColor="#03a497" FontSize="12" VerticalOptions="Start" HorizontalOptions="FillAndExpand"     />
+
+                                </StackLayout>
+
+                            </Frame>
+
+                            <!--<Frame CornerRadius="4" BackgroundColor="White" Padding="0" >
+
+                                <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="15" >
+
+                                    <Label Text="Would you like to promote your job ad through home page banner display?" TextColor="Gray" FontSize="14" VerticalOptions="Start" HorizontalOptions="FillAndExpand"  />
+
+                                    <StackLayout VerticalOptions="Center" HorizontalOptions="Start" Orientation="Horizontal" Margin="0,0,10,0"  >
+                                        <Image Source="{Binding bannerchk}" HeightRequest="16" WidthRequest="16" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   />
+                                        <Label Text="Yes" TextColor="#212121" FontSize="14" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   />
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding TapAddbanner}"></TapGestureRecognizer>
+                                        </StackLayout.GestureRecognizers>
+                                    </StackLayout>
+
+                                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                        <Label Text="View sample" TextColor="#919191" FontSize="12" VerticalOptions="Start" HorizontalOptions="FillAndExpand"     />
+
+                                        <Image Source="JobhomeAdbanner.png" HeightRequest="150" WidthRequest="150" VerticalOptions="Start"  />
+
+                                        <Label Text="How it works?" TextColor="#3f6ad8" FontSize="12" VerticalOptions="Start" HorizontalOptions="FillAndExpand"     />
+
+                                    </StackLayout>
+
+                                </StackLayout>
+
+                              
+                            </Frame>-->
+
+                            <Label Text="Selected Add-on" TextColor="Gray" FontSize="14" VerticalOptions="Start" HorizontalOptions="FillAndExpand"  />
+                            <Frame CornerRadius="4" BackgroundColor="White" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0">
+                                <StackLayout  VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="15">
+                                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                        <StackLayout  VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                            <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                                <Label Text="Top banner " FontSize="16" Style="{StaticResource FontRegular}"  HorizontalOptions="Start" VerticalOptions="Center" TextColor="#212121"   />
+                                                <Image Source="FilterTick.png" IsVisible="{Binding topbanneraddimgvisible}"  HeightRequest="14" WidthRequest="14" VerticalOptions="Center" HorizontalOptions="Start" Margin="0,0,5,0" />
+                                            </StackLayout>
+                                            <Label Text="View sample " FontSize="14" Style="{StaticResource FontRegular}"  HorizontalOptions="Start" VerticalOptions="Center" TextColor="#2e74f0" >
+                                                <Label.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding topbannerviewsamplecmd}"/>
+                                                </Label.GestureRecognizers>
+                                            </Label>
+                                            <Label Text="How It Works " FontSize="14" Style="{StaticResource FontRegular}"  HorizontalOptions="Start" VerticalOptions="Center" TextColor="#2e74f0" >
+                                                <Label.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding topbannerhwitwrkscmd}"/>
+                                                </Label.GestureRecognizers>
+                                            </Label>
+                                        </StackLayout>
+                                        <StackLayout  VerticalOptions="Start" HorizontalOptions="End" Margin="10,0,0,0" WidthRequest="100" >
+                                            <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                                <Label  Text="$" FontSize="16" Style="{StaticResource FontRegular}"  HorizontalOptions="Start" VerticalOptions="Center" TextColor="#08a182"   />
+                                                <Label  Text="{Binding addbanneramnt}" FontSize="16" Style="{StaticResource FontRegular}"  HorizontalOptions="Start" VerticalOptions="Center" TextColor="#08a182" Margin="-5,0,0,0"   />
+                                            </StackLayout>
+                                            <Button x:Name="topbannerbtn" Text="{Binding topbannerbtntxt}" Command="{Binding topbannercmd}" FontSize="14" Style="{StaticResource FontRegular}"  VerticalOptions="Start" HorizontalOptions="Start" BackgroundColor="#51a351" TextColor="White" >
+                                                <!--<Button.WidthRequest >
+                                                    <OnPlatform x:TypeArguments="x:Double">
+                                                        <On Platform="iOS">100</On>
+                                                    </OnPlatform>
+                                                </Button.WidthRequest>-->
+                                            </Button>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </StackLayout>
+                            </Frame>
+
+                            <Frame CornerRadius="4" BackgroundColor="White" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0">
+                                <StackLayout  VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="15">
+
+                                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                        <StackLayout  VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                            <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                                <Label Text="Exclusive Mailer " FontSize="16" Style="{StaticResource FontRegular}"  HorizontalOptions="Start" VerticalOptions="Center" TextColor="#212121"   />
+                                                <Image Source="FilterTick.png" IsVisible="{Binding maileraddimgvisible}"  HeightRequest="14" WidthRequest="14" VerticalOptions="Center" HorizontalOptions="Start" Margin="0,0,5,0" />
+                                            </StackLayout>
+                                            <Label Text="View Info " FontSize="14"  Style="{StaticResource FontRegular}"   HorizontalOptions="Start" VerticalOptions="Center" TextColor="#2e74f0" >
+                                                <Label.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding mailerviewinfocmd}"/>
+                                                </Label.GestureRecognizers>
+                                            </Label>
+                                        </StackLayout>
+
+                                        <StackLayout  VerticalOptions="Start" HorizontalOptions="End" Margin="10,0,0,0" WidthRequest="100" >
+                                            <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                                <Label  Text="$" FontSize="16" Style="{StaticResource FontRegular}"  HorizontalOptions="Start" VerticalOptions="Center" TextColor="#08a182"   />
+                                                <Label  Text="{Binding emailblastamount}" FontSize="16"  Style="{StaticResource FontRegular}"  HorizontalOptions="Start" VerticalOptions="Center" TextColor="#08a182" Margin="-5,0,0,0"  />
+                                            </StackLayout>
+                                            <Button x:Name="mailerbtn" FontSize="14" Text="{Binding excmailerbtntxt}" Command="{Binding excmailercmd }" Style="{StaticResource FontRegular}"  VerticalOptions="Start" HorizontalOptions="Start" BackgroundColor="#51a351" TextColor="White" />
+                                        </StackLayout>
+                                    </StackLayout>
+
+                                </StackLayout>
+
+                            </Frame>
+
+                            <Frame CornerRadius="4" BackgroundColor="White" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0">
+                                <StackLayout  VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="15">
+
+                                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                        <StackLayout  VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                            <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                                <Label Text="Job Slot " FontSize="16" Style="{StaticResource FontRegular}"  HorizontalOptions="Start" VerticalOptions="Center" TextColor="#212121"   />
+                                                <Image Source="FilterTick.png" IsVisible="{Binding jobslotaddimgvisible}" HeightRequest="14" WidthRequest="14" VerticalOptions="Center" HorizontalOptions="Start" Margin="0,0,5,0" />
+                                            </StackLayout>
+                                            <Label Text=" (Additional ad at half price) " FontSize="12" Style="{StaticResource FontRegular}"   HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="#888888"   />
+                                            <Label Text="View Info " FontSize="14"  Style="{StaticResource FontRegular}"   HorizontalOptions="Start" VerticalOptions="Center" TextColor="#2e74f0" >
+                                                <Label.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding jobslotviewinfocmd}"/>
+                                                </Label.GestureRecognizers>
+                                            </Label>
+                                            <Label Text="{Binding savedjobslotamnt}" TextColor="#03a497" FontSize="12" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Style="{StaticResource FontRegular}"     />
+                                        </StackLayout>
+
+                                        <StackLayout   VerticalOptions="Start" HorizontalOptions="End" Margin="10,0,0,0" WidthRequest="100" >
+                                            <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                                <Grid HorizontalOptions="Start">
+                                                    <Label  Text="{Binding packageamount}"  FontSize="14" Style="{StaticResource FontRegular}"  HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="#888888" />
+                                                    <BoxView HeightRequest="1" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Opacity="0.8"  Color="#888888" WidthRequest="20" />
+                                                </Grid>
+                                                <Label  Text="$" FontSize="16" Style="{StaticResource FontRegular}"  HorizontalOptions="Start" VerticalOptions="Center" TextColor="#08a182"   />
+                                                <Label Text="{Binding jobslotamnt}" FontSize="16"  Style="{StaticResource FontRegular}"  HorizontalOptions="Start" VerticalOptions="Center" TextColor="#08a182" Margin="-5,0,0,0"  />
+                                            </StackLayout>
+                                            <Button x:Name="jobslotbtn" Text="{Binding jobslotbtntxt}" Command="{Binding jobslotcmd }" FontSize="14"  Style="{StaticResource FontRegular}"  VerticalOptions="Start" HorizontalOptions="Start" BackgroundColor="#51a351" TextColor="White" />
+                                        </StackLayout>
+                                    </StackLayout>
+                                </StackLayout>
+                            </Frame>
+
+                            <Frame CornerRadius="4" BackgroundColor="White" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0">
+                                <StackLayout  VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="15">
+
+                                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                        <StackLayout  VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                            <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                                <Label Text="Bonus Days " FontSize="16" Style="{StaticResource FontRegular}"  HorizontalOptions="Start" VerticalOptions="Center" TextColor="#212121"   />
+                                                <Image Source="FilterTick.png" IsVisible="{Binding bonusdaysaddimgvisible}" HeightRequest="14" WidthRequest="14" VerticalOptions="Center" HorizontalOptions="Start" Margin="0,0,5,0" />
+                                            </StackLayout>
+
+
+
+                                            <Label Text="View sample " FontSize="14"  Style="{StaticResource FontRegular}"   HorizontalOptions="Start" VerticalOptions="Center" TextColor="#2e74f0" >
+                                                <Label.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding bonusdaysviewinfocmd}"/>
+                                                </Label.GestureRecognizers>
+                                            </Label>
+
+                                        </StackLayout>
+
+                                        <StackLayout  VerticalOptions="Start" HorizontalOptions="End" Margin="10,0,0,0" WidthRequest="100" >
+
+                                            <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                                <Label  Text="$" FontSize="16" Style="{StaticResource FontRegular}"  HorizontalOptions="Start" VerticalOptions="Center" TextColor="#08a182"   />
+                                                <Label Text="{Binding perdaycostamounttxt}" FontSize="16"  Style="{StaticResource FontRegular}"  HorizontalOptions="Start" VerticalOptions="Center" TextColor="#08a182"  Margin="-5,0,0,0" />
+
+                                            </StackLayout>
+                                            <Label Text="Select Days" FontSize="11" Style="{StaticResource FontRegular}"   HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="#888888"   />
+                                            <Frame CornerRadius="4" BackgroundColor="White" Padding="0" WidthRequest="80" >
+
+                                                <StackLayout Orientation="Horizontal"  VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="5,8,5,8"  >
+                                                    <Label x:Name="daycnt" Margin="10,0,0,0" Text="{Binding daycounttxt}" FontSize="14" Style="{StaticResource FontRegular}"   HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="#888888"   >
+                                                        <Label.GestureRecognizers>
+                                                            <TapGestureRecognizer Command="{Binding showdaycountlist}"/>
+                                                        </Label.GestureRecognizers>
+                                                    </Label>
+                                                    <Image Source="downarrowGrey.png" HeightRequest="12" WidthRequest="12" VerticalOptions="Center" HorizontalOptions="End" Margin="0,0,5,0" />
+
+                                                </StackLayout>
+
+                                            </Frame>
+                                            <Button x:Name="bonusdaybtn" Text="{Binding bonusdaybtntxt}" Command="{Binding bonusdayscmd }" FontSize="14"  Style="{StaticResource FontRegular}"  VerticalOptions="Start" HorizontalOptions="Start" BackgroundColor="#51a351" TextColor="White" />
+
+
+                                            <!--<Frame CornerRadius="4" BackgroundColor="White" Padding="0" WidthRequest="60" VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+
+                                                <StackLayout Orientation="Horizontal"  VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="5,8,5,8"  >
+                                                    <Label  Margin="10,0,0,0" Text="20" FontSize="14" Style="{StaticResource FontRegular}"   HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="#888888"   >
+                                                        
+                                                    </Label>
+                                                    <Image Source="downarrowGrey.png" HeightRequest="12" WidthRequest="12" VerticalOptions="Center" HorizontalOptions="End" Margin="0,0,5,0" />
+
+                                                </StackLayout>
+
+                                            </Frame>-->
+
+                                        </StackLayout>
+                                    </StackLayout>
+
+                                </StackLayout>
+
+                            </Frame>
+                        </StackLayout>
+
+                    </StackLayout>
+
+                </ScrollView>
+
+            </StackLayout>
+            <!--IsVisible="{Binding totalamntvisible}"-->
+            <StackLayout   VerticalOptions="EndAndExpand"  Padding="0" HorizontalOptions="FillAndExpand" 
+                             AbsoluteLayout.LayoutBounds="0,1,1,1" AbsoluteLayout.LayoutFlags="All"  BackgroundColor="White">
+
+                <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Padding="10,5,10,5">
+
+                    <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                        <Label Text="Total amount: " FontSize="12" Style="{StaticResource FontRegular}" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" TextColor="#474747"   />
+                        <Label Text="{Binding Totalpayamount}" FontSize="16" Style="{StaticResource FontRobotoBold}"  HorizontalOptions="Start" VerticalOptions="CenterAndExpand" TextColor="#45a455"  />
+                    </StackLayout>
+
+                    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="End">
+                        <Button Text="Next" x:Name="btncitynext" WidthRequest="100" IsVisible="True" Command="{Binding SkipAddtionalcities}" FontSize="18" VerticalOptions="Start" HorizontalOptions="FillAndExpand" BackgroundColor="#e30045" TextColor="White" />
+                        <Button Text="Skip"
+                                            TextColor="#ffffff"
+                                            BackgroundColor="#e30045"
+                                            BorderColor="#a80335"
+                                x:Name="btncityskip"
+                                IsVisible="False"
+                                            BorderWidth="1" 
+                                            Command="{Binding SkipAddtionalcities}"
+                                            HorizontalOptions="Start"                                            
+                                            BorderRadius="2"                                                   
+                                            FontSize="18" WidthRequest="100" 
+                                            Style="{StaticResource FontRegular}"
+                                     />
+                        <StackLayout.Padding>
+                            <OnPlatform x:TypeArguments="Thickness" iOS="15,0,15,15" Android="10"></OnPlatform>
+                        </StackLayout.Padding>
+                    </StackLayout>
+
+                </StackLayout>
+
+            </StackLayout>
+
+            <StackLayout x:Name="contentlayout"   HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="#C0808080"  Padding="10" IsVisible="{Binding contentviewvisible}" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <Frame BackgroundColor="White" CornerRadius="4"  Padding="10"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                    <StackLayout>
+                        <StackLayout IsVisible="{Binding dayscountlistsvisible}">
+                            <H:ListviewScrollbar x:Name="perdaycostlist" HeightRequest="200" HasUnevenRows="True" SeparatorVisibility="None" ItemsSource="{Binding bonusdaycntlist}" >
+                                <H:ListviewScrollbar.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <StackLayout>
+                                                <Frame Margin="0"  Padding="0" HasShadow="False">
+                                                    <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="10,5,10,10"  >
+                                                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Padding="2"  >
+                                                            <Image Source="{Binding checkimage}" HeightRequest="20"  WidthRequest="20"  VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  />
+                                                            <Label Style="{StaticResource FontRegular}" Text="{Binding daycount}" FontSize="14" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" TextColor="#212121"  />
+                                                        </StackLayout>
+                                                        <BoxView HeightRequest="1" BackgroundColor="#e0e0e0" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand"/>
+                                                        <StackLayout.GestureRecognizers>
+                                                            <TapGestureRecognizer Command="{Binding Path=BindingContext.selectcostdaycnt, Source = {x:Reference perdaycostlist}}" CommandParameter="{Binding}"/>
+                                                        </StackLayout.GestureRecognizers>
+                                                    </StackLayout>
+                                                </Frame>
+                                            </StackLayout>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </H:ListviewScrollbar.ItemTemplate>
+                            </H:ListviewScrollbar>
+                        </StackLayout>
+
+                        <StackLayout IsVisible="{Binding topbannerviewsamplevisible}">
+                            <Image Source="JobhomeAdbanner.png"  VerticalOptions="Start"  />
+                        </StackLayout>
+
+                        <StackLayout IsVisible="{Binding topbannerhwitwrksvisible}" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="15">
+                            <Label Text="How It Works" FontSize="16" Style="{StaticResource FontBold}" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalOptions="Start" TextColor="#212121"   />
+
+                            <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0,0,0,5">
+                                <Image Source="CheckedGreen.png" HeightRequest="18" WidthRequest="18" VerticalOptions="Start" HorizontalOptions="Start" Margin="0,3,5,0"  />
+                                <Label Text="After the payment is done, our team will call you for banner content " FontSize="13" Style="{StaticResource FontRegular}"  HorizontalOptions="StartAndExpand" VerticalOptions="Start" TextColor="#666666"   />
+                            </StackLayout>
+
+                            <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0,0,0,5">
+                                <Image Source="CheckedGreen.png" HeightRequest="18" WidthRequest="18" VerticalOptions="Start" HorizontalOptions="Start" Margin="0,3,5,0"  />
+                                <Label Text="Based on the content, the banner will be designed by our team and sent to you for approval" FontSize="13" Style="{StaticResource FontRegular}"  HorizontalOptions="StartAndExpand" VerticalOptions="Start" TextColor="#666666"   />
+                            </StackLayout>
+
+                            <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0,0,0,5">
+                                <Image Source="CheckedGreen.png" HeightRequest="18" WidthRequest="18" VerticalOptions="Start" HorizontalOptions="Start" Margin="0,3,5,0"  />
+                                <Label Text="Once approved, the banner will be hosted in home page" FontSize="13" Style="{StaticResource FontRegular}"  HorizontalOptions="StartAndExpand" VerticalOptions="Start" TextColor="#666666"   />
+                            </StackLayout>
+
+                        </StackLayout>
+
+
+
+                        <StackLayout IsVisible="{Binding mailerviewinfovisible}">
+                            <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0,0,0,5">
+                                <Image Source="CheckedGreen.png" HeightRequest="18" WidthRequest="18" VerticalOptions="Start" HorizontalOptions="Start" Margin="0,3,5,0"  />
+                                <Label Text="Our team will reach out with creative mailer to increase the visibility. " FontSize="13" Style="{StaticResource FontRegular}"  HorizontalOptions="StartAndExpand" VerticalOptions="Start" TextColor="#666666"   />
+                            </StackLayout>
+
+                            <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0,0,0,5">
+                                <Image Source="CheckedGreen.png" HeightRequest="18" WidthRequest="18" VerticalOptions="Start" HorizontalOptions="Start" Margin="0,3,5,0"  />
+                                <Label Text="Exclusive mailer promotions will be sent to various targeted audience." FontSize="13" Style="{StaticResource FontRegular}"  HorizontalOptions="StartAndExpand" VerticalOptions="Start" TextColor="#666666"   />
+                            </StackLayout>
+
+                            <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0,0,0,5">
+                                <Image Source="CheckedGreen.png" HeightRequest="18" WidthRequest="18" VerticalOptions="Start" HorizontalOptions="Start" Margin="0,3,5,0"  />
+                                <Label Text=" Based on job reports and demand, mailers will be sent with high importance." FontSize="13" Style="{StaticResource FontRegular}"  HorizontalOptions="StartAndExpand" VerticalOptions="Start" TextColor="#666666"   />
+                            </StackLayout>
+                        </StackLayout>
+
+                        <StackLayout IsVisible="{Binding jobslotviewinfovisible}">
+                            <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0,0,0,5">
+                                <Image Source="CheckedGreen.png" HeightRequest="18" WidthRequest="18" VerticalOptions="Start" HorizontalOptions="Start" Margin="0,3,5,0"  />
+                                <Label Text="Pay half and post another ad with full benefits. " FontSize="13" Style="{StaticResource FontRegular}"  HorizontalOptions="StartAndExpand" VerticalOptions="Start" TextColor="#666666"   />
+                            </StackLayout>
+
+                            <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0,0,0,5">
+                                <Image Source="CheckedGreen.png" HeightRequest="18" WidthRequest="18" VerticalOptions="Start" HorizontalOptions="Start" Margin="0,3,5,0"  />
+                                <Label Text="The time validity for second ad postings will be within the package validity period only." FontSize="13" Style="{StaticResource FontRegular}"  HorizontalOptions="StartAndExpand" VerticalOptions="Start" TextColor="#666666"   />
+                            </StackLayout>
+
+                            <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0,0,0,5">
+                                <Image Source="CheckedGreen.png" HeightRequest="18" WidthRequest="18" VerticalOptions="Start" HorizontalOptions="Start" Margin="0,3,5,0"  />
+                                <Label Text="Once the validity period of package is over, Job slots cannot be transferred." FontSize="13" Style="{StaticResource FontRegular}"  HorizontalOptions="StartAndExpand" VerticalOptions="Start" TextColor="#666666"   />
+                            </StackLayout>
+                        </StackLayout>
+
+                        <StackLayout IsVisible="{Binding bonusdaysviewinfovisible}">
+                            <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0,0,0,5">
+                                <Image Source="CheckedGreen.png" HeightRequest="18" WidthRequest="18" VerticalOptions="Start" HorizontalOptions="Start" Margin="0,3,5,0"  />
+                                <Label Text="Add extra days of recruiting, at much lower cost." FontSize="13" Style="{StaticResource FontRegular}"  HorizontalOptions="StartAndExpand" VerticalOptions="Start" TextColor="#666666"   />
+                            </StackLayout>
+
+                            <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0,0,0,5">
+                                <Image Source="CheckedGreen.png" HeightRequest="18" WidthRequest="18" VerticalOptions="Start" HorizontalOptions="Start" Margin="0,3,5,0"  />
+                                <Label Text="For example: in our starter package, enjoy 10 (bonus days) at a very lower price of just $16" FontSize="13" Style="{StaticResource FontRegular}"  HorizontalOptions="StartAndExpand" VerticalOptions="Start" TextColor="#666666"   />
+                            </StackLayout>
+                        </StackLayout>
+
+                    </StackLayout>
+
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding PopupContentTap}"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ContentViewTap}"/>
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

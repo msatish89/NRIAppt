@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NRIApp.Roommates.Features.Post.Views.Catsec"
+             xmlns:BH="clr-namespace:NRIApp.Behaviors; assembly=NRIApp" >
+    <ContentPage.Content>
+      
+            <StackLayout>
+                <ListView x:Name="CategorySecondList" HasUnevenRows="True" SeparatorVisibility="None" ItemsSource="{Binding CategorySecondList}" >
+                    <ListView.Behaviors>
+                        <BH:ListviewItemtap Command="{Binding CategorySecondTap}"/>
+                    </ListView.Behaviors>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame Margin="0" Padding="0" HasShadow="False">
+                                    <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="Start" BackgroundColor="White" Margin="0,0,0,2" >
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Padding="2"  >
+                                            <Image Source="RoommatesIcon.png" HeightRequest="20"  WidthRequest="20"  VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Margin="10,6,10,6"   />
+                                            <Label Text="{Binding categoryname}" Style="{StaticResource FontRegular}" FontSize="13" TextColor="{Binding textcolor}" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" />
+                                            <Image Source="nextarrow.png" HeightRequest="20"  WidthRequest="20"  VerticalOptions="CenterAndExpand" HorizontalOptions="End" Margin="10,6,10,6"     />
+                                        </StackLayout>
+                                        <StackLayout>
+                                            <BoxView HeightRequest="1" BackgroundColor="#e0e0e0" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand"/>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+
+            <StackLayout IsVisible="{Binding MyneedsNxtVisible}" VerticalOptions="End"  BackgroundColor="White" Padding="0" HorizontalOptions="FillAndExpand" >
+                <Button  Text="Next" Command="{Binding needGotoNext}" FontSize="18" VerticalOptions="Start" HorizontalOptions="FillAndExpand" BackgroundColor="#fbaa19" TextColor="White" Parent="0,10,0,10"  />
+
+                <StackLayout.Margin>
+                    <OnPlatform x:TypeArguments="Thickness" iOS="10,-10,10,20" Android="0,-10,0,0"></OnPlatform>
+                </StackLayout.Margin>
+            </StackLayout>
+        </StackLayout>
+       
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NRIApp.LocalJobs.Features.Detail.Views.Jobopeninglist"
+             xmlns:extended="clr-namespace:Xamarin.Forms.Extended;assembly=Xamarin.Forms.Extended.InfiniteScrolling"
+             xmlns:local="clr-namespace:NRIApp.Helpers">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#ecf2f4">
+            <ListView  x:Name="JobopeningListview" HasUnevenRows="True"  IsVisible="{Binding jobopeninglistview}"  >
+              
+                <ListView.Behaviors>
+                    <extended:InfiniteScrollBehavior/>
+                    <local:ListviewItemtap Command="{Binding DetailjobsCommandJO}" />
+                </ListView.Behaviors>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout IsVisible="{Binding jobopeningvisible}" VerticalOptions="Start" HorizontalOptions="FillAndExpand"  Margin="0,0,0,5">
+                                <Frame BackgroundColor="White" CornerRadius="4"  Padding="0" >
+
+                                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+                                        <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="10">
+
+                                            <Label Text="{Binding jobrole}" Style="{StaticResource FontRegular}"  FontSize="14" TextColor="#333333" Margin="0,0,0,5" />
+
+                                            <StackLayout VerticalOptions="Start" HorizontalOptions="StartAndExpand">
+
+                                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                                    <Image Source="placeholder.png"  HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="20" WidthRequest="20"/>
+                                                    <Label Text="{Binding address}" LineBreakMode="TailTruncation"  FontSize="12" TextColor="#333333" Style="{StaticResource FontRegular}"   HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+                                                </StackLayout>
+
+                                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                                    <Image Source="Employee.png"  HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="20" WidthRequest="20"/>
+                                                    <Label Text="{Binding industry}" LineBreakMode="TailTruncation"  FontSize="12" Style="{StaticResource FontRegular}" TextColor="#333333"  HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+                                                </StackLayout>
+                                                <!--experiencefrom":"0","experienceto":"3"-->
+                                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                                    <Image Source="Briefcase.png"  HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="20" WidthRequest="20"/>
+                                                    <Label Text="{Binding experience}" LineBreakMode="TailTruncation"  FontSize="12" Style="{StaticResource FontRegular}" TextColor="#333333"  HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+                                                </StackLayout>
+
+                                            </StackLayout>
+                                            <!--<StackLayout.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding Path=BindingContext.DetailjobsCommand, Source = {x:Reference JobopeningListview}}" CommandParameter="{Binding}"/>
+                                            </StackLayout.GestureRecognizers>-->
+                                        </StackLayout>
+
+                                        <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+                                            <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Margin="0" />
+                                            <!--"minsal":0,"maxsal":0-->
+                                            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Orientation="Horizontal" Padding="15,3,10,8">
+                                                <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand">
+                                                    <Label Text="Salary" LineBreakMode="TailTruncation" FontSize="13" TextColor="#878787" Style="{StaticResource FontRegular}" HorizontalOptions="Start" VerticalOptions="Start"/>
+                                                    <StackLayout VerticalOptions="Start" HorizontalOptions="StartAndExpand" Orientation="Horizontal" Margin="0, -5, 0, 0">
+                                                        <Label Text="{Binding salary}" LineBreakMode="TailTruncation" FontSize="18"  TextColor="#08a182" Style="{StaticResource FontRegular}" HorizontalOptions="Start" VerticalOptions="Center"/>
+                                                        <Label Text="{Binding salarymode}" LineBreakMode="TailTruncation" FontSize="13" TextColor="#666666" Style="{StaticResource FontRegular}" HorizontalOptions="Start" VerticalOptions="Center"/>
+                                                    </StackLayout>
+                                                </StackLayout>
+                                                <StackLayout VerticalOptions="Start" HorizontalOptions="End" Orientation="Horizontal">
+                                                    <Button Text="Apply for job" FontSize="11" Margin="0"   Style="{StaticResource FontRegular}" Command="{Binding Path=BindingContext.applyforjobopeninglist, Source = {x:Reference JobopeningListview}}" CommandParameter="{Binding}" VerticalOptions="Center" HorizontalOptions="EndAndExpand" BorderColor="#f89406" BorderWidth="1" BackgroundColor="#f89406" TextColor="#ffffff" />
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <ActivityIndicator x:Name="listingloader" BackgroundColor="White"  IsVisible="{Binding IsBusy}"  IsRunning="{Binding IsBusy}"  Color="Gray" />
+            <!--<StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start" IsVisible="{Binding Jobopeningmoreblk}">
+                <Image Source="downarrow.png"  HorizontalOptions="CenterAndExpand" VerticalOptions="Center" HeightRequest="26" WidthRequest="26"/>
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding SMorejobopenings}"/>
+                </StackLayout.GestureRecognizers>
+            </StackLayout>-->
+           
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

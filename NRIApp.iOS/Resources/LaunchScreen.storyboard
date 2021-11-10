@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="X5k-f2-b5h">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+         <scene sceneID="gAE-YM-kbH">
+            <objects>
+                <viewController id="X5k-f2-b5h" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Y8P-hJ-Z43"/>
+                        <viewControllerLayoutGuide type="bottom" id="9ZL-r4-8FZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yd7-JS-zBw">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" image="LoginBglogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="23">
+                               <!--  <rect key="frame" x="270" y="270" width="60" height="60"/>
+                                <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/> -->
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.20392156862745098" green="0.59607843137254901" blue="0.85882352941176465" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="23" firstAttribute="centerY" secondItem="yd7-JS-zBw" secondAttribute="centerY" priority="1" id="39"/>
+                            <constraint firstItem="23" firstAttribute="centerX" secondItem="yd7-JS-zBw" secondAttribute="centerX" priority="1" id="41"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XAI-xm-WK6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="349" y="339"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Icon-60.png" width="60" height="60"/>
+        <image name="AboutUs.png" width="128" height="128"/>
+        <image name="ApartmentFlats.png" width="128" height="128"/>
+        <image name="ApartmentList.png" width="128" height="128"/>
+        <image name="BackArrowSearch.png" width="128" height="128"/>
+        <image name="backleftarrow.png" width="128" height="128"/>
+        <image name="BasementApartment.png" width="128" height="128"/>
+        <image name="BasementApartmentList.png" width="128" height="128"/>
+        <image name="book.png" width="128" height="128"/>
+        <image name="BuySellHome.png" width="120" height="120"/>
+        <image name="CalendarIcon.png" width="128" height="128"/>
+        <image name="CallUs.png" width="128" height="128"/>
+        <image name="CheckBoxChecked.png" width="128" height="128"/>
+        <image name="CheckBoxUnChecked.png" width="128" height="128"/>
+        <image name="CloseIcon.png" width="128" height="128"/>
+        <image name="Condo.png" width="128" height="128"/>
+        <image name="CondoList.png" width="128" height="128"/>
+        <image name="contactcall.png" width="128" height="128"/>
+        <image name="contactmail.png" width="128" height="128"/>
+        <image name="CourseIcon.png" width="128" height="128"/>
+        <image name="CourseIcon2.png" width="128" height="128"/>
+        <image name="CourseTypeIcon.png" width="128" height="128"/>
+        <image name="DaycareHome.png" width="120" height="120"/>
+        <image name="Default-568h.png" width="320" height="568"/>
+        <image name="Default-Portrait.png" width="768" height="1004"/>
+        <image name="Default.png" width="320" height="480"/>
+        <image name="EventHome.png" width="120" height="120"/>
+        <image name="facebook.png" width="128" height="128"/>
+        <image name="GenderIcon.png" width="128" height="128"/>
+        <image name="hambgmenu.png" width="32" height="32"/>
+        <image name="Homes.png" width="128" height="128"/>
+        <image name="HomesList.png" width="128" height="128"/>
+        <image name="Hostels.png" width="128" height="128"/>
+        <image name="HostelsList.png" width="128" height="128"/>
+        <image name="Hotels.png" width="128" height="128"/>
+        <image name="HotelsList.png" width="128" height="128"/>
+        <image name="Houses.png" width="128" height="128"/>
+        <image name="HousesList.png" width="128" height="128"/>
+        <image name="ic_arrow_drop_down.png" width="24" height="24"/>
+        <image name="Icon-76.png" width="76" height="76"/>
+        <image name="Icon-Small-40.png" width="40" height="40"/>
+        <image name="Icon-Small.png" width="29" height="29"/>
+        <image name="ITTrainingHome.png" width="120" height="120"/>
+        <image name="JobsHome.png" width="120" height="120"/>
+        <image name="LocalServicesHome.png" width="120" height="120"/>
+        <image name="LocalServicesIcon.png" width="128" height="128"/>
+        <image name="location24.png" width="24" height="24"/>
+        <image name="LocationIcon.png" width="128" height="128"/>
+        <image name="LoginBg2.png" width="414" height="736"/>
+        <image name="LoginBg3.png" width="414" height="736"/>
+        <image name="LoginIcon.png" width="120" height="120"/>
+        <image name="LogOutIcon.png" width="120" height="120"/>
+        <image name="MailIcon.png" width="128" height="128"/>
+        <image name="menu.png" width="512" height="512"/>
+        <image name="menu24.png" width="24" height="24"/>
+        <image name="menuicon.png" width="128" height="128"/>
+        <image name="MessageIcon.png" width="128" height="128"/>
+        <image name="nextarrow.png" width="128" height="128"/>
+        <image name="NoInternetBg.png" width="414" height="280"/>
+        <image name="OTPbg.png" width="512" height="512"/>
+        <image name="ParkingGarage.png" width="128" height="128"/>
+        <image name="PayingGuest.png" width="128" height="128"/>
+        <image name="PayingGuestList.png" width="128" height="128"/>
+        <image name="PhoneIcon.png" width="128" height="128"/>
+        <image name="RadioButtonChecked.png" width="128" height="128"/>
+        <image name="RadioButtonUnChecked.png" width="128" height="128"/>
+        <image name="Rentals.png" width="128" height="128"/>
+        <image name="RentalsHome.png" width="120" height="120"/>
+        <image name="RentIcon.png" width="128" height="128"/>
+        <image name="RoommatesHome.png" width="120" height="120"/>
+        <image name="RoommatesIcon.png" width="128" height="128"/>
+        <image name="search24.png" width="24" height="24"/>
+        <image name="SharedRoom.png" width="128" height="128"/>
+        <image name="SharedRoomList.png" width="128" height="128"/>
+        <image name="SingleFamilyhome.png" width="128" height="128"/>
+        <image name="SingleFamilyHomeList.png" width="128" height="128"/>
+        <image name="SingleRoom.png" width="128" height="128"/>
+        <image name="SuccessBg.png" width="512" height="512"/>
+        <image name="SulekhaIcon.png" width="512" height="512"/>
+        <image name="SulekhaLogo.png" width="390" height="101"/>
+        <image name="sulekhalogoh.png" width="72" height="72"/>
+        <image name="TechJobIcon.png" width="128" height="128"/>
+        <image name="TechnicalSupportServices.png" width="128" height="128"/>
+        <image name="Townhouse.png" width="128" height="128"/>
+        <image name="TownhouseList.png" width="128" height="128"/>
+        <image name="TravelsHome.png" width="120" height="120"/>
+        <image name="twitter.png" width="128" height="128"/>
+        <image name="UserIcon.png" width="128" height="128"/>
+        <image name="UserIconDP.png" width="128" height="128"/>
+        <image name="usrsearch.png" width="24" height="24"/>
+        <image name="icon.png" width="72" height="72"/>
+        <image name="Jobseeker.png" width="237" height="206"/>
+        <image name="RecruitersBg.png" width="237" height="206"/>
+        <image name="OfficeSpaceList.png" width="128" height="128"/>
+        <image name="OthersList.png" width="128" height="128"/>
+        <image name="RetailOutletList.png" width="128" height="128"/>
+    </resources>
+</document>

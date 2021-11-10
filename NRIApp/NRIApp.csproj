@@ -1,0 +1,282 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Events\Features\Detail\EventDetail.xaml.cs" />
+    <Compile Remove="Events\Features\Detail\EventFilter.xaml.cs" />
+    <Compile Remove="Events\Features\Detail\ViewModel\Dynamic_picker_VM.cs" />
+    <Compile Remove="Events\Features\Detail\ViewModel\Event_Ticket_VM.cs" />
+    <Compile Remove="Events\Features\Listing\EventList.xaml.cs" />
+    <Compile Remove="Helpers\ClickableWebView.cs" />
+    <Compile Remove="LocalService\Features\Flag.xaml.cs" />
+    <Compile Remove="LocalService\Features\ViewModels\LS_Package_VM.cs" />
+    <Compile Remove="LocalService\Features\Views\Flag.xaml.cs" />
+    <Compile Remove="LocalService\Features\Views\LS_Leaftypes - Copy.xaml.cs" />
+    <Compile Remove="LocalService\Features\Views\LS_Leaftypes_.xaml.cs" />
+    <Compile Remove="LocalService\Features\Views\Posting\LS_Value_Services.xaml.cs" />
+    <Compile Remove="LocalService\Features\Views\Review.xaml.cs" />
+    <Compile Remove="LocalService\LsDetail.xaml.cs" />
+    <Compile Remove="MyNeeds\Features\ViewModel\MyNeed_VM_29012021.cs" />
+    <Compile Remove="Rentals\Features\Post\Views\lcfOTP.xaml.cs" />
+    <Compile Remove="Rentals\Features\Post\Views\LsPackage3.xaml.cs" />
+    <Compile Remove="Signin\Views\Popuptest.xaml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="Events\Features\Detail\EventDetail.xaml" />
+    <EmbeddedResource Remove="Events\Features\Detail\EventFilter.xaml" />
+    <EmbeddedResource Remove="Events\Features\Listing\EventList.xaml" />
+    <EmbeddedResource Remove="LocalService\Features\Flag.xaml" />
+    <EmbeddedResource Remove="LocalService\Features\Views\Flag.xaml" />
+    <EmbeddedResource Remove="LocalService\Features\Views\lslisting.xaml" />
+    <EmbeddedResource Remove="LocalService\Features\Views\LS_Leaftypes - Copy.xaml" />
+    <EmbeddedResource Remove="LocalService\Features\Views\LS_Leaftypes_.xaml" />
+    <EmbeddedResource Remove="LocalService\Features\Views\Posting\LS_Value_Services.xaml" />
+    <EmbeddedResource Remove="LocalService\Features\Views\Review.xaml" />
+    <EmbeddedResource Remove="LocalService\LsDetail.xaml" />
+    <EmbeddedResource Remove="LocalService\lslisting.xaml" />
+    <EmbeddedResource Remove="Rentals\Features\Post\Views\lcfOTP.xaml" />
+    <EmbeddedResource Remove="Rentals\Features\Post\Views\LsPackage3.xaml" />
+    <EmbeddedResource Remove="Signin\Views\Popuptest.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="bin\Debug\netstandard2.0\Mono.Android.xml" />
+    <Content Include="bin\Debug\netstandard2.0\NRIApp.deps.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Acr.UserDialogs" Version="6.5.1" />
+    <PackageReference Include="ExternalMapsPlugin" Version="1.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+    <PackageReference Include="Plugin.FirebasePushNotification" Version="2.3.6" />
+    <PackageReference Include="Plugin.Permissions" Version="3.0.0.12" />
+    <PackageReference Include="Plugin.Share" Version="7.1.1" />
+    <PackageReference Include="Plugin.UserDialogs" Version="1.0.0" />
+    <PackageReference Include="Refit" Version="4.5.6" />
+    <PackageReference Include="Refractored.XamForms.PullToRefresh" Version="2.2.2" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="1.1.5.188" />
+    <PackageReference Include="Stripe.net" Version="25.2.0" />
+    <PackageReference Include="WindowsAzure.Storage" Version="9.3.3" />
+    <PackageReference Include="Xam.Plugin.Connectivity" Version="4.0.0.186-beta" />
+    <PackageReference Include="Xam.Plugin.Geolocator" Version="4.5.0.6" />
+    <PackageReference Include="Xam.Plugin.Media" Version="4.0.1.5" />
+    <PackageReference Include="Xam.Plugins.Messaging" Version="5.1.0" />
+    <PackageReference Include="Xam.Plugins.Settings" Version="4.0.0.10-beta" />
+    <PackageReference Include="Xamarin.Auth" Version="1.6.0.4" />
+    <PackageReference Include="Xamarin.Auth.XamarinForms" Version="1.6.0.4" />
+    <PackageReference Include="Xamarin.Forms" Version="2.5.0.280555" />
+    <PackageReference Include="Xamarin.Forms.CarouselView" Version="2.3.0-pre2" />
+    <PackageReference Include="Xamarin.Forms.Extended.InfiniteScrolling" Version="1.0.0-preview2" />
+    <PackageReference Include="Xamarin.Forms.InputKit" Version="1.1.1" />
+    <PackageReference Include="Xamarin.Forms.RangeSlider" Version="1.0.0" />
+    <PackageReference Include="Xamarin.Plugin.FilePicker" Version="2.0.135" />
+    <PackageReference Include="XLabs.Forms" Version="2.3.0-pre05" />
+    <PackageReference Include="XLabs.Serialization" Version="2.3.0-pre05" />
+    <PackageReference Include="XLabs.Serialization.JSON" Version="2.3.0-pre05" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="App.xaml.cs">
+      <DependentUpon>*.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="LocalService\Features\Views\Leadform\LS_Prime_detail.xaml.cs">
+      <DependentUpon>LS_Prime_detail.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="LocalService\Features\Views\Leadform\LS_Prime.xaml.cs">
+      <DependentUpon>LS_Prime.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="LocalService\Features\Views\LS_Leaftypes_prime.xaml.cs">
+      <DependentUpon>LS_Leaftypes_prime.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="LocalService\Features\Views\LS_Leaftypes - Copy (.xaml.cs">
+      <DependentUpon>LS_Leaftypes - Copy %28.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="LocalService\Features\Views\Posting\LS_Flex_Order_Summary.xaml.cs">
+      <DependentUpon>LS_Flex_Order_Summary.xaml</DependentUpon>
+    </Compile>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="MainPage.xaml.cs">
+      <DependentUpon>*.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Roommates\Features\Post\Views\Package_RM.xaml.cs">
+      <DependentUpon>Package_RM.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Roommates\Features\Post\Views\Payment.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="DayCare\Features\List\Views\DaycareListing_Miles.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="DayCare\Features\Post\Views\LeadForm.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="DayCare\Features\Post\Views\ProviderType.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="DayCare\Features\Post\Views\WorkType.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Events\Features\Detail\Views\Detail.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Events\Features\Detail\Views\Detail_Register.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Events\Features\Detail\Views\Event_Payment_Thankyou.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Events\Features\Detail\Views\Event_Report.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Events\Features\dynamicpicker.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Events\Features\Listing\Views\Event_Filter.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Events\Features\Listing\Views\Filter_Listing.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Events\Features\Listing\Views\Hotevents.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Events\Features\Listing\Views\Listing.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Events\Features\Listing\Views\Search.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="LocalService\Features\Views\Detail\LS_Report.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="LocalService\Features\Views\Detail\LS_Review_Detail.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="LocalService\Features\Views\Listing\LS_Listing_Filter.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="LocalService\Features\Views\Listing\LS_Listing_Search.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="LocalService\Features\Views\Listing\LS_Listing_Sorting.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="LocalService\Features\Views\Posting\LS_Payment.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="LocalService\Features\Views\Posting\Payment.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Rentals\Features\List\Views\DetailRentalList.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Rentals\Features\List\Views\Filter_RT.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Rentals\Features\List\Views\RentalList.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Rentals\Features\List\Views\Sortby_RT.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Rentals\Features\Post\Views\LcfotpRT.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Rentals\Features\Post\Views\Thankyou.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Roommates\Features\List\Views\DetailRMList.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Roommates\Features\List\Views\Filter_RM.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Roommates\Features\List\Views\ImageList_RM.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Roommates\Features\List\Views\Report_RM.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Roommates\Features\List\Views\Sortby_RM.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Roommates\Features\Post\Views\Thankyou.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Signin\Views\FirstLogin.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Signin\Views\Forgotpassword.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Signin\Views\OtpVerify.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Signin\Views\Popuptest.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Signin\Views\ProviderLoginPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Signin\Views\Signup.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Techjobs\Features\LeadForm\Views\Thankyou.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Techjobs\Features\Listing\Views\Filters.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="USHome\Views\Ads.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="USHome\Views\BannerAdPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="USHome\Views\Citysearch.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="USHome\Views\Homemaster.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="USHome\Views\HomeMenuPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="USHome\Views\HomeScreenPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="DayCare\Features\Post\Views\LeadForm\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="bin\Debug\netstandard2.0\Mono.Android.dll" />
+    <None Include="bin\Debug\netstandard2.0\Mono.Android.pdb" />
+    <None Include="bin\Debug\netstandard2.0\NRIApp.dll" />
+    <None Include="bin\Debug\netstandard2.0\NRIApp.pdb" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Mono.Android">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\MonoAndroid\v9.0\Mono.Android.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.iOS">
+      <HintPath>..\..\..\..\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\Xamarin.iOS\v1.0\Xamarin.iOS.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>

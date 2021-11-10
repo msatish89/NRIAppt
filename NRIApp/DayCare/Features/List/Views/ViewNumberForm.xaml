@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NRIApp.DayCare.Features.List.Views.ViewNumberForm"
+              xmlns:SUL="clr-namespace:NRIApp.Controls"
+             xmlns:BH="clr-namespace:NRIApp.Behaviors">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="White" VerticalOptions="FillAndExpand">
+
+            <ScrollView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <StackLayout Padding="10" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+
+                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Padding="5"  >
+                            <Image Source="UserIcon.png" HeightRequest="32" WidthRequest="32"   />
+                        </StackLayout>
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                            <SUL:CustomEntry x:Name="txtcontactname" Style="{StaticResource FontRegularEntry}"  VerticalOptions="CenterAndExpand" HideBorder="True" HorizontalOptions="FillAndExpand" Text="{Binding contactname}" ReturnKeyType="Done" Placeholder="Contact Name"  PlaceholderColor="#c0c0c0" >
+                            </SUL:CustomEntry>
+                        </StackLayout>
+                    </StackLayout>
+                    <BoxView BackgroundColor="Gray" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,15">
+                    </BoxView>
+
+                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Padding="5"  >
+                            <Image Source="MailIcon.png" HeightRequest="32" WidthRequest="32"   />
+                        </StackLayout>
+
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                            <SUL:CustomEntry x:Name="txtcontactemail" Style="{StaticResource FontRegularEntry}" VerticalOptions="CenterAndExpand" HideBorder="True"  Keyboard="Email" ReturnKeyType="Done"  HorizontalOptions="FillAndExpand" Text="{Binding ContactEmail}"  Placeholder="Contact Email"  PlaceholderColor="#c0c0c0" >
+                                <SUL:CustomEntry.Behaviors>
+                                    <BH:EmailValidatorBehavior/>
+                                </SUL:CustomEntry.Behaviors>
+                            </SUL:CustomEntry>
+                        </StackLayout>
+
+                    </StackLayout>
+                    <BoxView BackgroundColor="Gray" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,15">
+                    </BoxView>
+                    
+                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Padding="5">
+                            <Image Source="PhoneIcon.png" HeightRequest="32" WidthRequest="32"   />
+                        </StackLayout>
+
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                            <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                                <SUL:CustomPicker Title="+1"  x:Name="countrycode" Image="ic_arrow_drop_down" HeightRequest="32" HideBorder="True" WidthRequest="70"  SelectedItem="{Binding Countrycode}" Margin="0">
+                                    <SUL:CustomPicker.Items>
+                                        <x:String>+1</x:String>
+                                        <x:String>+91</x:String>
+                                    </SUL:CustomPicker.Items>
+                                </SUL:CustomPicker>
+                                <SUL:CustomEntry x:Name="txtcontactphone" Style="{StaticResource FontRegularEntry}" VerticalOptions="CenterAndExpand" Keyboard="Numeric" HideBorder="True" ReturnKeyType="Done" HorizontalOptions="FillAndExpand" Text="{Binding Phoneno}"  Placeholder="98XXXXXX89"  PlaceholderColor="#c0c0c0" >
+                                    <SUL:CustomEntry.Behaviors>
+                                        <BH:NumericInputValidator />
+                                        <BH:MaxLengthValidator MaxLength="10"/>
+                                    </SUL:CustomEntry.Behaviors>
+                                </SUL:CustomEntry>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                    <BoxView BackgroundColor="Gray" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,15">
+
+                    </BoxView>
+                   
+
+                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                        <Label Text="T &amp; C Apply" Style="{StaticResource FontRegular}" FontSize="12" HorizontalOptions="End" HorizontalTextAlignment="End">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="gototc"></TapGestureRecognizer>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </StackLayout>
+
+
+                    <StackLayout  VerticalOptions="Center" HorizontalOptions="Start" Orientation="Horizontal" >
+                        <Label Text="Sulekha.com does not verify credentials including licensing information provided by the care providers. You are responsible to select an appropriate care provider after performing your own enquiry." TextColor="Gray" FontSize="14" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   />
+                    </StackLayout>
+
+
+                </StackLayout>
+            </ScrollView>
+            <StackLayout VerticalOptions="End" HorizontalOptions="FillAndExpand" Padding="10">
+                <Button Text="Submit" Command="{Binding ViewnumberSubmitcmd}" FontSize="18" VerticalOptions="Start" HorizontalOptions="FillAndExpand" BackgroundColor="#fbaa19" TextColor="White" Parent="0,10,0,10" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

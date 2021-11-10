@@ -1,0 +1,794 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D68AD045-7B24-4C61-8FC6-1672610030DC}</ProjectGuid>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>NRIApp.iOS</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>NRIApp.iOS</AssemblyName>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchArch>x86_64</MtouchArch>
+    <MtouchLink>None</MtouchLink>
+    <MtouchDebug>true</MtouchDebug>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchLink>None</MtouchLink>
+    <MtouchArch>x86_64</MtouchArch>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <CodesignKey>iPhone Developer: Satya Prabakar (V58F7GU8UV)</CodesignKey>
+    <MtouchDebug>true</MtouchDebug>
+    <CodesignEntitlements>
+    </CodesignEntitlements>
+    <CodesignProvision>NRIAPP</CodesignProvision>
+    <CodesignExtraArgs />
+    <CodesignResourceRules />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>ARM64</MtouchArch>
+    <ConsolePause>false</ConsolePause>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>bin\iPhone\Ad-Hoc</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <MtouchArch>ARM64</MtouchArch>
+    <BuildIpa>True</BuildIpa>
+    <CodesignProvision>Automatic:AdHoc</CodesignProvision>
+    <CodesignKey>iPhone Distribution</CodesignKey>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppStore|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>bin\iPhone\AppStore</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <MtouchArch>ARM64</MtouchArch>
+    <CodesignProvision>Automatic:AppStore</CodesignProvision>
+    <CodesignKey>iPhone Distribution</CodesignKey>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
+    <AppExtensionDebugBundleId />
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="CustomRenderers\AdmobInterstitial.cs" />
+    <Compile Include="CustomRenderers\CustomEditorRenderer.cs" />
+    <Compile Include="CustomRenderers\CustomEntryRenderer.cs" />
+    <Compile Include="CustomRenderers\CustomPickerRenderer.cs" />
+    <Compile Include="CustomRenderers\ExtendedWebViewRenderer.cs" />
+    <Compile Include="CustomRenderers\HybridWebViewRenderer.cs" />
+    <Compile Include="CustomRenderers\IOSDeviceInfo.cs" />
+    <Compile Include="CustomRenderers\IOSKeyboardHelper.cs" />
+    <Compile Include="CustomRenderers\IPAddressManager.cs" />
+    <Compile Include="CustomRenderers\ListviewScroll.cs" />
+    <Compile Include="CustomRenderers\LoginRenderer.cs" />
+    <Compile Include="CustomRenderers\MaterialFrameRenderer.cs" />
+    <Compile Include="CustomRenderers\MultiMediaPickerService.cs" />
+    <Compile Include="CustomRenderers\OAuthProviderSetting.cs" />
+    <Compile Include="CustomRenderers\Scroll.cs" />
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <None Include="Entitlements.plist" />
+    <None Include="Info.plist" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
+    <BundleResource Include="Resources\Montserrat-Medium.ttf" />
+    <BundleResource Include="Resources\Montserrat-SemiBold.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.iOS" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Acr.UserDialogs">
+      <Version>6.5.1</Version>
+    </PackageReference>
+    <PackageReference Include="ExternalMapsPlugin">
+      <Version>1.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="GMImagePicker.Xamarin">
+      <Version>2.3.3</Version>
+    </PackageReference>
+    <PackageReference Include="Plugin.FirebasePushNotification">
+      <Version>2.3.6</Version>
+    </PackageReference>
+    <PackageReference Include="Plugin.Permissions">
+      <Version>3.0.0.12</Version>
+    </PackageReference>
+    <PackageReference Include="Plugin.Share">
+      <Version>7.1.1</Version>
+    </PackageReference>
+    <PackageReference Include="Plugin.UserDialogs">
+      <Version>1.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="Refit">
+      <Version>4.5.6</Version>
+    </PackageReference>
+    <PackageReference Include="Refractored.XamForms.PullToRefresh">
+      <Version>2.2.2</Version>
+    </PackageReference>
+    <PackageReference Include="Rg.Plugins.Popup">
+      <Version>1.1.5.188</Version>
+    </PackageReference>
+    <PackageReference Include="WindowsAzure.Storage">
+      <Version>9.3.3</Version>
+    </PackageReference>
+    <PackageReference Include="Xam.Plugin.Connectivity">
+      <Version>4.0.0.186-beta</Version>
+    </PackageReference>
+    <PackageReference Include="Xam.Plugin.Geolocator">
+      <Version>4.5.0.6</Version>
+    </PackageReference>
+    <PackageReference Include="Xam.Plugin.Media">
+      <Version>4.0.1.5</Version>
+    </PackageReference>
+    <PackageReference Include="Xam.Plugins.Messaging">
+      <Version>5.1.0</Version>
+    </PackageReference>
+    <PackageReference Include="Xam.Plugins.Settings">
+      <Version>4.0.0.10-beta</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Auth">
+      <Version>1.6.0.4</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Auth.XamarinForms">
+      <Version>1.6.0.4</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Forms" Version="2.5.0.280555" />
+    <PackageReference Include="Xamarin.Forms.CarouselView">
+      <Version>2.3.0-pre2</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Forms.Extended.InfiniteScrolling">
+      <Version>1.0.0-preview2</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Forms.InputKit">
+      <Version>1.1.1</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Forms.RangeSlider">
+      <Version>1.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Google.iOS.MobileAds">
+      <Version>7.38.0</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Plugin.FilePicker">
+      <Version>2.0.135</Version>
+    </PackageReference>
+    <PackageReference Include="XLabs.Forms">
+      <Version>2.3.0-pre05</Version>
+    </PackageReference>
+    <PackageReference Include="XLabs.Serialization">
+      <Version>2.3.0-pre05</Version>
+    </PackageReference>
+    <PackageReference Include="XLabs.Serialization.JSON">
+      <Version>2.3.0-pre05</Version>
+    </PackageReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\NRIApp\NRIApp.csproj">
+      <Project>{FB33DB39-8D33-4C0E-B064-60A1D788A0EE}</Project>
+      <Name>NRIApp</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\DollarSymbol.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ITTrainingHome.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\AboutUs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\BackArrowSearch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\backleftarrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\book.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\BuySellHome.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\CalendarIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\CallUs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\CheckBoxChecked.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\CheckBoxUnChecked.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\CloseIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\contactcall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\contactmail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\CourseIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\CourseIcon2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\CourseTypeIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\DaycareHome.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\UserIconDP.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\usrsearch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\EventHome.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\facebook.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\GenderIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\JobsHome.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\LocalServicesHome.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\LocalServicesIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\location24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\LocationIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\LoginBg2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\LoginBg3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\LoginIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\LogOutIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\MailIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\MessageIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\nextarrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\NoInternetBg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\OTPbg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\PhoneIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\RadioButtonChecked.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\RadioButtonUnChecked.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Rentals.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\RentalsHome.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\RentIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\RoommatesHome.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\RoommatesIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\search24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SuccessBg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SulekhaIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SulekhaLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\TechJobIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\TechnicalSupportServices.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\TravelsHome.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\twitter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\UserIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\hambgmenu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_arrow_drop_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\menuicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ApartmentList.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\BasementApartmentList.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\CondoList.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\HomesList.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\HostelsList.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\HotelsList.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\HousesList.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\PayingGuestList.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SharedRoomList.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SingleFamilyHomeList.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\TownhouseList.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ApartmentFlats.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\BasementApartment.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Condo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Hostels.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Hotels.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SingleFamilyhome.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SharedRoom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SingleRoom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Townhouse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\menu24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sulekhalogoh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Homes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ParkingGarage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\PayingGuest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Default-Portrait.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Default-Portrait%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Icon-60%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Icon-60%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Icon-76.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Icon-76%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Icon-Small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Icon-Small%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Icon-Small%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Icon-Small-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Icon-Small-40%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Icon-Small-40%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Default.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Default%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Default-568h%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Jobseeker.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\RecruitersBg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\OthersList.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\OfficeSpaceList.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\RetailOutletList.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Media.xcassets\AppIcons.appiconset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Media.xcassets\LaunchImages.launchimage\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\LoginBglogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\AlreadyExist.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\placeholder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\StreetView.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\hospital.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Transportation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Map.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\clock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\calendarG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\photo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Reportflag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ShareW.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Favorite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\coin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SingleRoomList.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\money.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\BackArrowSearchWhite.png" />
+    <BundleResource Include="Resources\Accommodates.png" />
+    <BundleResource Include="Resources\BathRoom2.png" />
+    <BundleResource Include="Resources\bathroom.png" />
+    <BundleResource Include="Resources\auFlag.png" />
+    <Content Include="Resources\Bathtub.png" />
+    <BundleResource Include="Resources\Gender2.png" />
+    <BundleResource Include="Resources\CheckedGreen.png" />
+    <BundleResource Include="Resources\CheckedGray.png" />
+    <BundleResource Include="Resources\Company.png" />
+    <BundleResource Include="Resources\ebook2.png" />
+    <BundleResource Include="Resources\house1.png" />
+    <BundleResource Include="Resources\house1.jpg" />
+    <BundleResource Include="Resources\inclass.png" />
+    <BundleResource Include="Resources\localjobsIcon.png" />
+    <BundleResource Include="Resources\minus.png" />
+    <BundleResource Include="Resources\monitor.png" />
+    <BundleResource Include="Resources\play.png" />
+    <BundleResource Include="Resources\plus.png" />
+    <BundleResource Include="Resources\StarActive.png" />
+    <BundleResource Include="Resources\Star_inactive.png" />
+    <BundleResource Include="Resources\TickWhite.png" />
+    <BundleResource Include="Resources\techjobdetail.png" />
+    <BundleResource Include="Resources\NoListing.png" />
+    <BundleResource Include="Resources\FavoriteActive.png" />
+    <BundleResource Include="Resources\comment.png" />
+    <BundleResource Include="Resources\downarrow.png" />
+    <BundleResource Include="Resources\downarrowGrey.png" />
+    <BundleResource Include="Resources\minusGrey.png" />
+    <BundleResource Include="Resources\plusIcon.png" />
+    <BundleResource Include="Resources\ServiceIcon.png" />
+    <BundleResource Include="Resources\share2.png" />
+    <BundleResource Include="Resources\UserIcon3.png" />
+    <BundleResource Include="Resources\CloseIcon3.png" />
+    <BundleResource Include="Resources\flagIcon.png" />
+    <BundleResource Include="Resources\lsdetailImg.png" />
+    <BundleResource Include="Resources\RecommendActive.png" />
+    <BundleResource Include="Resources\Recommend.png" />
+    <BundleResource Include="Resources\ReportflagActive.png" />
+    <BundleResource Include="Resources\SulekhaLogo2.png" />
+    <BundleResource Include="Resources\ipadbg.png" />
+    <BundleResource Include="Resources\ipadbg2.png" />
+    <BundleResource Include="Resources\CAflag.png" />
+    <BundleResource Include="Resources\CurrentLocation.png" />
+    <BundleResource Include="Resources\USAflag.png" />
+    <BundleResource Include="Resources\RoommateNoImage.png" />
+    <BundleResource Include="Resources\CAflagTop.png" />
+    <BundleResource Include="Resources\USAflagTop.png" />
+    <BundleResource Include="Resources\placeholderTop.png" />
+    <BundleResource Include="Resources\searchGrey.png" />
+    <BundleResource Include="Resources\filterIcon.png" />
+    <BundleResource Include="Resources\SortBy.png" />
+    <BundleResource Include="Resources\FourStar.png" />
+    <BundleResource Include="Resources\call20x20.png" />
+    <BundleResource Include="Resources\Houses2.png" />
+    <BundleResource Include="Resources\LsServiceIcon.png" />
+    <BundleResource Include="Resources\mail20x20.png" />
+    <BundleResource Include="Resources\MilesIcon.png" />
+    <BundleResource Include="Resources\OffButton.png" />
+    <BundleResource Include="Resources\OnButton.png" />
+    <BundleResource Include="Resources\ResetIcon.png" />
+    <BundleResource Include="Resources\offer.png" />
+    <BundleResource Include="Resources\Star0.png" />
+    <BundleResource Include="Resources\Star1.png" />
+    <BundleResource Include="Resources\Star2.png" />
+    <BundleResource Include="Resources\Star3.png" />
+    <BundleResource Include="Resources\Star4.png" />
+    <BundleResource Include="Resources\Star5.png" />
+    <BundleResource Include="Resources\multihouse.png" />
+    <BundleResource Include="Resources\ListGender.png" />
+    <BundleResource Include="Resources\ListUserIcon.png" />
+    <BundleResource Include="Resources\downarrowWhite.png" />
+    <BundleResource Include="Resources\homeIcon.png" />
+    <BundleResource Include="Resources\ProfileIcon.png" />
+    <BundleResource Include="Resources\SaveIcon.png" />
+    <BundleResource Include="Resources\BellIcon.png" />
+    <BundleResource Include="Resources\loader.gif" />
+    <BundleResource Include="Resources\favicon.ico" />
+    <BundleResource Include="Resources\ParkingGarageList.png" />
+    <BundleResource Include="Resources\UserIcon2.png" />
+    <BundleResource Include="Resources\OtherList.png" />
+    <BundleResource Include="Resources\ticket.png" />
+    <BundleResource Include="Resources\CheckedSymbol2.png" />
+    <BundleResource Include="Resources\slider-default_trackBackground%402x.png" />
+    <BundleResource Include="Resources\slider-default7-handle.png" />
+    <BundleResource Include="Resources\slider-default7-handle%402x.png" />
+    <BundleResource Include="Resources\slider-default7-handle-disabled.png" />
+    <BundleResource Include="Resources\slider-default7-handle-disabled%402x.png" />
+    <BundleResource Include="Resources\slider-default7-track.png" />
+    <BundleResource Include="Resources\slider-default7-track%402x.png" />
+    <BundleResource Include="Resources\slider-default7-trackBackground.png" />
+    <BundleResource Include="Resources\slider-default7-trackBackground%402x.png" />
+    <BundleResource Include="Resources\slider-default7-trackCrossedOver.png" />
+    <BundleResource Include="Resources\slider-default7-trackCrossedOver%402x.png" />
+    <BundleResource Include="Resources\slider-default-handle.png" />
+    <BundleResource Include="Resources\slider-default-handle%402x.png" />
+    <BundleResource Include="Resources\slider-default-handle-disabled.png" />
+    <BundleResource Include="Resources\slider-default-handle-disabled%402x.png" />
+    <BundleResource Include="Resources\slider-default-handle-highlighted.png" />
+    <BundleResource Include="Resources\slider-default-handle-highlighted%402x %281%29.png" />
+    <BundleResource Include="Resources\slider-default-handle-highlighted%402x.png" />
+    <BundleResource Include="Resources\slider-default-track.png" />
+    <BundleResource Include="Resources\slider-default-track%402x.png" />
+    <BundleResource Include="Resources\slider-default-trackBackground.png" />
+    <BundleResource Include="Resources\slider-default-trackCrossedOver.png" />
+    <BundleResource Include="Resources\slider-default-trackCrossedOver%402x.png" />
+    <BundleResource Include="Resources\FavoriteYellow.png" />
+    <AndroidResource Include="Resources\Trash.png" />
+    <BundleResource Include="Resources\protection.png" />
+    <BundleResource Include="Resources\Question.png" />
+    <BundleResource Include="Resources\VisaCard.png" />
+    <BundleResource Include="Resources\MasterCard.png" />
+    <BundleResource Include="Resources\BusinessTitle.png" />
+    <BundleResource Include="Resources\CreditCardCVV.png" />
+    <BundleResource Include="Resources\IdIcon.png" />
+    <BundleResource Include="Resources\MoreIcon3.png" />
+    <BundleResource Include="Resources\ParkingGarage2.png" />
+    <BundleResource Include="Resources\ParkingType.png" />
+    <BundleResource Include="Resources\PriceMode.png" />
+    <BundleResource Include="Resources\SquareFeet.png" />
+    <BundleResource Include="Resources\TitleIcon.png" />
+    <BundleResource Include="Resources\CloseIconFullR.png" />
+    <BundleResource Include="Resources\Needs.png" />
+    <BundleResource Include="Resources\CloseIconFull2.png" />
+    <BundleResource Include="Resources\Upload2.png" />
+    <BundleResource Include="Resources\Parking.png" />
+    <BundleResource Include="Resources\sqFeet.png" />
+    <BundleResource Include="Resources\vehicle.png" />
+    <BundleResource Include="Resources\JobhomeAdbanner.png" />
+    <BundleResource Include="Resources\HeartGray.png" />
+    <BundleResource Include="Resources\HeartGrayActive.png" />
+    <BundleResource Include="Resources\heartWt.png" />
+    <BundleResource Include="Resources\FilterTick.png" />
+    <BundleResource Include="Resources\Gender3.png" />
+    <BundleResource Include="Resources\ExperienceIcon.png" />
+    <BundleResource Include="Resources\ExperienceJob.png" />
+    <BundleResource Include="Resources\Employee.png" />
+    <BundleResource Include="Resources\EditWhite.png" />
+    <BundleResource Include="Resources\download.png" />
+    <BundleResource Include="Resources\downarrowGrey2.png" />
+    <BundleResource Include="Resources\CompanyJob.png" />
+    <BundleResource Include="Resources\CloseIcon4.png" />
+    <BundleResource Include="Resources\clockWhite.png" />
+    <BundleResource Include="Resources\Camera.png" />
+    <BundleResource Include="Resources\callIcaon.png" />
+    <BundleResource Include="Resources\Briefcase.png" />
+    <BundleResource Include="Resources\Industry.png" />
+    <BundleResource Include="Resources\ItJobs.png" />
+    <BundleResource Include="Resources\JobRolewt.png" />
+    <BundleResource Include="Resources\JobRole.png" />
+    <BundleResource Include="Resources\Linkedin.png" />
+    <BundleResource Include="Resources\LocationGray.png" />
+    <BundleResource Include="Resources\Mailwt.png" />
+    <BundleResource Include="Resources\NonItJobs.png" />
+    <BundleResource Include="Resources\NoteBlue01.png" />
+    <BundleResource Include="Resources\Office.png" />
+    <BundleResource Include="Resources\OtherJobs.png" />
+    <BundleResource Include="Resources\placeholderWt.png" />
+    <BundleResource Include="Resources\ProfileUserIcon.png" />
+    <BundleResource Include="Resources\RatingColor1.png" />
+    <BundleResource Include="Resources\RatingColor10.png" />
+    <BundleResource Include="Resources\RatingColor2.png" />
+    <BundleResource Include="Resources\RatingColor3.png" />
+    <BundleResource Include="Resources\RatingColor4.png" />
+    <BundleResource Include="Resources\RatingColor5.png" />
+    <BundleResource Include="Resources\RatingColor6.png" />
+    <BundleResource Include="Resources\RatingColor7.png" />
+    <BundleResource Include="Resources\RatingColor8.png" />
+    <BundleResource Include="Resources\RatingColor9.png" />
+    <BundleResource Include="Resources\RatingColorGray.png" />
+    <BundleResource Include="Resources\RatingColorGray1.png" />
+    <BundleResource Include="Resources\RatingColorGray10.png" />
+    <BundleResource Include="Resources\RatingColorGray2.png" />
+    <BundleResource Include="Resources\RatingColorGray3.png" />
+    <BundleResource Include="Resources\RatingColorGray4.png" />
+    <BundleResource Include="Resources\RatingColorGray5.png" />
+    <BundleResource Include="Resources\RatingColorGray6.png" />
+    <BundleResource Include="Resources\RatingColorGray7.png" />
+    <BundleResource Include="Resources\RatingColorGray8.png" />
+    <BundleResource Include="Resources\RatingColorGray9.png" />
+    <BundleResource Include="Resources\ReportflagGray.png" />
+    <BundleResource Include="Resources\ReportflagGrayActive.png" />
+    <BundleResource Include="Resources\save.png" />
+    <BundleResource Include="Resources\ShareGray.png" />
+    <BundleResource Include="Resources\Star_inactiveWt.png" />
+    <BundleResource Include="Resources\StarActiveWt.png" />
+    <BundleResource Include="Resources\Tagwt.png" />
+    <BundleResource Include="Resources\UploadCamera.png" />
+    <BundleResource Include="Resources\UploadPhoto.png" />
+    <BundleResource Include="Resources\Uploadwt.png" />
+    <BundleResource Include="Resources\UserIcon4.png" />
+    <BundleResource Include="Resources\Wallet.png" />
+    <BundleResource Include="Resources\WebsiteIcon.png" />
+    <BundleResource Include="Resources\zoomIcon2.png" />
+    <BundleResource Include="Resources\gbFlag.png" />
+    <BundleResource Include="Resources\inFlag.png" />
+    <BundleResource Include="Resources\myFlag.png" />
+    <BundleResource Include="Resources\playIcon2.png" />
+    <BundleResource Include="Resources\sgFlag.png" />
+    <BundleResource Include="Resources\usFlag.png" />
+    <BundleResource Include="Resources\youtube.png" />
+  </ItemGroup>
+</Project>

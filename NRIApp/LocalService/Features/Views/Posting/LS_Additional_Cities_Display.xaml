@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NRIApp.LocalService.Features.Views.Posting.LS_Additional_Cities_Display">
+    <ContentPage.Content>
+
+        <Grid>
+            <StackLayout BackgroundColor="White" >
+
+                <!--header Start -->
+                <StackLayout BackgroundColor="#e30045">
+
+                    <Grid  HeightRequest="56" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <StackLayout Grid.Column="0" Grid.Row="0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"   >
+                            <Image Source="backleftarrow.png" HeightRequest="24" WidthRequest="24" />
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+
+                        <StackLayout Grid.Column="1" Grid.Row="0"  Grid.ColumnSpan="3" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" >
+                            <Label Text="Expand to more cities" Style="{StaticResource FontBold}" TextColor="#ffffff"  FontSize="18" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand"  />
+                        </StackLayout>
+
+                         <Grid.Padding>
+                            <OnPlatform x:TypeArguments="Thickness" iOS="0,25,0,0" Android="0" />
+                        </Grid.Padding>
+                    </Grid>
+                    
+              
+                </StackLayout>
+                <!--header end -->
+                <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Padding="10">
+                    <ScrollView>
+                        <StackLayout x:Name="layoutcheckbox" BackgroundColor="White" Margin="0,0,0,1">
+
+                            <StackLayout  x:Name="stackaddtionalcities" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="5" VerticalOptions="Start" HorizontalOptions="FillAndExpand"  Padding="0">
+
+                            </StackLayout>
+                        </StackLayout>
+                    </ScrollView>
+
+                </StackLayout>
+                <StackLayout VerticalOptions="End" HorizontalOptions="FillAndExpand">
+                    <Button x:Name="LS_leaftypesubmit" Clicked="btn_leafsubmit" BackgroundColor="#fbaa19" TextColor="White" Parent="0,10,0,10" Text="Done" VerticalOptions="End" HorizontalOptions="FillAndExpand"/>
+                      <StackLayout.Padding>
+                    <OnPlatform x:TypeArguments="Thickness" iOS="15,10,15,15" Android="10"></OnPlatform>
+                </StackLayout.Padding>  
+                </StackLayout>
+
+            </StackLayout>
+            
+        </Grid>
+     
+    </ContentPage.Content>
+</ContentPage>

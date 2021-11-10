@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NRIApp.DayCare.Features.Post.Views.PostSecond"
+             xmlns:SUL="clr-namespace:NRIApp.Controls"
+             xmlns:H="clr-namespace:NRIApp.Helpers">
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <StackLayout  AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All"
+                          VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0,0,0,60">
+                <ScrollView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                    <StackLayout Padding="20,15,20,15" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" BackgroundColor="White" AbsoluteLayout.LayoutFlags="All">
+
+                        <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                            
+                            <StackLayout  VerticalOptions="Center" HorizontalOptions="FillAndExpand" Padding="0,0,0,0"  >
+                                <Label Text="Ad Title" TextColor="#919191" FontSize="12" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Style="{StaticResource FontRegular}" Margin="0"    />
+                                <SUL:CustomEntry x:Name="titletxt" Style="{StaticResource FontRegularEntry}" Text="{Binding adtitle}" VerticalOptions="CenterAndExpand" NextView ="{x:Reference Descriptiontxt}" HideBorder="True" HorizontalOptions="FillAndExpand" Placeholder="Enter title which describes your work." ReturnKeyType="Next" PlaceholderColor="#bbbbbb" >
+                                </SUL:CustomEntry>
+                            </StackLayout>
+                            <BoxView BackgroundColor="Gray" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,15">
+                            </BoxView>
+                            <StackLayout  VerticalOptions="Center" HorizontalOptions="FillAndExpand" Padding="0,0,0,0"  >
+                                <Label Text="Ad Description" TextColor="#919191" FontSize="12" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Style="{StaticResource FontRegular}" Margin="0"    />
+                                <SUL:CustomEntry x:Name="Descriptiontxt" Style="{StaticResource FontRegularEntry}" VerticalOptions="CenterAndExpand" HideBorder="True" HorizontalOptions="FillAndExpand" Text="{Binding addescription}"  Placeholder="Describe your work experience and special tasks involved." ReturnKeyType="Done" PlaceholderColor="#bbbbbb" >
+                                </SUL:CustomEntry>
+                            </StackLayout>
+                            <BoxView BackgroundColor="Gray" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,15">
+                            </BoxView>
+                            <!--Day care center business name -->
+                            <StackLayout IsVisible="{Binding offertypevisible}">
+                                <StackLayout  VerticalOptions="Center" HorizontalOptions="FillAndExpand" Padding="0,0,0,0"  >
+                                    <Label Text="Business Name" TextColor="#919191" FontSize="12" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Style="{StaticResource FontRegular}" Margin="0"    />
+                                    <SUL:CustomEntry x:Name="businessnametxt" Style="{StaticResource FontRegularEntry}" VerticalOptions="CenterAndExpand" HideBorder="True" HorizontalOptions="FillAndExpand" Text="{Binding businessname}"  Placeholder="Enter your Business Name" ReturnKeyType="Next" NextView="{x:Reference licensnu}" PlaceholderColor="#bbbbbb" >
+                                    </SUL:CustomEntry>
+                                </StackLayout>
+                                <BoxView BackgroundColor="Gray" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,15">
+                                </BoxView>
+                                <StackLayout  VerticalOptions="Center" HorizontalOptions="FillAndExpand" Padding="0,0,0,0"  >
+                                    <Label Text="License No" TextColor="#919191" FontSize="12" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Style="{StaticResource FontRegular}" Margin="0"    />
+                                    <SUL:CustomEntry x:Name="licensnu" Style="{StaticResource FontRegularEntry}" VerticalOptions="CenterAndExpand" HideBorder="True" HorizontalOptions="FillAndExpand" Text="{Binding licenseno}"  Placeholder="Enter your License number to show your genuinity" ReturnKeyType="Done" PlaceholderColor="#bbbbbb" >
+                                    </SUL:CustomEntry>
+                                </StackLayout>
+                                <BoxView BackgroundColor="Gray" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,15">
+                                </BoxView>
+                        
+                            </StackLayout>
+  
+                        
+
+                        </StackLayout>
+                        <StackLayout IsVisible="{Binding imgvediolinksblkvisible}">
+                            <StackLayout  VerticalOptions="Start" HorizontalOptions="FillAndExpand" Orientation="Horizontal" Margin="0,10,0,0">
+                                <!--upload photo   vedio youtube url -->
+                                <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+
+                                    <StackLayout VerticalOptions="Start" HorizontalOptions="Start"  Padding="5"  >
+                                        <Image Source="Upload2.png" HeightRequest="32" WidthRequest="32"   />
+                                    </StackLayout>
+
+                                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                        <!--<Button Text="Choose File" Command="{Binding Choosefilecommand}" HorizontalOptions="Center"/>-->
+                                        <Button Text="Choose image" 
+                                        Command="{Binding choosephototap}"  
+                                          TextColor="#212529"
+                                                Style="{StaticResource FontRegular}"
+                                                    BackgroundColor="#d6ddea"
+                                                    BorderColor="#d6ddea"
+                                                    BorderWidth="1"
+                                                    BorderRadius="4"
+                                                    VerticalOptions="Center"
+                                                    HorizontalOptions="Start"                                                  
+                                                    FontSize="13"
+                                                    Margin="0,0,5,0"/>
+
+                                        <!--<Label FontSize="12"  HorizontalOptions="StartAndExpand"  Text="Size 150 X 150"/>-->
+
+                                    </StackLayout>
+                                    <!--<Image x:Name="profileimg"></Image>-->
+                                </StackLayout>
+
+                            </StackLayout>
+
+                            <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                <H:HVScrollGridView x:Name="multiimglist" ListOrientation="Horizontal">
+                                    <H:HVScrollGridView.ItemTemplate>
+                                        <DataTemplate>
+                                            <ContentView>
+                                                <ContentView.Content>
+                                                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand"  Padding="10">
+                                                        <StackLayout VerticalOptions="Start" HorizontalOptions="Start" BackgroundColor="#e8e9e9"    Padding="5"  >
+                                                            <AbsoluteLayout>
+                                                                <Image Source="{Binding .}"
+                                           AbsoluteLayout.LayoutBounds="0,0,80,80" AbsoluteLayout.LayoutFlags="PositionProportional" />
+
+                                                                <Image Source="CloseIconFull2.png" HeightRequest="20" WidthRequest="20"  HorizontalOptions="End" 
+                                           AbsoluteLayout.LayoutBounds=".99,-.2,.25,.25" AbsoluteLayout.LayoutFlags="All"  Margin="0,0,-10,0">
+                                                                    <Image.GestureRecognizers>
+                                                                        <TapGestureRecognizer Command="{Binding Path=BindingContext.Removeimg, Source={x:Reference multiimglist}}" CommandParameter="{Binding}" />
+                                                                    </Image.GestureRecognizers>
+                                                                </Image>
+                                                            </AbsoluteLayout>
+                                                        </StackLayout>
+                                                    </StackLayout>
+                                                </ContentView.Content>
+                                            </ContentView>
+                                        </DataTemplate>
+                                    </H:HVScrollGridView.ItemTemplate>
+                                </H:HVScrollGridView>
+                            </StackLayout>
+
+                            <StackLayout x:Name="stackprfimg" VerticalOptions="Start" HorizontalOptions="Center" IsVisible="False" BackgroundColor="#e8e9e9"    Padding="5"  >
+                                <AbsoluteLayout>
+                                    <Image x:Name="profileimg" Source="{Binding Profileimg}"   AbsoluteLayout.LayoutBounds="0,0,80,80" AbsoluteLayout.LayoutFlags="PositionProportional" />
+
+                                    <Image Source="CloseIconFullR.png" HeightRequest="20" WidthRequest="20"  HorizontalOptions="End" AbsoluteLayout.LayoutBounds=".99,-.1,.25,.25" AbsoluteLayout.LayoutFlags="All">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding Removeprofileimg}" />
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                </AbsoluteLayout>
+                                <!--<StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Tapclosebiz}"></TapGestureRecognizer>
+                                </StackLayout.GestureRecognizers>-->
+                            </StackLayout>
+                            <!--vedio-->
+
+                            <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+
+                                <StackLayout VerticalOptions="Start" HorizontalOptions="Start"  Padding="5"  >
+                                    <Image Source="Upload2.png" HeightRequest="32" WidthRequest="32"   />
+                                </StackLayout>
+
+                                <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                    <StackLayout  VerticalOptions="Center" HorizontalOptions="FillAndExpand" Padding="0,0,0,0"  >
+                                        <Label Text="Add Youtube Video" TextColor="#919191" FontSize="12" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Style="{StaticResource FontRegular}" Margin="0"    />
+                                        <SUL:CustomEntry  Style="{StaticResource FontRegularEntry}" Text="{Binding videolink}" VerticalOptions="CenterAndExpand" HideBorder="True" HorizontalOptions="FillAndExpand" Placeholder="Enter Only Youtube Url" ReturnKeyType="Done" PlaceholderColor="#bbbbbb" >
+                                        </SUL:CustomEntry>
+                                    </StackLayout>
+                                    <BoxView BackgroundColor="Gray" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,15">
+                                    </BoxView>
+                                    <Label FontSize="12"  HorizontalOptions="StartAndExpand"  Text="Upload video related to your work"/>
+
+                                </StackLayout>
+
+                                <!--<Image x:Name="profileimg"></Image>-->
+                            </StackLayout>
+                        </StackLayout>
+
+                       
+                      
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" Margin="0" VerticalOptions="End"  BackgroundColor="White" Padding="0" HorizontalOptions="FillAndExpand" 
+                             AbsoluteLayout.LayoutBounds="0,1,1,1" AbsoluteLayout.LayoutFlags="All" >
+                <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                    <Button Text="Next"  Command="{Binding nxtcmd}" Style="{StaticResource FontRobotoBold}" FontSize="18" VerticalOptions="Start" HorizontalOptions="FillAndExpand" BackgroundColor="#fbaa19" TextColor="White" Parent="0,10,0,10"  />
+
+                    <StackLayout.Margin>
+                        <OnPlatform x:TypeArguments="Thickness" iOS="10,-10,10,20" Android="0,-10,0,0"></OnPlatform>
+                    </StackLayout.Margin>
+                </StackLayout>
+            </StackLayout>
+
+            <ContentView IsVisible="{Binding Choosephotocontentviewvisible}"  x:Name="contentlayout"  VerticalOptions="FillAndExpand" BackgroundColor="#C0808080"  Padding="10"  AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+
+                <Frame BackgroundColor="White" CornerRadius="4" Padding="0"  VerticalOptions="End" HorizontalOptions="FillAndExpand">
+
+                   
+                    <StackLayout  VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0" Margin="0">
+                        <StackLayout  VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                            <Label  Text="Choose an action"  Style="{StaticResource FontRegular}" FontSize="18" TextColor="#212121" Margin="15,10,15,10"  VerticalOptions="Start" HorizontalOptions="FillAndExpand"/>
+
+                            <BoxView Color="Gray" HorizontalOptions="FillAndExpand"  HeightRequest="1" />
+
+
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="20,30,20,30">
+                            <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                <Image Source="UploadCamera.png" HeightRequest="40" WidthRequest="40" VerticalOptions="Start" HorizontalOptions="Center"  />
+                                <Label  Text="Camera" FontSize="14"  Style="{StaticResource FontRegular}" TextColor="#666666"   VerticalOptions="Start" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding takeprofilephoto}"/>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+
+                            <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                <Image Source="UploadPhoto.png" HeightRequest="40" WidthRequest="40" VerticalOptions="Start" HorizontalOptions="Center"  />
+                                <Label  Text="Gallery"  Style="{StaticResource FontRegular}" FontSize="14" TextColor="#666666"   VerticalOptions="Start" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Choosefilecommand}"/>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+
+                        </StackLayout>
+
+                    </StackLayout>
+
+
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding PopupContentTap}"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+                <ContentView.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ContentViewTap}"/>
+                </ContentView.GestureRecognizers>
+            </ContentView>
+            
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,691 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:SUL="clr-namespace:NRIApp.Controls"
+             xmlns:H="clr-namespace:NRIApp.Helpers" 
+             x:Class="NRIApp.DayCare.Features.List.Views.Filter_dc"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+
+            <AbsoluteLayout  BackgroundColor="#ecf2f4">
+
+                <StackLayout BackgroundColor="#e30045" HorizontalOptions="FillAndExpand" AbsoluteLayout.LayoutBounds="0, 0, 1, 50" AbsoluteLayout.LayoutFlags="PositionProportional, WidthProportional" >
+
+                    <Grid  HeightRequest="56" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+
+                            <StackLayout Grid.Column="0" Grid.Row="0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"   >
+                                <Image Source="backleftarrow.png" HeightRequest="24" WidthRequest="24" />
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"/>
+                        </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                            <StackLayout Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="4" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" >
+                                <Label Text="Filter " TextColor="#ffffff"  FontSize="18" Style="{StaticResource FontRegular}" VerticalOptions="Start" HorizontalOptions="StartAndExpand"  />
+                            </StackLayout>
+                            <StackLayout Grid.Column="5" Grid.Row="0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
+                                <Image Source="ResetIcon.png" HeightRequest="24" WidthRequest="24"  />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Reset_Tapped"/>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+
+                        </Grid>
+
+                    </StackLayout>
+
+                <StackLayout  Margin="0,60,0,62" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All"
+                          VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+                    <ScrollView VerticalOptions="StartAndExpand">
+                        <StackLayout Padding="5,0,5,20">
+
+
+
+                            <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                                <Frame BackgroundColor="White" CornerRadius="0" Padding="0" >
+
+                                    <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="15,10,15,10" Margin="0" >
+                                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand"  >
+                                                <Label Text="Select Location" Style="{StaticResource FontRegular}"  FontSize="14" TextColor="#212121" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" />
+                                                <!--<Frame BackgroundColor="#00b1a8" HasShadow="False" CornerRadius="10" Padding="0" HeightRequest="20" WidthRequest="20" HorizontalOptions="Start" >
+                                                <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                                                    <Label Text="12" Style="{StaticResource FontRegular}"  FontSize="8" TextColor="#ffffff" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                                                </StackLayout>
+                                            </Frame>-->
+                                                <Image x:Name="locationselected" IsVisible="False" Source="FilterTick.png" HeightRequest="17" WidthRequest="17" HorizontalOptions="Start" />
+                                            </StackLayout>
+                                            <Image x:Name="citytypeimg" Source="downarrowGrey.png" HeightRequest="18"  WidthRequest="18"  VerticalOptions="End" HorizontalOptions="End" />
+                                            <StackLayout.GestureRecognizers>
+                                                <TapGestureRecognizer  Tapped="citytapcmd"/>
+                                            </StackLayout.GestureRecognizers>
+                                        </StackLayout>
+                                        <StackLayout x:Name="citylayout">
+                                            <BoxView HeightRequest="1" BackgroundColor="#ecf2f4" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+
+                                            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="15,10,15,15">
+                                                <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                                    <StackLayout x:Name="metrolayout" ClassId="1" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Orientation="Horizontal" Margin="0,0,0,5"  >
+                                                        <Image x:Name="metroimg" Source="RadioButtonUnChecked.png" HeightRequest="14" WidthRequest="14" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   />
+                                                        <Label Text="By Metro"  FontSize="14" Style="{StaticResource FontRegular}" TextColor="#878787" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   />
+                                                        <StackLayout.GestureRecognizers>
+                                                            <TapGestureRecognizer Tapped="metro_Tap"/>
+                                                        </StackLayout.GestureRecognizers>
+                                                    </StackLayout>
+                                                    <StackLayout  VerticalOptions="Start" HorizontalOptions="FillAndExpand" Orientation="Horizontal" Margin="0,0,0,5" >
+                                                        <Image x:Name="cityimg" Source="RadioButtonChecked.png" HeightRequest="14" WidthRequest="14" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   />
+                                                        <Label Text="By City"  FontSize="14" Style="{StaticResource FontRegular}" TextColor="#878787" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   />
+                                                        <StackLayout.GestureRecognizers>
+                                                            <TapGestureRecognizer Tapped="city_Tap"/>
+                                                        </StackLayout.GestureRecognizers>
+                                                    </StackLayout>
+                                                    <StackLayout x:Name="landmarklayout" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Orientation="Horizontal" Margin="0,0,0,5">
+                                                        <Image x:Name="landmarkimg" Source="RadioButtonUnChecked.png" HeightRequest="14" WidthRequest="14" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   />
+                                                        <Label Text="By Landmark" FontSize="14" Style="{StaticResource FontRegular}" TextColor="#878787" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   />
+                                                        <StackLayout.GestureRecognizers>
+                                                            <TapGestureRecognizer Tapped="landmark_Tap"/>
+                                                        </StackLayout.GestureRecognizers>
+                                                    </StackLayout>
+                                                </StackLayout>
+
+                                                <Frame BackgroundColor="White" CornerRadius="0" Padding="0" Margin="0,10,0,5">
+                                                    <StackLayout  VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="5,0,5,0">
+
+                                                        <SUL:CustomEntry x:Name="txtlocation" Style="{StaticResource FontRegularEntry}" VerticalOptions="CenterAndExpand" HideBorder="True" HorizontalOptions="FillAndExpand" Text="{Binding LocationName}" TextChanged="Txtlocation_PropertyChanged" Placeholder="Select Location" ReturnKeyType="Done" PlaceholderColor="#c0c0c0" >
+                                                        </SUL:CustomEntry>
+
+                                                    </StackLayout>
+
+                                                </Frame>
+                                                <StackLayout x:Name="locationlist" Margin="35,-15,0,0" IsVisible="False">
+                                                    <H:ListviewScrollbar  ItemTapped="LocationCmd"
+                                   x:Name="locationlistdata"
+									VerticalOptions="Start">
+                                                        <H:ListviewScrollbar.ItemTemplate>
+                                                            <DataTemplate>
+                                                                <ViewCell>
+                                                                    <Frame Margin="0" Padding="0" HasShadow="False">
+                                                                        <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="Start" BackgroundColor="White" Margin="0,0,0,2" >
+                                                                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Padding="2,8,2,8"  >
+                                                                                <Label FontSize="14" Text="{Binding city}" Style="{StaticResource FontRegular}" TextColor="#212121" Margin="0,0,0,5" />
+                                                                                <!--<BoxView HeightRequest="1" BackgroundColor="#e0e0e0" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand"/>-->
+                                                                            </StackLayout>
+                                                                        </StackLayout>
+                                                                    </Frame>
+                                                                </ViewCell>
+                                                            </DataTemplate>
+                                                        </H:ListviewScrollbar.ItemTemplate>
+                                                    </H:ListviewScrollbar>
+                                                </StackLayout>
+
+                                                <StackLayout x:Name="landmarklist" Margin="35,-15,0,0" IsVisible="False">
+                                                    <H:ListviewScrollbar  ItemTapped="LandmarkCmd" 
+                                   x:Name="landmarklistdata"
+									VerticalOptions="Start">
+                                                        <H:ListviewScrollbar.ItemTemplate>
+                                                            <DataTemplate>
+                                                                <ViewCell>
+                                                                    <Frame Margin="0" Padding="0" HasShadow="False">
+                                                                        <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="Start" BackgroundColor="White" Margin="0,0,0,2" >
+                                                                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Padding="2,8,2,8"  >
+                                                                                <Label FontSize="14" Text="{Binding Landmark}" LineBreakMode="TailTruncation" Style="{StaticResource FontRegular}" TextColor="#212121" Margin="0,0,0,5" />
+                                                                                <!--<BoxView HeightRequest="1" BackgroundColor="#e0e0e0" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand"/>-->
+                                                                            </StackLayout>
+                                                                        </StackLayout>
+                                                                    </Frame>
+                                                                </ViewCell>
+                                                            </DataTemplate>
+                                                        </H:ListviewScrollbar.ItemTemplate>
+                                                    </H:ListviewScrollbar>
+                                                </StackLayout>
+
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+
+                            <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                                <Frame BackgroundColor="White" CornerRadius="0" Padding="0" >
+
+                                    <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="15,10,15,10" Margin="0" >
+                                            <StackLayout  Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                                                <Label Text="Select Care Services" Style="{StaticResource FontRegular}"  FontSize="14" TextColor="#212121" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" />
+                                                <Image x:Name="careservicetickimg" IsVisible="False" Source="FilterTick.png" HeightRequest="17" WidthRequest="17" HorizontalOptions="Start" />
+                                            </StackLayout>
+                                            <Image x:Name="careserviceimg" Source="downarrowGrey.png" HeightRequest="18"  WidthRequest="18"  VerticalOptions="End" HorizontalOptions="End" />
+                                            <StackLayout.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="careservice_tap"/>
+                                            </StackLayout.GestureRecognizers>
+                                        </StackLayout>
+
+                                        <StackLayout x:Name="carserviceradiolayout">
+                                            <BoxView HeightRequest="1" BackgroundColor="#ecf2f4" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+
+                                            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="15,10,15,15">
+
+                                                <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Orientation="Horizontal" Margin="0,0,0,5"  >
+                                                    <Image Source="RadioButtonChecked.png" HeightRequest="14" WidthRequest="14" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   />
+                                                    <Label x:Name="careprovidertypetxt"  FontSize="14" Style="{StaticResource FontBold}" TextColor="#878787" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   />
+                                                </StackLayout>
+
+                                            </StackLayout>
+                                            <StackLayout.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="showcaretypes_Tapped"/>
+                                            </StackLayout.GestureRecognizers>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+
+                            <StackLayout x:Name="needservicelistlayout" IsVisible="False" VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                                <Frame BackgroundColor="White" CornerRadius="0" Padding="0" >
+                                    <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+
+                                    <StackLayout  Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Padding="15,10,15,10" Margin="0" >
+                                        <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                                        <Label Text="Services" Style="{StaticResource FontRegular}"  FontSize="14" TextColor="#212121" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" />
+                                            <Frame x:Name="needserviceselected" IsVisible="False" BackgroundColor="#009688" HasShadow="False" CornerRadius="10" Padding="0" HeightRequest="20" WidthRequest="20" HorizontalOptions="Start" >
+                                                <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                                                    <Label x:Name="needserviceselectedcount" Text="0" Style="{StaticResource FontRegular}"  FontSize="9" TextColor="#ffffff" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                                                </StackLayout>
+                                            </Frame>
+                                        </StackLayout>
+                                        <Image x:Name="needserviceimg" Source="downarrowGrey.png" HeightRequest="18"  WidthRequest="18"  VerticalOptions="End" HorizontalOptions="End" />
+                                            <StackLayout.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="needservice_tap"/>
+                                            </StackLayout.GestureRecognizers>
+                                        </StackLayout>
+                                        <StackLayout x:Name="needserviceboxlayout">
+                                            <BoxView HeightRequest="1" BackgroundColor="#ecf2f4" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+
+                                            <StackLayout HorizontalOptions="FillAndExpand" x:Name="needservicelayout" VerticalOptions="Start" Padding="15,10,15,15" >
+                                            </StackLayout>
+
+                                        </StackLayout>
+
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+
+
+                            <StackLayout x:Name="languagemainlayout" VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                                <Frame BackgroundColor="White" CornerRadius="0" Padding="0"  >
+
+                                    <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="15,10,15,10" >
+                                            <StackLayout  Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                                                <Label Text="Language" Style="{StaticResource FontRegular}"  FontSize="14" TextColor="#212121" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" />
+                                                <Image x:Name="languagetickimg" IsVisible="False" Source="FilterTick.png" HeightRequest="17" WidthRequest="17" HorizontalOptions="Start" />
+                                            </StackLayout>
+                                            <Image x:Name="languageimg" Source="downarrowGrey.png" HeightRequest="18"  WidthRequest="18"  VerticalOptions="End" HorizontalOptions="End" />
+                                            <StackLayout.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="language_tap"/>
+                                            </StackLayout.GestureRecognizers>
+                                        </StackLayout>
+                                        <StackLayout x:Name="languageboxlayout">
+                                            <BoxView HeightRequest="1" BackgroundColor="#ecf2f4" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+                                            <StackLayout x:Name="languagelistlayout" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="15,10,15,15" >
+                                                <H:ListviewScrollbar x:Name="languagelistdata" HeightRequest="550"  HasUnevenRows="True"  SeparatorVisibility="None" ItemTapped="languagedata_ItemTapped" >
+                                                    <H:ListviewScrollbar.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <ViewCell>
+                                                                <Frame Margin="0" Padding="0" HasShadow="False">
+                                                                    <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="Start" BackgroundColor="White" Margin="0,0,0,2" >
+                                                                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Padding="2,8,2,8"  >
+                                                                            <Image Source="{Binding image}" HeightRequest="25"  WidthRequest="25"  VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Margin="10,0,10,0"   />
+                                                                            <Label Text="{Binding languagetxt}" Style="{StaticResource FontRegular}" FontSize="14" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand"  />
+                                                                        </StackLayout>
+                                                                        <BoxView HeightRequest="1" BackgroundColor="#e0e0e0" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand"/>
+                                                                    </StackLayout>
+                                                                </Frame>
+                                                            </ViewCell>
+                                                        </DataTemplate>
+                                                    </H:ListviewScrollbar.ItemTemplate>
+                                                </H:ListviewScrollbar>
+
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+
+                            </StackLayout>
+
+                            <StackLayout x:Name="radioworktypelayout" VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                                <Frame BackgroundColor="White" CornerRadius="0" Padding="0" >
+
+                                    <StackLayout   HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="15,10,15,10" Margin="0" >
+                                            <StackLayout  Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                                                <Label Text="Work type" Style="{StaticResource FontRegular}"  FontSize="14" TextColor="#212121" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" />
+                                                <Image x:Name="radioworktypetickimg" IsVisible="False" Source="FilterTick.png" HeightRequest="17" WidthRequest="17" HorizontalOptions="Start" />
+
+                                            </StackLayout>
+                                            <Image x:Name="radioworktypeimg" Source="downarrowGrey.png" HeightRequest="18"  WidthRequest="18"  VerticalOptions="End" HorizontalOptions="End" />
+                                            <StackLayout.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="radioworktype_tap"/>
+                                            </StackLayout.GestureRecognizers>
+                                        </StackLayout>
+
+                                        <StackLayout x:Name="radioworktypelistlayout">
+                                            <BoxView HeightRequest="1" BackgroundColor="#ecf2f4" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+
+                                            <StackLayout x:Name="worktypelistlayout" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="15,10,15,15">
+                                                <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                                    <StackLayout  ClassId="1" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Orientation="Horizontal" Margin="0,0,0,5"  >
+                                                        <Image  x:Name="liveinImg" Source="RadioButtonUnChecked.png" HeightRequest="14" WidthRequest="14" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   />
+                                                        <Label Text="Live-in"  FontSize="14" Style="{StaticResource FontRegular}" TextColor="#878787" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   />
+                                                        <StackLayout.GestureRecognizers>
+                                                            <TapGestureRecognizer Tapped="LiveInCommand" />
+                                                        </StackLayout.GestureRecognizers>
+                                                    </StackLayout>
+                                                    <StackLayout  VerticalOptions="Start" HorizontalOptions="FillAndExpand" Orientation="Horizontal" Margin="0,0,0,5" >
+                                                        <Image x:Name="liveoutImg" Source="RadioButtonChecked.png" HeightRequest="14" WidthRequest="14" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   />
+                                                        <Label Text="Live-out"  FontSize="14" Style="{StaticResource FontRegular}" TextColor="#878787" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   />
+                                                        <StackLayout.GestureRecognizers>
+                                                            <TapGestureRecognizer Tapped="LiveOutCommand"/>
+                                                        </StackLayout.GestureRecognizers>
+                                                    </StackLayout>
+                                                    <!--<StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Orientation="Horizontal" Margin="0,0,0,5">
+                                            <Image x:Name="LiloImg" Source="RadioButtonUnChecked.png" HeightRequest="14" WidthRequest="14" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   />
+                                            <Label Text="Live in and Live out" FontSize="14" Style="{StaticResource FontRegular}" TextColor="#878787" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   />
+                                            <StackLayout.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="LILOCommand"/>
+                                            </StackLayout.GestureRecognizers>
+                                        </StackLayout>-->
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </StackLayout>
+
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+
+                            <StackLayout x:Name="checkboxworktypelayout" IsVisible="False" VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                                <Frame BackgroundColor="White" CornerRadius="0" Padding="0"  >
+
+                                    <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                                    <StackLayout  Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Padding="15,10,15,10" Margin="0" >
+                                        <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                                            <Label Text="Work type" Style="{StaticResource FontRegular}"  FontSize="14" TextColor="#212121" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" />
+                                            <Frame x:Name="worktypecountlayout" BackgroundColor="#009688" HasShadow="False" CornerRadius="10" Padding="0" HeightRequest="20" WidthRequest="20" HorizontalOptions="Start" >
+                                                <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                                                    <Label x:Name="worktypecount" Text="0" Style="{StaticResource FontRegular}"  FontSize="8" TextColor="#ffffff" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                                                </StackLayout>
+                                            </Frame>
+                                        </StackLayout>
+                                        <Image x:Name="chkbxworktypeimg" Source="downarrowGrey.png" HeightRequest="18"  WidthRequest="18"  VerticalOptions="End" HorizontalOptions="End" />
+                                            <StackLayout.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="chkbxworktyp_Tapped"/>
+                                            </StackLayout.GestureRecognizers>
+                                        </StackLayout>
+                                        <StackLayout x:Name="chkbxworktypelistlayout">
+                                            <BoxView HeightRequest="1" BackgroundColor="#ecf2f4" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+                                            <StackLayout HorizontalOptions="FillAndExpand" x:Name="worktypelayout" VerticalOptions="Start" Padding="15,10,15,15" >
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+
+                        <!--<StackLayout x:Name="needservicelistlayout" IsVisible="False" VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                            <Frame BackgroundColor="White" CornerRadius="0" Padding="0" >
+                                <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+
+                                    <StackLayout  Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Padding="15,10,15,10" Margin="0" >
+                                        <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                                            <Label Text="Services" Style="{StaticResource FontRegular}"  FontSize="14" TextColor="#212121" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" />
+                                            <Frame x:Name="needserviceselected" IsVisible="False" BackgroundColor="#009688" HasShadow="False" CornerRadius="10" Padding="0" HeightRequest="20" WidthRequest="20" HorizontalOptions="Start" >
+                                                <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                                                    <Label x:Name="needserviceselectedcount" Style="{StaticResource FontRegular}"  FontSize="9" TextColor="#ffffff" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                                                </StackLayout>
+                                            </Frame>
+                                        </StackLayout>
+                                        <Image x:Name="needserviceimg" Source="downarrowGrey.png" HeightRequest="18"  WidthRequest="18"  VerticalOptions="End" HorizontalOptions="End" />
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="needservice_tap"/>
+                                        </StackLayout.GestureRecognizers>
+                                    </StackLayout>
+                                    <StackLayout x:Name="needserviceboxlayout">
+                                        <BoxView HeightRequest="1" BackgroundColor="#ecf2f4" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+
+                                        <StackLayout HorizontalOptions="FillAndExpand" x:Name="needservicelayout" VerticalOptions="Start" Padding="15,10,15,15" >
+                                        </StackLayout>
+
+                                    </StackLayout>
+
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>-->
+
+                        <StackLayout x:Name="agegroupmainlayout" IsVisible="False" VerticalOptions="Start" HorizontalOptions="FillAndExpand"  >
+                                <Frame BackgroundColor="White" CornerRadius="0" Padding="0"  >
+
+                                <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+
+                                    <StackLayout  Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Padding="15,10,15,10" Margin="0" >
+                                        <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                                            <Label Text="Child age group" Style="{StaticResource FontRegular}"  FontSize="14" TextColor="#212121" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" />
+                                            <Frame x:Name="agegroupcountlayout" BackgroundColor="#009688" HasShadow="False" CornerRadius="10" Padding="0" HeightRequest="20" WidthRequest="20" HorizontalOptions="Start" >
+                                                <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                                                    <Label x:Name="agegroupcount" Text="0" Style="{StaticResource FontRegular}"  FontSize="8" TextColor="#ffffff" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" />
+                                                </StackLayout>
+                                            </Frame>
+                                        </StackLayout>
+                                        <Image x:Name="agegroupimg" Source="downarrowGrey.png" HeightRequest="18"  WidthRequest="18"  VerticalOptions="End" HorizontalOptions="End" />
+                                            <StackLayout.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="agegroup_Tapped"/>
+                                            </StackLayout.GestureRecognizers>
+                                        </StackLayout>
+                                        <StackLayout HorizontalOptions="FillAndExpand" x:Name="agegrouplayout" VerticalOptions="Start" Padding="15,10,15,15" >
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+
+
+
+                            <StackLayout  x:Name="gendermainlayout" IsVisible="False" VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                                <Frame BackgroundColor="White" CornerRadius="0" Padding="0" >
+
+                                    <StackLayout   HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="15,10,15,10" Margin="0" >
+                                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand"  >
+                                                <StackLayout  Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                                                    <Label Text="Preferred Gender" Style="{StaticResource FontRegular}"  FontSize="14" TextColor="#212121" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" />
+                                                    <Image x:Name="gendertickimg" IsVisible="False" Source="FilterTick.png" HeightRequest="17" WidthRequest="17" HorizontalOptions="Start" />
+                                                </StackLayout>
+                                            </StackLayout>
+                                            <Image x:Name="genderimg" Source="downarrowGrey.png" HeightRequest="18"  WidthRequest="18"  VerticalOptions="End" HorizontalOptions="End" />
+                                            <StackLayout.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="gender_tapped"/>
+                                            </StackLayout.GestureRecognizers>
+                                        </StackLayout>
+                                        <StackLayout x:Name="genderlayout">
+
+                                            <BoxView HeightRequest="1" BackgroundColor="#ecf2f4" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+
+                                            <StackLayout x:Name="Genderlistlayout" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="15,10,15,15">
+                                                <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                                    <StackLayout  ClassId="1" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Orientation="Horizontal" Margin="0,0,0,5"  >
+                                                        <Image  x:Name="MaleImg" Source="RadioButtonUnChecked.png" HeightRequest="14" WidthRequest="14" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   />
+                                                        <Label Text="Male"  FontSize="14" Style="{StaticResource FontRegular}" TextColor="#878787" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   />
+                                                        <StackLayout.GestureRecognizers>
+                                                            <TapGestureRecognizer Tapped="GenderMaleCommand" />
+                                                        </StackLayout.GestureRecognizers>
+                                                    </StackLayout>
+                                                    <StackLayout  VerticalOptions="Start" HorizontalOptions="FillAndExpand" Orientation="Horizontal" Margin="0,0,0,5" >
+                                                        <Image x:Name="FeMaleImg" Source="RadioButtonChecked.png" HeightRequest="14" WidthRequest="14" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   />
+                                                        <Label Text="Female"  FontSize="14" Style="{StaticResource FontRegular}" TextColor="#878787" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   />
+                                                        <StackLayout.GestureRecognizers>
+                                                            <TapGestureRecognizer Tapped="GenderFemaleCommand"/>
+                                                        </StackLayout.GestureRecognizers>
+                                                    </StackLayout>
+                                                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Orientation="Horizontal" Margin="0,0,0,5">
+                                                        <Image x:Name="AnyImg" Source="RadioButtonUnChecked.png" HeightRequest="14" WidthRequest="14" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   />
+                                                        <Label Text="Any" FontSize="14" Style="{StaticResource FontRegular}" TextColor="#878787" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   />
+                                                        <StackLayout.GestureRecognizers>
+                                                            <TapGestureRecognizer Tapped="AnyCommand"/>
+                                                        </StackLayout.GestureRecognizers>
+                                                    </StackLayout>
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </StackLayout>
+
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+
+
+                            <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+
+                                <Frame BackgroundColor="White" CornerRadius="0" Padding="0"  >
+
+                                    <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="15,10,15,10" Margin="0" >
+                                            <StackLayout  Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                                                <Label Text="Available From" Style="{StaticResource FontRegular}"  FontSize="14" TextColor="#212121" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" />
+                                                <Image x:Name="calentickimg" IsVisible="False" Source="FilterTick.png" HeightRequest="17" WidthRequest="17" HorizontalOptions="Start" />
+                                            </StackLayout>
+                                            <Image x:Name="calendarimg" Source="downarrowGrey.png" HeightRequest="18"  WidthRequest="18"  VerticalOptions="End" HorizontalOptions="End" />
+                                            <StackLayout.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="calender_tap"/>
+                                            </StackLayout.GestureRecognizers>
+                                        </StackLayout>
+                                        <StackLayout x:Name="calendarlayout" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="15,10,15,15">
+                                            <BoxView HeightRequest="1" BackgroundColor="#ecf2f4" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+                                            <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand"  Padding="0,5,0,5">
+
+                                                <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   Padding="0,5,5,5"  >
+                                                    <Image Source="CalendarIcon.png" HeightRequest="32" WidthRequest="32"   />
+                                                </StackLayout>
+
+                                                <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                                    <DatePicker  x:Name="date"   PropertyChanged="Date_PropertyChanged" />
+                                                </StackLayout>
+
+                                            </StackLayout>
+
+
+                                        </StackLayout>
+
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+
+                            <StackLayout x:Name="experiencemainlayout" IsVisible="False" VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                                <Frame BackgroundColor="White" CornerRadius="0" Padding="0" >
+
+                                    <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="15,10,15,10" Margin="0" >
+                                            <StackLayout  Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                                                <Label Text="Years of Experience" Style="{StaticResource FontRegular}"  FontSize="14" TextColor="#212121" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" />
+                                                <Image x:Name="experiencetickimg" IsVisible="False" Source="FilterTick.png" HeightRequest="17" WidthRequest="17" HorizontalOptions="Start" />
+                                            </StackLayout>
+                                            <Image x:Name="experienceimg" Source="downarrowGrey.png" HeightRequest="18"  WidthRequest="18"  VerticalOptions="End" HorizontalOptions="End" />
+                                            <StackLayout.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="expandexperience_tap"/>
+                                            </StackLayout.GestureRecognizers>
+                                        </StackLayout>
+
+                                        <StackLayout x:Name="experiencelistlayout" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="15,10,15,15">
+                                            <BoxView HeightRequest="1" BackgroundColor="#ecf2f4" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+
+                                            <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Orientation="Horizontal" Margin="0,0,0,5"  >
+                                                <Image Source="RadioButtonChecked.png" HeightRequest="14" WidthRequest="14" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   />
+                                                <Label x:Name="experiencetxt"  FontSize="14" Style="{StaticResource FontBold}" TextColor="#878787" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   />
+                                            </StackLayout>
+                                            <StackLayout.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="experience_Tapped"/>
+                                            </StackLayout.GestureRecognizers>
+                                        </StackLayout>
+
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+
+                            <!--<StackLayout x:Name="radioworktypelayout" IsVisible="False" VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                        <Frame BackgroundColor="White" CornerRadius="0" Padding="0" >
+
+                            <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="15,10,15,10" Margin="0" >
+                                    <Label Text="Work type" Style="{StaticResource FontRegular}"  FontSize="14" TextColor="#212121" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" />
+                                    -->
+                            <!--<Image Source="minusGrey.png" HeightRequest="18"  WidthRequest="18"  VerticalOptions="End" HorizontalOptions="End" />-->
+                            <!--
+                                </StackLayout>
+
+                                <BoxView HeightRequest="1" BackgroundColor="#ecf2f4" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0" />
+
+                                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="15,10,15,15">
+                                    <ListView x:Name="radioworktlist" ItemsSource="{Binding paytypelist}" ItemTapped="radioworktype_ItemTapped"  >
+                                        <ListView.ItemTemplate>
+                                            <DataTemplate>
+                                                <ViewCell>
+                                                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Orientation="Horizontal" Margin="0,0,0,5"  >
+                                                        <Image Source="{Binding checkimage}" HeightRequest="14" WidthRequest="14" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   />
+                                                        <Label Text="{Binding categoryname}" FontSize="14" Style="{StaticResource FontBold}" TextColor="#878787" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   />
+                                                    </StackLayout>
+                                                </ViewCell>
+                                            </DataTemplate>
+                                        </ListView.ItemTemplate>
+                                    </ListView>
+                                    
+
+                                </StackLayout>
+                               
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>-->
+
+
+                        </StackLayout>
+                    </ScrollView>
+
+                </StackLayout>
+
+                <StackLayout   x:Name="contentlayout"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="#C0808080"  Padding="10"  AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <Frame BackgroundColor="White" CornerRadius="4"  Padding="10" HeightRequest="300" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                    <StackLayout>
+
+                        <StackLayout x:Name="allservicevisible" IsVisible="False">
+                            <H:ListviewScrollbar x:Name="allservicelist" HasUnevenRows="True" SeparatorVisibility="None" ItemsSource="{Binding paytypelist}" ItemTapped="Allservicelist_ItemTapped" >
+                                <H:ListviewScrollbar.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <StackLayout>
+                                                <Frame Margin="0"  Padding="0" HasShadow="False">
+                                                    <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="10,5,10,10"  >
+                                                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Padding="2"  >
+                                                            <Image Source="{Binding checkimage}" HeightRequest="20"  WidthRequest="20"  VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  />
+                                                            <Label Style="{StaticResource FontRegular}" Text="{Binding Newcategory}" FontSize="14" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" TextColor="#212121"  />
+                                                        </StackLayout>
+                                                        <BoxView HeightRequest="1" BackgroundColor="#e0e0e0" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand"/>
+                                                        <!--<StackLayout.GestureRecognizers>
+                                                            <TapGestureRecognizer Command="{Binding Path=BindingContext.selectservicetype, Source = {x:Reference allservicelist}}" CommandParameter="{Binding}"/>
+                                                        </StackLayout.GestureRecognizers>-->
+                                                    </StackLayout>
+                                                </Frame>
+                                            </StackLayout>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </H:ListviewScrollbar.ItemTemplate>
+                            </H:ListviewScrollbar>
+                        </StackLayout>
+
+                        <StackLayout x:Name="experiencelistviewvisble" >
+                            <H:ListviewScrollbar x:Name="experiencelists" HasUnevenRows="True" SeparatorVisibility="None" ItemTapped="experience_tap" >
+                                <H:ListviewScrollbar.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <StackLayout>
+                                                <Frame Margin="0"  Padding="0" HasShadow="False">
+                                                    <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="10,5,10,10"  >
+                                                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Padding="2"  >
+                                                            <Image Source="{Binding tsetvalimg}" HeightRequest="20"  WidthRequest="20"  VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  />
+                                                            <Label Style="{StaticResource FontRegular}" Text="{Binding tsetval}" FontSize="14" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" TextColor="#212121"  />
+                                                        </StackLayout>
+                                                        <BoxView HeightRequest="1" BackgroundColor="#e0e0e0" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand"/>
+                                                    </StackLayout>
+                                                </Frame>
+                                            </StackLayout>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </H:ListviewScrollbar.ItemTemplate>
+                            </H:ListviewScrollbar>
+                        </StackLayout>
+
+                        <!-- <StackLayout  IsVisible="{Binding replyperiodlistviewvisble}">
+                            <H:ListviewScrollbar x:Name="replyperiodlist" HasUnevenRows="True" SeparatorVisibility="None"  ItemsSource="{Binding replyperiodlist}">
+                                <H:ListviewScrollbar.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <StackLayout>
+                                                <Frame Margin="0"  Padding="0" HasShadow="False">
+                                                    <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="10,5,10,10"  >
+                                                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Padding="2"  >
+                                                            <Image Source="{Binding tsetvalimg}" HeightRequest="20"  WidthRequest="20"  VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  />
+                                                            <Label Style="{StaticResource FontRegular}" Text="{Binding tsetval}" FontSize="14" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" TextColor="#212121"  />
+                                                        </StackLayout>
+                                                        <BoxView HeightRequest="1" BackgroundColor="#e0e0e0" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand"/>
+                                                        <StackLayout.GestureRecognizers>
+                                                            <TapGestureRecognizer Command="{Binding Path=BindingContext.selectreplyperiod, Source = {x:Reference replyperiodlist}}" CommandParameter="{Binding}"/>
+                                                        </StackLayout.GestureRecognizers>
+                                                    </StackLayout>
+                                                </Frame>
+                                            </StackLayout>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </H:ListviewScrollbar.ItemTemplate>
+                            </H:ListviewScrollbar>
+                        </StackLayout>
+
+                        <StackLayout  IsVisible="{Binding establishyearlistviewvisble}">
+                            <H:ListviewScrollbar x:Name="establishyearlist" HasUnevenRows="True" SeparatorVisibility="None" ItemsSource="{Binding establishyearlist}" >
+                                <H:ListviewScrollbar.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <StackLayout>
+                                                <Frame Margin="0"  Padding="0" HasShadow="False">
+                                                    <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="10,5,10,10"  >
+                                                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Padding="2"  >
+                                                            <Image Source="{Binding tsetvalimg}" HeightRequest="20"  WidthRequest="20"  VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  />
+                                                            <Label Style="{StaticResource FontRegular}" Text="{Binding tsetval}" FontSize="14" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" TextColor="#212121"  />
+                                                        </StackLayout>
+                                                        <BoxView HeightRequest="1" BackgroundColor="#e0e0e0" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand"/>
+                                                        <StackLayout.GestureRecognizers>
+                                                            <TapGestureRecognizer Command="{Binding Path=BindingContext.selectestablishyear, Source = {x:Reference establishyearlist}}" CommandParameter="{Binding}"/>
+                                                        </StackLayout.GestureRecognizers>
+                                                    </StackLayout>
+                                                </Frame>
+                                            </StackLayout>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </H:ListviewScrollbar.ItemTemplate>
+                            </H:ListviewScrollbar>
+                        </StackLayout>-->
+
+                    </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="chbxPopupContentTap" />
+                    </Frame.GestureRecognizers>
+                </Frame>
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="chbxContentViewTap"/>
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+
+
+
+                <StackLayout   Margin="0" VerticalOptions="End"  BackgroundColor="White" Padding="0" HorizontalOptions="FillAndExpand" 
+                             AbsoluteLayout.LayoutBounds="0,1,1,1" AbsoluteLayout.LayoutFlags="All" >
+
+                    <Frame BackgroundColor="White" Margin="0" CornerRadius="0" Padding="0">
+                    <Button Text="Apply" Clicked="applyfiltercmd" TextColor="White" BackgroundColor="#e30045" AbsoluteLayout.LayoutBounds="0, 1, 1, 50" AbsoluteLayout.LayoutFlags="PositionProportional, WidthProportional" />
+                </Frame>
+
+            </StackLayout>
+            </AbsoluteLayout>
+
+     
+    </ContentPage.Content>
+</ContentPage>

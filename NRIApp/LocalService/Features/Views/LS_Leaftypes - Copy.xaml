@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+             
+             x:Class="NRIApp.LocalService.Features.Views.LS_Leaftypes" NavigationPage.HasNavigationBar="True">
+    <ContentPage.Content>
+        <Grid>
+            <StackLayout BackgroundColor="White" >
+                <!--<StackLayout BackgroundColor="#ecf2f4" x:Name="layoutsmain">-->
+
+                <!--<StackLayout BackgroundColor="#e30045" Orientation="Horizontal"  Padding="5" >
+                    <StackLayout Spacing="0" Orientation="Horizontal" HorizontalOptions="Start">
+                        <Image Source="backarrow2.png" HeightRequest="30" WidthRequest="30" HorizontalOptions="Start" VerticalOptions="Center">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Backbtncommand}"></TapGestureRecognizer>
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </StackLayout>
+                    <Label x:Name="lblprimary" TextColor="#ffffff" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" FontSize="14"  />
+                </StackLayout>-->
+
+                <Label IsVisible="False" x:Name="ltprimarytag" />
+                <Label IsVisible="False" x:Name="ltprimarytagid" />
+
+                <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Padding="10">
+                    <ScrollView>
+                        <StackLayout x:Name="layoutcheckbox" BackgroundColor="White" Margin="0,0,0,1">
+
+                            <StackLayout  x:Name="layoutinnercheckbox" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="5" VerticalOptions="Start" HorizontalOptions="FillAndExpand"  Padding="0">
+                                
+                            </StackLayout>
+                        </StackLayout>
+                    </ScrollView>
+
+                </StackLayout>
+
+
+                <!--</StackLayout>-->
+                <StackLayout VerticalOptions="End" HorizontalOptions="FillAndExpand" Padding="10">
+                    <Button x:Name="LS_leaftypesubmit" Clicked="btn_leafsubmit" BackgroundColor="#fbaa19" TextColor="White" Parent="0,10,0,10" Text="Next" VerticalOptions="End" HorizontalOptions="FillAndExpand"/>
+
+                </StackLayout>
+            </StackLayout>
+            <ActivityIndicator x:Name="Loading" HorizontalOptions="Center" VerticalOptions="Center" IsRunning="false"  Color="Blue" />
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

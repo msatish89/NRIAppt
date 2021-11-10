@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:length="clr-namespace:NRIApp.Behaviors"
+              xmlns:b="clr-namespace:NRIApp.Helpers"
+              xmlns:SULEntry="clr-namespace:NRIApp.Controls"
+             x:Class="NRIApp.LocalService.Features.Views.Leadform.LS_LeadForm">
+    <ContentPage.Content>       
+        <StackLayout BackgroundColor="White" VerticalOptions="FillAndExpand">
+            <Label  x:Name="ldprimarytag" IsVisible="False"/>
+      
+
+            <ScrollView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+
+                <StackLayout Padding="10" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   Padding="5"  >
+                            <Image Source="UserIcon.png" HeightRequest="24" WidthRequest="24"   />
+                        </StackLayout>
+
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+
+                            <SULEntry:CustomEntry x:Name="uname" Style="{StaticResource FontRegularEntry}" NextView="{x:Reference uemail}" ReturnKeyType="Next"  VerticalOptions="CenterAndExpand" HideBorder="True" HorizontalOptions="FillAndExpand" Placeholder="Contact Name" Text="{Binding Name}"   PlaceholderColor="#c0c0c0" />
+                        </StackLayout>
+
+                    </StackLayout>
+                    <BoxView BackgroundColor="Gray" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,15">
+                    </BoxView>
+                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   Padding="5"  >
+                            <Image Source="MailIcon.png" HeightRequest="24" WidthRequest="24"   />
+                        </StackLayout>
+
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+
+                            <SULEntry:CustomEntry x:Name="uemail" Style="{StaticResource FontRegularEntry}" NextView="{x:Reference umobileno}" ReturnKeyType="Next" Placeholder="Email" Keyboard="Email" Text="{Binding Email}"  VerticalOptions="CenterAndExpand" HideBorder="True" HorizontalOptions="FillAndExpand"    PlaceholderColor="#c0c0c0" />
+                        </StackLayout>
+
+                    </StackLayout>
+                    <BoxView BackgroundColor="Gray" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,15">
+                    </BoxView>
+
+                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand"  >
+
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  Padding="5"  >
+                            <Image Source="PhoneIcon.png" HeightRequest="24" WidthRequest="24"   />
+                        </StackLayout>
+
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                            <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                <!--<Picker Title="Select Country" WidthRequest="50"  x:Name="leadcountrycode" SelectedItem="{Binding Selectcontact}" ItemsSource="{Binding LeadCountrycode}"></Picker>
+                                <Entry Text="{Binding Contactno}" Keyboard="Numeric" Placeholder="98XXXXXX89"  HorizontalOptions="FillAndExpand" >
+                                    <Entry.Behaviors>
+                                        <length:MaxLengthValidator MaxLength="10"/>
+                                    </Entry.Behaviors>
+                                </Entry>-->
+                                <SULEntry:CustomPicker Title="Select Country" x:Name="leadcountrycode" Image="ic_arrow_drop_down" HeightRequest="32" HideBorder="True" WidthRequest="70"  SelectedItem="{Binding Selectcontact}" Margin="0">
+                                    <SULEntry:CustomPicker.Items>
+                                        <x:String>+1</x:String>
+                                        <x:String>+91</x:String>
+                                    </SULEntry:CustomPicker.Items>
+                                </SULEntry:CustomPicker>
+                                <SULEntry:CustomEntry x:Name="umobileno" NextView="{x:Reference ucity}" Style="{StaticResource FontRegularEntry}" ReturnKeyType="Next"  VerticalOptions="CenterAndExpand" Keyboard="Numeric"  HideBorder="True" HorizontalOptions="FillAndExpand" Text="{Binding Contactno}" Placeholder="98XXXXXX89"  PlaceholderColor="#c0c0c0" >
+                                    <SULEntry:CustomEntry.Behaviors>
+                                        <length:NumericInputValidator />
+                                        <length:MaxLengthValidator MaxLength="10" />
+                                    </SULEntry:CustomEntry.Behaviors>
+                                </SULEntry:CustomEntry>
+                            </StackLayout>
+                        </StackLayout>
+
+                    </StackLayout>
+                    <BoxView BackgroundColor="Gray" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,15">
+                    </BoxView>
+                    <StackLayout  Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand"  >
+
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   Padding="5"  >
+                            <Image Source="LocationIcon.png" HeightRequest="24" WidthRequest="24"   />
+                        </StackLayout>
+
+                        <StackLayout  VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+
+
+                            <SULEntry:CustomEntry x:Name="ucity" Style="{StaticResource FontRegularEntry}"  Placeholder="City Name" Text="{Binding LeadCity}"  VerticalOptions="CenterAndExpand" HideBorder="True" HorizontalOptions="FillAndExpand"    PlaceholderColor="#c0c0c0" />
+
+                        </StackLayout>
+
+                    </StackLayout>
+                    <BoxView BackgroundColor="Gray" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,15">
+                    </BoxView>
+                    <StackLayout Margin="35,-15,0,0" IsVisible="{Binding IsBusy}">
+                        <b:HVScrollGridView ListOrientation="Vertical"
+                                    ItemsSource="{Binding BindLocation}"
+                                   x:Name="listdata"
+									VerticalOptions="Start">
+                            <b:HVScrollGridView.ItemTemplate>
+                                <DataTemplate>
+                                    <ContentView>
+                                        <ContentView.Content>
+                                            <StackLayout BackgroundColor="#f8f8f8"  >
+                                                <StackLayout Padding="10,5,10,5"  VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+                                                    <Label FontSize="14" Text="{Binding citystatecode}" TextColor="#212121" Margin="0,0,0,5" />
+
+                                                    <BoxView HeightRequest="1" BackgroundColor="#e0e0e0" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand"/>
+
+                                                </StackLayout>
+                                                <StackLayout.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding Path=BindingContext.cityListcommand, Source = {x:Reference listdata}}" CommandParameter="{Binding}"/>
+                                                </StackLayout.GestureRecognizers>
+                                            </StackLayout>
+                                        </ContentView.Content>
+                                    </ContentView>
+                                </DataTemplate>
+                            </b:HVScrollGridView.ItemTemplate>
+                        </b:HVScrollGridView>
+
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand"  >
+
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  Padding="5"  >
+                            <Image Source="CalendarIcon.png" HeightRequest="24" WidthRequest="24"   />
+                        </StackLayout>
+
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                            <!--<Entry  Placeholder="Calender" PlaceholderColor="#c0c0c0"    />-->
+                            <DatePicker x:Name="datepicker"  Date="{Binding Date}" MinimumDate="{Binding Date}"></DatePicker>
+
+                        </StackLayout>
+
+                    </StackLayout>
+                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                        <Label Text="T &amp; C Apply" FontSize="12" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="gototc"></TapGestureRecognizer>
+                            </Label.GestureRecognizers>
+                        </Label>
+
+                    </StackLayout>
+
+                </StackLayout>
+            </ScrollView>
+
+            <StackLayout VerticalOptions="End" HorizontalOptions="FillAndExpand">
+                <Button Text="Submit" Command="{Binding SubmitCommand}" FontSize="18" VerticalOptions="Start" HorizontalOptions="FillAndExpand" BackgroundColor="#fbaa19" TextColor="White" Parent="0,10,0,10" />
+                <Button Text="Skip" FontSize="18" Command="{Binding SkipLeadformcommand}"  VerticalOptions="Start" HorizontalOptions="FillAndExpand" BackgroundColor="#6c757d" TextColor="White" Parent="0,10,0,10" />
+             <StackLayout.Padding>
+                    <OnPlatform x:TypeArguments="Thickness" iOS="15,10,15,15" Android="10"></OnPlatform>
+                </StackLayout.Padding>  
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

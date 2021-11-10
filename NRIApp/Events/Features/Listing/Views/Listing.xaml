@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:b="clr-namespace:NRIApp.Behaviors"
+              xmlns:local="clr-namespace:NRIApp.Helpers"
+              xmlns:extended="clr-namespace:Xamarin.Forms.Extended;assembly=Xamarin.Forms.Extended.InfiniteScrolling"
+             x:Class="NRIApp.Events.Features.Listing.Views.Listing"  NavigationPage.HasNavigationBar="True">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem  Icon="search24.png" Priority="1" Command="{Binding Clicklistingsearch}" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <!-- register static resource of type ImageSourceConverter with name "Converter" -->
+            <local:ImageSourceConverter x:Key="Converter"></local:ImageSourceConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+
+        <StackLayout BackgroundColor="#ecf2f4">
+
+            <ScrollView IsVisible="{Binding Eventlistavail}">
+
+                <StackLayout >
+
+                    <StackLayout IsVisible="{Binding Ishomebanneravail}">
+
+                   
+                        <!--<Image Source="eventbanner.png" Aspect="Fill" HeightRequest="120"  />-->
+                        <local:HVScrollGridView ListOrientation="Horizontal" x:Name="lslist"
+                                    ItemsSource="{Binding Eventsbanner}"
+                                   
+									VerticalOptions="Start">
+                            <local:HVScrollGridView.ItemTemplate>
+                                <DataTemplate>
+                                    <ContentView>
+                                        <ContentView.Content>
+                                            <StackLayout VerticalOptions="Start" Padding="0,8,0,0" Margin="0,0,8,0" HorizontalOptions="FillAndExpand" HeightRequest="150"                            
+                           WidthRequest="300">
+                                                <Image Source="{Binding imgurl2, Converter={StaticResource Converter}}" Aspect="AspectFill" HeightRequest="140"  >
+                                                    <Image.GestureRecognizers>
+                                                        <TapGestureRecognizer Command="{Binding Path=BindingContext.Getbannerdetailpage, Source = {x:Reference lslist}}" CommandParameter="{Binding}"/>
+                                                    </Image.GestureRecognizers>
+                                                </Image>
+                                            </StackLayout>
+                                    </ContentView.Content>
+                                    </ContentView>
+                                </DataTemplate>
+                            </local:HVScrollGridView.ItemTemplate>
+                        </local:HVScrollGridView>
+
+                    </StackLayout>
+
+
+                    <StackLayout Padding="5,10,5,20"  >
+
+                        <StackLayout Orientation="Horizontal" BackgroundColor="White" >
+                            <BoxView BackgroundColor="#03a497" WidthRequest="2" VerticalOptions="StartAndExpand" HorizontalOptions="Start" />
+                            <Label Text="Upcoming Events " Style="{StaticResource FontRegular}" FontSize="16"  VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" TextColor="#222222" Margin="10"  />
+                        </StackLayout>
+
+                    
+
+
+
+                        <local:HVScrollGridView x:Name="listdata">
+                            <local:HVScrollGridView.ItemTemplate>
+                                <DataTemplate>
+                                    <ContentView>
+                                        <ContentView.Content>
+                                            <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0,0,0,10" >
+
+                                                <Frame  CornerRadius="4" Padding="0" BackgroundColor="White" >
+
+                                                    <StackLayout Padding="0"  VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" >
+
+                                                        <StackLayout BackgroundColor="#f8f8f8" VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                                                            <RelativeLayout>
+
+                                                                <Image Source="{Binding imageurl, Converter={StaticResource Converter}}" Aspect="AspectFill" x:Name="banner" HeightRequest="140"                            
+                         RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}" />
+
+                                                                <BoxView HeightRequest="140"  RelativeLayout.WidthConstraint=
+                        "{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
+                             RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, Property=Height, Factor=1,}"                         
+                        HorizontalOptions="Fill" VerticalOptions="FillAndExpand" BackgroundColor="Black" Opacity="0.5"/>
+                                                                <StackLayout Padding="10"  VerticalOptions="StartAndExpand"                                                            
+                                                         RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, ElementName=banner, Property=X, Factor=1, Constant=5}"                                                              
+                                                         RelativeLayout.YConstraint ="{ConstraintExpression Type=RelativeToParent, Factor=0, Property=Y, Constant=5}"  >
+
+                                                                    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start" IsVisible="{Binding islivestreamavail}">
+                                                                        <Frame BackgroundColor="#e30045"   CornerRadius="2"  Padding="5,3,5,3" HorizontalOptions="StartAndExpand" >
+                                                                            <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand" VerticalOptions="Start"  >
+                                                                                <Image Source="PlayIcon.png"  HorizontalOptions="Start" VerticalOptions="StartAndExpand" HeightRequest="16" WidthRequest="16"/>
+                                                                                <Label Text="Live Streaming" FontSize="14" TextColor="White"  HorizontalOptions="Start" VerticalOptions="Start"  />
+                                                                            </StackLayout>
+                                                                        </Frame>
+
+                                                                    </StackLayout>
+
+                                                                </StackLayout>
+
+
+                                                                <StackLayout Padding="10"  VerticalOptions="EndAndExpand"                                                            
+                                                         RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, ElementName=banner, Property=X, Factor=1, Constant=5}"                                                              
+                                                         RelativeLayout.YConstraint ="{ConstraintExpression Type=RelativeToParent, Factor=0, Property=Y, Constant=90}"  IsVisible="{Binding categoryavail}">
+                                                                    
+
+                                                                    <StackLayout Orientation="Horizontal" VerticalOptions="End"  >
+
+                                                                        <StackLayout Orientation="Horizontal" HorizontalOptions="Start" VerticalOptions="Center">
+                                                                            <Frame BackgroundColor="#16a689"   CornerRadius="2"  Padding="5,3,5,3" HorizontalOptions="StartAndExpand" >
+                                                                                <StackLayout  HorizontalOptions="Start" >
+                                                                                    <Label Text="{Binding category}" FontSize="12" TextColor="White"  HorizontalOptions="Start" VerticalOptions="Start"  />
+                                                                                </StackLayout>
+                                                                            </Frame>
+
+                                                                           
+                                                                        </StackLayout>
+
+                                                                    </StackLayout>
+
+                                                                </StackLayout>
+
+                                                            </RelativeLayout>
+
+
+                                                            <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="10,5,10,0"  >
+                                                                <Label Text="{Binding title}" Style="{StaticResource FontRegular}" FontSize="16" TextColor="#202020"  HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+
+                                                                <StackLayout Orientation="Horizontal"   VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" >
+                                                                    <Image Source="placeholder.png"  HorizontalOptions="Start" VerticalOptions="StartAndExpand" HeightRequest="16" WidthRequest="16"/>
+                                                                    <Label Text="{Binding fulladdress}" Style="{StaticResource FontRegular}" FontSize="13" TextColor="#888888"  HorizontalOptions="Start" VerticalOptions="Center" />
+                                                                </StackLayout>
+
+                                                                <StackLayout Orientation="Horizontal"   VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" >
+                                                                    <Image Source="clock.png"  HorizontalOptions="Start" VerticalOptions="StartAndExpand" HeightRequest="16" WidthRequest="16"/>
+                                                                    <Label Text="{Binding formateddate}" Style="{StaticResource FontRegular}" FontSize="13" TextColor="#888888"  HorizontalOptions="Start" VerticalOptions="Center" />
+                                                                </StackLayout>
+                                                                <!--Live Streaming start-->
+                                                                <StackLayout Orientation="Horizontal"   VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Margin="0,0,0,5" >
+                                                                    <Image Source="{Binding streamingimg}"  HorizontalOptions="Start" VerticalOptions="StartAndExpand" HeightRequest="20" WidthRequest="20"/>
+                                                                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                                                        <Label Text="{Binding streaming}" FontSize="14" TextColor="#212121"  HorizontalOptions="Start" VerticalOptions="Center"/>
+
+
+                                                                    </StackLayout>
+
+                                                                </StackLayout>
+                                                                <!--Live Streaming end-->
+                                                            </StackLayout>
+
+                                                            <StackLayout  HeightRequest="1"  VerticalOptions="Start" HorizontalOptions="FillAndExpand" BackgroundColor="#eaeaea" Padding="0" Margin="0,10,0,0" />
+
+                                                        </StackLayout>
+
+                                                        <StackLayout BackgroundColor="White"  VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="10,5,10,10">
+
+                                                            <Grid RowSpacing="0" >
+                                                                <Grid.ColumnDefinitions>
+                                                                    <ColumnDefinition Width="*" />
+                                                                    <ColumnDefinition Width="*" />
+                                                                    <ColumnDefinition Width="*" />
+                                                                    <ColumnDefinition Width="*" />
+                                                                    <ColumnDefinition Width="*" />
+                                                                    <ColumnDefinition Width="*" />
+                                                                    <ColumnDefinition Width="*" />
+                                                                </Grid.ColumnDefinitions>
+
+                                                                <Grid.RowDefinitions>
+                                                                    <RowDefinition Height="auto" />
+                                                                </Grid.RowDefinitions>
+
+                                                                <StackLayout Grid.Column="0" Grid.Row="0"  VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand"   >
+                                                                    <Label Text="{Binding eventmnth}" Style="{StaticResource FontRegular}" FontSize="22" TextColor="#dd2948"  HorizontalOptions="Start" VerticalOptions="End" Margin="0,0,0,0" />
+                                                                    <Label Text="{Binding eventday}" Style="{StaticResource FontRegular}" FontSize="14" TextColor="#626262"  HorizontalOptions="Start" VerticalOptions="End" Margin="0,-10,0,0" />
+                                                                </StackLayout>
+
+                                                                <StackLayout IsVisible="{Binding soldtype}" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="3"  VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand"  >
+                                                                    <Label Text="Ticket range:" FontSize="12" Style="{StaticResource FontRegular}" TextColor="#9d9d9d"  HorizontalOptions="Start" VerticalOptions="End" Margin="0" />
+                                                                    <Label Text="{Binding ticketcost}" Style="{StaticResource FontRegular}" FontSize="16" TextColor="#2bbaa8"  HorizontalOptions="Start" VerticalOptions="Start" Margin="0,-5,0,0" />
+                                                                </StackLayout>
+
+                                                                <StackLayout Grid.Column="4" Grid.Row="0" Grid.ColumnSpan="3" VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                                                                    <Button  Text="{Binding btntext}" IsVisible="{Binding Isbuyavail}" Command="{Binding Path=BindingContext.Getdetailpage, Source = {x:Reference listdata}}" CommandParameter="{Binding}" FontSize="14" VerticalOptions="Start" HorizontalOptions="FillAndExpand" BorderColor="#e30045" BorderWidth="1" BackgroundColor="#ffffff" TextColor="#e30045" />
+                                                                   
+                                                                    <Button Text="Sold out" FontSize="14" VerticalOptions="Start" IsVisible="{Binding issold}" HorizontalOptions="FillAndExpand" BorderColor="#ededed" BorderWidth="1" BackgroundColor="#ededed" TextColor="#7b7a7a" />
+                                                                </StackLayout>
+                                                            </Grid>
+
+                                                        </StackLayout>
+                                                    </StackLayout>
+                                                </Frame>
+                                                <StackLayout.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding Path=BindingContext.Getdetailpage, Source = {x:Reference listdata}}" CommandParameter="{Binding}"/>
+                                                   
+                                                </StackLayout.GestureRecognizers>
+                                            </StackLayout>
+                                           
+                                        </ContentView.Content>
+                                    </ContentView>
+                                </DataTemplate>
+                            </local:HVScrollGridView.ItemTemplate>
+                        </local:HVScrollGridView>
+                        
+                        <ActivityIndicator BackgroundColor="White"  IsVisible="{Binding IsBusy}"  IsRunning="{Binding IsBusy}" HeightRequest="25" WidthRequest="25"  Color="Gray" />
+                        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start" IsVisible="{Binding Moreloading}">
+                            <Image Source="downarrow.png"  HorizontalOptions="CenterAndExpand" VerticalOptions="Center" HeightRequest="26" WidthRequest="26"/>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Loadmoreeventscommand}"/>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start" IsVisible="{Binding Moreloadingloader}">
+                            <Image Source="Loader.png"  HorizontalOptions="CenterAndExpand" VerticalOptions="Center" HeightRequest="26" WidthRequest="26"/>                           
+                        </StackLayout>
+                    </StackLayout>
+
+                 
+                </StackLayout>
+            </ScrollView>
+            <StackLayout BackgroundColor="#fdfcec" VerticalOptions="FillAndExpand" IsVisible="{Binding Nolist}">
+
+                <StackLayout   VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+
+                    <Image Source="NoListing.png" Aspect="AspectFill" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Margin="50,0,50,20"  />
+
+                    <Label Text="Unfortunately!" FontSize="26"  VerticalOptions="CenterAndExpand" TextColor="#683f4f" HorizontalOptions="Center"  HorizontalTextAlignment="Center" Margin="0"  />
+
+                    <Label Text="There is no upcoming event listed with us right now!!" TextColor="Gray" HorizontalOptions="CenterAndExpand" FontSize="14" Margin="10,0,10,10" HorizontalTextAlignment="Center" />
+
+                   
+
+                </StackLayout>
+
+            </StackLayout>
+            <Label x:Name="eventtag" Text="{Binding topeventstag}" IsVisible="False"/>
+            <AbsoluteLayout IsVisible="{Binding Eventlist}">
+
+                <StackLayout HorizontalOptions="FillAndExpand" AbsoluteLayout.LayoutBounds="0, 1, 1, 60" AbsoluteLayout.LayoutFlags="PositionProportional, WidthProportional" BackgroundColor="White">
+
+                    <Grid  VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand"  >
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <StackLayout Grid.Column="0" Grid.Row="0" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Margin="0,0,0,20"  >
+                           
+                            <Button Text="Filter" Command="{Binding Clicktofilter}" FontSize="18" VerticalOptions="Start" HorizontalOptions="FillAndExpand" BackgroundColor="#ededed" TextColor="#888888" />
+                        </StackLayout>
+
+                        <StackLayout Grid.Column="1" Grid.Row="0" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Margin="0,0,0,20" >
+                           
+                            <Button Text="Top Events" Command="{Binding ClickHotevent}" FontSize="18" VerticalOptions="Start" HorizontalOptions="FillAndExpand" BackgroundColor="#e30045" TextColor="White" />
+                        </StackLayout>
+                        
+
+                    </Grid>
+
+                </StackLayout>
+
+
+            </AbsoluteLayout>
+
+            <AbsoluteLayout VerticalOptions="EndAndExpand" IsVisible="{Binding Eventlistother}">
+                <StackLayout HorizontalOptions="FillAndExpand" AbsoluteLayout.LayoutBounds="0, 1, 1, 50" AbsoluteLayout.LayoutFlags="PositionProportional, WidthProportional" BackgroundColor="White">
+                    <StackLayout  VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Margin="0,0,0,20"  >
+
+                        <Button Text="Filter" Command="{Binding Clicktofilter}" FontSize="18" VerticalOptions="Start" HorizontalOptions="FillAndExpand" BackgroundColor="#ededed" TextColor="#888888" />
+                    </StackLayout>
+                </StackLayout>
+            </AbsoluteLayout>
+
+          
+
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

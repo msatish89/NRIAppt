@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:b="clr-namespace:NRIApp.Helpers"
+              xmlns:SULB="clr-namespace:NRIApp.Behaviors"
+               xmlns:SUL="clr-namespace:NRIApp.Controls"
+             x:Class="NRIApp.LocalJobs.Features.Posting.Views.Recruiter">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="White" VerticalOptions="FillAndExpand">
+            <ScrollView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <StackLayout Padding="10" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+
+                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Padding="5"  >
+                            <Image Source="CourseIcon.png" HeightRequest="32" WidthRequest="32"   />
+                        </StackLayout>
+
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                            <SUL:CustomEntry x:Name="txtmod" VerticalOptions="CenterAndExpand" Style="{StaticResource FontRegularEntry}" HideBorder="True" HorizontalOptions="FillAndExpand" Text="{Binding Jobrole}"  Placeholder="Job Role" ReturnKeyType="Done"  PlaceholderColor="#c0c0c0" >
+                            </SUL:CustomEntry>
+
+
+                        </StackLayout>
+
+                    </StackLayout>
+                    <BoxView BackgroundColor="Gray" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,15">
+                    </BoxView>
+                    <StackLayout Margin="35,-15,0,0" IsVisible="{Binding Listviewvisible}">
+                        <b:HVScrollGridView ListOrientation="Vertical" ItemsSource="{Binding JobroleAjax}" x:Name="listdata" VerticalOptions="Start">
+                            <b:HVScrollGridView.ItemTemplate>
+                                <DataTemplate>
+                                    <ContentView>
+                                        <ContentView.Content>
+                                            <StackLayout BackgroundColor="#f8f8f8"  >
+                                                <StackLayout Padding="10,5,10,5"  VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+                                                    <Label FontSize="14" Text="{Binding rolename}" Style="{StaticResource FontRegular}" TextColor="#212121" Margin="0,0,0,5" />
+
+                                                    <BoxView HeightRequest="1" BackgroundColor="#e0e0e0" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand"/>
+
+                                                </StackLayout>
+                                                <StackLayout.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding Path=BindingContext.Jobrolecommand, Source = {x:Reference listdata}}" CommandParameter="{Binding}"/>
+                                                </StackLayout.GestureRecognizers>
+                                            </StackLayout>
+                                        </ContentView.Content>
+                                    </ContentView>
+                                </DataTemplate>
+                            </b:HVScrollGridView.ItemTemplate>
+                        </b:HVScrollGridView>
+
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   Padding="5"  >
+                            <Image Source="UserIcon.png" HeightRequest="32" WidthRequest="32"   />
+                        </StackLayout>
+
+
+
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                            <SUL:CustomEntry x:Name="lblname" Style="{StaticResource FontRegularEntry}"  VerticalOptions="CenterAndExpand" HideBorder="True" HorizontalOptions="FillAndExpand" Text="{Binding UName}" ReturnKeyType="Done" Placeholder="Name"  PlaceholderColor="#c0c0c0" >
+                            </SUL:CustomEntry>
+
+                            <!--<Entry Text="{Binding UName}" Placeholder="Name" PlaceholderColor="#c0c0c0"    />-->
+                        </StackLayout>
+
+                    </StackLayout>
+                    <BoxView BackgroundColor="Gray" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,15">
+
+                    </BoxView>
+
+
+                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Padding="5">
+                            <Image Source="MailIcon.png" HeightRequest="32" WidthRequest="32"   />
+                        </StackLayout>
+
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                            <SUL:CustomEntry x:Name="lblemail" Style="{StaticResource FontRegularEntry}" VerticalOptions="CenterAndExpand" HideBorder="True" Keyboard="Email" ReturnKeyType="Done"  HorizontalOptions="FillAndExpand" Text="{Binding UEmail}"  Placeholder="Email"  PlaceholderColor="#c0c0c0" >
+                                <SUL:CustomEntry.Behaviors>
+                                    <SULB:EmailValidatorBehavior />
+                                </SUL:CustomEntry.Behaviors>
+                            </SUL:CustomEntry>
+
+                        </StackLayout>
+
+                    </StackLayout>
+
+                    <BoxView BackgroundColor="Gray" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,15">
+                    </BoxView>
+                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand"  >
+
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Padding="5"  >
+                            <Image Source="PhoneIcon.png" HeightRequest="32" WidthRequest="32"   />
+                        </StackLayout>
+
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                            <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                <SUL:CustomPicker Title="Select Country Code" Image="ic_arrow_drop_down" HeightRequest="32" HideBorder="True" WidthRequest="70"  SelectedItem="{Binding Selectcountry}" Margin="0">
+                                    <SUL:CustomPicker.Items>
+                                        <x:String>+1</x:String>
+                                        <x:String>+91</x:String>
+                                    </SUL:CustomPicker.Items>
+                                </SUL:CustomPicker>
+                                <SUL:CustomEntry x:Name="lblph" Style="{StaticResource FontRegularEntry}" VerticalOptions="CenterAndExpand" Keyboard="Numeric" HideBorder="True" ReturnKeyType="Done" HorizontalOptions="FillAndExpand" Text="{Binding Mobileno}"  Placeholder="98XXXXXX89"  PlaceholderColor="#c0c0c0" >
+                                    <SUL:CustomEntry.Behaviors>
+                                        <SULB:NumericInputValidator/>
+                                        <SULB:MaxLengthValidator MaxLength="10" />
+                                    </SUL:CustomEntry.Behaviors>
+
+                                </SUL:CustomEntry>
+                                <!--<Entry Text="{Binding Mobileno}" Keyboard="Numeric" Placeholder="98XXXXXX89"  HorizontalOptions="FillAndExpand">
+                                        <Entry.Behaviors>
+                                            <SULB:NumericInputValidator />
+                                            <SULB:MaxLengthValidator MaxLength="10" />
+                                        </Entry.Behaviors>
+                                    </Entry>-->
+                            </StackLayout>
+                        </StackLayout>
+
+                    </StackLayout>
+                    <BoxView BackgroundColor="Gray" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,15">
+
+                    </BoxView>
+
+
+
+                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+                        <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                            <StackLayout VerticalOptions="Start" HorizontalOptions="Start" Padding="5"  >
+                                <Image Source="Upload2.png" HeightRequest="32" WidthRequest="32" />
+                            </StackLayout>
+                            <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                    <Button Text="Choose File" Command="{Binding Choosefilecommand}" HorizontalOptions="Start" Style="{StaticResource FontRobotoBold}"/>
+                                    <Label Text="{Binding selectedfilename}" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"/>
+                                </StackLayout>
+                                <Label x:Name="Localpath" Text="doc, docx, pdf are allowed"/>
+                                <!--<Button x:Name="uploadbtn" Text="Upload" Command="{Binding uploadfilecommand}"/>-->
+                            </StackLayout>
+                        </StackLayout>
+                       
+                       
+                    </StackLayout>
+                    
+                </StackLayout>
+            </ScrollView>
+      
+            <StackLayout VerticalOptions="End" HorizontalOptions="FillAndExpand" Padding="10">
+                <Button Text="Upload resume" FontSize="18" Command="{Binding Uploadresume}" Style="{StaticResource FontRobotoBold}" VerticalOptions="Start" HorizontalOptions="FillAndExpand" BackgroundColor="#fbaa19" TextColor="White" Parent="0,10,0,10" />
+                <Button Text="Find job openings" Clicked="Button_Clicked"  Style="{StaticResource FontRobotoBold}"  VerticalOptions="Start" HorizontalOptions="FillAndExpand" FontSize="18"  BackgroundColor="#6c757d" TextColor="White" Parent="0,10,0,10" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

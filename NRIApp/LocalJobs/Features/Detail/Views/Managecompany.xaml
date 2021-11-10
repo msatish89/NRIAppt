@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NRIApp.LocalJobs.Features.Detail.Views.Managecompany"
+             xmlns:SUL="clr-namespace:NRIApp.Controls"
+             xmlns:BH="clr-namespace:NRIApp.Behaviors">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="White" VerticalOptions="FillAndExpand">
+
+            <ScrollView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <StackLayout Padding="10" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Padding="5"  >
+                            <Image Source="MailIcon.png" HeightRequest="32" WidthRequest="32"   />
+                        </StackLayout>
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                            <SUL:CustomEntry x:Name="txtcontactemail" Style="{StaticResource FontRegularEntry}" VerticalOptions="CenterAndExpand" HideBorder="True"  Keyboard="Email" ReturnKeyType="Done"  HorizontalOptions="FillAndExpand" Text="{Binding ContactEmail}"  Placeholder="Contact Email"  PlaceholderColor="#c0c0c0" >
+                                <SUL:CustomEntry.Behaviors>
+                                    <BH:EmailValidatorBehavior/>
+                                </SUL:CustomEntry.Behaviors>
+                            </SUL:CustomEntry>
+                        </StackLayout>
+                    </StackLayout>
+                    <BoxView BackgroundColor="Gray" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,15">
+                    </BoxView>
+                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Padding="5">
+                            <Image Source="PhoneIcon.png" HeightRequest="32" WidthRequest="32"   />
+                        </StackLayout>
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                            <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                                <SUL:CustomPicker Title="+1"  x:Name="countrycode" Image="ic_arrow_drop_down" HeightRequest="32" HideBorder="True" WidthRequest="70"  SelectedItem="{Binding Countrycode}" Margin="0">
+                                    <SUL:CustomPicker.Items>
+                                        <x:String>+1</x:String>
+                                        <x:String>+91</x:String>
+                                    </SUL:CustomPicker.Items>
+                                </SUL:CustomPicker>
+                                <SUL:CustomEntry x:Name="txtcontactphone" Style="{StaticResource FontRegularEntry}" VerticalOptions="CenterAndExpand" Keyboard="Numeric" HideBorder="True" ReturnKeyType="Done" HorizontalOptions="FillAndExpand" Text="{Binding ContactPhone}"  Placeholder="98XXXXXX89"  PlaceholderColor="#c0c0c0" >
+                                    <SUL:CustomEntry.Behaviors>
+                                        <BH:NumericInputValidator />
+                                        <BH:MaxLengthValidator MaxLength="10"/>
+                                    </SUL:CustomEntry.Behaviors>
+                                </SUL:CustomEntry>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                    <BoxView BackgroundColor="Gray" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,15">
+                    </BoxView>
+
+                    <StackLayout HorizontalOptions="Center" IsVisible="{Binding validatephnovisible}" >
+                        <Button Text="Validate phone number"  Command="{Binding validatephoneno}" TextColor="White" Style="{StaticResource FontRobotoBold}"  HorizontalOptions="End" BackgroundColor="#0ba283"  />
+                    </StackLayout>
+
+                    <StackLayout IsVisible="{Binding phvalidatetxtvisible}"  VerticalOptions="Start" HorizontalOptions="FillAndExpand"  >
+                        <StackLayout VerticalOptions="Start" HorizontalOptions="Start"  Padding="5"  >
+                            <!--<Image Source="MessageIcon.png" HeightRequest="32" WidthRequest="32"   />-->
+                            <Label  Text="{Binding phvalidatetxt}"/>
+                            
+                            <StackLayout>
+                                <Label Text="Change Number" TextColor="#30a4ea"/>
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding changenumber}"/>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                            <!--<StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                <Entry Text="{Binding verifycode}"  Keyboard="Numeric" Placeholder="Code"  HorizontalOptions="FillAndExpand" />
+                            </StackLayout>-->
+                            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                <SUL:CustomEntry Text="{Binding verifycode}"  Keyboard="Numeric" Placeholder="Code"  HorizontalOptions="FillAndExpand" Style="{StaticResource FontRegularEntry}" VerticalOptions="CenterAndExpand" HideBorder="True"   ReturnKeyType="Done"   PlaceholderColor="#c0c0c0" >
+                                </SUL:CustomEntry>
+                                <BoxView BackgroundColor="#c2c2c2" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,15">
+                                </BoxView>
+                            </StackLayout>
+                            
+                            <StackLayout VerticalOptions="Start" HorizontalOptions="End">
+                                <Button Text="Verify" Command="{Binding verifyphoneno}" TextColor="White"  HorizontalOptions="End" BackgroundColor="#0ba283"  />
+                            </StackLayout>
+
+                        </StackLayout>
+                        
+
+
+                        <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0,0,0,15">
+                            <Label Text="Did not get a call? Click here to resend code"   FontSize="14" HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand" TextColor="#30a4ea"  />
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer  Command="{Binding resend}"/>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                    </StackLayout>
+                    
+
+                </StackLayout>
+                <!--validate phonenumber button-->
+                <!--Please verify your phone number
+You will receive an automated call announcing a 4 digit code on your Phone No (+1) - 9786010259. Enter the 4 digit code in the space provided.
+                change phoneno enter verification code  verify 
+                Did not get a call? Click here to resend code -->
+                
+            </ScrollView>
+            <StackLayout VerticalOptions="End" Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="10">
+                <!--<Button Text="Submit" Command="{Binding managecompanysubmit}" FontSize="18" VerticalOptions="Start" HorizontalOptions="FillAndExpand" BackgroundColor="#e30045" TextColor="White" Parent="0,10,0,10" />-->
+                <Button Text="Submit" Style="{StaticResource FontRobotoBold}" Command="{Binding managecompanysubmit}" FontSize="18" VerticalOptions="Start" HorizontalOptions="FillAndExpand" TextColor="#ffffff" BackgroundColor="#f89406" BorderColor="#f89406" BorderWidth="1" BorderRadius="4" Parent="0,10,0,10" />
+                
+                <!--<Button Text="View Phone Number" IsVisible="{Binding viewnumbervisible}" Grid.Row="0" Grid.Column="1" Command="{Binding Viewnumbercmd}" FontSize="18" VerticalOptions="Start" HorizontalOptions="FillAndExpand" BackgroundColor="#e30045" TextColor="White" Parent="0,10,0,10" />-->
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

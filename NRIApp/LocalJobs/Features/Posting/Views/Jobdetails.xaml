@@ -1,0 +1,291 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:b="clr-namespace:NRIApp.Helpers"
+              xmlns:SULB="clr-namespace:NRIApp.Behaviors"
+               xmlns:SUL="clr-namespace:NRIApp.Controls"
+             x:Class="NRIApp.LocalJobs.Features.Posting.Views.Jobdetails">
+    <ContentPage.Content>
+        
+        <AbsoluteLayout >
+            <StackLayout Margin="0,0,0,62"  BackgroundColor="White"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+                <ScrollView>
+
+                    <StackLayout Padding="20,15,20,15" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+
+                        <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0,0,0,20" >
+
+                            <Label Text="Job Location " TextColor="#919191" FontSize="12" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Style="{StaticResource FontRegular}" Margin="0,0,0,-10"    />
+                            <StackLayout   VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                <SUL:CustomEntry x:Name="txtajxcity" Style="{StaticResource FontRegularEntry}" VerticalOptions="CenterAndExpand" HideBorder="True" FontSize="13" HorizontalOptions="FillAndExpand" Text="{Binding Trainingcity}"  Placeholder="Job Location" ReturnKeyType="Done" PlaceholderColor="#c0c0c0" >
+                                </SUL:CustomEntry>
+
+                                <BoxView BackgroundColor="#999999" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,0" />
+                            </StackLayout>
+
+                        </StackLayout>
+
+                        <StackLayout IsVisible="{Binding CityVisible}" Margin="0,-15,0,0">
+                            <b:HVScrollGridView ListOrientation="Vertical"
+                                    ItemsSource="{Binding CityAjax}"
+									VerticalOptions="Start" x:Name="listajxcity">
+                                <b:HVScrollGridView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ContentView>
+                                            <ContentView.Content>
+                                                <StackLayout BackgroundColor="#f8f8f8">
+                                                    <StackLayout Padding="10,5,10,5"  VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+                                                        <Label FontSize="14" Text="{Binding fullcity}"  Style="{StaticResource FontRegular}" TextColor="#212121" Margin="0,0,0,5" />
+
+                                                        <BoxView HeightRequest="1" BackgroundColor="#e0e0e0" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand"/>
+
+                                                    </StackLayout>
+                                                    <StackLayout.GestureRecognizers>
+                                                        <TapGestureRecognizer Command="{Binding Path=BindingContext.Cityajaxcommand, Source = {x:Reference listajxcity}}" CommandParameter="{Binding}"/>
+                                                    </StackLayout.GestureRecognizers>
+                                                </StackLayout>
+                                            </ContentView.Content>
+                                        </ContentView>
+                                    </DataTemplate>
+                                </b:HVScrollGridView.ItemTemplate>
+                            </b:HVScrollGridView>
+
+                        </StackLayout>
+
+
+
+
+                        <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0,0,0,20" >
+
+                            <Label Text="Ad Title " TextColor="#919191" FontSize="12" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Style="{StaticResource FontRegular}" Margin="0,0,0,-10"    />
+                            <StackLayout   VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                <SUL:CustomEntry x:Name="adtitle" Style="{StaticResource FontRegularEntry}" HideBorder="true"  FontSize="13" Text="{Binding AdTitle}" ReturnKeyType="Next" NextView="{x:Reference ADdescription}" Placeholder="Enter AD Title"/>
+
+                                <BoxView BackgroundColor="#999999" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,0" />
+                            </StackLayout>
+
+                        </StackLayout>
+
+
+                        <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0,0,0,20" >
+
+                            <Label Text="Enter a detailed description " TextColor="#919191" FontSize="12" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Style="{StaticResource FontRegular}" Margin="0,0,0,-5"    />
+                            <StackLayout   VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                <Editor x:Name="ADdescription" Text="{Binding Desc}" HeightRequest="100"   />
+                            </StackLayout>
+
+                        </StackLayout>
+
+
+                        <StackLayout  VerticalOptions="Center" HorizontalOptions="FillAndExpand" Padding="0,0,0,20"  >
+                            <Label Text="Experience"  TextColor="#919191" FontSize="12" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Style="{StaticResource FontRegular}" Margin="0,0,0,-5"     />
+                            <Grid IsVisible="{Binding expvisible}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="20" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+
+                                <StackLayout Grid.Column="0" Grid.Row="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand"  Margin="0,0,10,0"  >
+                                    <SUL:CustomEntry x:Name="txtminexp"  Style="{StaticResource FontRegularEntry}" Text="{Binding Minexp}" Placeholder="Min Exp" HideBorder="true" Keyboard="Numeric" HorizontalOptions="FillAndExpand" NextView="{x:Reference txtmaxexp}" ReturnKeyType="Next"   PlaceholderColor="#c0c0c0"  FontSize="13"   >
+                                        <SUL:CustomEntry.Behaviors>
+                                            <!--<SULB:NumericInputValidator>
+                                            </SULB:NumericInputValidator>-->
+                                            <SULB:MaxLengthValidator MaxLength="2"/>
+                                        </SUL:CustomEntry.Behaviors>
+                                    </SUL:CustomEntry>
+                                    <!--<Entry x:Name="txtminexp" Text="{Binding Minexp}" Placeholder="2 years" Keyboard="Numeric"   HorizontalOptions="FillAndExpand" />-->
+
+                                    <BoxView BackgroundColor="#999999" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,0" />
+                                </StackLayout>
+
+                                <StackLayout Grid.Column="1" Grid.Row="0"  VerticalOptions="Center" HorizontalOptions="Start" >
+                                    <Label Text="to " TextColor="#888888" FontSize="12" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Style="{StaticResource FontRegular}"  Margin="0,8,0,0"  />
+                                </StackLayout>
+
+                                <StackLayout Grid.Column="2" Grid.Row="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand" >
+                                    <SUL:CustomEntry x:Name="txtmaxexp" Style="{StaticResource FontRegularEntry}" Text="{Binding Maxexp}" Placeholder="Max Exp" HideBorder="true" Keyboard="Numeric" HorizontalOptions="FillAndExpand" NextView="{x:Reference txtminsal}" ReturnKeyType="Next"   PlaceholderColor="#c0c0c0"  FontSize="13"   >
+                                        <SUL:CustomEntry.Behaviors>
+                                            <!--<SULB:NumericInputValidator >
+                                            </SULB:NumericInputValidator>-->
+                                            <SULB:MaxLengthValidator MaxLength="2"/>
+                                        </SUL:CustomEntry.Behaviors>
+                                    </SUL:CustomEntry>
+                                    <!--<Entry x:Name="txtmaxexp" Text="{Binding Maxexp}" Placeholder="5 years" Keyboard="Numeric"   HorizontalOptions="FillAndExpand" />-->
+
+                                    <BoxView BackgroundColor="#999999" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,0" />
+                                </StackLayout>
+                            </Grid>
+                            <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Orientation="Horizontal" Margin="0,10,0,0">
+                                <Image x:Name="checkbxfresherimg" Source="CheckBoxUnChecked.png" HeightRequest="18" WidthRequest="18" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  >
+                                    <!--<Image.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding TCcheckcmd}"/>
+                                    </Image.GestureRecognizers>-->
+                                </Image>
+                                <Label Text="Fresher" TextColor="#212121" FontSize="14" Style="{StaticResource FontRegular}" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding TCfreshercheckcmd}"/>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                        </StackLayout>
+
+
+
+                        <StackLayout  VerticalOptions="Center" HorizontalOptions="FillAndExpand" Padding="0,0,0,20"  >
+                            <Label Text="Salary (in $)" TextColor="#919191" FontSize="12" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Style="{StaticResource FontRegular}" Margin="0,0,0,-5"     />
+                            <Grid IsVisible="{Binding salaryvisible}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="20" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+
+                                <StackLayout Grid.Column="0" Grid.Row="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand"  Margin="0,0,10,0"  >
+                                    <SUL:CustomEntry x:Name="txtminsal" Style="{StaticResource FontRegularEntry}" Text="{Binding Minsal}" Placeholder="Min Salary in $" HideBorder="true" Keyboard="Numeric" HorizontalOptions="FillAndExpand" NextView="{x:Reference txtmaxsal}" ReturnKeyType="Next"   PlaceholderColor="#c0c0c0"  FontSize="14">
+                                        <!--<SUL:CustomEntry.Behaviors>
+                                            <SULB:NumericInputValidator >
+                                            </SULB:NumericInputValidator>
+                                            </SUL:CustomEntry.Behaviors>-->
+                                    </SUL:CustomEntry>
+                                    <!--<Entry x:Name="txtminsal" Text="{Binding Minsal}" Placeholder="1000" Keyboard="Numeric"   HorizontalOptions="FillAndExpand" />-->
+
+                                    <BoxView BackgroundColor="#999999" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,0" />
+                                </StackLayout>
+
+                                <StackLayout Grid.Column="1" Grid.Row="0"  VerticalOptions="Center" HorizontalOptions="Start" >
+                                    <Label Text="to " TextColor="#888888" FontSize="12" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Style="{StaticResource FontRegular}"  Margin="0,8,0,0"  />
+                                </StackLayout>
+
+                                <StackLayout Grid.Column="2" Grid.Row="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand" >
+                                    <SUL:CustomEntry x:Name="txtmaxsal" Style="{StaticResource FontRegularEntry}" Text="{Binding Maxsal}" Placeholder="Max Salary" HideBorder="true" Keyboard="Numeric" HorizontalOptions="FillAndExpand" NextView="{x:Reference txtmaxsal}" ReturnKeyType="Done"   PlaceholderColor="#c0c0c0"  FontSize="14">
+                                        <!--<SUL:CustomEntry.Behaviors>
+                                            <SULB:NumericInputValidator>
+                                            </SULB:NumericInputValidator>
+                                        </SUL:CustomEntry.Behaviors>-->
+                                    </SUL:CustomEntry>
+                                    <!--<Entry x:Name="txtmaxsal" Text="{Binding Maxsal}" Placeholder="2000" Keyboard="Numeric"   HorizontalOptions="FillAndExpand" />-->
+
+                                    <BoxView BackgroundColor="#999999" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,0" />
+                                </StackLayout>
+
+                                <StackLayout Grid.Column="3" Grid.Row="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand"  >
+                                    <Label x:Name="salmodetxt" Text="{Binding Selsalmodetxt}" Style="{StaticResource FontRegular}" TextColor="#919191" FontSize="13" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Margin="5,10,0,5"  />
+                                    <BoxView BackgroundColor="#999999" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="3,3,0,0" />
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Taponsalmode}"/>
+                                    </StackLayout.GestureRecognizers>
+                                    
+                                </StackLayout>
+
+                            </Grid>
+
+                            <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Orientation="Horizontal" Margin="0,10,0,0">
+                                <Image x:Name="checkbximg" Source="CheckBoxUnChecked.png" HeightRequest="18" WidthRequest="18" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  >
+                                    <!--<Image.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding TCcheckcmd}"/>
+                                    </Image.GestureRecognizers>-->
+                                </Image>
+                                <Label Text="Best in industry" TextColor="#212121" FontSize="14" Style="{StaticResource FontRegular}" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding TCcheckcmd}"/>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                           
+                        </StackLayout>
+
+
+                        <StackLayout  VerticalOptions="Center" HorizontalOptions="FillAndExpand" Padding="0,0,0,20"  >
+
+                            <Label Text="Employment Type" Style="{StaticResource FontRegular}" TextColor="#919191" FontSize="12"  VerticalOptions="Start" HorizontalOptions="FillAndExpand" />
+
+                            <Grid>
+                                <StackLayout Grid.Row="0" Grid.Column="0" HorizontalOptions="FillAndExpand" x:Name="Employmenttypelayout"  VerticalOptions="Start" Margin="0,0,10,0"   >
+                                </StackLayout>
+                                <StackLayout Grid.Row="0" Grid.Column="1" HorizontalOptions="FillAndExpand" x:Name="Employmenttypelayout1"  VerticalOptions="Start"  >
+                                </StackLayout>
+                            </Grid>
+
+                        </StackLayout>
+
+                        <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+
+
+                            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="15,10,15,15">
+                                <Label Text="Company Type " Style="{StaticResource FontRegular}" TextColor="#919191" FontSize="12"  VerticalOptions="Start" HorizontalOptions="FillAndExpand" />
+                                <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand"  >
+
+                                    <!--<StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0,0,0,-10">
+                                        <Label Text="Company Type" Style="{StaticResource FontRegular}"  FontSize="14" TextColor="#212121" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" />
+                                    </StackLayout>-->
+                                    <StackLayout x:Name="metrolayout" ClassId="1" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Orientation="Horizontal" Margin="0,0,0,5"  >
+                                        <Image  Source="{Binding RecImg}" HeightRequest="16" WidthRequest="16" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   />
+                                        <Label Text="Recruiter"  FontSize="14" Style="{StaticResource FontRegular}" TextColor="#878787" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   />
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding TapRecruiter}"/>
+                                        </StackLayout.GestureRecognizers>
+                                    </StackLayout>
+                                    <StackLayout  VerticalOptions="Start" HorizontalOptions="FillAndExpand" Orientation="Horizontal" Margin="0,0,0,5" >
+                                        <Image  Source="{Binding ConsuImg}" HeightRequest="16" WidthRequest="16" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   />
+                                        <Label Text="Consultancy"  FontSize="14" Style="{StaticResource FontRegular}" TextColor="#878787" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   />
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding TapConsultant}"/>
+                                        </StackLayout.GestureRecognizers>
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+
+                        </StackLayout>
+                    </StackLayout>
+                </ScrollView>
+
+            </StackLayout>
+            <StackLayout x:Name="contentlayout"   HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="#C0808080"  Padding="10" IsVisible="{Binding salmodetypevisible}" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <Frame BackgroundColor="White" CornerRadius="4"  Padding="10" HeightRequest="300" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                    <StackLayout IsVisible="{Binding salmodetypevisible}">
+                        <b:ListviewScrollbar x:Name="salmodetype" HasUnevenRows="True" SeparatorVisibility="None" ItemsSource="{Binding salmodedata}" >
+
+                            <b:ListviewScrollbar.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <Frame Margin="0" Padding="0" HasShadow="False">
+                                            <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="10,5,10,10"  >
+                                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Padding="2"  >
+                                                    <Image Source="{Binding checkimage}" HeightRequest="20"  WidthRequest="20"  VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  />
+                                                    <Label Style="{StaticResource FontRegular}" Text="{Binding salmode}" FontSize="14" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" TextColor="#212121"  />
+
+                                                </StackLayout>
+                                                <BoxView HeightRequest="1" BackgroundColor="#e0e0e0" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand"/>
+                                                <StackLayout.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding Path=BindingContext.TapSelectsalmode, Source = {x:Reference salmodetype}}" CommandParameter="{Binding}"/>
+                                                </StackLayout.GestureRecognizers>
+                                            </StackLayout>
+                                        </Frame>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </b:ListviewScrollbar.ItemTemplate>
+                        </b:ListviewScrollbar>
+                    </StackLayout>
+                </Frame>
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ContentViewTap}"/>
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+            <StackLayout VerticalOptions="End" HorizontalOptions="FillAndExpand"  AbsoluteLayout.LayoutBounds="0,1,1,1" AbsoluteLayout.LayoutFlags="All">
+                <Button Command="{Binding Sbmtjobdetailscommand}" BackgroundColor="#fbaa19" TextColor="White" Parent="0,10,0,10" Text="Next" VerticalOptions="End" HorizontalOptions="FillAndExpand"/>
+                <StackLayout.Padding>
+                    <OnPlatform x:TypeArguments="Thickness" iOS="10,10,10,20" Android="10"></OnPlatform>
+                </StackLayout.Padding>
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

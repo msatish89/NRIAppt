@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:SUL="clr-namespace:NRIApp.Controls"
+             x:Class="NRIApp.Signin.Views.Login" NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <Grid>
+        <RelativeLayout>
+            <Image Source="LoginBg2.png"   Aspect="AspectFill" 
+                RelativeLayout.WidthConstraint=
+                  "{ConstraintExpression Type=RelativeToParent, Property=Width}"
+                RelativeLayout.HeightConstraint=
+                  "{ConstraintExpression Type=RelativeToParent, Property=Height}"/>
+
+            <Grid RelativeLayout.WidthConstraint=
+              "{ConstraintExpression Type=RelativeToParent, Property=Width}"
+            RelativeLayout.HeightConstraint=
+              "{ConstraintExpression Type=RelativeToParent, Property=Height}">
+
+                    <StackLayout Padding="0,10,0,10" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                        <StackLayout Margin="30,0,30,0" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+
+                            <Image Source="SulekhaIcon.png" HeightRequest="72" WidthRequest="72" VerticalOptions="Start" HorizontalOptions="Center" Margin="0,0,0,20"  />
+                            <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                                <SUL:CustomEntry Text="{Binding UEmail}" Style="{StaticResource FontRegularEntry}" HideBorder="True" Keyboard="Email" Placeholder="Email ID" PlaceholderColor="#6f6c51" NextView="{x:Reference txtpass}" ReturnKeyType="Next" TextColor="#333333" />
+                                <BoxView BackgroundColor="Gray" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,15"/>
+                            </StackLayout>
+
+                        <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                                <SUL:CustomEntry x:Name="txtpass" Style="{StaticResource FontRegularEntry}" HideBorder="True" Placeholder="Password" Text="{Binding Password}" IsPassword="True" PlaceholderColor="#6f6c51" ReturnKeyType="Go"  Command="{Binding firstsignincommand}" CommandParameter="{x:Reference btnsign}" TextColor="#333333"/>
+                                <BoxView BackgroundColor="Gray" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,15"/>
+                            </StackLayout>
+
+                        <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                            <Label Text="Forgot Password?" TextColor="#6f6c51" FontSize="12" HorizontalOptions="End" HorizontalTextAlignment="End"  />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding openforgotpass}"></TapGestureRecognizer>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+
+                        <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0,20,0,20" >
+                                <Button x:Name="btnsign" Text="SIGN IN" Command="{Binding signincommand}" FontSize="18" VerticalOptions="Start" HorizontalOptions="FillAndExpand" BackgroundColor="#f89406" TextColor="White" Parent="0,10,0,10" />
+                        </StackLayout>
+
+                          <!--<StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand"  >
+                            <Label Text=" OR CONNECT WITH" TextColor="#6f6c51" FontSize="12" HorizontalTextAlignment="Center"  />
+                        </StackLayout>
+
+                       <StackLayout Padding="0,20,0,0">
+
+                            <Grid  VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand" ColumnSpacing="20" >
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+
+                                <StackLayout Grid.Column="0" Grid.Row="0" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand"  >
+                                    <Image Source="facebook.png"  HorizontalOptions="End" VerticalOptions="Start" HeightRequest="48" WidthRequest="48"/>
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="Facebook_Tapped"/>
+                                        </StackLayout.GestureRecognizers>
+                                </StackLayout>
+
+                                <StackLayout Grid.Column="1" Grid.Row="0" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand"  >
+                                    <Image Source="twitter.png"  HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="48" WidthRequest="48"/>
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="Google_Tapped"/>
+                                        </StackLayout.GestureRecognizers>
+                                </StackLayout>
+
+                            </Grid>
+
+                        </StackLayout>-->
+
+
+
+                    </StackLayout>
+
+                        <StackLayout  VerticalOptions="End" HorizontalOptions="FillAndExpand" Padding="20" >
+
+                            <Grid >
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+
+                                <StackLayout Grid.Column="0" Grid.Row="0" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  >
+                                    <Label Text="Don't Have An Account?" TextColor="#333333" FontSize="14"  HorizontalOptions="Start" HorizontalTextAlignment="Start"></Label>
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding opensignup}"></TapGestureRecognizer>
+                                    </StackLayout.GestureRecognizers>
+                                </StackLayout>
+
+                                <StackLayout Grid.Column="1" Grid.Row="0" VerticalOptions="CenterAndExpand" HorizontalOptions="End"  >
+                                <Label Text="SKIP" TextColor="#333333" FontSize="16" HorizontalOptions="End" HorizontalTextAlignment="End"  />
+                                <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding skipcommand}"></TapGestureRecognizer>
+                                        <!--<TapGestureRecognizer Tapped="btnclick"></TapGestureRecognizer>-->
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+
+                            </Grid>
+                        </StackLayout>
+                    </StackLayout>
+            </Grid>
+        </RelativeLayout>
+          
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NRIApp.Roommates.Features.Post.Views.postsecond"
+             xmlns:H="clr-namespace:NRIApp.Helpers"
+             xmlns:SUL="clr-namespace:NRIApp.Controls"
+             xmlns:b="clr-namespace:NRIApp.Behaviors">
+
+    <ContentPage.Content>
+        <AbsoluteLayout >
+            <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All"
+                          VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                <ScrollView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Margin="0,0,0,50">
+                    <StackLayout  BackgroundColor="White" VerticalOptions="FillAndExpand" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All" >
+
+                      
+
+                        <ScrollView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                            <StackLayout Padding="10" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                               
+                                <StackLayout  VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0,0,0,15">
+                                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand"  >
+                                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Padding="5"  >
+                                            <Image Source="CalendarIcon.png" HeightRequest="32" WidthRequest="32"   />
+                                        </StackLayout>
+
+                                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                            <DatePicker Date="{Binding FrDate}" MinimumDate="{Binding FrDate}" />
+                                        </StackLayout>
+                                    </StackLayout>
+                                    <Label Text="Available From" Style="{StaticResource FontRegular}" TextColor="#919191" FontSize="12" Margin="50,-10,0,0" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   />
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+                                    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Padding="5"  >
+                                        <Image Source="GenderIcon.png" HeightRequest="32" WidthRequest="32" />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Padding="0" >
+
+                                        <StackLayout VerticalOptions="Center" HorizontalOptions="Start" Orientation="Horizontal" Margin="0,0,10,0"  >
+                                            <Image Source="{Binding MaleImg}" HeightRequest="16" WidthRequest="16" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   />
+                                            <Label Text="Male" Style="{StaticResource FontRegular}" TextColor="#212121" FontSize="18" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   />
+                                            <StackLayout.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding GenderMaleCommand}"/>
+                                            </StackLayout.GestureRecognizers>
+                                        </StackLayout>
+
+                                        <StackLayout VerticalOptions="Center" HorizontalOptions="Start" Orientation="Horizontal" Margin="0,0,10,0">
+                                            <Image Source="{Binding FeMaleImg}" HeightRequest="16" WidthRequest="16"   VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  />
+                                            <Label Text="Female" Style="{StaticResource FontRegular}" TextColor="#212121" FontSize="18" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  />
+                                            <StackLayout.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding GenderFemaleCommand}"/>
+                                            </StackLayout.GestureRecognizers>
+                                        </StackLayout>
+
+                                        <StackLayout VerticalOptions="Center" HorizontalOptions="Start" Orientation="Horizontal"   >
+                                            <Image Source="{Binding AnyImg}" HeightRequest="16" WidthRequest="16" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   />
+                                            <Label Text="Any" Style="{StaticResource FontRegular}" TextColor="#212121" FontSize="18" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   />
+                                            <StackLayout.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding GenderAnyCommand}"/>
+                                            </StackLayout.GestureRecognizers>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </StackLayout>
+                                <BoxView BackgroundColor="Gray" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,0,0,0">
+                                </BoxView>
+                                <Label Text="Preferred gender" Style="{StaticResource FontRegular}"   TextColor="#919191" FontSize="12" Margin="50,-5,0,0" VerticalOptions="Start" HorizontalOptions="Start"   />
+
+                                <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+                                    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Padding="5"   >
+                                        <Image Source="LocationIcon.png" HeightRequest="32" WidthRequest="32"   />
+                                    </StackLayout>
+                                    <!--<BoxView WidthRequest="1" BackgroundColor="Red" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" HeightRequest="30" />-->
+                                    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                        <!--<Entry  Placeholder="Room Address" PlaceholderColor="#c0c0c0" Text="{Binding LocationAddress}"/>-->
+                                        <SUL:CustomEntry x:Name="txtroomaddress" Style="{StaticResource FontRegularEntry}" VerticalOptions="CenterAndExpand" HideBorder="True" HorizontalOptions="FillAndExpand" Text="{Binding LocationAddress}" Placeholder="Room Address" ReturnKeyType="Done"  PlaceholderColor="#c0c0c0">
+                                        </SUL:CustomEntry>
+                                    </StackLayout>
+                                </StackLayout>
+                                <BoxView BackgroundColor="Gray" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,15">
+                                </BoxView>
+                                <StackLayout Margin="35,-15,0,0" IsVisible="{Binding IsBusy}">
+                                    <H:HVScrollGridView ListOrientation="Vertical"
+                                    ItemsSource="{Binding googleadd}"
+                                   x:Name="listlocaddress"
+                                    VerticalOptions="Start">
+                                        <H:HVScrollGridView.ItemTemplate>
+                                            <DataTemplate>
+                                                <ContentView>
+                                                    <ContentView.Content>
+                                                        <StackLayout BackgroundColor="#f8f8f8"  >
+                                                            <StackLayout Padding="10,5,10,5"  VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+                                                                <Label FontSize="14" Text="{Binding Description}" Style="{StaticResource FontRegular}" TextColor="#212121" Margin="0,0,0,5" />
+
+                                                                <BoxView HeightRequest="1" BackgroundColor="#e0e0e0" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand"/>
+
+                                                            </StackLayout>
+                                                            <StackLayout.GestureRecognizers>
+                                                                <TapGestureRecognizer Command="{Binding Path=BindingContext.Selectgoogleaddress, Source = {x:Reference listlocaddress}}" CommandParameter="{Binding}"/>
+                                                            </StackLayout.GestureRecognizers>
+                                                        </StackLayout>
+                                                    </ContentView.Content>
+                                                </ContentView>
+                                            </DataTemplate>
+                                        </H:HVScrollGridView.ItemTemplate>
+                                    </H:HVScrollGridView>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand"  >
+
+                                    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  Padding="5"   >
+                                        <Image Source="DollarSymbol.png" HeightRequest="32" WidthRequest="32"   />
+                                    </StackLayout>
+                                    <!--<BoxView WidthRequest="1" BackgroundColor="Red" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" HeightRequest="30" />-->
+                                    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                        <!--<Entry Text="{Binding txtrent}" Keyboard="Numeric"  Placeholder="Expected Rent in $" PlaceholderColor="#c0c0c0"  >
+                                <Entry.Behaviors>
+                                    <BH:MaxLengthValidator  MaxLength="6" />
+                                </Entry.Behaviors>
+                            </Entry>-->
+                                        <SUL:CustomEntry x:Name="txtrent" Style="{StaticResource FontRegularEntry}" VerticalOptions="CenterAndExpand" HideBorder="True" HorizontalOptions="FillAndExpand" Text="{Binding txtrent}" Keyboard="Numeric" Placeholder="Expected Rent in $" ReturnKeyType="Done"  PlaceholderColor="#c0c0c0">
+                                            <SUL:CustomEntry.Behaviors>
+                                                <b:MaxLengthValidator MaxLength="6" />
+                                            </SUL:CustomEntry.Behaviors>
+                                        </SUL:CustomEntry>
+                                    </StackLayout>
+                                </StackLayout>
+                                <BoxView BackgroundColor="Gray" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,15">
+                                </BoxView>
+                                <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="10,0,0,15" Margin="40,0,0,0" >
+                                    <StackLayout VerticalOptions="Center" HorizontalOptions="Start" Orientation="Horizontal" Margin="0,0,10,0"  >
+                                        <Image Source="{Binding RentNegoImg}" HeightRequest="16" WidthRequest="16" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   />
+                                        <Label Text="Negotiable" Style="{StaticResource FontRegular}" TextColor="Gray" FontSize="14" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   />
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding RentNegoCommand}"/>
+                                        </StackLayout.GestureRecognizers>
+                                    </StackLayout>
+                                    <StackLayout VerticalOptions="Center" HorizontalOptions="Start" Orientation="Horizontal"  >
+                                        <Image Source="{Binding RentHideImg}" HeightRequest="16" WidthRequest="16" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   />
+                                        <Label Text="Hide Rent" Style="{StaticResource FontRegular}" TextColor="Gray" FontSize="14" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   />
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding RentHideCommand}"/>
+                                        </StackLayout.GestureRecognizers>
+                                    </StackLayout>
+                                </StackLayout>
+                                <StackLayout x:Name="Pricemode" Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Padding="5"  >
+                                        <Image Source="MoreIcon3.png" HeightRequest="32" WidthRequest="32"   />
+                                    </StackLayout>
+
+                                    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                        <Label x:Name="pricemodetxt" Text="{Binding pricemodetxt}" Style="{StaticResource FontRegular}" TextColor="#c0c0c0" FontSize="18" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   />
+                                    </StackLayout>
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Taponpricemode}"/>
+                                    </StackLayout.GestureRecognizers>
+                                </StackLayout>
+                                <BoxView BackgroundColor="Gray" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,15"/>
+                                <StackLayout x:Name="Stayperiod" Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Padding="5"  >
+                                        <Image Source="PriceMode.png" HeightRequest="32" WidthRequest="32"   />
+                                    </StackLayout>
+
+                                    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                        <Label x:Name="leasetypetxt" Text="{Binding leasetypetxt}" Style="{StaticResource FontRegular}" TextColor="#c0c0c0" FontSize="18" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   />
+                                    </StackLayout>
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Taponstayperiod}"/>
+                                    </StackLayout.GestureRecognizers>
+                                </StackLayout>
+                                <BoxView BackgroundColor="Gray" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,15"/>
+                                <StackLayout x:Name="Accomodates" Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Padding="5"  >
+                                        <Image Source="Accommodates.png" HeightRequest="32" WidthRequest="32"   />
+                                    </StackLayout>
+
+                                    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                        <Label x:Name="accomodatestxt" Text="{Binding accomodatestxt}" Style="{StaticResource FontRegular}" TextColor="#c0c0c0" FontSize="18" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   />
+                                    </StackLayout>
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Taponaccomodates}"/>
+                                    </StackLayout.GestureRecognizers>
+                                </StackLayout>
+                                <BoxView BackgroundColor="Gray" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,15"/>
+                                <StackLayout x:Name="Attachedbath" Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Padding="5"  >
+                                        <Image Source="BathRoom2.png" HeightRequest="32" WidthRequest="32"   />
+                                    </StackLayout>
+
+                                    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                        <Label x:Name="attachedbathtxt" Text="{Binding attachedbathtxt}" Style="{StaticResource FontRegular}" TextColor="#c0c0c0" FontSize="18" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   />
+                                    </StackLayout>
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Taponattachedbathtype}"/>
+                                    </StackLayout.GestureRecognizers>
+                                </StackLayout>
+                                <BoxView BackgroundColor="Gray" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,15"/>
+                                <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+                                    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Padding="5"  >
+                                        <Image Source="Upload2.png" HeightRequest="32" WidthRequest="32"   />
+                                    </StackLayout>
+
+                                    <!--<BoxView WidthRequest="1" BackgroundColor="Red" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" HeightRequest="30" />-->
+
+                                    <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                        <!--<SUL:CustomEntry x:Name="Profilpic"   VerticalOptions="CenterAndExpand" HideBorder="True" HorizontalOptions="FillAndExpand"  ReturnKeyType="Done"  Placeholder="Enter your License number"  PlaceholderColor="#c0c0c0" />-->
+                                        <Label Text="Add Photos"  VerticalOptions="CenterAndExpand"/>
+                                        <Button Text="Browse" FontSize="14" WidthRequest="100" Margin="0" Command="{Binding Adphotos}"  Style="{StaticResource FontRegular}"  VerticalOptions="Start" HorizontalOptions="CenterAndExpand" BorderColor="Gray" BorderWidth="1" BackgroundColor="Gray" TextColor="#ffffff" />
+                                        <!--<Button Text="Choose Files" Command="{Binding Adphotos}" />-->
+                                    </StackLayout>
+
+                                    
+
+                                    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                        <!--<SUL:CustomEntry x:Name="Profilpic"   VerticalOptions="CenterAndExpand" HideBorder="True" HorizontalOptions="FillAndExpand"  ReturnKeyType="Done"  Placeholder="Enter your License number"  PlaceholderColor="#c0c0c0" />-->
+                                        <Label Text="{Binding selectedphotocount}" />
+                                    </StackLayout>
+                                </StackLayout>
+                                <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                    <H:HVScrollGridView x:Name="multiimglist" ListOrientation="Horizontal">
+                                        <H:HVScrollGridView.ItemTemplate>
+                                            <DataTemplate>
+                                                <ContentView>
+                                                    <ContentView.Content>
+                                                        <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand"  Padding="10">
+                                                            <StackLayout VerticalOptions="Start" HorizontalOptions="Start" BackgroundColor="#e8e9e9"    Padding="5"  >
+                                                                <AbsoluteLayout>
+                                                                    <Image Source="{Binding .}"
+                                           AbsoluteLayout.LayoutBounds="0,0,80,80" AbsoluteLayout.LayoutFlags="PositionProportional" />
+
+                                                                    <Image Source="CloseIconFull2.png" HeightRequest="20" WidthRequest="20"  HorizontalOptions="End" 
+                                           AbsoluteLayout.LayoutBounds=".99,-.2,.25,.25" AbsoluteLayout.LayoutFlags="All"  Margin="0,0,-10,0">
+                                                                        <Image.GestureRecognizers>
+                                                                            <TapGestureRecognizer Command="{Binding Path=BindingContext.Removeimg, Source={x:Reference multiimglist}}" CommandParameter="{Binding}" />
+                                                                        </Image.GestureRecognizers>
+                                                                    </Image>
+                                                                </AbsoluteLayout>
+                                                            </StackLayout>
+                                                        </StackLayout>
+                                                    </ContentView.Content>
+                                                </ContentView>
+                                            </DataTemplate>
+                                        </H:HVScrollGridView.ItemTemplate>
+                                    </H:HVScrollGridView>
+                                </StackLayout>
+
+                                <!--<StackLayout IsVisible="{Binding agentppvisible}" Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+                            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Padding="5"  >
+                                <Image Source="UserIcon.png" HeightRequest="32" WidthRequest="32"   />
+                            </StackLayout>
+
+                            <BoxView WidthRequest="1" BackgroundColor="Red" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" HeightRequest="30" />
+
+                            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                <Label Text="Agent profile photo"/>
+                                <Button Text="Choose photo" Command="{Binding selectProfilephoto}"/>
+                                <Label x:Name="Localpath" />
+                            </StackLayout>
+                        </StackLayout>
+                        <BoxView BackgroundColor="Gray" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,15">
+                        </BoxView>-->
+
+                                <BoxView IsVisible="{Binding agentppvisible}" BackgroundColor="Gray" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,15"/>
+                                <StackLayout IsVisible="{Binding agentppvisible}" Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+                                    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Padding="5"  >
+                                        <Image Source="UserIcon.png" HeightRequest="32" WidthRequest="32"   />
+                                    </StackLayout>
+
+                                    <!--<BoxView WidthRequest="1" BackgroundColor="Red" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" HeightRequest="30" />-->
+
+                                    <StackLayout Orientation="Horizontal"  VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                        <!--<SUL:CustomEntry x:Name="Profilpic"   VerticalOptions="CenterAndExpand" HideBorder="True" HorizontalOptions="FillAndExpand"  ReturnKeyType="Done"  Placeholder="Enter your License number"  PlaceholderColor="#c0c0c0" />-->
+                                        <Label Text="Agent profile photo"  VerticalOptions="CenterAndExpand" />
+                                        
+                                        <!--<Label x:Name="Localpath" />-->
+                                        <StackLayout IsVisible="{Binding agentpicselected}" VerticalOptions="Start" HorizontalOptions="Start" BackgroundColor="#e8e9e9"    Padding="5"  >
+                                            <AbsoluteLayout>
+                                                <Image x:Name="agentprofilepic"
+                                           AbsoluteLayout.LayoutBounds="0,0,80,80" AbsoluteLayout.LayoutFlags="PositionProportional" />
+                                                <Image Source="CloseIconFull2.png" HeightRequest="20" WidthRequest="20"  HorizontalOptions="End"  Margin="0,0,-10,0" 
+                                           AbsoluteLayout.LayoutBounds=".99,-.2,.25,.25" AbsoluteLayout.LayoutFlags="All">
+                                                    <Image.GestureRecognizers>
+                                                        <TapGestureRecognizer Command="{Binding Removeprofilepic}" />
+                                                    </Image.GestureRecognizers>
+                                                </Image>
+                                            </AbsoluteLayout>
+                                        </StackLayout>
+                                        <Button Text="Browse" FontSize="14" WidthRequest="100" Margin="0" Command="{Binding selectProfilephoto}"  Style="{StaticResource FontRegular}"  VerticalOptions="Start" HorizontalOptions="CenterAndExpand" BorderColor="Gray" BorderWidth="1" BackgroundColor="Gray" TextColor="#ffffff" />
+                                        <!--<Button Text="Choose photo" Command="{Binding selectProfilephoto}" />-->
+                                    </StackLayout>
+
+
+
+                                    <!--<StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                        --><!--<SUL:CustomEntry x:Name="Profilpic"   VerticalOptions="CenterAndExpand" HideBorder="True" HorizontalOptions="FillAndExpand"  ReturnKeyType="Done"  Placeholder="Enter your License number"  PlaceholderColor="#c0c0c0" />--><!--
+                                        <Label Text="{Binding selectedphotocount}" />
+                                    </StackLayout>-->
+                                </StackLayout>
+
+
+                                <!--<BoxView BackgroundColor="Gray" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,15">
+                                </BoxView>-->
+                                <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                    <Label Text="T &amp; C Apply" Style="{StaticResource FontRegular}" FontSize="12" HorizontalOptions="End" HorizontalTextAlignment="End">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="gototc"></TapGestureRecognizer>
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                </StackLayout>
+                            </StackLayout>
+                        </ScrollView>
+
+                        <!--<StackLayout VerticalOptions="End" HorizontalOptions="FillAndExpand" Padding="10">
+                            <Button Text="Submit" Command="{Binding postcmdsecond}" FontSize="18" VerticalOptions="Start" HorizontalOptions="FillAndExpand" BackgroundColor="#fbaa19" TextColor="White" Parent="0,10,0,10"  />
+                        </StackLayout>-->
+
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+            <!--<StackLayout x:Name="contentlayout" BackgroundColor="#C0808080"  Padding="10" IsVisible="{Binding contentviewvisible}" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">-->
+            <StackLayout x:Name="contentlayout"   HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="#C0808080"  Padding="10" IsVisible="{Binding contentviewvisible}" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <Frame BackgroundColor="White" CornerRadius="4"  Padding="10" HeightRequest="300" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                <StackLayout>
+                        <!--<Label Style="{StaticResource FontRegular}" Text="Select Rent Amount" TextColor="Black" FontSize="16" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="5"  />-->
+                        <StackLayout IsVisible="{Binding pricemodevisible}">
+                            <H:ListviewScrollbar x:Name="pricemode" HasUnevenRows="True" SeparatorVisibility="None" ItemsSource="{Binding pricemodelistdata}" >
+                                <!--<H:ListviewScrollbar.Behaviors>
+                                    <H:ListviewItemtap Command="{Binding Selectpricemode}"/>
+                                    --><!--<b:ListviewItemtap Command="{Binding Selectpricemode}"/>--><!--
+                                </H:ListviewScrollbar.Behaviors>-->
+                                <H:ListviewScrollbar.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <Frame Margin="0" Padding="0" HasShadow="False">
+                                                <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="10,5,10,10"  >
+                                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Padding="2"  >
+                                                        <Image Source="{Binding checkimage}" HeightRequest="20"  WidthRequest="20"  VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  />
+                                                        <Label Style="{StaticResource FontRegular}" Text="{Binding pricemode}" FontSize="14" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" TextColor="#212121"  />
+                                                       
+                                                    </StackLayout>
+                                                    <BoxView HeightRequest="1" BackgroundColor="#e0e0e0" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand"/>
+                                                    <StackLayout.GestureRecognizers>
+                                                        <TapGestureRecognizer Command="{Binding Path=BindingContext.Selectpricemode, Source = {x:Reference pricemode}}" CommandParameter="{Binding}"/>
+                                                    </StackLayout.GestureRecognizers>
+                                                </StackLayout>
+                                            </Frame>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </H:ListviewScrollbar.ItemTemplate>
+                            </H:ListviewScrollbar>
+                        </StackLayout>
+
+                        <StackLayout IsVisible="{Binding stayperiodvisible}">
+                            <H:ListviewScrollbar x:Name="stayperiod" HasUnevenRows="True" SeparatorVisibility="None" ItemsSource="{Binding stayperiodlistdata}" >
+                                <!--<H:ListviewScrollbar.Behaviors>
+                                    <b:ListviewItemtap Command="{Binding Selectstayperiod}"/>
+                                </H:ListviewScrollbar.Behaviors>-->
+                                <H:ListviewScrollbar.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <StackLayout>
+                                                <Frame Margin="0"  Padding="0" HasShadow="False">
+                                                    <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="10,5,10,10"  >
+                                                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Padding="2"  >
+                                                            <Image Source="{Binding checkimage}" HeightRequest="20"  WidthRequest="20"  VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  />
+                                                            <Label Style="{StaticResource FontRegular}" Text="{Binding stayperiodtxt}" FontSize="14" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" TextColor="#212121"  />
+                                                           
+                                                        </StackLayout>
+                                                        <BoxView HeightRequest="1" BackgroundColor="#e0e0e0" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand"/>
+                                                        <StackLayout.GestureRecognizers>
+                                                            <TapGestureRecognizer Command="{Binding Path=BindingContext.Selectstayperiod, Source = {x:Reference stayperiod}}" CommandParameter="{Binding}"/>
+                                                        </StackLayout.GestureRecognizers>
+                                                    </StackLayout>
+                                                </Frame>
+                                            </StackLayout>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </H:ListviewScrollbar.ItemTemplate>
+                            </H:ListviewScrollbar>
+                        </StackLayout>
+                        <StackLayout IsVisible="{Binding accomodatesvisible}">
+                            <H:ListviewScrollbar x:Name="accomodate" HasUnevenRows="True" SeparatorVisibility="None" ItemsSource="{Binding accomodatelistdata}" >
+                                <!--<H:ListviewScrollbar.Behaviors>
+                                    <b:ListviewItemtap Command="{Binding Selectaccomodate}"/>
+                                </H:ListviewScrollbar.Behaviors>-->
+                                <H:ListviewScrollbar.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <Frame Margin="0" Padding="0" HasShadow="False">
+                                                <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="10,5,10,10"  >
+                                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Padding="2"  >
+                                                        <Image Source="{Binding checkimage}" HeightRequest="20"  WidthRequest="20"  VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  />
+                                                        <Label Style="{StaticResource FontRegular}" Text="{Binding accomodatecnt}" FontSize="14" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" TextColor="#212121"  />
+                                                       
+                                                    </StackLayout>
+                                                    <BoxView HeightRequest="1" BackgroundColor="#e0e0e0" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand"/>
+                                                    <StackLayout.GestureRecognizers>
+                                                        <TapGestureRecognizer Command="{Binding Path=BindingContext.Selectaccomodate, Source = {x:Reference accomodate}}" CommandParameter="{Binding}"/>
+                                                    </StackLayout.GestureRecognizers>
+                                                </StackLayout>
+                                            </Frame>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </H:ListviewScrollbar.ItemTemplate>
+                            </H:ListviewScrollbar>
+                        </StackLayout>
+                        <StackLayout IsVisible="{Binding attachedbathvisible}">
+                            <H:ListviewScrollbar x:Name="bathtype" HasUnevenRows="True" SeparatorVisibility="None" ItemsSource="{Binding attachbathlistdata}" >
+                                <!--<H:ListviewScrollbar.Behaviors>
+                                    <b:ListviewItemtap Command="{Binding Selectbathtype}"/>
+                                </H:ListviewScrollbar.Behaviors>-->
+                                <H:ListviewScrollbar.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <Frame Margin="0" Padding="0" HasShadow="False">
+                                                <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="10,5,10,10"  >
+                                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Padding="2"  >
+                                                        <Image Source="{Binding checkimage}" HeightRequest="20"  WidthRequest="20"  VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  />
+                                                        <Label Style="{StaticResource FontRegular}" Text="{Binding attachedbath}" FontSize="14" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" TextColor="#212121"  />
+                                                        
+                                                    </StackLayout>
+                                                    <BoxView HeightRequest="1" BackgroundColor="#e0e0e0" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand"/>
+                                                    <StackLayout.GestureRecognizers>
+                                                        <TapGestureRecognizer Command="{Binding Path=BindingContext.Selectbathtype, Source = {x:Reference bathtype}}" CommandParameter="{Binding}"/>
+                                                    </StackLayout.GestureRecognizers>
+                                                </StackLayout>
+                                            </Frame>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </H:ListviewScrollbar.ItemTemplate>
+                            </H:ListviewScrollbar>
+                        </StackLayout>
+                
+                </StackLayout>
+                <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding PopupContentTap}"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+                <!--<ContentView.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ContentViewTap}"/>
+                </ContentView.GestureRecognizers>-->
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ContentViewTap}"/>
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+            <StackLayout VerticalOptions="End"  BackgroundColor="White" Padding="0" HorizontalOptions="FillAndExpand" 
+                             AbsoluteLayout.LayoutBounds="0,1,1,1" AbsoluteLayout.LayoutFlags="All">
+                <Button Text="Submit" Command="{Binding postcmdsecond}" 
+                        TextColor="#ffffff"
+                                                    BackgroundColor="#f99406"
+                                                    BorderColor="#f99406"
+                                                    BorderWidth="1"
+                                                    BorderRadius="4"
+                                                    VerticalOptions="Center"
+                                                    HorizontalOptions="FillAndExpand"                                                    
+                                                    FontSize="18"  />
+                 <StackLayout.Margin>
+                    <OnPlatform x:TypeArguments="Thickness" iOS="10,-10,10,20" Android="0,-10,0,0"></OnPlatform>
+                </StackLayout.Margin>
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

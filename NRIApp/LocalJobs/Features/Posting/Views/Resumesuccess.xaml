@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NRIApp.LocalJobs.Features.Posting.Views.Resumesuccess"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout BackgroundColor="White" VerticalOptions="FillAndExpand">
+
+                <StackLayout BackgroundColor="#07ba8e"   Padding="0,10,0,10"  >
+
+                    <Image Source="CloseIcon.png" HeightRequest="24" WidthRequest="24"  VerticalOptions="Start" HorizontalOptions="End"  >
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                        </Image.GestureRecognizers>
+                        <Image.Margin>
+                            <OnPlatform x:TypeArguments="Thickness" iOS="0,10,10,0" Android="5,5,5,5"></OnPlatform>
+                        </Image.Margin>
+                    </Image>
+
+                    <Image Source="SuccessBg.png" HeightRequest="96" WidthRequest="96" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Margin="0,-5,0,0"  />
+
+                    <Label Text="Success" FontSize="22"  VerticalOptions="CenterAndExpand" TextColor="White" HorizontalOptions="Center"  HorizontalTextAlignment="Center" Margin="0"  />
+
+                    <Label Text="Thank you for choosing Resume package on Sulekha.com" TextColor="White" HorizontalOptions="CenterAndExpand" FontSize="14" Margin="10,0,10,0" HorizontalTextAlignment="Center" />
+
+                </StackLayout>
+
+                <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="10">
+
+                    <Frame CornerRadius="4" BackgroundColor="White" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0" Margin="0,0,0,10">
+
+                        <StackLayout  VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="15">
+
+                            <Label Text="Order receipt " FontSize="14" Style="{StaticResource FontRegular}" Margin="0,0,0,10"    HorizontalTextAlignment="Center"   HorizontalOptions="CenterAndExpand" VerticalOptions="Center" TextColor="#212121"   />
+                            <BoxView  BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Margin="0" />
+
+                            <StackLayout  Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                <StackLayout  VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                                    <Label Text="Order ID:" FontSize="12" Style="{StaticResource FontRegular}"   HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="#888888"   />
+                                </StackLayout>
+                                <StackLayout  VerticalOptions="Start" HorizontalOptions="End" Margin="10,0,0,0" WidthRequest="70"  >
+                                    <Label x:Name="lblorderid" Text="" FontSize="11" Style="{StaticResource FontRegular}"   HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="#888888"  />
+                                </StackLayout>
+                            </StackLayout>
+
+                            <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Margin="0" />
+
+                            <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                <StackLayout  VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                                    <Label Text="Ad posted Date:" FontSize="12" Style="{StaticResource FontRegular}"   HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="#888888"   />
+                                </StackLayout>
+                                <StackLayout  VerticalOptions="Start" HorizontalOptions="End" Margin="10,0,0,0" WidthRequest="70"  >
+                                    <Label x:Name="lbladdate" Text="" FontSize="11" Style="{StaticResource FontRegular}"   HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="#888888"  />
+                                </StackLayout>
+                            </StackLayout>
+
+                            <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Margin="0" />
+
+                            <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                <StackLayout  VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                                    <Label Text="Ad Expires on:" FontSize="12" Style="{StaticResource FontRegular}"   HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="#888888"   />
+                                </StackLayout>
+                                <StackLayout  VerticalOptions="Start" HorizontalOptions="End" Margin="10,0,0,0" WidthRequest="70"  >
+                                    <Label x:Name="adenddate" Text="" FontSize="11" Style="{StaticResource FontRegular}"   HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="#888888"  />
+                                </StackLayout>
+                            </StackLayout>
+
+                            <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Margin="0" />
+
+                            <StackLayout  Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                <StackLayout  VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                                    <Label Text="Total Amount" FontSize="13" Style="{StaticResource FontRegular}"   HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="#212121"   />
+                                </StackLayout>
+                                <StackLayout  VerticalOptions="Start" HorizontalOptions="End" Margin="10,0,0,0" WidthRequest="70"  >
+                                    <Label Text="" x:Name="lblamnt" FontSize="13" Style="{StaticResource FontRegular}"   HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="#212121"  />
+                                </StackLayout>
+                            </StackLayout>
+
+                            <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Margin="0" />
+
+                            <StackLayout  Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                <StackLayout  VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                                    <Label Text="Total Resumes" FontSize="13" Style="{StaticResource FontRegular}"   HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="#212121"   />
+                                </StackLayout>
+                                <StackLayout  VerticalOptions="Start" HorizontalOptions="End" Margin="10,0,0,0" WidthRequest="70"  >
+                                    <Label Text="" x:Name="lblresumes" FontSize="13" Style="{StaticResource FontRegular}"   HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="#212121"  />
+                                </StackLayout>
+                            </StackLayout>
+
+                            <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Margin="0" />
+
+                            <StackLayout x:Name="totaladslayout"  Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                <StackLayout  VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                                    <Label Text="Total ads" FontSize="13" Style="{StaticResource FontRegular}"   HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="#212121"   />
+                                </StackLayout>
+                                <StackLayout  VerticalOptions="Start" HorizontalOptions="End" Margin="10,0,0,0" WidthRequest="70"  >
+                                    <Label Text="" x:Name="lblads" FontSize="13" Style="{StaticResource FontRegular}"   HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="#212121"  />
+                                </StackLayout>
+                            </StackLayout>
+
+                        </StackLayout>
+
+                    </Frame>
+
+
+
+                </StackLayout>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

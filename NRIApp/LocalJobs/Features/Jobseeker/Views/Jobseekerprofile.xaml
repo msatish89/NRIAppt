@@ -1,0 +1,624 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NRIApp.LocalJobs.Features.Jobseeker.View.Jobseekerprofile"
+             xmlns:local="clr-namespace:NRIApp.Helpers"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <AbsoluteLayout BackgroundColor="#ecf2f4">
+
+            <StackLayout    AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All"
+                          VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                <ScrollView Margin="0,0,0,0" >
+
+                    <StackLayout BackgroundColor="#ecf2f4" >
+
+                        <StackLayout BackgroundColor="#3f6ad8">
+
+                            <Grid  HeightRequest="56" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+
+                                <StackLayout Grid.Column="0" Grid.Row="0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"   >
+                                    <Image Source="BackArrowSearchWhite.png" HeightRequest="24" WidthRequest="24" >
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                </StackLayout>
+
+                                <StackLayout Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="4" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" >
+
+                                </StackLayout>
+
+                                <StackLayout Grid.Column="5" Grid.Row="0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
+                                    <Image Source="EditWhite.png" HeightRequest="24" WidthRequest="24"  />
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding contacteditTap}"/>
+                                    </StackLayout.GestureRecognizers>
+                                </StackLayout>
+
+                            </Grid>
+
+                        </StackLayout>
+
+                        <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand"   BackgroundColor="#3f6ad8" Margin="0,-6,0,0"  >
+
+                            <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="CenterAndExpand" Margin="0,0,0,0"  >
+
+                                <Frame WidthRequest="102" HeightRequest="102" CornerRadius="50" BackgroundColor="White" HorizontalOptions="Center" VerticalOptions="Start" Padding="0" Margin="0,0,-30,0">
+                                    <Frame WidthRequest="100" HeightRequest="100" CornerRadius="50" BackgroundColor="LightGray" HorizontalOptions="Center" VerticalOptions="Center" Padding="0" >
+                                        <Image x:Name="profilepictureimg" Source="{Binding profilepicture}" Aspect="Fill"  WidthRequest="100" HeightRequest="100" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand"  />
+                                    </Frame>
+                                </Frame>
+
+                                <Frame WidthRequest="42" HeightRequest="42" CornerRadius="20" BackgroundColor="White" HorizontalOptions="Center" VerticalOptions="Start" Padding="0"  >
+                                    <Frame WidthRequest="40" HeightRequest="40" CornerRadius="20" BackgroundColor="#f0f0f0" HorizontalOptions="Center" VerticalOptions="Center" Padding="0" >
+                                        <Image Source="Camera.png" WidthRequest="30" HeightRequest="30" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" >
+                                            <!--<Image.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding selectprofilephoto}"/>
+                                            </Image.GestureRecognizers>-->
+                                            <Image.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding PopupContentTap}"/>
+                                            </Image.GestureRecognizers>
+                                        </Image>
+                                    </Frame>
+                                </Frame>
+
+                                <!-- <Label Text="Welcome! d" FontSize="14" Style="{StaticResource FontRegular}"  VerticalOptions="Center" HorizontalOptions="CenterAndExpand" VerticalTextAlignment="Center" TextColor="White" Opacity="0.6"   /> -->
+
+                            </StackLayout>
+
+                            <StackLayout VerticalOptions="Start" HorizontalOptions="CenterAndExpand"  >
+                                <Label Text="{Binding name}" FontSize="14" Style="{StaticResource FontBold}"  VerticalOptions="Center" HorizontalOptions="CenterAndExpand" VerticalTextAlignment="Center" TextColor="#ffffff"   />
+                            </StackLayout>
+
+
+
+                            <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="10,5,10,15" >
+
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start"  >
+                                    <Image Source="JobRolewt.png" HeightRequest="22"  WidthRequest="22"  VerticalOptions="Start" HorizontalOptions="Start"  />
+                                    <Label Text="{Binding jobrole}" Style="{StaticResource FontRegular}" FontSize="12" TextColor="#ffffff" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" VerticalTextAlignment="Center" />
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" >
+                                    <Image Source="Mailwt.png" HeightRequest="22"  WidthRequest="22"  VerticalOptions="Start" HorizontalOptions="Start"  />
+                                    <Label Text="{Binding email}" Style="{StaticResource FontRegular}" FontSize="12" TextColor="#ffffff" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" VerticalTextAlignment="Center" />
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start"  >
+                                    <Image Source="Tagwt.png" HeightRequest="22"  WidthRequest="22"  VerticalOptions="Start" HorizontalOptions="Start"  />
+                                    <Label Text="{Binding workauth}" Style="{StaticResource FontRegular}" FontSize="12" TextColor="#ffffff" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" VerticalTextAlignment="Center" />
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" >
+                                    <Image Source="placeholderTop.png" HeightRequest="22"  WidthRequest="22"  VerticalOptions="Start" HorizontalOptions="Start"  />
+                                    <Label Text="{Binding city}" Style="{StaticResource FontRegular}" FontSize="12" TextColor="#ffffff" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" VerticalTextAlignment="Center" />
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" >
+                                    <Image Source="callIcaon.png" HeightRequest="22"  WidthRequest="22"  VerticalOptions="Start" HorizontalOptions="Start"  />
+                                    <Label Text="{Binding mobileno}" Style="{StaticResource FontRegular}" FontSize="12" TextColor="#ffffff" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" VerticalTextAlignment="Center" />
+                                </StackLayout>
+
+                            </StackLayout>
+
+                        </StackLayout>
+
+                        <Frame  CornerRadius="4" BackgroundColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="0" Margin="5,0,5,5" >
+                            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start"  >
+
+                                <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                                        <Label Text="Profile Completeness" FontSize="14"   Style="{StaticResource FontBold}" Margin="10,10,10,5"   VerticalOptions="Start" HorizontalOptions="StartAndExpand" TextColor="#212121" />
+                                        <!--<Label Text="View Profile" FontSize="13"  Style="{StaticResource FontRegular}" Margin="10,10,10,5"   VerticalOptions="Center" HorizontalOptions="End" TextColor="#30a4ea" />-->
+                                    </StackLayout>
+                                    <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Margin="0,0,0,5"  />
+
+                                </StackLayout>
+
+                                <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="20,5,20,0" >
+                                    <ProgressBar Progress="{Binding profilecompletevalue}" />
+
+                                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Orientation="Horizontal" Margin="0,-5,0,20" Padding="0" >
+                                        <Label Text="{Binding Profilecompletetxt}" FontSize="12"   Style="{StaticResource FontRegular}"  VerticalOptions="Start" HorizontalOptions="StartAndExpand" TextColor="#333333" />
+                                        <Label Text="{Binding Profilepercentage}" FontSize="12"   Style="{StaticResource FontRegular}"  VerticalOptions="Start" HorizontalOptions="End" TextColor="#08a182" />
+                                    </StackLayout>
+
+                                </StackLayout>
+
+
+
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame  CornerRadius="4" BackgroundColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="0" Margin="5,0,5,5" >
+                            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start"  >
+
+                                <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                                        <Label Text="Resume Title" FontSize="14"   Style="{StaticResource FontBold}" Margin="10,10,10,5"   VerticalOptions="Start" HorizontalOptions="StartAndExpand" TextColor="#212121" />
+                                        <Image Source="NoteBlue01.png"  HeightRequest="24"  WidthRequest="24"  VerticalOptions="Center" HorizontalOptions="End" Margin="0,5,5,0"  />
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding Rtitlecmd}"/>
+                                        </StackLayout.GestureRecognizers>
+                                    </StackLayout>
+
+                                    <BoxView BackgroundColor="#e7eaec" IsVisible="{Binding resumetitlevisible}" HeightRequest="1" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Margin="0,0,0,5"  />
+                                </StackLayout>
+
+
+                                <Label Text="{Binding resumetitle}" IsVisible="{Binding resumetitlevisible}" FontSize="12"   Style="{StaticResource FontRegular}" Margin="15,0,15,20"   VerticalOptions="Start" HorizontalOptions="FillAndExpand" TextColor="#333333" />
+
+                            </StackLayout>
+
+
+                        </Frame>
+
+                        <Frame  CornerRadius="4" BackgroundColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="0" Margin="5,0,5,5" >
+
+                            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start"  >
+
+                                <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                                        <Label Text="Profile Description" FontSize="14"   Style="{StaticResource FontBold}" Margin="10,10,10,5"   VerticalOptions="Start" HorizontalOptions="StartAndExpand" TextColor="#212121" />
+                                        <Image Source="NoteBlue01.png" HeightRequest="24"  WidthRequest="24"  VerticalOptions="Center" HorizontalOptions="End" Margin="0,10,5,0"  >
+                                            <Image.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding Descriptioncmd}"/>
+                                            </Image.GestureRecognizers>
+                                        </Image>
+                                    </StackLayout>
+
+                                    <BoxView  IsVisible="{Binding descriptionvisible}" BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Margin="0,0,0,5"  />
+                                </StackLayout>
+
+
+                                <Label IsVisible="{Binding descriptionvisible}" Text="{Binding profiledescription}" FontSize="12"   Style="{StaticResource FontRegular}" Margin="15,0,15,20"   VerticalOptions="Start" HorizontalOptions="FillAndExpand" TextColor="#333333" />
+
+                            </StackLayout>
+
+                        </Frame>
+
+                        <Frame  CornerRadius="4" BackgroundColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="0" Margin="5,0,5,5" >
+                            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="0,0,0,10"  >
+
+                                <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                                        <Label Text="Professional " FontSize="14"  Style="{StaticResource FontBold}" Margin="10,10,10,5"   VerticalOptions="Start" HorizontalOptions="StartAndExpand" TextColor="#08a182" />
+                                        <Label Text="Add Details" FontSize="12"   Style="{StaticResource FontBold}" Margin="10,10,10,5"   VerticalOptions="Center" HorizontalOptions="End" TextColor="#30a4ea" >
+                                            <Label.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding Professionalcmd}"/>
+                                            </Label.GestureRecognizers>
+                                        </Label>
+                                    </StackLayout>
+
+                                    <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Margin="0,0,0,5"  />
+                                </StackLayout>
+
+                                <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="10,0,10,10">
+                                    <Label Text="Education" FontSize="12"   Style="{StaticResource FontRegular}"  VerticalOptions="Start" HorizontalOptions="FillAndExpand" TextColor="#878787" />
+                                    <Label IsVisible="{Binding educationvisible}" Text="{Binding education}" FontSize="13"   Style="{StaticResource FontRegular}"  VerticalOptions="Start" HorizontalOptions="FillAndExpand" TextColor="#212121" />
+                                </StackLayout>
+
+                                <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="10,0,10,10">
+                                    <Label Text="Masters degree in the US" FontSize="12"   Style="{StaticResource FontRegular}"   VerticalOptions="Start" HorizontalOptions="FillAndExpand" TextColor="#878787" />
+                                    <Label IsVisible="{Binding masterdegreevisible}" Text="{Binding ismasterdegree}" FontSize="13"   Style="{StaticResource FontRegular}"   VerticalOptions="Start" HorizontalOptions="FillAndExpand" TextColor="#212121" />
+                                </StackLayout>
+
+                                <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="10,0,10,10">
+                                    <Label Text="Expected salary range" FontSize="12"   Style="{StaticResource FontRegular}"   VerticalOptions="Start" HorizontalOptions="FillAndExpand" TextColor="#878787" />
+                                    <Label IsVisible="{Binding isvisblesalaryrange}" Text="{Binding salaryrange}" FontSize="13"  Style="{StaticResource FontRegular}"  VerticalOptions="Start" HorizontalOptions="FillAndExpand" TextColor="#212121" />
+                                </StackLayout>
+
+                                <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="10,0,10,10">
+                                    <Label Text="Experience(in Years)" FontSize="12"   Style="{StaticResource FontRegular}"   VerticalOptions="Start" HorizontalOptions="FillAndExpand" TextColor="#878787" />
+                                    <Label IsVisible="{Binding experiencevisible}" Text="{Binding experience}" FontSize="13"  Style="{StaticResource FontRegular}"   VerticalOptions="Start" HorizontalOptions="FillAndExpand" TextColor="#212121" />
+                                </StackLayout>
+
+                                <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="10,0,10,10">
+                                    <Label Text="Functional Area" FontSize="12"   Style="{StaticResource FontRegular}"  VerticalOptions="Start" HorizontalOptions="FillAndExpand" TextColor="#878787" />
+                                    <Label IsVisible="{Binding functionalareavisible}" Text="{Binding functionalarea}" FontSize="13"   Style="{StaticResource FontRegular}"   VerticalOptions="Start" HorizontalOptions="FillAndExpand" TextColor="#212121" />
+                                </StackLayout>
+
+                                <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="10,0,10,10">
+                                    <Label Text="Employment Type" FontSize="12"   Style="{StaticResource FontRegular}"   VerticalOptions="Start" HorizontalOptions="FillAndExpand" TextColor="#878787" />
+                                    <Label IsVisible="{Binding employementtypevisible}" Text="{Binding employementtype}" FontSize="13"   Style="{StaticResource FontRegular}"   VerticalOptions="Start" HorizontalOptions="FillAndExpand" TextColor="#212121" />
+                                </StackLayout>
+                                <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="10,0,10,10">
+                                    <Label Text="Employment status" FontSize="12"   Style="{StaticResource FontRegular}"   VerticalOptions="Start" HorizontalOptions="FillAndExpand" TextColor="#878787" />
+                                    <Label IsVisible="{Binding jobstatusvisible}" Text="{Binding jobstatus}" FontSize="13"   Style="{StaticResource FontRegular}"   VerticalOptions="Start" HorizontalOptions="FillAndExpand" TextColor="#212121" />
+                                </StackLayout>
+
+                            </StackLayout>
+
+
+                        </Frame>
+
+
+                        <Frame  CornerRadius="4" BackgroundColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="0" Margin="5,0,5,5" >
+                            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start"  >
+
+                                <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                                        <Label Text="Your area of expertise " FontSize="14"   Style="{StaticResource FontBold}" Margin="10,10,10,5"   VerticalOptions="Start" HorizontalOptions="FillAndExpand" TextColor="#212121" />
+                                        <Label Text="Add Details" FontSize="12"   Style="{StaticResource FontBold}" Margin="10,10,10,5"   VerticalOptions="Center" HorizontalOptions="End" TextColor="#30a4ea" >
+                                            <Label.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding addskillstap}"/>
+                                            </Label.GestureRecognizers>
+                                        </Label>
+                                    </StackLayout>
+
+                                    <BoxView IsVisible="{Binding skillslistviewvisible}" BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Margin="0,0,0,5"  />
+                                </StackLayout>
+
+                                <Frame IsVisible="{Binding skillslistviewvisible}" CornerRadius="4" BackgroundColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="0" Margin="10,5,10,15" >
+
+                                    <StackLayout Margin="0" Padding="0">
+                                        
+                                        <StackLayout   BackgroundColor="#f2f2f2"  VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="8,8,5,8">
+                                            <Grid>
+                                                <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Style="{StaticResource FontBold}" Text="Skill" FontSize="12"  VerticalOptions="Start" HorizontalOptions="FillAndExpand" TextColor="#212121"  />
+                                                <Label Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="2" Style="{StaticResource FontBold}" Text="Experience" FontSize="12"  VerticalOptions="Start" HorizontalOptions="FillAndExpand" TextColor="#212121"  />
+                                                <Label Grid.Row="0" Grid.Column="5" Grid.ColumnSpan="2" Style="{StaticResource FontBold}" Text="Rating" FontSize="12"  VerticalOptions="Start" HorizontalOptions="FillAndExpand" TextColor="#212121"  />
+                                            </Grid>
+                                        </StackLayout>
+                                        <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Margin="0,-5,0,0" />
+
+
+                                        <local:HVScrollGridView x:Name="skillslistview" ItemsSource="{Binding skilllist}" >
+                                            <local:HVScrollGridView.ItemTemplate>
+                                                <DataTemplate>
+                                                    <ContentView>
+                                                        <ContentView.Content>
+                                                            <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                                                <StackLayout  VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="8,8,5,8" >
+
+                                                                    <Grid Margin="0,5,0,5">
+                                                                        <StackLayout Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" VerticalOptions="Center" HorizontalOptions="FillAndExpand"   >
+                                                                            <Label  Text="{Binding skills}"  Style="{StaticResource FontRegular}" FontSize="12"  VerticalOptions="Center" HorizontalOptions="FillAndExpand" TextColor="#333333"  />
+                                                                        </StackLayout>
+
+                                                                        <StackLayout Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="2" VerticalOptions="Center" HorizontalOptions="FillAndExpand"  >
+                                                                            <Label  Text="{Binding yearsofexperience}" Style="{StaticResource FontRegular}" FontSize="12"   VerticalOptions="Center" HorizontalOptions="Start" TextColor="#333333"  />
+                                                                        </StackLayout>
+
+                                                                        <StackLayout Grid.Row="0" Grid.Column="5" Grid.ColumnSpan="2" Orientation="Horizontal"  VerticalOptions="Center" HorizontalOptions="FillAndExpand" >
+                                                                            <Label  Text="{Binding rating}" FontSize="12" Style="{StaticResource FontRegular}" VerticalOptions="Center" HorizontalOptions="Start" TextColor="#333333"  />
+                                                                            <Image Source="NoteBlue01.png" HeightRequest="24"  WidthRequest="24"  VerticalOptions="Center" HorizontalOptions="End" Margin="15,0,5,0"   >
+                                                                                <Image.GestureRecognizers>
+                                                                                    <TapGestureRecognizer Command="{Binding Path=BindingContext.editskillstap, Source = {x:Reference skillslistview}}" CommandParameter="{Binding}"/>
+                                                                                </Image.GestureRecognizers>
+                                                                            </Image>
+                                                                        </StackLayout>
+                                                                    </Grid>
+
+                                                                </StackLayout>
+
+                                                                <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Margin="0" />
+                                                            </StackLayout>
+
+                                                        </ContentView.Content>
+                                                    </ContentView>
+                                                </DataTemplate>
+                                            </local:HVScrollGridView.ItemTemplate>
+                                        </local:HVScrollGridView>
+
+                                    </StackLayout>
+
+                                </Frame>
+
+
+
+
+                            </StackLayout>
+
+                        </Frame>
+
+
+                        <Frame  CornerRadius="4" BackgroundColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="0" Margin="5,0,5,5" >
+                            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start"   >
+
+                                <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                                        <Label Text="Job Experience" FontSize="14"  Style="{StaticResource FontBold}" Margin="10,10,10,5"   VerticalOptions="Start" HorizontalOptions="FillAndExpand" TextColor="#212121" />
+                                        <Label Text="Add Details" FontSize="12"    Style="{StaticResource FontBold}" Margin="10,10,10,5"   VerticalOptions="Center" HorizontalOptions="End" TextColor="#30a4ea" >
+                                            <Label.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding addexperiencetap}"/>
+                                            </Label.GestureRecognizers>
+                                        </Label>
+                                    </StackLayout>
+
+                                    <BoxView IsVisible="{Binding experiencelistviewvisible}" BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Margin="0,0,0,5"  />
+                                </StackLayout>
+
+
+
+
+                                <local:HVScrollGridView x:Name="experiencelistview" IsVisible="{Binding experiencelistviewvisible}" ItemsSource="{Binding experiencelist}" >
+                                    <local:HVScrollGridView.ItemTemplate>
+                                        <DataTemplate>
+                                            <ContentView>
+                                                <ContentView.Content>
+                                                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+
+                                                        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start" Orientation="Horizontal" Padding="15,5,15,15" >
+                                                            <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                                                                <Label Text="{Binding jobcompany}" Style="{StaticResource FontBold}" FontSize="12" VerticalOptions="Start" HorizontalOptions="StartAndExpand" TextColor="#212121"  />
+                                                                <Label Text="{Binding designation}" Style="{StaticResource FontRegular}" FontSize="12" VerticalOptions="Start" HorizontalOptions="StartAndExpand" TextColor="#878787"  />
+                                                                <Label Text="{Binding frmmonthname}" Style="{StaticResource FontRegular}" FontSize="12" VerticalOptions="Start" HorizontalOptions="FillAndExpand" TextColor="#878787"  />
+                                                            </StackLayout>
+                                                            <Image Source="NoteBlue01.png" HeightRequest="24"  WidthRequest="24"  VerticalOptions="Start" HorizontalOptions="End" Margin="0,0,5,0"   >
+                                                                <Image.GestureRecognizers>
+                                                                    <TapGestureRecognizer Command="{Binding Path=BindingContext.editexperiencetap, Source = {x:Reference experiencelistview}}" CommandParameter="{Binding}"/>
+                                                                </Image.GestureRecognizers>
+                                                            </Image>
+                                                        </StackLayout>
+                                                        <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Margin="0" />
+
+                                                    </StackLayout>
+
+                                                </ContentView.Content>
+                                            </ContentView>
+                                        </DataTemplate>
+                                    </local:HVScrollGridView.ItemTemplate>
+                                </local:HVScrollGridView>
+
+
+
+
+                            </StackLayout>
+
+                        </Frame>
+
+                        <Frame  CornerRadius="4" BackgroundColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="0" Margin="5,0,5,5" >
+                            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start"  >
+
+                                <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                                        <Label Text="Upload Resume" FontSize="14"   Style="{StaticResource FontRegular}" Margin="10,10,10,5"   VerticalOptions="Start" HorizontalOptions="StartAndExpand" TextColor="#212121" />
+                                    </StackLayout>
+
+                                    <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Margin="0,0,0,5"  />
+                                </StackLayout>
+
+                                <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="10,0,10,0">
+                                    <Label Text="Resume is the most important document recruiters look for. Recruiters generally do not look at profiles without resumes." FontSize="12"   Style="{StaticResource FontRegular}"   VerticalOptions="Start" HorizontalOptions="FillAndExpand" TextColor="#333333" />
+                                </StackLayout>
+
+
+                                <StackLayout IsVisible="{Binding resumefilenamevisible}" Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Margin="10,0,10,0"  >
+                                    <Image Source="book.png" HeightRequest="22"  WidthRequest="22"  VerticalOptions="Start" HorizontalOptions="Start"  />
+                                    <Label Text="{Binding resumefilename}" Style="{StaticResource FontBold}" FontSize="12" TextColor="#333333" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" VerticalTextAlignment="Center" />
+                                </StackLayout>
+                                <StackLayout IsVisible="{Binding resumedownloadisvisible}" Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="10,0,10,0" >
+                                    <Image Source="download.png" HeightRequest="22"  WidthRequest="22"  VerticalOptions="Start" HorizontalOptions="Start"  />
+                                    <Label Text="Download " FontSize="12" Style="{StaticResource FontBold}" TextColor="#30a4ea" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" VerticalTextAlignment="Center" />
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Taptodownload}"/>
+                                    </StackLayout.GestureRecognizers>
+                                </StackLayout>
+                                <StackLayout IsVisible="{Binding lastupdatedvisible}" Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="10,0,10,0" >
+                                    <Image Source="clock.png" HeightRequest="22"  WidthRequest="22"  VerticalOptions="Start" HorizontalOptions="Start"  />
+                                    <!--Last updated date: 17 Oct 19-->
+                                    <Label Text="{Binding lastupdated}" Style="{StaticResource FontBold}" FontSize="12" TextColor="#878787" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" VerticalTextAlignment="Center" />
+                                </StackLayout>
+                                <StackLayout  Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="10,0,10,0" >
+                                    <Image Source="book.png" HeightRequest="22"  WidthRequest="22"  VerticalOptions="Start" HorizontalOptions="Start"  />
+                                    <Label Text="{Binding selectedfilename}" FontSize="12" Style="{StaticResource FontBold}" TextColor="Red"  VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" VerticalTextAlignment="Center" />
+                                    <Label Text="(Click here to select/change resume)" FontSize="12" Style="{StaticResource FontBold}" TextColor="#30a4ea"  VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" VerticalTextAlignment="Center" />
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding choosefile}"/>
+                                    </StackLayout.GestureRecognizers>
+                                </StackLayout>
+
+                                <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" BackgroundColor="#f7f7f7" Margin="15,5,15,0" Padding="20"  >
+
+                                    <Button Text="Upload Resume" Style="{StaticResource FontRobotoBold}"
+                                            Image="Uploadwt.png"
+                                            TextColor="#ffffff"
+                                            BackgroundColor="#08a182"
+                                            BorderColor="#08a182"
+                                            BorderWidth="1"
+                                            BorderRadius="4"
+                                            VerticalOptions="Center"
+                                            HorizontalOptions="Center"
+                                            FontSize="14"
+                                            Margin="5,0,5,0" Command="{Binding uploadresume}" />
+                                </StackLayout>
+                                <Label Text="doc, docx, pdf are allowed" FontSize="12" Margin="15,0,10,20"  Style="{StaticResource FontRegular}"   VerticalOptions="Start" HorizontalOptions="FillAndExpand" TextColor="#878787" />
+
+
+
+                            </StackLayout>
+
+
+                        </Frame>
+
+
+                        <Frame  CornerRadius="4" BackgroundColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="0" Margin="5,0,5,5" >
+                            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start"  >
+
+                                <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                                        <Label Text="Preferences" FontSize="14"  Style="{StaticResource FontBold}" Margin="10,10,10,5"   VerticalOptions="Start" HorizontalOptions="StartAndExpand" TextColor="#212121" />
+                                        <Label Text="Add Details" FontSize="12"  Style="{StaticResource FontBold}" Margin="10,10,10,5"   VerticalOptions="Center" HorizontalOptions="End" TextColor="#30a4ea" >
+                                            <Label.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding addpreferencetap}"/>
+                                            </Label.GestureRecognizers>
+                                        </Label>
+                                    </StackLayout>
+
+                                    <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Margin="0,0,0,5"  />
+                                </StackLayout>
+
+                                <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="10,0,10,10">
+                                    <Label Text="Select city for Job Alerts" FontSize="12"  Style="{StaticResource FontRegular}"   VerticalOptions="Start" HorizontalOptions="FillAndExpand" TextColor="#878787" />
+                                    <Label IsVisible="{Binding jobcityvisible}" Text="{Binding jobcity}" FontSize="12"   Style="{StaticResource FontRegular}"   VerticalOptions="Start" HorizontalOptions="FillAndExpand" TextColor="#212121" />
+                                </StackLayout>
+
+                                <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="10,0,10,10">
+                                    <Label Text="Job alert frequency" FontSize="12"   Style="{StaticResource FontRegular}"   VerticalOptions="Start" HorizontalOptions="FillAndExpand" TextColor="#878787" />
+                                    <Label IsVisible="{Binding jobalertsvisible}" Text="{Binding jobalerts}" FontSize="13"   Style="{StaticResource FontRegular}"   VerticalOptions="Start" HorizontalOptions="FillAndExpand" TextColor="#212121" />
+                                </StackLayout>
+
+                                <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="10,0,10,10">
+                                    <Label Text="Connect your social media profile" FontSize="12"  Style="{StaticResource FontRegular}"   VerticalOptions="Start" HorizontalOptions="FillAndExpand" TextColor="#878787" />
+                                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                                        <Image IsVisible="{Binding twittervisible}" Source="twitter.png" HeightRequest="28"  WidthRequest="28"  VerticalOptions="Start" HorizontalOptions="Start"  Margin="0,0,5,0" >
+                                            <Image.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding twittertap}"/>
+                                            </Image.GestureRecognizers>
+                                        </Image>
+                                        <Image IsVisible="{Binding facebookvisible}" Source="facebook.png" HeightRequest="28"  WidthRequest="28"  VerticalOptions="Start" HorizontalOptions="Start" Margin="0,0,5,0" >
+                                            <Image.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding facebooktap}"/>
+                                            </Image.GestureRecognizers>
+                                        </Image>
+                                        <Image IsVisible="{Binding websitevisible}" Source="WebsiteIcon.png" HeightRequest="28"  WidthRequest="28"  VerticalOptions="Start" HorizontalOptions="Start" Margin="0,0,5,0" >
+                                            <Image.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding websitetap}"/>
+                                            </Image.GestureRecognizers>
+                                        </Image>
+                                        <Image IsVisible="{Binding linkedinvisible}" Source="Linkedin.png" HeightRequest="28"  WidthRequest="28"  VerticalOptions="Start" HorizontalOptions="Start" >
+                                            <Image.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding linkedintap}"/>
+                                            </Image.GestureRecognizers>
+                                        </Image>
+                                    </StackLayout>
+                                </StackLayout>
+
+                                <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="10,0,10,10">
+                                    <Label Text="Privacy" FontSize="12"  Style="{StaticResource FontRegular}"  VerticalOptions="Start" HorizontalOptions="FillAndExpand" TextColor="#878787" />
+                                    <Label IsVisible="{Binding hideprofilevisible}" Text="{Binding hideprofiletxt}" FontSize="13"  Style="{StaticResource FontRegular}"  VerticalOptions="Start" HorizontalOptions="FillAndExpand" TextColor="#212121" />
+                                </StackLayout>
+
+
+
+                            </StackLayout>
+
+
+                        </Frame>
+
+
+
+                    </StackLayout>
+
+                </ScrollView>
+
+
+            </StackLayout>
+
+
+            <!--
+            <StackLayout Margin="0" VerticalOptions="End"  BackgroundColor="White" Padding="0" HorizontalOptions="FillAndExpand" 
+                             AbsoluteLayout.LayoutBounds="0,1,1,1" AbsoluteLayout.LayoutFlags="All"
+                             >
+                <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+
+                    <Button Text="Not interested"
+                                                    TextColor="#e30045"
+                                                    BackgroundColor="#ffffff"
+                                                    BorderColor="#e30045"
+                                                    BorderWidth="1"
+                                                    BorderRadius="4"
+                                                    VerticalOptions="Center"
+                                                    HorizontalOptions="FillAndExpand"                                                   
+                                                    FontSize="14"  
+                                                    Margin="5,0,5,0"
+                                             />
+
+                    <Button Text="I'm intrested"
+                                                    TextColor="#ffffff"
+                                                    BackgroundColor="#03a497"
+                                                    BorderColor="#03a497"
+                                                    BorderWidth="1"
+                                                    BorderRadius="4"
+                                                    VerticalOptions="Center"
+                                                    HorizontalOptions="FillAndExpand"                                                   
+                                                    FontSize="14"    
+                                                    Margin="5,0,5,0"                           
+                                             />
+
+
+                </StackLayout>
+
+            </StackLayout>
+
+-->
+
+
+
+
+            <ContentView IsVisible="{Binding Choosephotocontentviewvisible}"  x:Name="contentlayout"  VerticalOptions="FillAndExpand" BackgroundColor="#C0808080"  AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <!--<ContentView IsVisible="{Binding Choosephotocontentviewvisible}"  x:Name="contentlayout"  VerticalOptions="FillAndExpand" BackgroundColor="#C0808080"  Padding="10"  AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">-->
+
+                <Frame BackgroundColor="White" CornerRadius="10" Padding="0" Margin="0,0,0,-15"  VerticalOptions="End" HorizontalOptions="FillAndExpand">
+
+
+
+                    <!--IsVisible="{Binding stayperiodvisible}"-->
+                        <!--<StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="10">
+                        <Label Text="Take photo" Style="{StaticResource FontRegular}" >
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding takeprofilephoto}"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <Label Text="Choose from Gallery" Style="{StaticResource FontRegular}">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding selectprofilephoto}"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </StackLayout>-->
+                    <StackLayout  VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0" Margin="0">
+                        
+                        <StackLayout  VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                            <Label  Text="Choose an action"  Style="{StaticResource FontRegular}" FontSize="18" TextColor="#212121" Margin="15,10,15,10"  VerticalOptions="Start" HorizontalOptions="FillAndExpand"/>
+
+                            <BoxView Color="Gray" HorizontalOptions="FillAndExpand"  HeightRequest="1" />
+
+
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="20,30,20,30">
+                            <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                <Image Source="UploadCamera.png" HeightRequest="40" WidthRequest="40" VerticalOptions="Start" HorizontalOptions="Center"  />
+                                <Label  Text="Camera" FontSize="14"  Style="{StaticResource FontRegular}" TextColor="#666666"   VerticalOptions="Start" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding takeprofilephoto}"/>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+
+                            <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                <Image Source="UploadPhoto.png" HeightRequest="40" WidthRequest="40" VerticalOptions="Start" HorizontalOptions="Center"  />
+                                <Label  Text="Gallery"  Style="{StaticResource FontRegular}" FontSize="14" TextColor="#666666"   VerticalOptions="Start" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding selectprofilephoto}"/>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+
+                        </StackLayout>
+
+                    </StackLayout>
+
+
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding PopupContentTap}"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+                <ContentView.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ContentViewTap}"/>
+                </ContentView.GestureRecognizers>
+            </ContentView>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

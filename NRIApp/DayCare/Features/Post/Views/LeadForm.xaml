@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NRIApp.DayCare.Features.Post.Views.LeadForm"
+             xmlns:SUL="clr-namespace:NRIApp.Controls"
+             xmlns:HLV="clr-namespace:NRIApp.Helpers"
+             xmlns:CB="clr-namespace:NRIApp.Behaviors">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="White" VerticalOptions="FillAndExpand">
+          
+            <ScrollView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <StackLayout Padding="10" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Padding="5"  >
+                            <Image Source="CalendarIcon.png" HeightRequest="32" WidthRequest="32"   />
+                        </StackLayout>
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                            <DatePicker Date="{Binding FrDate}" MinimumDate="{Binding FrDate}" >
+                            </DatePicker>
+                        </StackLayout>
+
+                    </StackLayout>
+                    <BoxView BackgroundColor="Gray" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,15">
+                    </BoxView>
+
+                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Padding="5"  >
+                            <Image Source="GenderIcon.png" HeightRequest="32" WidthRequest="32" />
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Padding="0" >
+
+                            <StackLayout VerticalOptions="Center" HorizontalOptions="Start" Orientation="Horizontal" Margin="0,0,10,0"  >
+                                <Image Source="{Binding MaleImg}" HeightRequest="16" WidthRequest="16" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   />
+                                <Label  Text="Male" Style="{StaticResource FontRegular}" TextColor="Black" FontSize="18" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding GenderMaleCommand}"/>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+
+                            <StackLayout VerticalOptions="Center" HorizontalOptions="Start" Orientation="Horizontal" Margin="0,0,10,0">
+                                <Image Source="{Binding FeMaleImg}" HeightRequest="16" WidthRequest="16"   VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  />
+                                <Label Text="Female" Style="{StaticResource FontRegular}" TextColor="Black" FontSize="18" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding GenderFemaleCommand}"/>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+
+                            <StackLayout VerticalOptions="Center" HorizontalOptions="Start" Orientation="Horizontal"  >
+                                <Image Source="{Binding AnyImg}" HeightRequest="16" WidthRequest="16" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   />
+                                <Label Text="Any" Style="{StaticResource FontRegular}" TextColor="Black" FontSize="18" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding GenderAnyCommand}"/>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+
+
+                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   Padding="5"   >
+                            <Image Source="DollarSymbol.png" HeightRequest="32" WidthRequest="32"   />
+                        </StackLayout>
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                            <SUL:CustomEntry x:Name="ExpSalary" Style="{StaticResource FontRegularEntry}" VerticalOptions="CenterAndExpand" HideBorder="True" HorizontalOptions="FillAndExpand" Text="{Binding ExpSalary}" Keyboard="Numeric" Placeholder="Expected Salary in $" ReturnKeyType="Done"  PlaceholderColor="#c0c0c0" >
+                            </SUL:CustomEntry>
+                        </StackLayout>
+
+                    </StackLayout>
+                    <BoxView BackgroundColor="Gray" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,15">
+                    </BoxView>
+
+                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Padding="5"  >
+                            <Image Source="DollarSymbol.png" HeightRequest="32" WidthRequest="32"   />
+                        </StackLayout>
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                            <SUL:CustomPicker  x:Name="Paytype" Image="ic_arrow_drop_down" Title="Paytype" HeightRequest="32" HideBorder="True" WidthRequest="70"  SelectedItem="{Binding SelectPaytype}" ItemsSource="{Binding PayType}" Margin="0"/>
+                        </StackLayout>
+
+                    </StackLayout>
+                    <BoxView BackgroundColor="Gray" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,15">
+                    </BoxView>
+
+                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   Padding="5"   >
+                            <Image Source="DollarSymbol.png" HeightRequest="32" WidthRequest="32"   />
+                        </StackLayout>
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                            <SUL:CustomEntry x:Name="txtlocation" VerticalOptions="CenterAndExpand" HideBorder="True" HorizontalOptions="FillAndExpand" Text="{Binding LocationName}"  Placeholder="City Name" ReturnKeyType="Done" PlaceholderColor="#c0c0c0" />
+                            <StackLayout Margin="35,-15,0,0" IsVisible="{Binding IsVisibleList}">
+                                <HLV:HVScrollGridView ListOrientation="Vertical"
+                                    ItemsSource="{Binding LocationList}"
+                                   x:Name="CityList"
+									VerticalOptions="Start">
+                                    <HLV:HVScrollGridView.ItemTemplate>
+                                        <DataTemplate>
+                                            <ContentView>
+                                                <ContentView.Content>
+                                                    <StackLayout BackgroundColor="#f8f8f8">
+                                                        <StackLayout Padding="10,5,10,5"  VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                                            <Label FontSize="14" Style="{StaticResource FontRegular}" Text="{Binding citystatecode}" TextColor="#212121" Margin="0,0,0,5" />
+                                                            <BoxView HeightRequest="1" BackgroundColor="#e0e0e0" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand"/>
+                                                        </StackLayout>
+                                                        <StackLayout.GestureRecognizers>
+                                                            <TapGestureRecognizer Command="{Binding Path=BindingContext.LocationCmd, Source = {x:Reference CityList}}" CommandParameter="{Binding}"/>
+                                                        </StackLayout.GestureRecognizers>
+                                                    </StackLayout>
+                                                </ContentView.Content>
+                                            </ContentView>
+                                        </DataTemplate>
+                                    </HLV:HVScrollGridView.ItemTemplate>
+                                </HLV:HVScrollGridView>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                        <BoxView BackgroundColor="Gray" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,15">
+                        </BoxView>
+
+                        <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   Padding="5"   >
+                                <Image Source="DollarSymbol.png" HeightRequest="32" WidthRequest="32"   />
+                            </StackLayout>
+                            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                            <SUL:CustomEntry x:Name="txtcontactname" Style="{StaticResource FontRegularEntry}"  VerticalOptions="CenterAndExpand" HideBorder="True" HorizontalOptions="FillAndExpand" Text="{Binding ContactName}" ReturnKeyType="Done" Placeholder="Contact Name"  PlaceholderColor="#c0c0c0" />
+                            </StackLayout>
+
+                        </StackLayout>
+                        <BoxView BackgroundColor="Gray" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,15">
+                        </BoxView>
+                        
+                        <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   Padding="5"   >
+                                <Image Source="DollarSymbol.png" HeightRequest="32" WidthRequest="32"   />
+                            </StackLayout>
+                            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                            <SUL:CustomEntry x:Name="txtcontactemail" Style="{StaticResource FontRegularEntry}" VerticalOptions="CenterAndExpand" HideBorder="True" Keyboard="Email" ReturnKeyType="Done"  HorizontalOptions="FillAndExpand" Text="{Binding ContactEmail}"  Placeholder="Contact Email"  PlaceholderColor="#c0c0c0" >
+                                    <SUL:CustomEntry.Behaviors>
+                                        <CB:EmailValidatorBehavior/>
+                                    </SUL:CustomEntry.Behaviors>
+                                </SUL:CustomEntry>
+                            </StackLayout>
+
+                        </StackLayout>
+                        <BoxView BackgroundColor="Gray" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,15">
+                        </BoxView>
+
+
+
+
+                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Padding="5">
+                            <Image Source="PhoneIcon.png" HeightRequest="32" WidthRequest="32"   />
+                        </StackLayout>
+
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                            <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                                <SUL:CustomPicker Title="+1"   x:Name="countrycode" Image="ic_arrow_drop_down" HeightRequest="32" HideBorder="True" WidthRequest="70"  SelectedItem="{Binding Selectcountry}" ItemsSource="{Binding Countrycode}" Margin="0">
+                                </SUL:CustomPicker>
+                                <SUL:CustomEntry x:Name="txtcontactphone" Style="{StaticResource FontRegularEntry}" VerticalOptions="CenterAndExpand" Keyboard="Numeric" HideBorder="True" ReturnKeyType="Done" HorizontalOptions="FillAndExpand" Text="{Binding ContactPhone}"  Placeholder="Contact Number"  PlaceholderColor="#c0c0c0" >
+                                    <SUL:CustomEntry.Behaviors>
+                                        <CB:NumericInputValidator />
+                                        <CB:MaxLengthValidator MaxLength="10"/>
+                                    </SUL:CustomEntry.Behaviors>
+                                </SUL:CustomEntry>
+                            </StackLayout>
+                        </StackLayout>
+
+                    </StackLayout>
+                    <BoxView BackgroundColor="Gray" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,15">
+
+                    </BoxView>
+
+<!--checkboxlistview-->
+                </StackLayout>
+            </ScrollView>
+
+            <StackLayout VerticalOptions="End" HorizontalOptions="FillAndExpand" Padding="10">
+                <Button Text="Next" Style="{StaticResource FontRobotoBold}" Command="{Binding TapOnNext}" FontSize="18" VerticalOptions="Start" HorizontalOptions="FillAndExpand" BackgroundColor="#fbaa19" TextColor="White" Parent="0,10,0,10"  />
+            </StackLayout>
+            <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                <Label Text="T &amp; C Apply" Style="{StaticResource FontRegular}" FontSize="12" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TCtap"></TapGestureRecognizer>
+                    </Label.GestureRecognizers>
+                </Label>
+
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

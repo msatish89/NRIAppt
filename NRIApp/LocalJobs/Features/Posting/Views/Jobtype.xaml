@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             
+             x:Class="NRIApp.LocalJobs.Features.Posting.Views.Jobtype">
+    
+    <ContentPage.Content>
+        
+        <StackLayout BackgroundColor="White">
+            <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0,-5,0,0">
+                <Image Source="JobsBanner01.png" Aspect="AspectFit" HorizontalOptions="FillAndExpand" VerticalOptions="Start" />
+            </StackLayout>
+            <!--<Frame Margin="0" Padding="0" HasShadow="False">-->
+                <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="Start" BackgroundColor="White" Margin="0,0,0,2" >
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Padding="2"  >
+                    <Image Source="ItJobs.png" HeightRequest="22"  WidthRequest="22"  VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Margin="10"   />
+                    <Label x:Name="ittext" Text="IT Jobs" FontSize="13" Style="{StaticResource FontRegular}"  TextColor="#2c2d2f" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" />
+                        <Image Source="nextarrow.png" HeightRequest="14"  WidthRequest="14"  VerticalOptions="CenterAndExpand" HorizontalOptions="End" Margin="10"     />
+                    </StackLayout>
+                    <StackLayout>
+                        <BoxView HeightRequest="1" BackgroundColor="#e0e0e0" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand"/>
+                    </StackLayout>
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="ittapped"></TapGestureRecognizer>
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+               
+            <!--</Frame>-->
+            <!--<Frame Margin="0" Padding="0" HasShadow="False">-->
+                <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="Start" BackgroundColor="White" Margin="0,0,0,2" >
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Padding="2"  >
+                    <Image Source="NonItJobs.png" HeightRequest="22"  WidthRequest="22"  VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Margin="10"   />
+                    <Label x:Name="nonittext" Text="Non IT Jobs" FontSize="13" Style="{StaticResource FontRegular}"  TextColor="#2c2d2f" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" />
+                        <Image Source="nextarrow.png" HeightRequest="14"  WidthRequest="14"  VerticalOptions="CenterAndExpand" HorizontalOptions="End" Margin="10"     />
+                    </StackLayout>
+                    <StackLayout>
+                        <BoxView HeightRequest="1" BackgroundColor="#e0e0e0" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand"/>
+                    </StackLayout>
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="nonittapped"></TapGestureRecognizer>
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+          
+            <!--</Frame>-->
+
+            <StackLayout x:Name="MyneedsNxtVisible" VerticalOptions="EndAndExpand"  BackgroundColor="White" Padding="0" HorizontalOptions="FillAndExpand" >
+                <Button  Text="Next" Clicked="myneed_tap" FontSize="18" VerticalOptions="Start" HorizontalOptions="FillAndExpand" BackgroundColor="#fbaa19" TextColor="White" Parent="0,10,0,10"  />
+
+                <StackLayout.Margin>
+                    <OnPlatform x:TypeArguments="Thickness" iOS="10,-10,10,20" Android="0,-10,0,0"></OnPlatform>
+                </StackLayout.Margin>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:length="clr-namespace:NRIApp.Behaviors"
+             xmlns:SULEntry="clr-namespace:NRIApp.Controls"
+              xmlns:b="clr-namespace:NRIApp.Helpers"
+             x:Class="NRIApp.Events.Features.Detail.Views.Detail_Register">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="White" VerticalOptions="FillAndExpand">
+         
+
+
+            <ScrollView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+
+                <StackLayout Padding="10" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   Padding="5"  >
+                            <Image Source="UserIcon.png" HeightRequest="24" WidthRequest="24"   />
+                        </StackLayout>
+
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+
+                            <SULEntry:CustomEntry x:Name="uname" Style="{StaticResource FontRegularEntry}" NextView="{x:Reference ulastname}" ReturnKeyType="Next"  VerticalOptions="CenterAndExpand" HideBorder="True" HorizontalOptions="FillAndExpand" Placeholder="Contact Name" Text="{Binding Name}"   PlaceholderColor="#c0c0c0" />
+                        </StackLayout>
+
+                    </StackLayout>
+                    <BoxView BackgroundColor="Gray" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,15">
+                    </BoxView>
+                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   Padding="5"  >
+                            <Image Source="UserIcon.png" HeightRequest="24" WidthRequest="24"   />
+                        </StackLayout>
+
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+
+                            <SULEntry:CustomEntry x:Name="ulastname" Style="{StaticResource FontRegularEntry}" NextView="{x:Reference uemail}" ReturnKeyType="Next"  VerticalOptions="CenterAndExpand" HideBorder="True" HorizontalOptions="FillAndExpand" Placeholder="Last Name" Text="{Binding LastName}"   PlaceholderColor="#c0c0c0" />
+                        </StackLayout>
+
+                    </StackLayout>
+                    <BoxView BackgroundColor="Gray" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,15">
+                    </BoxView>
+                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   Padding="5"  >
+                            <Image Source="MailIcon.png" HeightRequest="24" WidthRequest="24"   />
+                        </StackLayout>
+
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+
+                            <SULEntry:CustomEntry x:Name="uemail" Style="{StaticResource FontRegularEntry}" NextView="{x:Reference umobileno}" ReturnKeyType="Next" Placeholder="Email" Keyboard="Email" Text="{Binding Email}"  VerticalOptions="CenterAndExpand" HideBorder="True" HorizontalOptions="FillAndExpand"    PlaceholderColor="#c0c0c0" />
+                        </StackLayout>
+
+                    </StackLayout>
+                    <BoxView BackgroundColor="Gray" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,15">
+                    </BoxView>
+
+                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand"  >
+
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  Padding="5"  >
+                            <Image Source="PhoneIcon.png" HeightRequest="24" WidthRequest="24"   />
+                        </StackLayout>
+
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                            <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                               
+                                <SULEntry:CustomPicker Title="Select Country" x:Name="leadcountrycode" Image="ic_arrow_drop_down" HeightRequest="32" HideBorder="True" WidthRequest="70"  SelectedItem="{Binding Selectcontact}" Margin="0">
+                                    <SULEntry:CustomPicker.Items>
+                                        <x:String>+1</x:String>
+                                        <x:String>+91</x:String>
+                                    </SULEntry:CustomPicker.Items>
+                                </SULEntry:CustomPicker>
+                                <SULEntry:CustomEntry x:Name="umobileno"  Style="{StaticResource FontRegularEntry}" ReturnKeyType="Next"  VerticalOptions="CenterAndExpand" Keyboard="Numeric"  HideBorder="True" HorizontalOptions="FillAndExpand" Text="{Binding Contactno}" Placeholder="98XXXXXX89"  PlaceholderColor="#c0c0c0" >
+                                    <SULEntry:CustomEntry.Behaviors>
+                                        <length:NumericInputValidator />
+                                        <length:MaxLengthValidator MaxLength="10" />
+                                    </SULEntry:CustomEntry.Behaviors>
+                                </SULEntry:CustomEntry>
+                            </StackLayout>
+                        </StackLayout>
+
+                    </StackLayout>
+                    <BoxView BackgroundColor="Gray" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,15">
+                    </BoxView>
+                   
+                   
+                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                        <Label Text="T &amp; C Apply" FontSize="12" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="gototc"></TapGestureRecognizer>
+                            </Label.GestureRecognizers>
+                        </Label>
+
+                    </StackLayout>
+
+                </StackLayout>
+            </ScrollView>
+
+            <StackLayout VerticalOptions="End" HorizontalOptions="FillAndExpand">
+                <Button Text="Submit" Command="{Binding SubmitCommand}" FontSize="18" VerticalOptions="Start" HorizontalOptions="FillAndExpand" BackgroundColor="#fbaa19" TextColor="White" Parent="0,10,0,10" />
+               
+                <StackLayout.Padding>
+                    <OnPlatform x:TypeArguments="Thickness" iOS="15,10,15,15" Android="10"></OnPlatform>
+                </StackLayout.Padding>
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

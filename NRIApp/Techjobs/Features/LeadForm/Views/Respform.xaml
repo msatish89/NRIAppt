@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:b="clr-namespace:NRIApp.Helpers"
+              xmlns:SULB="clr-namespace:NRIApp.Behaviors"
+               xmlns:SUL="clr-namespace:NRIApp.Controls"
+             x:Class="NRIApp.Techjobs.Features.LeadForm.Views.Respform">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="White" VerticalOptions="FillAndExpand" x:Name="stackform">
+            <ScrollView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <!--<AbsoluteLayout BackgroundColor="White">-->
+                <StackLayout Padding="10" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                    <!--<Image Source="CloseIcon.png" HeightRequest="24" WidthRequest="24" VerticalOptions="Start" HorizontalOptions="End" >
+                      
+                        <Image.Margin>
+                            <OnPlatform x:TypeArguments="Thickness" iOS="0,25,25,0" Android="0,5,5,0" />
+                        </Image.Margin>
+                    </Image>-->
+
+                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Padding="5"  >
+                            <Image Source="CourseIcon.png" HeightRequest="32" WidthRequest="32"   />
+                        </StackLayout>
+
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                            <SUL:CustomEntry x:Name="txtmod" Style="{StaticResource FontRegularEntry}" VerticalOptions="CenterAndExpand" HideBorder="True" HorizontalOptions="FillAndExpand" Text="{Binding Module}"  Placeholder="Course Name" ReturnKeyType="Done"  PlaceholderColor="#c0c0c0" >
+                            </SUL:CustomEntry>
+                            <!--<Entry x:Name="txtmod" Text="{Binding Module}"  Placeholder="Course Name" PlaceholderColor="#c0c0c0" />-->
+
+                        </StackLayout>
+
+                    </StackLayout>
+                    <BoxView BackgroundColor="Gray" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,15">
+                    </BoxView>
+                    <StackLayout Margin="35,-15,0,0" IsVisible="{Binding Listviewvisible}">
+                        <b:HVScrollGridView ListOrientation="Vertical" ItemsSource="{Binding ModulesAjax}" x:Name="listdata" VerticalOptions="Start">
+                            <b:HVScrollGridView.ItemTemplate>
+                                <DataTemplate>
+                                    <ContentView>
+                                        <ContentView.Content>
+                                            <StackLayout BackgroundColor="#f8f8f8"  >
+                                                <StackLayout Padding="10,5,10,5"  VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+                                                    <Label FontSize="14" Text="{Binding module}" TextColor="#212121" Margin="0,0,0,5" />
+
+                                                    <BoxView HeightRequest="1" BackgroundColor="#e0e0e0" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand"/>
+
+                                                </StackLayout>
+                                                <StackLayout.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding Path=BindingContext.MDatacommand, Source = {x:Reference listdata}}" CommandParameter="{Binding}"/>
+                                                </StackLayout.GestureRecognizers>
+                                            </StackLayout>
+                                        </ContentView.Content>
+                                    </ContentView>
+                                </DataTemplate>
+                            </b:HVScrollGridView.ItemTemplate>
+                        </b:HVScrollGridView>
+
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0,0,0,15"  >
+
+                        <StackLayout VerticalOptions="Center" HorizontalOptions="Start" Padding="5"  >
+                            <Image Source="CourseTypeIcon.png" HeightRequest="32" WidthRequest="32" />
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Padding="0" >
+
+                            <StackLayout VerticalOptions="Center" HorizontalOptions="Start" Orientation="Horizontal" Margin="0,0,10,0"  >
+                                <Image Source="{Binding Onlineimg}" HeightRequest="16" WidthRequest="16" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   />
+                                <Label Text="Online" TextColor="Black" FontSize="18" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Trainingmodecommand}"></TapGestureRecognizer>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+
+
+                            <StackLayout VerticalOptions="Center" HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                                <Image Source="{Binding Inclassimg}" HeightRequest="16" WidthRequest="16"   VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  />
+                                <Label Text="In-class" TextColor="Black" FontSize="18" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Trainingmodecommand}"></TapGestureRecognizer>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+
+                        </StackLayout>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal" IsVisible="{Binding StackVisible}" VerticalOptions="Start" HorizontalOptions="FillAndExpand"  >
+
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  Padding="5"  >
+                            <Image Source="LocationIcon.png" HeightRequest="32" WidthRequest="32"   />
+                        </StackLayout>
+
+
+
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                            <SUL:CustomEntry x:Name="txtajxcity" Style="{StaticResource FontRegularEntry}" VerticalOptions="CenterAndExpand" HideBorder="True" HorizontalOptions="FillAndExpand" Text="{Binding Trainingcity}"  Placeholder="City Name" NextView="{x:Reference lblname}" ReturnKeyType="Next"  PlaceholderColor="#c0c0c0" >
+                            </SUL:CustomEntry>
+                            <!--<Entry x:Name="txtajxcity"  Placeholder="City Name" Text="{Binding Trainingcity}" PlaceholderColor="#c0c0c0"    />-->
+                        </StackLayout>
+
+
+                    </StackLayout>
+
+                    <BoxView BackgroundColor="Gray" IsVisible="{Binding StackVisible}" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,15">
+
+                    </BoxView>
+
+
+                    <StackLayout IsVisible="{Binding CityVisible}">
+                        <b:HVScrollGridView ListOrientation="Vertical"
+                                    ItemsSource="{Binding CityAjax}"
+									VerticalOptions="Start"  Margin="35,-15,0,0" x:Name="listajxcity">
+                            <b:HVScrollGridView.ItemTemplate>
+                                <DataTemplate>
+                                    <ContentView>
+                                        <ContentView.Content>
+                                            <StackLayout BackgroundColor="#f8f8f8"  >
+                                                <StackLayout Padding="10,5,10,5"  VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+                                                    <Label FontSize="14" Text="{Binding fullcity}" TextColor="#212121" Margin="0,0,0,5" />
+
+                                                    <BoxView HeightRequest="1" BackgroundColor="#e0e0e0" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand"/>
+
+                                                </StackLayout>
+                                                <StackLayout.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding Path=BindingContext.Cityajaxcommand, Source = {x:Reference listajxcity}}" CommandParameter="{Binding}"/>
+                                                </StackLayout.GestureRecognizers>
+                                            </StackLayout>
+                                        </ContentView.Content>
+                                    </ContentView>
+                                </DataTemplate>
+                            </b:HVScrollGridView.ItemTemplate>
+                        </b:HVScrollGridView>
+
+                    </StackLayout>
+
+
+                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   Padding="5"  >
+                            <Image Source="UserIcon.png" HeightRequest="32" WidthRequest="32"   />
+                        </StackLayout>
+
+
+
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                            <SUL:CustomEntry x:Name="lblname" Style="{StaticResource FontRegularEntry}"  VerticalOptions="CenterAndExpand" HideBorder="True" HorizontalOptions="FillAndExpand" Text="{Binding UName}" NextView="{x:Reference lblemail}" ReturnKeyType="Next" Placeholder="Name"  PlaceholderColor="#c0c0c0" >
+                            </SUL:CustomEntry>
+
+                            <!--<Entry Text="{Binding UName}" Placeholder="Name" PlaceholderColor="#c0c0c0"    />-->
+                        </StackLayout>
+
+                    </StackLayout>
+                    <BoxView BackgroundColor="Gray" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,15">
+
+                    </BoxView>
+
+
+                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Padding="5"  >
+                            <Image Source="MailIcon.png" HeightRequest="32" WidthRequest="32"   />
+                        </StackLayout>
+
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                            <SUL:CustomEntry x:Name="lblemail" Style="{StaticResource FontRegularEntry}" VerticalOptions="CenterAndExpand" HideBorder="True" Keyboard="Email"  NextView="{x:Reference lblph}" ReturnKeyType="Next"   HorizontalOptions="FillAndExpand" Text="{Binding UEmail}"  Placeholder="Email"  PlaceholderColor="#c0c0c0" >
+                                <SUL:CustomEntry.Behaviors>
+                                    <SULB:EmailValidatorBehavior />
+                                </SUL:CustomEntry.Behaviors>
+                            </SUL:CustomEntry>
+
+                        </StackLayout>
+
+                    </StackLayout>
+
+                    <BoxView BackgroundColor="Gray" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,15">
+                    </BoxView>
+                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand"  >
+
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Padding="5"  >
+                            <Image Source="PhoneIcon.png" HeightRequest="32" WidthRequest="32"   />
+                        </StackLayout>
+
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                            <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                <SUL:CustomPicker Title="Select Country Code" Image="ic_arrow_drop_down" HeightRequest="32" HideBorder="True" WidthRequest="70"  SelectedItem="{Binding Selectcountry}" Margin="0">
+                                    <SUL:CustomPicker.Items>
+                                        <x:String>+1</x:String>
+                                        <x:String>+91</x:String>
+                                    </SUL:CustomPicker.Items>
+                                </SUL:CustomPicker>
+                                <!--<Picker Title="Select Country" WidthRequest="60"  SelectedItem="{Binding Selectcountry}">
+                                        <Picker.Items>
+                                            <x:String>+1</x:String>
+                                            <x:String>+91</x:String>
+                                        </Picker.Items>
+                                    </Picker>-->
+                                <!--<Entry Text="+1" WidthRequest="50" IsEnabled="False"   />-->
+                                <SUL:CustomEntry x:Name="lblph" Style="{StaticResource FontRegularEntry}" VerticalOptions="CenterAndExpand" Keyboard="Numeric" HideBorder="True" ReturnKeyType="Done" HorizontalOptions="FillAndExpand" Text="{Binding Mobileno}"  Placeholder="98XXXXXX89"  PlaceholderColor="#c0c0c0" >
+                                    <SUL:CustomEntry.Behaviors>
+                                        <SULB:NumericInputValidator/>
+                                        <SULB:MaxLengthValidator MaxLength="10" />
+                                    </SUL:CustomEntry.Behaviors>
+
+                                </SUL:CustomEntry>
+                                <!--<Entry Text="{Binding Mobileno}" Keyboard="Numeric" Placeholder="98XXXXXX89"  HorizontalOptions="FillAndExpand">
+                                        <Entry.Behaviors>
+                                            <SULB:NumericInputValidator />
+                                            <SULB:MaxLengthValidator MaxLength="10" />
+                                        </Entry.Behaviors>
+                                    </Entry>-->
+                            </StackLayout>
+                        </StackLayout>
+
+                    </StackLayout>
+                    <BoxView BackgroundColor="Gray" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,15">
+
+                    </BoxView>
+                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                        <Label Text="T &amp; C Apply" FontSize="12" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="gototc"></TapGestureRecognizer>
+                            </Label.GestureRecognizers>
+                        </Label>
+
+                    </StackLayout>
+
+
+                </StackLayout>
+
+
+            </ScrollView>
+
+            <StackLayout VerticalOptions="End" HorizontalOptions="FillAndExpand" Padding="10">
+                <Button Text="Submit" FontSize="18" Command="{Binding Leadcommand}"  VerticalOptions="Start" HorizontalOptions="FillAndExpand" BackgroundColor="#fbaa19" TextColor="White" Parent="0,10,0,10" />
+              
+            </StackLayout>
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

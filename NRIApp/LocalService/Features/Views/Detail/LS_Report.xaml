@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:NRIApp.Helpers"
+             xmlns:SUL="clr-namespace:NRIApp.Controls"
+             x:Class="NRIApp.LocalService.Features.Views.Detail.LS_Report">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="White" VerticalOptions="FillAndExpand">
+
+            <ScrollView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <StackLayout Padding="10" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   Padding="5"   >
+                            <Image Source="flagIcon.png" HeightRequest="32" WidthRequest="32"   />
+                        </StackLayout>
+                        <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                            <SUL:CustomEntry x:Name="Reportlist" Style="{StaticResource FontRegularEntry}"  Focused="Entry_Focused" Text="{Binding Reportlist}"  Placeholder="Select Reason" PlaceholderColor="#c0c0c0" />                            
+                        </StackLayout>
+
+                    </StackLayout>
+                    <StackLayout Margin="35,-15,0,0" >
+                        <local:HVScrollGridView ListOrientation="Vertical"
+                                    ItemsSource="{Binding listofreports}"
+                                   x:Name="Reportdata"
+                                                IsVisible="False"
+									VerticalOptions="Start">
+                            <local:HVScrollGridView.ItemTemplate>
+                                <DataTemplate>
+                                    <ContentView>
+                                        <ContentView.Content>
+                                            <StackLayout BackgroundColor="#f8f8f8">
+                                                <StackLayout Padding="10,5,10,5"  VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                                    <Label FontSize="14" Style="{StaticResource FontRegular}" Text="{Binding reportlist}" TextColor="#212121" Margin="0,0,0,5" />
+                                                    <BoxView HeightRequest="1" BackgroundColor="#e0e0e0" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand"/>
+                                                </StackLayout>
+                                                <StackLayout.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding Path=BindingContext.selectreport, Source = {x:Reference Reportdata}}" CommandParameter="{Binding}"/>
+                                                </StackLayout.GestureRecognizers>
+                                            </StackLayout>
+                                        </ContentView.Content>
+                                    </ContentView>
+                                </DataTemplate>
+                            </local:HVScrollGridView.ItemTemplate>
+                        </local:HVScrollGridView>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   Padding="5"   >
+                            <Image Source="MailIcon.png" HeightRequest="32" WidthRequest="32"   />
+                        </StackLayout>
+                        <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                            <SUL:CustomEntry x:Name="Reportmail"  Style="{StaticResource FontRegularEntry}" Text="{Binding Reportmail}"  Placeholder="Email" PlaceholderColor="#c0c0c0" />
+                            
+                        </StackLayout>
+
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand"  Padding="0,0,0,15">
+
+                        <StackLayout VerticalOptions="Start" HorizontalOptions="Start"  Padding="5"  >
+                            <Image Source="MessageIcon.png" HeightRequest="32" WidthRequest="32"   />
+                        </StackLayout>
+
+                        <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+                            <Editor Text="{Binding Reportdesc}"  HeightRequest="100" BackgroundColor="#f7f7f7"  />
+
+                        </StackLayout>
+
+                    </StackLayout>
+
+                </StackLayout>
+
+
+            </ScrollView>
+            <StackLayout VerticalOptions="End" HorizontalOptions="FillAndExpand" Margin="10" >
+                <!--<Button Text="submit" FontSize="18" VerticalOptions="Start" HorizontalOptions="FillAndExpand" BackgroundColor="#fbaa19" TextColor="White" Parent="0,10,0,10" />-->
+
+                <Button Text="Submit" FontSize="18" Command="{Binding Clicksubmitreport}" VerticalOptions="Start" HorizontalOptions="FillAndExpand" BackgroundColor="#fbaa19" TextColor="White" />
+
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

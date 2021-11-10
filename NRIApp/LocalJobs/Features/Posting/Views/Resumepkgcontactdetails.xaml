@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:SULB="clr-namespace:NRIApp.Behaviors"
+               xmlns:SUL="clr-namespace:NRIApp.Controls"
+             x:Class="NRIApp.LocalJobs.Features.Posting.Views.Resumepkgcontactdetails">
+    <ContentPage.Content>
+      
+        <StackLayout BackgroundColor="White" VerticalOptions="FillAndExpand" x:Name="stackform">
+            <ScrollView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <StackLayout Padding="10" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   Padding="5"  >
+                            <Image Source="UserIcon.png" HeightRequest="32" WidthRequest="32"   />
+                        </StackLayout>
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                            <SUL:CustomEntry x:Name="lblname"   VerticalOptions="CenterAndExpand" HideBorder="True" HorizontalOptions="FillAndExpand" Text="{Binding UName}" ReturnKeyType="Done" Placeholder="Name"  PlaceholderColor="#c0c0c0" >
+                            </SUL:CustomEntry>
+                        </StackLayout>
+
+                    </StackLayout>
+                    <BoxView BackgroundColor="Gray" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,15">
+                    </BoxView>
+                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Padding="5"  >
+                            <Image Source="MailIcon.png" HeightRequest="32" WidthRequest="32"   />
+                        </StackLayout>
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                            <SUL:CustomEntry x:Name="lblemail" VerticalOptions="CenterAndExpand" HideBorder="True" Keyboard="Email"  ReturnKeyType="Done"  HorizontalOptions="FillAndExpand" Text="{Binding UEmail}"  Placeholder="Email"  PlaceholderColor="#c0c0c0" >
+                                <SUL:CustomEntry.Behaviors>
+                                    <SULB:EmailValidatorBehavior />
+                                </SUL:CustomEntry.Behaviors>
+                            </SUL:CustomEntry>
+                        </StackLayout>
+                    </StackLayout>
+                    <BoxView BackgroundColor="Gray" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,15">
+                    </BoxView>
+                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand"  >
+
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Padding="5"  >
+                            <Image Source="PhoneIcon.png" HeightRequest="32" WidthRequest="32"   />
+                        </StackLayout>
+
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                            <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                <SUL:CustomPicker Title="Select Country Code" Image="ic_arrow_drop_down" HeightRequest="32" HideBorder="True" WidthRequest="70"  SelectedItem="{Binding Selectcountry}" Margin="0">
+                                    <SUL:CustomPicker.Items>
+                                        <x:String>+1</x:String>
+                                        <x:String>+91</x:String>
+                                    </SUL:CustomPicker.Items>
+                                </SUL:CustomPicker>
+                                <SUL:CustomEntry x:Name="lblph" VerticalOptions="CenterAndExpand" Keyboard="Numeric" HideBorder="True" ReturnKeyType="Done" HorizontalOptions="FillAndExpand" Text="{Binding Mobileno}"  Placeholder="98XXXXXX89"  PlaceholderColor="#c0c0c0" >
+                                    <SUL:CustomEntry.Behaviors>
+                                        <SULB:NumericInputValidator/>
+                                        <SULB:MaxLengthValidator MaxLength="10" />
+                                    </SUL:CustomEntry.Behaviors>
+
+                                </SUL:CustomEntry>
+                            </StackLayout>
+                        </StackLayout>
+
+                    </StackLayout>
+
+                    <BoxView BackgroundColor="Gray" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,15">
+                    </BoxView>
+
+                    <StackLayout HorizontalOptions="Center" IsVisible="{Binding validatephnovisible}" >
+                        <Button Text="Validate phone number"  Command="{Binding validatephoneno}" TextColor="White" Style="{StaticResource FontRobotoBold}"  HorizontalOptions="End" BackgroundColor="#0ba283"  />
+                    </StackLayout>
+
+                    <StackLayout IsVisible="{Binding phvalidatetxtvisible}"  VerticalOptions="Start" HorizontalOptions="FillAndExpand"  >
+                        <StackLayout VerticalOptions="Start" HorizontalOptions="Start"  Padding="5"  >
+                            <!--<Image Source="MessageIcon.png" HeightRequest="32" WidthRequest="32"   />-->
+                            <Label  Text="{Binding phvalidatetxt}"/>
+
+                            <StackLayout>
+                                <Label Text="Change Number" TextColor="#30a4ea"/>
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding changenumber}"/>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                            <!--<StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                <Entry Text="{Binding verifycode}"  Keyboard="Numeric" Placeholder="Code"  HorizontalOptions="FillAndExpand" />
+                            </StackLayout>-->
+                            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                <SUL:CustomEntry Text="{Binding verifycode}"  Keyboard="Numeric" Placeholder="Code"  HorizontalOptions="FillAndExpand" Style="{StaticResource FontRegularEntry}" VerticalOptions="CenterAndExpand" HideBorder="True"   ReturnKeyType="Done"   PlaceholderColor="#c0c0c0" >
+                                </SUL:CustomEntry>
+                                <BoxView BackgroundColor="#c2c2c2" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,15">
+                                </BoxView>
+                            </StackLayout>
+
+                            <StackLayout VerticalOptions="Start" HorizontalOptions="End">
+                                <Button Text="Verify" Command="{Binding verifyphoneno}" TextColor="White"  HorizontalOptions="End" BackgroundColor="#0ba283"  />
+                            </StackLayout>
+
+                        </StackLayout>
+
+
+
+                        <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0,0,0,15">
+                            <Label Text="Did not get a call? Click here to resend code"   FontSize="14" HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand" TextColor="#30a4ea"  />
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer  Command="{Binding resend}"/>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                    </StackLayout>
+
+                    
+                    
+                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                        <Label Text="T &amp; C Apply" FontSize="12" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+
+            <StackLayout VerticalOptions="End" HorizontalOptions="FillAndExpand" Padding="10">
+                <Button Text="Submit" FontSize="18" Command="{Binding Sbmtuserdetailscommand}"  VerticalOptions="Start" HorizontalOptions="FillAndExpand" BackgroundColor="#fbaa19" TextColor="White" Parent="0,10,0,10" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

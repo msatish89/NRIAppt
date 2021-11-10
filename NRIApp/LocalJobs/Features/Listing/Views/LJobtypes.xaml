@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NRIApp.LocalJobs.Features.Listing.Views.LJobtypes">
+    <ScrollView>
+        <StackLayout BackgroundColor="White">
+
+            <!--<StackLayout BackgroundColor="#e30045" Orientation="Horizontal"  Padding="6" HeightRequest="56" >
+                <StackLayout Spacing="0" Orientation="Horizontal" HorizontalOptions="Start">
+                    <Image Source="backarrow.png" HeightRequest="24" WidthRequest="24" HorizontalOptions="Start" VerticalOptions="Center" Margin="6"/>
+                </StackLayout>
+                <Label Text="Job Type" Style="{StaticResource FontRegular}"  TextColor="#ffffff" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" FontSize="14"  />
+                <StackLayout Spacing="0" Orientation="Horizontal" HorizontalOptions="End">
+                    <Image Source="searchicon.png" HeightRequest="24" WidthRequest="24"  HorizontalOptions="End" VerticalOptions="Center" Margin="6" />
+                </StackLayout>
+            </StackLayout>-->
+
+            <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0,-5,0,0">
+                <Image Source="JobsBanner01.png" Aspect="AspectFit" HorizontalOptions="FillAndExpand" VerticalOptions="Start" />
+            </StackLayout>
+
+            <StackLayout Spacing="1">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" BackgroundColor="White" Padding="0,4,0,4">
+                    <Image Source="ItJobs.png" HeightRequest="24"  WidthRequest="24"  VerticalOptions="Start" HorizontalOptions="Start" Margin="10"   />
+                    <Label Text="IT Jobs" FontSize="13" Style="{StaticResource FontRegular}" TextColor="#2c2d2f" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" />
+                    <Image Source="nextarrow.png" HeightRequest="14"  WidthRequest="14"  VerticalOptions="CenterAndExpand" HorizontalOptions="End" Margin="10"     />
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ittapped"></TapGestureRecognizer>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                <BoxView BackgroundColor="#dddddd" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,0" />
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" BackgroundColor="White" Padding="0,4,0,4">
+                    <Image Source="NonItJobs.png" HeightRequest="22"  WidthRequest="22"  VerticalOptions="Start" HorizontalOptions="Start" Margin="10"   />
+                    <Label Text="Non IT Jobs" FontSize="13" Style="{StaticResource FontRegular}" TextColor="#2c2d2f" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" />
+                    <Image Source="nextarrow.png" HeightRequest="14"  WidthRequest="14"  VerticalOptions="CenterAndExpand" HorizontalOptions="End" Margin="10"     />
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="nonittapped"></TapGestureRecognizer>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                <BoxView BackgroundColor="#dddddd" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,0" />
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" BackgroundColor="White" Padding="0,4,0,4">
+                    <Image Source="OtherJobs.png" HeightRequest="24"  WidthRequest="24"  VerticalOptions="Start" HorizontalOptions="Start" Margin="10"   />
+                    <Label Text="Any Jobs" FontSize="13" Style="{StaticResource FontRegular}" TextColor="#2c2d2f" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" />
+                    <Image Source="nextarrow.png" HeightRequest="14"  WidthRequest="14"  VerticalOptions="CenterAndExpand" HorizontalOptions="End" Margin="10"     />
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Anytapped"></TapGestureRecognizer>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                <BoxView BackgroundColor="#dddddd" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,-5,0,0" />
+            </StackLayout>
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

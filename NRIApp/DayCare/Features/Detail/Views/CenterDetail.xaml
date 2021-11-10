@@ -1,0 +1,648 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NRIApp.DayCare.Features.Detail.Views.CenterDetail">
+    <ContentPage.Content>
+        <AbsoluteLayout BackgroundColor="#ecf2f4">
+
+            <StackLayout  Margin="0,0,0,62"  AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All"
+                          VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+                <ScrollView>
+
+                    <StackLayout BackgroundColor="#ecf2f4">
+
+                        <StackLayout BackgroundColor="#3f6ad8">
+
+                            <Grid  HeightRequest="56" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+
+                                <StackLayout Grid.Column="0" Grid.Row="0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"   >
+                                    <Image Source="BackArrowSearchWhite.png" HeightRequest="24" WidthRequest="24" />
+                                    <!--<StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                                    </StackLayout.GestureRecognizers>-->
+                                </StackLayout>
+
+                                <StackLayout Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="4" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
+                                    <!--<Label Text="Lead Response" TextColor="#ffffff"  FontSize="14" Style="{StaticResource FontRegular}" />-->
+                                </StackLayout>
+
+
+
+                            </Grid>
+
+                        </StackLayout>
+
+
+
+
+                        <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand"   BackgroundColor="#3f6ad8" Margin="0,-6,0,0"  >
+
+
+                            <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="10,5,10,15" >
+
+                                <Label Text="{Binding businessname}" FontSize="16" Style="{StaticResource FontBold}"  VerticalOptions="Center" HorizontalOptions="FillAndExpand"  TextColor="#ffffff"   />
+
+
+
+                                <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                                    <Image Source="Tagwt.png"  HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="22" WidthRequest="22" />
+                                    <Label Text="{Binding tertiarycatvalue}" FontSize="12" Style="{StaticResource FontRegular}"  VerticalOptions="Center" HorizontalOptions="FillAndExpand" TextColor="White"  />
+                                </StackLayout>
+
+                                <!--<StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                                    <Image Source="PlayIcon.png"  HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="22" WidthRequest="22" />
+                                    <Label Text="Virtual Sitting available: Zoom,Hang out,facetime" FontSize="12" Style="{StaticResource FontRegular}"  VerticalOptions="Center" HorizontalOptions="Start" TextColor="White"  />
+                                </StackLayout>-->
+
+                                <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                                    <Image Source="idcard.png"  HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="22" WidthRequest="22" />
+                                    <Label Text="Ad Id: " FontSize="12" Style="{StaticResource FontRegular}"  VerticalOptions="Center" HorizontalOptions="Start" TextColor="White"  />
+                                    <Label Text="{Binding businessid}" FontSize="12" Style="{StaticResource FontRegular}"  VerticalOptions="Center" HorizontalOptions="Start" TextColor="#feec59"  />
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                                    <Image Source="calendarWhite.png"  HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="22" WidthRequest="22" />
+                                    <Label Text="Details updated on:" FontSize="12" Style="{StaticResource FontRegular}"  VerticalOptions="Center" HorizontalOptions="Start" TextColor="White"  />
+                                    <Label Text="{Binding lastrenewdate}" FontSize="12" Style="{StaticResource FontRegular}"  VerticalOptions="Center" HorizontalOptions="Start" TextColor="#feec59"  />
+                                </StackLayout>
+
+                            </StackLayout>
+
+                        </StackLayout>
+
+
+
+                        <StackLayout BackgroundColor="#ecf2f4" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0,-8,0,0" >
+
+                            <StackLayout BackgroundColor="White"  VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0" >
+
+                                <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="15,10,15,10" >
+
+                                    <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="StartAndExpand" >
+
+                                        <Image Source="FavoriteYellow.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="26" WidthRequest="26" >
+                                            <Image.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding adsavecmd}"/>
+                                            </Image.GestureRecognizers>
+                                        </Image>
+                                        <Image Source="ShareGray.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="26" WidthRequest="26" Margin="5,0,0,0" >
+                                            <Image.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding sharecmd}"/>
+                                            </Image.GestureRecognizers>
+                                        </Image>
+                                        <Image Source="ReportflagGray.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="26" WidthRequest="26"  Margin="5,0,0,0" >
+                                            <Image.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding reportflagcmd}"/>
+                                            </Image.GestureRecognizers>
+                                        </Image>
+
+                                    </StackLayout>
+
+                                    <StackLayout  VerticalOptions="Center" HorizontalOptions="End" >
+
+
+                                        <Button Text="Get Quote" 
+                                                    TextColor="#ffffff"
+                                                    BackgroundColor="#f89406"
+                                                    BorderColor="#f89406"
+                                                    BorderWidth="1"
+                                                    BorderRadius="4"
+                                                    VerticalOptions="Center"
+                                                    HorizontalOptions="FillAndExpand"                                                   
+                                                    FontSize="14"   
+                                                    Style="{StaticResource FontRegular}"
+                                                    
+                                             />
+
+                                    </StackLayout>
+
+                                </StackLayout>
+                                <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Margin="0" />
+
+                                <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="15,10,15,10">
+
+                                    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start"  BackgroundColor="White"  >
+
+                                        <StackLayout Orientation="Horizontal"   VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Margin="0,0,0,5" >
+                                            <Image Source="LocationIcon.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="30" WidthRequest="30"/>
+                                            <StackLayout VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="5,0,0,0">
+                                                <Label Text="Location" FontSize="12" TextColor="#888888" Style="{StaticResource FontRegular}"  HorizontalOptions="Start" VerticalOptions="Start" Margin="0,0,0,-3" />
+                                                <Label Text="{Binding businessaddress}" FontSize="12" TextColor="#212121" Style="{StaticResource FontRegular}"  HorizontalOptions="Start" VerticalOptions="Start" Margin="0,-3,0,0"/>
+                                            </StackLayout>
+                                        </StackLayout>
+
+                                        <StackLayout Orientation="Horizontal"   VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Margin="0,0,0,5" >
+                                            <Image Source="BusinessTitle.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="30" WidthRequest="30"/>
+                                            <StackLayout VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="5,0,0,0">
+                                                <Label Text="Type" FontSize="12" TextColor="#888888" Style="{StaticResource FontRegular}"  HorizontalOptions="Start" VerticalOptions="Start" Margin="0,0,0,-3" />
+                                                <Label Text="Virtual Sitting" FontSize="12" TextColor="#212121" Style="{StaticResource FontRegular}"  HorizontalOptions="Start" VerticalOptions="Start" Margin="0,-3,0,0"/>
+                                            </StackLayout>
+                                        </StackLayout>
+
+
+
+                                        <StackLayout Orientation="Horizontal"   VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Margin="0,0,0,5" >
+                                            <Image Source="IdIcon.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="30" WidthRequest="30"/>
+                                            <StackLayout VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="5,0,0,0">
+                                                <Label Text="Level" FontSize="12" TextColor="#888888" Style="{StaticResource FontRegular}"  HorizontalOptions="Start" VerticalOptions="Start" Margin="0,0,0,-3" />
+                                                <Label Text="{Binding experience}" FontSize="12" TextColor="#212121" Style="{StaticResource FontRegular}"  HorizontalOptions="Start" VerticalOptions="Start" Margin="0,-3,0,0"/>
+                                            </StackLayout>
+                                        </StackLayout>
+
+                                        <StackLayout Orientation="Horizontal"   VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Margin="0,0,0,5" >
+                                            <Image Source="time2.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="30" WidthRequest="30"/>
+                                            <StackLayout VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="5,0,0,0">
+                                                <Label Text="Class Length" FontSize="12" TextColor="#888888" Style="{StaticResource FontRegular}"  HorizontalOptions="Start" VerticalOptions="Start" Margin="0,0,0,-3" />
+                                                <Label Text="{Binding salary}" FontSize="12" TextColor="#212121" Style="{StaticResource FontRegular}"  HorizontalOptions="Start" VerticalOptions="Start" Margin="0,-3,0,0"/>
+                                            </StackLayout>
+                                        </StackLayout>
+
+                                        <StackLayout Orientation="Horizontal"   VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Margin="0,0,0,5" >
+                                            <Image Source="GenderIcon.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="30" WidthRequest="30"/>
+                                            <StackLayout VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="5,0,0,0">
+                                                <Label Text="Gender" FontSize="12" TextColor="#888888" Style="{StaticResource FontRegular}"   HorizontalOptions="Start" VerticalOptions="Start" Margin="0,0,0,-3" />
+                                                <Label Text="{Binding gender}" FontSize="12" Style="{StaticResource FontRegular}" TextColor="#212121"  HorizontalOptions="Start" VerticalOptions="Start" Margin="0,-3,0,0"/>
+                                            </StackLayout>
+                                        </StackLayout>
+
+                                        <StackLayout Orientation="Horizontal"   VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Margin="0,0,0,5" >
+                                            <Image Source="CalendarIcon.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="30" WidthRequest="30"/>
+                                            <StackLayout VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="5,0,0,0">
+                                                <Label Text="Available From" FontSize="12" TextColor="#888888" Style="{StaticResource FontRegular}"  HorizontalOptions="Start" VerticalOptions="Start" Margin="0,0,0,-3" />
+                                                <Label Text="{Binding fromdate}" FontSize="12" TextColor="#212121" Style="{StaticResource FontRegular}"  HorizontalOptions="Start" VerticalOptions="Start" Margin="0,-3,0,0"/>
+                                            </StackLayout>
+                                        </StackLayout>
+
+
+                                    </StackLayout>
+
+                                </StackLayout>
+
+                            </StackLayout>
+
+
+                            <Frame BackgroundColor="White" CornerRadius="4"   Margin="10,10,10,0" Padding="10,10,10,20" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" >
+                                <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+
+
+
+                                    <Label Text="Virtual Sitting" FontSize="14" Style="{StaticResource FontRegular}"   VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" TextColor="#222222" Margin="0,10,0,0"  />
+
+                                    <StackLayout Orientation="Horizontal" Padding="0,0,0,5"  >
+                                        <Image Source="CheckedGray.png"  HorizontalOptions="Start" VerticalOptions="CenterAndExpand" HeightRequest="14" WidthRequest="14"/>
+                                        <Label Text="Zoom" FontSize="12" Style="{StaticResource FontRegular}"  HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand" VerticalOptions="Start" TextColor="#818080"  />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" Padding="0,0,0,5" >
+                                        <Image Source="CheckedGray.png"  HorizontalOptions="Start" VerticalOptions="CenterAndExpand" HeightRequest="14" WidthRequest="14"/>
+                                        <Label Text="Hang out" FontSize="12" Style="{StaticResource FontRegular}"  HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand" VerticalOptions="Start" TextColor="#818080"  />
+                                    </StackLayout>
+
+                                    <StackLayout Orientation="Horizontal" Padding="0,0,0,5" >
+                                        <Image Source="CheckedGray.png"  HorizontalOptions="Start" VerticalOptions="CenterAndExpand" HeightRequest="14" WidthRequest="14"/>
+                                        <Label Text="facetime" FontSize="12" Style="{StaticResource FontRegular}"  HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand" VerticalOptions="Start" TextColor="#818080"  />
+                                    </StackLayout>
+
+
+                                    <Label Text="Nanny / Babysitter Services Offered" FontSize="14" Style="{StaticResource FontRegular}"   VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" TextColor="#222222" Margin="0,10,0,0"  />
+
+                                    <StackLayout Orientation="Horizontal" Padding="0,0,0,5" >
+                                        <Image Source="CheckedGray.png"  HorizontalOptions="Start" VerticalOptions="CenterAndExpand" HeightRequest="14" WidthRequest="14"/>
+                                        <Label Text="After School Care"  FontSize="12" Style="{StaticResource FontRegular}"  HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand" VerticalOptions="Start" TextColor="#818080"  />
+                                    </StackLayout>
+
+                                    <StackLayout Orientation="Horizontal" Padding="0,0,0,5" >
+                                        <Image Source="CheckedGray.png"  HorizontalOptions="Start" VerticalOptions="CenterAndExpand" HeightRequest="14" WidthRequest="14"/>
+                                        <Label Text="Before School Care" FontSize="12" Style="{StaticResource FontRegular}"  HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand" VerticalOptions="Start" TextColor="#818080"  />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" Padding="0,0,0,5"  >
+                                        <Image Source="CheckedGray.png"  HorizontalOptions="Start" VerticalOptions="CenterAndExpand" HeightRequest="14" WidthRequest="14"/>
+                                        <Label Text="Activities" FontSize="12" Style="{StaticResource FontRegular}"  HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand" VerticalOptions="Start" TextColor="#818080"  />
+                                    </StackLayout>
+
+                                    <StackLayout Orientation="Horizontal" Padding="0,0,0,5" >
+                                        <Image Source="CheckedGray.png"  HorizontalOptions="Start" VerticalOptions="CenterAndExpand" HeightRequest="14" WidthRequest="14"/>
+                                        <Label Text="Homework Guide" FontSize="12" Style="{StaticResource FontRegular}"  HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand" VerticalOptions="Start" TextColor="#818080"  />
+                                    </StackLayout>
+
+
+                                    <Label Text="Age Group Handled" FontSize="14" Style="{StaticResource FontRegular}"   VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" TextColor="#222222" Margin="0,10,0,0"  />
+
+                                    <!--<ListView ItemsSource="{Binding agrgrouplist}">
+                                        <ListView.ItemTemplate>
+                                            <DataTemplate>
+                                                <ViewCell>
+                                                    <StackLayout Orientation="Horizontal" Padding="0,0,0,5"  >
+                                                        <Image Source="CheckedGray.png"  HorizontalOptions="Start" VerticalOptions="CenterAndExpand" HeightRequest="14" WidthRequest="14"/>
+                                                        <Label Text="{Binding .}" FontSize="12" Style="{StaticResource FontRegular}"  HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand" VerticalOptions="Start" TextColor="#818080"  />
+                                                    </StackLayout>
+                                                </ViewCell>
+                                            </DataTemplate>
+                                        </ListView.ItemTemplate>
+                                    </ListView>-->
+                                    <!--<local:ListviewScrollbar x:Name="agegrouplist"  HasUnevenRows="True"  SeparatorVisibility="None" >
+                                        <local:ListviewScrollbar.ItemTemplate>
+                                            <DataTemplate>
+                                                <ViewCell>
+                                                    <Frame Margin="0" Padding="0" HasShadow="False">
+                                                        <StackLayout Orientation="Horizontal" Padding="0,0,0,5"  >
+                                                            <Image Source="CheckedGray.png"  HorizontalOptions="Start" VerticalOptions="CenterAndExpand" HeightRequest="14" WidthRequest="14"/>
+                                                            <Label Text="{Binding .}" FontSize="12" Style="{StaticResource FontRegular}"  HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand" VerticalOptions="Start" TextColor="#818080"  />
+                                                        </StackLayout>
+                                                    </Frame>
+                                                </ViewCell>
+                                            </DataTemplate>
+                                        </local:ListviewScrollbar.ItemTemplate>
+                                    </local:ListviewScrollbar>-->
+
+
+
+                                    <Label Text="Verified Credentials" FontSize="14" Style="{StaticResource FontRegular}"   VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" TextColor="#222222" Margin="0,10,0,0"  />
+
+                                    <StackLayout IsVisible="{Binding mailverified}" Orientation="Horizontal" Padding="0,0,0,5" >
+                                        <Image Source="contactmail.png"  HorizontalOptions="Start" VerticalOptions="CenterAndExpand" HeightRequest="14" WidthRequest="14"/>
+                                        <Label Text="Mail Verified" FontSize="12" Style="{StaticResource FontRegular}"  HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand" VerticalOptions="Start" TextColor="#03a497"  />
+                                    </StackLayout>
+                                    <StackLayout IsVisible="{Binding mobileverified}" Orientation="Horizontal" Padding="0,0,0,5" >
+                                        <Image Source="contactcall.png"  HorizontalOptions="Start" VerticalOptions="CenterAndExpand" HeightRequest="14" WidthRequest="14"/>
+                                        <Label Text="Phone Verified" FontSize="12" Style="{StaticResource FontRegular}"  HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand" VerticalOptions="Start" TextColor="#03a497"  />
+                                    </StackLayout>
+
+                                    <Label Text="Languages Known" FontSize="14" Style="{StaticResource FontRegular}"   VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" TextColor="#222222" Margin="0,10,0,0"  />
+
+                                    <StackLayout Orientation="Horizontal" Padding="0,0,0,5"  >
+                                        <Image Source="CheckedGray.png"  HorizontalOptions="Start" VerticalOptions="CenterAndExpand" HeightRequest="14" WidthRequest="14"/>
+                                        <Label Text="English" FontSize="12" Style="{StaticResource FontRegular}"  HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand" VerticalOptions="Start" TextColor="#818080"  />
+                                    </StackLayout>
+
+                                    <Label Text="Cerifications Done" FontSize="14"  VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" TextColor="#222222" Margin="0,10,0,0"  />
+
+                                    <StackLayout Orientation="Horizontal" Padding="0,0,0,5" >
+                                        <Image Source="CheckedGray.png"  HorizontalOptions="Start" VerticalOptions="CenterAndExpand" HeightRequest="14" WidthRequest="14"/>
+                                        <Label Text="No Certification" FontSize="12" Style="{StaticResource FontRegular}"  HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand" VerticalOptions="Start" TextColor="#1976d2"  />
+                                    </StackLayout>
+
+                                    <Label Text="Availability" FontSize="14" Style="{StaticResource FontRegular}"   VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" TextColor="#222222" Margin="0,10,0,0"  />
+
+                                    <StackLayout Orientation="Horizontal" Padding="0,0,0,5"  >
+                                        <Image Source="CheckedGray.png"  HorizontalOptions="Start" VerticalOptions="CenterAndExpand" HeightRequest="14" WidthRequest="14"/>
+                                        <Label Text="From: 17 Dec 2018" FontSize="12" Style="{StaticResource FontRegular}"  HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand" VerticalOptions="Start" TextColor="#03a497"  />
+                                    </StackLayout>
+
+
+
+                                </StackLayout>
+
+                            </Frame>
+
+
+
+                            <Frame  CornerRadius="4" BackgroundColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="0" Margin="10,10,10,10"  >
+
+                                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start"  BackgroundColor="White"  >
+
+                                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="10,10,10,10"   >
+                                        <Label Text="A Special Kind Of Play's Note" FontSize="14"   Style="{StaticResource FontBold}"   VerticalOptions="Start" HorizontalOptions="FillAndExpand" TextColor="#212121" />
+                                    </StackLayout>
+                                    <BoxView BackgroundColor="#e7eaec" HeightRequest="1" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Margin="0,-5,0,-5"   />
+
+                                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="15">
+                                        <Label Text="{Binding description}" FontSize="12"   Style="{StaticResource FontRegular}"   VerticalOptions="Start" HorizontalOptions="FillAndExpand" TextColor="#666666" />
+                                    </StackLayout>
+
+                                </StackLayout>
+
+                            </Frame>
+
+                            <!--Write a Review-->
+
+                            <Frame BackgroundColor="White" CornerRadius="4"   Margin="10,0,10,20" Padding="10" >
+                                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                                        <Label Text="Write a Review" FontSize="14"  Style="{StaticResource FontBold}"  VerticalOptions="Center" HorizontalOptions="StartAndExpand" TextColor="#222222"  />
+                                        <Image Source="minusGrey.png" HeightRequest="24" WidthRequest="24" VerticalOptions="Center" HorizontalOptions="End"   />
+                                    </StackLayout>
+                                    <BoxView HeightRequest="1" HorizontalOptions="FillAndExpand" VerticalOptions="Start" BackgroundColor="#ecf2f4"  />
+
+                                    <Label Text="Your Rating " FontSize="12" Style="{StaticResource FontRegular}"  VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" TextColor="#193651"  Margin="0,15,0,0" />
+
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start" >
+
+                                        <Image Source="StarActive.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="24" WidthRequest="24" Margin="0,0,5,0"/>
+                                        <Image Source="StarActive.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="24" WidthRequest="24" Margin="0,0,5,0"/>
+                                        <Image Source="StarActive.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="24" WidthRequest="24" Margin="0,0,5,0"/>
+                                        <Image Source="Star_inactive.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="24" WidthRequest="24" Margin="0,0,5,0"/>
+                                        <Image Source="Star_inactive.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="24" WidthRequest="24" Margin="0,0,5,0"/>
+
+                                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" >
+                                            <Frame BackgroundColor="#45a455" CornerRadius="2"  Padding="5, 1, 5, 1">
+                                                <Label Text="3/5" FontSize="14"  Style="{StaticResource FontRegular}"  TextColor="#ffffff"  HorizontalOptions="Start" VerticalOptions="CenterAndExpand"/>
+                                            </Frame>
+                                        </StackLayout>
+
+                                    </StackLayout>
+
+                                    <Label Text="How would you rate this course?" FontSize="12"  VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" TextColor="#193651"  Margin="0,15,0,0" />
+
+                                    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start"  Padding="10,5,10,10" BackgroundColor="#f8f7f7">
+                                        <Label Text="How would you rate this course?" FontSize="12"  Style="{StaticResource FontRegular}"   VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" TextColor="#666666"  />
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start" >
+                                            <Image Source="StarActive.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="14" WidthRequest="14" Margin="0,0,5,0"/>
+                                            <Image Source="StarActive.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="14" WidthRequest="14" Margin="0,0,5,0"/>
+                                            <Image Source="StarActive.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="14" WidthRequest="14" Margin="0,0,5,0"/>
+                                            <Image Source="Star_inactive.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="14" WidthRequest="14" Margin="0,0,5,0"/>
+                                            <Image Source="Star_inactive.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="14" WidthRequest="14" Margin="0,0,5,0"/>
+                                        </StackLayout>
+                                    </StackLayout>
+
+                                    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start" BackgroundColor="#f8f7f7" Padding="10,5,10,10">
+                                        <Label Text="Quality of service" FontSize="12"  Style="{StaticResource FontRegular}"   VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" TextColor="#666666"  />
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start" >
+                                            <Image Source="Star_inactive.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="14" WidthRequest="14" Margin="0,0,5,0"/>
+                                            <Image Source="Star_inactive.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="14" WidthRequest="14" Margin="0,0,5,0"/>
+                                            <Image Source="Star_inactive.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="14" WidthRequest="14" Margin="0,0,5,0"/>
+                                            <Image Source="Star_inactive.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="14" WidthRequest="14" Margin="0,0,5,0"/>
+                                            <Image Source="Star_inactive.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="14" WidthRequest="14" Margin="0,0,5,0"/>
+                                        </StackLayout>
+                                    </StackLayout>
+
+                                    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start"  Padding="10,5,10,10" BackgroundColor="#f8f7f7">
+                                        <Label Text="Value for money" FontSize="12"  Style="{StaticResource FontRegular}"   VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" TextColor="#666666"   />
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start" >
+                                            <Image Source="Star_inactive.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="14" WidthRequest="14" Margin="0,0,5,0"/>
+                                            <Image Source="Star_inactive.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="14" WidthRequest="14" Margin="0,0,5,0"/>
+                                            <Image Source="Star_inactive.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="14" WidthRequest="14" Margin="0,0,5,0"/>
+                                            <Image Source="Star_inactive.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="14" WidthRequest="14" Margin="0,0,5,0"/>
+                                            <Image Source="Star_inactive.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="14" WidthRequest="14" Margin="0,0,5,0"/>
+                                        </StackLayout>
+                                    </StackLayout>
+
+                                    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start" BackgroundColor="#f8f7f7"  Padding="10,5,10,10">
+                                        <Label Text="Customer satisfaction" FontSize="12"  Style="{StaticResource FontRegular}"   VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" TextColor="#666666"  />
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start" >
+                                            <Image Source="Star_inactive.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="14" WidthRequest="14" Margin="0,0,5,0"/>
+                                            <Image Source="Star_inactive.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="14" WidthRequest="14" Margin="0,0,5,0"/>
+                                            <Image Source="Star_inactive.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="14" WidthRequest="14" Margin="0,0,5,0"/>
+                                            <Image Source="Star_inactive.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="14" WidthRequest="14" Margin="0,0,5,0"/>
+                                            <Image Source="Star_inactive.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="14" WidthRequest="14" Margin="0,0,5,0"/>
+                                        </StackLayout>
+                                    </StackLayout>
+
+
+                                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0,15,0,15" >
+                                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  Padding="5"   >
+                                            <Image Source="LocationIcon.png" HeightRequest="32" WidthRequest="32"   />
+                                        </StackLayout>
+
+                                        <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                            <Entry  Placeholder="Location"  Style="{StaticResource FontRegular}" FontSize="12"  PlaceholderColor="#c0c0c0"    />
+                                        </StackLayout>
+                                    </StackLayout>
+
+                                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0,0,0,15" >
+                                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Start"  Padding="5"   >
+                                            <Image Source="Company.png" HeightRequest="32" WidthRequest="32"   />
+                                        </StackLayout>
+
+                                        <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                            <Entry  Placeholder="Business"  Style="{StaticResource FontRegular}"  FontSize="12" PlaceholderColor="#c0c0c0"    />
+                                        </StackLayout>
+                                    </StackLayout>
+
+                                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand"  Padding="0,0,0,15">
+                                        <StackLayout VerticalOptions="Start" HorizontalOptions="Start"  Padding="5"  >
+                                            <Image Source="MessageIcon.png" HeightRequest="32" WidthRequest="32"   />
+                                        </StackLayout>
+                                        <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                            <Editor Text="Long paragraph here"  Style="{StaticResource FontRegular}" FontSize="12"   HeightRequest="100"    />
+                                        </StackLayout>
+                                    </StackLayout>
+
+                                    <Button Text="Publish review"  Style="{StaticResource FontRegular}" FontSize="12"   TextColor="White" BackgroundColor="#0ba283"  />
+
+
+                                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand"  Padding="0,15,0,0">
+
+                                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Start"   Padding="5"  >
+                                            <Image Source="PhoneIcon.png" HeightRequest="32" WidthRequest="32"   />
+                                        </StackLayout>
+
+                                        <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                            <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                                <Entry Text="+1" WidthRequest="50" IsEnabled="False" FontSize="12"  Style="{StaticResource FontRegular}"   />
+                                                <Entry Text="Mobileno" Keyboard="Numeric" Placeholder="98XXXXXX89" FontSize="12"   Style="{StaticResource FontRegular}"  HorizontalOptions="FillAndExpand" />
+                                            </StackLayout>
+                                        </StackLayout>
+
+                                    </StackLayout>
+
+                                    <StackLayout>
+                                        <Button Text="Verify Number" TextColor="White"  Style="{StaticResource FontRegular}" FontSize="12"   HorizontalOptions="End" BackgroundColor="Gray"  />
+                                    </StackLayout>
+
+                                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand"  >
+                                        <StackLayout VerticalOptions="Start" HorizontalOptions="Start"  Padding="5"  >
+                                            <Image Source="MessageIcon.png" HeightRequest="32" WidthRequest="32"   />
+                                        </StackLayout>
+                                        <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                            <Entry Text="OTP Number" Keyboard="Numeric" Placeholder="98XXXXXX89" FontSize="12"   Style="{StaticResource FontRegular}"  HorizontalOptions="FillAndExpand" />
+                                        </StackLayout>
+
+                                        <StackLayout VerticalOptions="Start" HorizontalOptions="End">
+                                            <Button Text="Submit" TextColor="White"  HorizontalOptions="End" FontSize="12"   Style="{StaticResource FontRegular}"  BackgroundColor="#0ba283"  />
+                                        </StackLayout>
+                                    </StackLayout>
+                                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="0,0,0,15">
+                                        <Label Text="Resend OTP" FontSize="12"  Style="{StaticResource FontRegular}"  HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand" TextColor="#30a4ea"  />
+                                    </StackLayout>
+
+                                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                                        <Label Text="After confirming your phone number we will publish your review" FontSize="12"  Style="{StaticResource FontRegular}"  HorizontalOptions="StartAndExpand" TextColor="#888888"  />
+                                    </StackLayout>
+
+                                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="10,20,10,20">
+                                        <Image Source="CheckedGreen.png" HeightRequest="42" WidthRequest="42" Margin="0,0,0,5"   />
+                                        <Label Text="Success After confirming your phone number we will publish your review" FontSize="14"  Style="{StaticResource FontRegular}"  VerticalOptions="Start"  HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" TextColor="#0ba283"  />
+                                    </StackLayout>
+
+
+                                </StackLayout>
+
+                            </Frame>
+
+                            <!--Write a Review-->
+
+                            <Frame BackgroundColor="White" CornerRadius="4"   Margin="10,0,10,10" Padding="10" >
+
+                                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                                        <Label Text="Reviews" FontSize="14"  Style="{StaticResource FontBold}"   VerticalOptions="Center" HorizontalOptions="StartAndExpand" TextColor="#222222"  />
+                                        <Image Source="downarrowGrey.png" HeightRequest="24" WidthRequest="24" VerticalOptions="Center" HorizontalOptions="End"   />
+                                    </StackLayout>
+                                    <BoxView HeightRequest="1" HorizontalOptions="FillAndExpand" VerticalOptions="Start" BackgroundColor="#ecf2f4"  />
+
+
+                                    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start" Margin="0,15,0,0">
+                                        <StackLayout Orientation="Horizontal">
+                                            <Frame BackgroundColor="Blue" WidthRequest="50" HasShadow="False" HeightRequest="50" CornerRadius="25" HorizontalOptions="Start" Padding="0">
+                                                <Image Source="localservices.png"  HorizontalOptions="Start" VerticalOptions="Center" Aspect="Fill"/>
+                                            </Frame>
+                                            <StackLayout HorizontalOptions="FillAndExpand">
+                                                <Label Text="Rajesh Sellaiyan " FontSize="14"  Style="{StaticResource FontRegular}"   VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" TextColor="#222222"  />
+
+                                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+
+                                                    <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" >
+                                                        <Image Source="clock.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="14" WidthRequest="14"/>
+                                                        <Label Text="1 year ago" FontSize="12"  Style="{StaticResource FontRegular}"  HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand" TextColor="#888888"  />
+                                                    </StackLayout>
+
+                                                    <StackLayout Orientation="Horizontal" HorizontalOptions="End">
+                                                        <Label Text="Rated " FontSize="11"  Style="{StaticResource FontRegular}"  TextColor="#888888"  HorizontalOptions="Start" VerticalOptions="Center"/>
+                                                        <Frame BackgroundColor="#45a455" CornerRadius="2"  Padding="5, 3, 5, 3">
+                                                            <Label Text="7.5" FontSize="10"  Style="{StaticResource FontRegular}"  TextColor="#ffffff"  HorizontalOptions="Start" VerticalOptions="Center"/>
+                                                        </Frame>
+                                                    </StackLayout>
+
+                                                </StackLayout>
+
+                                            </StackLayout>
+
+                                        </StackLayout>
+
+                                        <StackLayout HorizontalOptions="FillAndExpand">
+                                            <Label Text="I would recommend PanditSairam ji for the people who suffering from a problem of getting your ex lover back. This Pandit ji did a miracle in my love life, when I was in love with a girl I wanted to get her back desperately. However, things were turning from bad to worse. One day I saw his astrology website and I consulted him for help. His suggestion helped me in getting my love completely back. "
+                                                   FontSize="12"  Style="{StaticResource FontRegular}"   VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" TextColor="#888888"  />
+                                        </StackLayout>
+
+                                        <StackLayout BackgroundColor="#f3f1f2" Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Margin="0,15,0,0" >
+                                            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" >
+                                                <Image Source="share2.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="20" WidthRequest="20"/>
+                                                <Label Text="Share" FontSize="12"  Style="{StaticResource FontRegular}"  HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand" VerticalOptions="Center" TextColor="#888888"  />
+                                            </StackLayout>
+                                            <BoxView WidthRequest="1" BackgroundColor="White" VerticalOptions="FillAndExpand" HorizontalOptions="Start"/>
+                                            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" >
+                                                <Image Source="comment.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="20" WidthRequest="20"/>
+                                                <Label Text="Comment" FontSize="12"  Style="{StaticResource FontRegular}"  HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand" VerticalOptions="Center" TextColor="#888888"  />
+                                            </StackLayout>
+                                        </StackLayout>
+
+                                        <BoxView HeightRequest="1" HorizontalOptions="FillAndExpand" VerticalOptions="Start" BackgroundColor="#ecf2f4"  />
+
+                                    </StackLayout>
+
+                                    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start" Margin="0,15,0,0">
+                                        <StackLayout Orientation="Horizontal">
+                                            <Frame BackgroundColor="Blue" WidthRequest="50" HasShadow="False" HeightRequest="50" CornerRadius="25" HorizontalOptions="Start" Padding="0">
+                                                <Label Text="R" FontSize="26"  Style="{StaticResource FontRegular}"   VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="#ffffff"  />
+                                            </Frame>
+                                            <StackLayout HorizontalOptions="FillAndExpand">
+                                                <Label Text="Rajesh Sellaiyan" FontSize="14"  Style="{StaticResource FontRegular}"   VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" TextColor="#222222"  />
+
+                                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+
+                                                    <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" >
+                                                        <Image Source="clock.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="14" WidthRequest="14"/>
+                                                        <Label Text="1 year ago" FontSize="14"  Style="{StaticResource FontRegular}"  HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand" TextColor="#888888"  />
+                                                    </StackLayout>
+
+                                                    <StackLayout Orientation="Horizontal" HorizontalOptions="End">
+                                                        <Label Text="Rated " FontSize="11" TextColor="#888888"  HorizontalOptions="Start" VerticalOptions="Center"/>
+                                                        <Frame BackgroundColor="#45a455" CornerRadius="2"  Padding="5, 3, 5, 3">
+                                                            <Label Text="7.5" FontSize="10"  Style="{StaticResource FontRegular}"  TextColor="#ffffff"  HorizontalOptions="Start" VerticalOptions="Center"/>
+                                                        </Frame>
+                                                    </StackLayout>
+
+                                                </StackLayout>
+
+                                            </StackLayout>
+
+                                        </StackLayout>
+
+                                        <StackLayout HorizontalOptions="FillAndExpand">
+                                            <Label Text="I would recommend PanditSairam ji for the people who suffering from a problem of getting your ex lover back. This Pandit ji did a miracle in my love life, when I was in love with a girl I wanted to get her back desperately." 
+                                                   FontSize="12"  Style="{StaticResource FontRegular}"   VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" TextColor="#888888"  />
+                                        </StackLayout>
+
+
+
+                                        <StackLayout BackgroundColor="#f3f1f2" Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Margin="0,15,0,0" >
+                                            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" >
+                                                <Image Source="share2.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="20" WidthRequest="20"/>
+                                                <Label Text="Share" FontSize="12"  Style="{StaticResource FontRegular}"  HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand" VerticalOptions="Center" TextColor="#888888"  />
+                                            </StackLayout>
+                                            <BoxView WidthRequest="1" BackgroundColor="White" VerticalOptions="FillAndExpand" HorizontalOptions="Start"/>
+                                            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" >
+                                                <Image Source="comment.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="20" WidthRequest="20"/>
+                                                <Label Text="Comment" FontSize="12"  Style="{StaticResource FontRegular}"  HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand" VerticalOptions="Center" TextColor="#888888"  />
+                                            </StackLayout>
+                                        </StackLayout>
+
+                                        <BoxView HeightRequest="1" HorizontalOptions="FillAndExpand" VerticalOptions="Start" BackgroundColor="#ecf2f4" />
+
+                                    </StackLayout>
+
+                                </StackLayout>
+
+                            </Frame>
+
+
+
+
+
+                        </StackLayout>
+
+                    </StackLayout>
+
+                </ScrollView>
+            </StackLayout>
+
+
+
+            <StackLayout Margin="0,-10,0,0" VerticalOptions="End"  BackgroundColor="White" Padding="0" HorizontalOptions="FillAndExpand" 
+                             AbsoluteLayout.LayoutBounds="0,1,1,1" AbsoluteLayout.LayoutFlags="All" >
+
+                <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+
+
+
+
+                    <Button Text="Get Quote" 
+                                                    TextColor="#ffffff"
+                                                    BackgroundColor="#f89406"
+                                                    BorderColor="#f89406"
+                                                    BorderWidth="1"
+                                                    BorderRadius="4"
+                                                    VerticalOptions="Center"
+                                                    HorizontalOptions="FillAndExpand"                                                   
+                                                    FontSize="14"   
+                                                    Style="{StaticResource FontRegular}"
+                                                    Margin="5,0,5,0"  
+                                             />
+
+
+                </StackLayout>
+
+
+
+            </StackLayout>
+
+
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

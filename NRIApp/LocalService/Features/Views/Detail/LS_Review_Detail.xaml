@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             
+             xmlns:local="clr-namespace:NRIApp.Helpers"
+             x:Class="NRIApp.LocalService.Features.Views.Detail.LS_Review_Detail">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout BackgroundColor="#ecf2f4" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="10">
+
+
+                <Frame BackgroundColor="White" CornerRadius="4"    Padding="10" >
+
+                    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start" Margin="0,15,0,0">
+                        <StackLayout Orientation="Horizontal">                          
+                            <Frame BackgroundColor="#07ba8e" WidthRequest="45" HasShadow="False" IsVisible="{Binding Revimgnovisible}" HeightRequest="45" CornerRadius="21" HorizontalOptions="Start" Padding="0">
+                                <Label Text="{Binding Revtext}" Style="{StaticResource FontRegular}" FontSize="26"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="#ffffff"  />
+                            </Frame>
+                            <Frame BackgroundColor="#07ba8e" IsVisible="{Binding Revimgvisible}" WidthRequest="20" HasShadow="False" HeightRequest="30" CornerRadius="9" HorizontalOptions="Start" Padding="0">
+                                <Image Source="{Binding Revimage}"  HorizontalOptions="Start" VerticalOptions="Center" Aspect="Fill"/>
+                            </Frame>
+                            <StackLayout HorizontalOptions="FillAndExpand">
+                                <Label Text="{Binding Revcontributor}" Style="{StaticResource FontRegular}" FontSize="16"  VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" TextColor="#222222"  />
+
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" >
+                                        <Image Source="clock.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="14" WidthRequest="14"/>
+                                        <Label Text="{Binding Revpostedago}" Style="{StaticResource FontRegular}" FontSize="14" HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand" TextColor="#888888"  />
+                                    </StackLayout>
+
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="End">
+                                        <Label Text="Rated " FontSize="11" TextColor="#888888"  HorizontalOptions="Start" VerticalOptions="Center"/>
+                                        <Frame BackgroundColor="#45a455" CornerRadius="2"  Padding="5, 3, 5, 3">
+                                            <Label Text="{Binding Revrating}" Style="{StaticResource FontRegular}" FontSize="10" TextColor="#ffffff"  HorizontalOptions="Start" VerticalOptions="Center"/>
+                                        </Frame>
+                                    </StackLayout>
+
+                                </StackLayout>
+
+                            </StackLayout>
+
+                        </StackLayout>
+
+                        <StackLayout HorizontalOptions="FillAndExpand">
+                            <Label Text="{Binding Revdesc}" FontSize="16" Style="{StaticResource FontRegular}"  VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" TextColor="#888888"  />
+                        </StackLayout>
+
+
+
+                        <!--<StackLayout BackgroundColor="#f3f1f2" Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Margin="0,15,0,0" >
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" >
+                                <Image Source="share2.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="20" WidthRequest="20"/>
+                                <Label Text="Share" FontSize="14" HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand" VerticalOptions="Center" TextColor="#888888"  />
+                            </StackLayout>
+                            <BoxView WidthRequest="1" BackgroundColor="White" VerticalOptions="FillAndExpand" HorizontalOptions="Start"/>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" >
+                                <Image Source="comment.png"  HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="20" WidthRequest="20"/>
+                                <Label Text="Comment" FontSize="14" HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand" VerticalOptions="Center" TextColor="#888888"  />
+                            </StackLayout>
+                        </StackLayout>-->
+
+
+
+                    </StackLayout>
+
+                </Frame>
+
+                <local:HVScrollGridView ListOrientation="Vertical" x:Name="listreviewreply" >
+                    <local:HVScrollGridView.ItemTemplate>
+                        <DataTemplate>
+                            <ContentView>
+                                <ContentView.Content>
+                                    <Frame BackgroundColor="White" CornerRadius="4"    Padding="10" Margin="0,0,0,10" >
+
+                            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start" Margin="0,10,0,0">
+                        <StackLayout Orientation="Horizontal">
+                            <Frame BackgroundColor="#aaaaaa" WidthRequest="25" HasShadow="False" HeightRequest="25" CornerRadius="12" HorizontalOptions="Start" Padding="0">
+                                                    <Label Text="{Binding replytext}" FontSize="16"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="#ffffff"  />
+                            </Frame>
+                            <StackLayout HorizontalOptions="FillAndExpand">
+                                                    <Label Text="{Binding contributor}" FontSize="14"  VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" TextColor="#222222"  />
+
+                            </StackLayout>
+
+                        </StackLayout>
+
+                        <StackLayout HorizontalOptions="FillAndExpand">
+                                                <Label Text="{Binding replycomment}" Style="{StaticResource FontRegular}" FontSize="16"  VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" TextColor="#888888"  />
+                        </StackLayout>
+
+
+
+                    </StackLayout>
+
+                </Frame>
+                                </ContentView.Content>
+                            </ContentView>
+                        </DataTemplate>
+                    </local:HVScrollGridView.ItemTemplate>
+                </local:HVScrollGridView>
+
+
+
+
+
+                <Frame BackgroundColor="White" CornerRadius="4"    Padding="10" >
+
+                    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" >
+
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand">
+
+                            <Frame BackgroundColor="#aaaaaa" WidthRequest="25" HasShadow="False" HeightRequest="25" CornerRadius="12" HorizontalOptions="Start" Padding="0">
+                                <Label Text="{Binding Revlogintext}" FontSize="14" Style="{StaticResource FontRegular}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="#ffffff"  />
+                            </Frame>
+
+                          
+
+
+                            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Center" >
+                                <Label Text="{Binding Loginname}" FontSize="14" Style="{StaticResource FontRegular}" VerticalOptions="Center" HorizontalOptions="FillAndExpand" TextColor="#222222"  />
+                            </StackLayout>
+
+                        </StackLayout>
+
+                        <StackLayout HorizontalOptions="FillAndExpand">
+                            <Editor Text="{Binding Replycomment}"  HeightRequest="100" BackgroundColor="#f7f7f7"  />
+                        </StackLayout>
+
+                        <Button Text="Submit" FontSize="18" Command="{Binding Replysubmit}" VerticalOptions="Start" HorizontalOptions="FillAndExpand" BackgroundColor="#fbaa19" TextColor="White" />
+
+
+
+
+
+                    </StackLayout>
+
+
+                </Frame>
+
+                <Frame BackgroundColor="White" CornerRadius="4"    Padding="10" IsVisible="False">
+                    <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+                        <Image Source="CheckedGreen.png" HeightRequest="30" WidthRequest="30" Margin="0,0,0,5"   />
+                        <Label Text="Success After confirming your phone number we will publish your review" Style="{StaticResource FontRegular}" FontSize="16" VerticalOptions="Start"  HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" TextColor="#0ba283"  />
+                    </StackLayout>
+                </Frame>
+
+
+            </StackLayout>
+        </ScrollView>
+
+       
+        
+        
+    </ContentPage.Content>
+</ContentPage>
